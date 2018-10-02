@@ -70,7 +70,12 @@
 </li>
 <li><a href="#product-scope">Appendix B: Product Scope</a></li>
 <li><a href="#user-stories">Appendix C: User Stories</a></li>
-<li><a href="#use-cases">Appendix D: Use Cases</a></li>
+<li><a href="#use-cases">Appendix D: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-match-the-most-suitable-service-provider-to-a-client-s-needs">D.1. Use case: Match the most suitable Service Provider to a Client&#8217;s needs</a></li>
+<li><a href="#use-case-auto-complete-typed-command">D.2. Use case: Auto-complete typed command</a></li>
+</ul>
+</li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix F: Glossary</a></li>
 <li><a href="#product-survey">Appendix G: Product Survey</a></li>
@@ -2045,25 +2050,22 @@ for <code>RemarkCommandParser</code>.</p>
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix D: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>Heart²</code> application, and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-add-client-service-provider" class="discrete">Use case: Add Client/Service Provider</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User requests to add a new Client/Service Provider</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>System recognises the command</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
-</li>
-<li>
-<p>AddressBook deletes the person</p>
+<p>System adds the new Client/Service Provider into the database</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2076,19 +2078,53 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The list is empty.</p>
+<p>2a. The new Client/Service Provider&#8217;s syntax is not entered correct.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. System shows a feedback to the user that the Client/Service Provider was not entered correctly.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-update-client-service-provider" class="discrete">Use case: Update Client/Service Provider</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>3a. The given index is invalid.</p>
+<p>User requests to update an existing Client/Service Provider</p>
+</li>
+<li>
+<p>System recognises the command</p>
+</li>
+<li>
+<p>System updates the existing Client/Service Provider according to the User&#8217;s requests</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>2a. The Client/Service Provider does not exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. System shows a feedback to the user that the Client/Service Provider does not exist.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case ends.</p>
 </div>
 </li>
 </ul>
@@ -2096,8 +2132,330 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
+<h3 id="use-case-delete-client-service-provider" class="discrete">Use case: Delete Client/Service Provider</h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to delete an existing Client/Service Provider</p>
+</li>
+<li>
+<p>System recognises the command</p>
+</li>
+<li>
+<p>System deletes the Client/Service Provider specified</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The Client/Service Provider does not exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. System shows a feedback to the user that the Client/Service Provider does not exist</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-login" class="discrete">Use case: Login</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to log in with his username and password</p>
+</li>
+<li>
+<p>System validates the information entered and allows the user access to the System</p>
+</li>
+<li>
+<p>User is successfully logged in</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The system determines that the username is incorrect</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. The system display an error message</p>
+</li>
+<li>
+<p>1a2. The system prompts the user to re-enter his username</p>
+</li>
+<li>
+<p>Use case resumes from step 1.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. The system determines that the password is incorrect</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. The system will request the user to re-enter his password</p>
+</li>
+<li>
+<p>1b2. The user attempts to enter his password</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b2.1 The system determines that the password is incorrect</p>
+</li>
+<li>
+<p>1b2.2 The system provides the option for user to retrieve his forgotten password.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Steps 1b1 and 1b2 are repeated until the user enters his correct password</p>
+</li>
+<li>
+<p>Use case resumes from step 3.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-logout" class="discrete">Use case: Logout</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to logout from the System</p>
+</li>
+<li>
+<p>System recognises the command</p>
+</li>
+<li>
+<p>System logs User out</p>
+</li>
+<li>
+<p>User is successfully logged out</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-list-all-the-clients-or-service-providers" class="discrete">Use case: List all the Clients or Service Providers</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters the list command and requests to view either all the Clients, or all the Service Providers</p>
+</li>
+<li>
+<p>System recognises the list command</p>
+</li>
+<li>
+<p>System returns either a list with all the Clients' names and contact numbers, or all the Service Providers' names and contact numbers</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. There is no Client or no Service Provider available</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. System recognises that there is no Client or Service Provider’s data</p>
+</li>
+<li>
+<p>3a2. System returns a message to feedback to User that no Client or no Service Provider exist</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-filter-and-show-a-specific-client-s-or-service-provider-s-info" class="discrete">Use case: Filter and show a specific Client’s or Service Provider’s info</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view either a specific Client’s or the Service Provider’s info</p>
+</li>
+<li>
+<p>The System recognises the command</p>
+</li>
+<li>
+<p>The System displays the info related to the party back to the user</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User enters a Client or Service Provider that does not exist</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System does not recognise the client or service provider</p>
+</li>
+<li>
+<p>1a2. System prompts the User that such a Client or Service Provider does not exist</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="use-case-match-the-most-suitable-service-provider-to-a-client-s-needs"><a class="link" href="#use-case-match-the-most-suitable-service-provider-to-a-client-s-needs">D.1. Use case: Match the most suitable Service Provider to a Client&#8217;s needs</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User attempts to match a Client&#8217;s need to an available Service Provider</p>
+</li>
+<li>
+<p>System recognises the match command</p>
+</li>
+<li>
+<p>System matches a Service Provider that it deemed the most suitable to the Client</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The Client has no need. That is to say, the Client is not looking for any Service Provider</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System recognises that the Client has no need, and return a message to feedback to the User</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3a. There is no Service Provider available that matches the Client&#8217;s need</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. System feedback to the User that no Service Provider is available for the current Client&#8217;s need</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-auto-complete-typed-command"><a class="link" href="#use-case-auto-complete-typed-command">D.2. Use case: Auto-complete typed command</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User types a letter (or letters) into the command line</p>
+</li>
+<li>
+<p>System recognises the letter(s) typed</p>
+</li>
+<li>
+<p>System suggests a list of commands that starts with the letter(s) that the User has typed</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. There is no command that starts with the letter(s) that the User has typed</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. System does not suggest anything to the User</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -2285,4 +2643,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-02 07:48:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-02 08:11:13 UTC</div></div></div></body></html>
