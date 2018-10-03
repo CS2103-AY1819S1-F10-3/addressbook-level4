@@ -831,20 +831,34 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 [width="59%",cols="22%,<23%,<25%,<30%",options="header",]
 |=======================================================================
 |Priority |As a ... |I want to ... |So that I can...
-|`* * *` |new user |see usage instructions |refer to instructions when I forget how to use the App
+|`* * *` |on-task project manager |add new clients with the type of services they request for |get the required service providers for the event accordingly
 
-|`* * *` |user |add a new person |
+|`* * *` |thoughtful project manager |add new service providers with the type of services they can offer and their costs |match the service providers to the clients accordingly
 
-|`* * *` |user |delete a person |remove entries that I no longer need
+|`* * *` |efficient project manager |search the database for the service provider that best suits the requirements based on filters |find the most suitable service provider for my clients
 
-|`* * *` |user |find a person by name |locate details of persons without having to go through the entire list
+|`* * *` |goal-driven project manager |be able to set individual checkpoints and reminders for the many components that a project may have |have a clearer picture on the progress of all the different projects
 
-|`* *` |user |hide <<private-contact-detail,private contact details>> by default |minimize chance of someone else seeing them by accident
+|`* * *` |flexible project manager |update the database of service providers’ data |have an up-to-date database that accurately reflects my service providers
 
-|`*` |user with many persons in the address book |sort persons by name |locate a person easily
+|`* * *` |busy project manager |easily see all unserviced clients |I can quickly complete assigning service providers to them
+
+|`* * *` |organised project manager |view the availability of my service providers |I will not assign service providers to clients when they are unavailable
+
+|`* * *` |responsible project head |provide authentication for the project managers and staff |our clients’ and service providers’ data are only accessible by those who has access to them
+
+|`* * *` |organised project manager |be able to archive previous projects in a separate location |they would not clutter my workspace but would still be available for review in the future
+
+|`* *` |organised project manager|access clients and service providers separately |I can look through their data more efficiently
+
+|`* *` |modular project manager|offer packages to clients |clients with no particular preferences can be attended to efficiently
+
+|`*` |efficient project manager |create templates |I can easily serve customers of similar request types
+
+|`*` |customer-first project manager |have a ratings and feedback system given by clients for the service providers |I can sieve out the better service providers for future clients
+
+|`*` |profit-motivated marketing head |calculate the rough estimate of the cost of each project |source for service providers that would maximise my profits
 |=======================================================================
-
-_{More to be added}_
 
 [appendix]
 == Use Cases
