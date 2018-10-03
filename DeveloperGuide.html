@@ -70,17 +70,13 @@
 </li>
 <li><a href="#product-scope">Appendix B: Product Scope</a></li>
 <li><a href="#user-stories">Appendix C: User Stories</a></li>
-<li><a href="#use-cases">Appendix D: Use Cases</a></li>
-<li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a>
-<ul class="sectlevel3">
-<li><a href="#availability">Availability</a></li>
-<li><a href="#performance">Performance</a></li>
-<li><a href="#usability">Usability</a></li>
-<li><a href="#reliability">Reliability</a></li>
-<li><a href="#scalability">Scalability</a></li>
-<li><a href="#data-integrity">Data Integrity</a></li>
+<li><a href="#use-cases">Appendix D: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-match-the-most-suitable-service-provider-to-a-client-s-needs">D.1. Use case: Match the most suitable Service Provider to a Client&#8217;s needs</a></li>
+<li><a href="#use-case-auto-complete-typed-command">D.2. Use case: Auto-complete typed command</a></li>
 </ul>
 </li>
+<li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix F: Glossary</a></li>
 <li><a href="#product-survey">Appendix G: Product Survey</a></li>
 <li><a href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a>
@@ -2364,7 +2360,8 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-match-the-most-suitable-service-provider-to-a-client-s-needs" class="discrete">Use case: Match the most suitable Service Provider to a Client&#8217;s needs</h3>
+<div class="sect2">
+<h3 id="use-case-match-the-most-suitable-service-provider-to-a-client-s-needs"><a class="link" href="#use-case-match-the-most-suitable-service-provider-to-a-client-s-needs">D.1. Use case: Match the most suitable Service Provider to a Client&#8217;s needs</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2417,7 +2414,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-auto-complete-typed-command" class="discrete">Use case: Auto-complete typed command</h3>
+</div>
+<div class="sect2">
+<h3 id="use-case-auto-complete-typed-command"><a class="link" href="#use-case-auto-complete-typed-command">D.2. Use case: Auto-complete typed command</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2459,92 +2458,25 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></h2>
 <div class="sectionbody">
-<div class="sect3">
-<h4 id="availability"><a class="link" href="#availability">Availability</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Application should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>9</code> or higher installed.</p>
+<p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>9</code> or higher installed.</p>
 </li>
 <li>
-<p>Application should only be available for Wedding Managers with login credentials</p>
-</li>
-<li>
-<p>Application should be available 24hrs everyday without down time</p>
-</li>
-<li>
-<p>Data stored into the Application should be available to Users without corruption</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="performance"><a class="link" href="#performance">Performance</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Application should be able to hold up to 1000 Clients and 1000 Service Providers without a noticeable sluggishness in performance for typical usage.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="usability"><a class="link" href="#usability">Usability</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Application should be intuitive and easy to use for users after following the User Guide</p>
+<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 <li>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
-<li>
-<p>A user without any technical knowledge should be able to use the program efficiently with the help of the user guide.</p>
-</li>
 </ol>
 </div>
-</div>
-<div class="sect3">
-<h4 id="reliability"><a class="link" href="#reliability">Reliability</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Application should be able to match Service Provider to Client&#8217;s needs correctly.</p>
-</li>
-<li>
-<p>Application should be able to perform all the commands without fail.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="scalability"><a class="link" href="#scalability">Scalability</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Application should be able to scale automatically even after reaching 1000 Clients or 1000 Service Providers.</p>
-</li>
-<li>
-<p>Huge number of Clients and Service Providers&#8217;s data may cause some waiting time for commands to process, but Application should still be able to execute all the commands without fail.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="data-integrity"><a class="link" href="#data-integrity">Data Integrity</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Only authorized Users with specific login credentials should be able to add, update, or delete data directly from the Application.</p>
-</li>
-<li>
-<p>All monetary amounts should be accurate to 2 decimal places.</p>
-</li>
-</ol>
-</div>
+<div class="paragraph">
+<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -2711,4 +2643,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-03 15:24:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-03 15:24:36 UTC</div></div></div></body></html>
