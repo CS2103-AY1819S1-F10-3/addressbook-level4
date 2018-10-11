@@ -16,12 +16,14 @@
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#signing-in-code-signin-code">3.2. Signing in : <code>signin</code></a></li>
 <li><a href="#signing-out-code-signout-code">3.3. Signing out : <code>signout</code></a></li>
-<li><a href="#manipulating-a-client-code-client-code">3.4. Manipulating a client: <code>client</code></a></li>
-<li><a href="#manipulating-a-service-provider-code-serviceprovider-code">3.5. Manipulating a service provider: <code>serviceprovider</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.6. Listing entered commands: <code>history</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.7. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.8. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.9. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#manipulating-all-clients-code-client-code">3.4. Manipulating all clients: <code>client</code></a></li>
+<li><a href="#manipulating-a-specific-client-code-client-id-code">3.5. Manipulating a specific client: <code>client#ID</code></a></li>
+<li><a href="#manipulating-all-service-providers-code-serviceprovider-code">3.6. Manipulating all service providers: <code>serviceprovider</code></a></li>
+<li><a href="#manipulating-a-specific-service-provider-code-serviceprovider-id-code">3.7. Manipulating a specific service provider: <code>serviceprovider#ID</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.8. Listing entered commands: <code>history</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.9. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.10. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.11. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -105,22 +107,28 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="signing-in-code-signin-code"><a class="link" href="#signing-in-code-signin-code">3.2. Signing in : <code>signin</code></a></h3>
 <div class="paragraph">
-<p>Securely signs in the user to access the system<br>
+<p>Securely signs in the user to access the system.<br>
 Format: <code>signin u/USERNAME p/PASSWORD</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="signing-out-code-signout-code"><a class="link" href="#signing-out-code-signout-code">3.3. Signing out : <code>signout</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>signout</code></p>
+<p>Securely signs the user out of the system.<br>
+Format: <code>signout</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="manipulating-a-client-code-client-code"><a class="link" href="#manipulating-a-client-code-client-code">3.4. Manipulating a client: <code>client</code></a></h3>
+<h3 id="manipulating-all-clients-code-client-code"><a class="link" href="#manipulating-all-clients-code-client-code">3.4. Manipulating all clients: <code>client</code></a></h3>
 <div class="sect3">
 <h4 id="creating-a-client"><a class="link" href="#creating-a-client">3.4.1. Creating a client</a></h4>
 <div class="paragraph">
-<p>Format: <code>client add n/FULL_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/HOME_ADDRESS</code></p>
+<p>Registers a client and his/her particulars into the database.<br>
+Format: <code>client add n/FULL_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/HOME_ADDRESS</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:
+* <code>client add n\John Doe p/87654321 e/johndoe@gmail.com a/123 Lorem Street, #45-67, Singapore 890123</code></p>
 </div>
 </div>
 <div class="sect3">
@@ -138,15 +146,19 @@ Format: <code>client list [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HO
 <p><code>client list</code></p>
 </li>
 <li>
-<p><code>client list n/John Doe</code></p>
+<p><code>client list n/John Doe</code> (lists all clients that matches the name "John Doe")</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="manipulating-a-specific-client-code-client-id-code"><a class="link" href="#manipulating-a-specific-client-code-client-id-code">3.5. Manipulating a specific client: <code>client#ID</code></a></h3>
 <div class="sect3">
-<h4 id="viewing-a-client"><a class="link" href="#viewing-a-client">3.4.3. Viewing a client</a></h4>
+<h4 id="viewing-a-client"><a class="link" href="#viewing-a-client">3.5.1. Viewing a client</a></h4>
 <div class="paragraph">
-<p>Format: <code>client#ID view</code></p>
+<p>View the detailed information about a specific client by his/her ID.<br>
+Format: <code>client#ID view</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -160,59 +172,159 @@ Format: <code>client list [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HO
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-client"><a class="link" href="#deleting-a-client">3.4.4. Deleting a client</a></h4>
+<h4 id="deleting-a-client"><a class="link" href="#deleting-a-client">3.5.2. Deleting a client</a></h4>
 <div class="paragraph">
-<p>Format: <code>client#ID delete</code></p>
+<p>Deletes a client by his/her ID.<br>
+Format: <code>client#ID delete</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>client#123 delete</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="updating-a-client-profile"><a class="link" href="#updating-a-client-profile">3.4.5. Updating a client profile</a></h4>
+<h4 id="updating-a-client-profile"><a class="link" href="#updating-a-client-profile">3.5.3. Updating a client profile</a></h4>
 <div class="paragraph">
-<p>Format: <code>client#ID updateprofile [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS]</code></p>
+<p>Updates a client profile by his/her ID.<br>
+Format: <code>client#ID updateprofile [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>client#123 updateprofile p/98765432</code> (updates `client#123&#8217;s phone number)</p>
+</li>
+<li>
+<p><code>client#123 updateprofile n/Jane Doe e/janedoe@gmail.com</code> (updates `client#123&#8217;s name and email address)</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-a-service-request-by-a-client"><a class="link" href="#adding-a-service-request-by-a-client">3.4.6. Adding a service request by a client</a></h4>
+<h4 id="adding-a-service-request-by-a-client"><a class="link" href="#adding-a-service-request-by-a-client">3.5.4. Adding a service request by a client</a></h4>
 <div class="paragraph">
-<p>Format: <code>client#ID addservice t/SERVICE_TYPE p/SERVICE_BUDGET</code></p>
+<p>Requests a service for a client for a particular budget in Singapore Dollars (SGD).<br>
+Format: <code>client#ID addservice t/SERVICE_TYPE p/SERVICE_BUDGET</code></p>
+</div>
+<div class="paragraph">
+<p>Service Types <code>SERVICE_TYPE</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>photography</code></p>
+</li>
+<li>
+<p><code>catering</code></p>
+</li>
+<li>
+<p><code>hosting</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>client#ID addservice t/photography p/2000</code></p>
+</li>
+<li>
+<p><code>client#ID addservice t/catering p/10000</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="manipulating-a-service-provider-code-serviceprovider-code"><a class="link" href="#manipulating-a-service-provider-code-serviceprovider-code">3.5. Manipulating a service provider: <code>serviceprovider</code></a></h3>
+<h3 id="manipulating-all-service-providers-code-serviceprovider-code"><a class="link" href="#manipulating-all-service-providers-code-serviceprovider-code">3.6. Manipulating all service providers: <code>serviceprovider</code></a></h3>
 <div class="sect3">
-<h4 id="creating-a-service-provider"><a class="link" href="#creating-a-service-provider">3.5.1. Creating a service provider</a></h4>
+<h4 id="creating-a-service-provider"><a class="link" href="#creating-a-service-provider">3.6.1. Creating a service provider</a></h4>
 <div class="paragraph">
-<p>Format: <code>serviceprovider add n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/OFFICE_ADDRESS</code></p>
+<p>Registers a service provider to the system.<br>
+Format: <code>serviceprovider add n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/OFFICE_ADDRESS</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="viewing-a-service-provider"><a class="link" href="#viewing-a-service-provider">3.5.2. Viewing a service provider</a></h4>
 <div class="paragraph">
-<p>Format: <code>serviceprovider$ID view</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-a-service-provider"><a class="link" href="#deleting-a-service-provider">3.5.3. Deleting a service provider</a></h4>
-<div class="paragraph">
-<p>Format: <code>serviceprovider#ID delete</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="updating-a-service-provider-profile"><a class="link" href="#updating-a-service-provider-profile">3.5.4. Updating a service provider profile</a></h4>
-<div class="paragraph">
-<p>Format: <code>serviceprovider#ID updateprofile [n/COMPANY_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/OFFICE_ADDRESS]</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="adding-a-service-type-supported-by-service-provider"><a class="link" href="#adding-a-service-type-supported-by-service-provider">3.5.5. Adding a service type supported by service provider</a></h4>
-<div class="paragraph">
-<p>Format: <code>serviceprovider#ID addservice t/SERVICE_TYPE p/SERVICE_COST_ESTIMATE</code></p>
+<p>Examples:
+* <code>serviceprovider add n/Infinite Studios p/61234567 e/contact@infinitestudios.sg a/123 Infinite Loop</code></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.6. Listing entered commands: <code>history</code></a></h3>
+<h3 id="manipulating-a-specific-service-provider-code-serviceprovider-id-code"><a class="link" href="#manipulating-a-specific-service-provider-code-serviceprovider-id-code">3.7. Manipulating a specific service provider: <code>serviceprovider#ID</code></a></h3>
+<div class="sect3">
+<h4 id="viewing-a-service-provider"><a class="link" href="#viewing-a-service-provider">3.7.1. Viewing a service provider</a></h4>
+<div class="paragraph">
+<p>View the detailed information of a service provider by its ID.<br>
+Format: <code>serviceprovider$ID view</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>serviceprovider#123 view</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-service-provider"><a class="link" href="#deleting-a-service-provider">3.7.2. Deleting a service provider</a></h4>
+<div class="paragraph">
+<p>Deletes a service provider by its ID.<br>
+Format: <code>serviceprovider#ID delete</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>serviceprovider#123 delete</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="updating-a-service-provider-profile"><a class="link" href="#updating-a-service-provider-profile">3.7.3. Updating a service provider profile</a></h4>
+<div class="paragraph">
+<p>Updates the details of a service provider by its ID.<br>
+Format: <code>serviceprovider#ID updateprofile [n/COMPANY_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/OFFICE_ADDRESS]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-service-type-supported-by-service-provider"><a class="link" href="#adding-a-service-type-supported-by-service-provider">3.7.4. Adding a service type supported by service provider</a></h4>
+<div class="paragraph">
+<p>Adds a service type supported by the service provider by its ID in Singapore Dollars (SGD).<br>
+Format: <code>serviceprovider#ID addservice t/SERVICE_TYPE p/SERVICE_COST_ESTIMATE</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>serviceprovider#123 addservice t/photography p/2000</code></p>
+</li>
+<li>
+<p><code>serviceprovider#123 addservice t/catering p/10000</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.8. Listing entered commands: <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -233,21 +345,21 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.7. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.9. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.8. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.10. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.9. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.11. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -262,4 +374,4 @@ There is no need to save manually.</p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-11 14:22:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-11 15:22:46 UTC</div></div></div></body></html>
