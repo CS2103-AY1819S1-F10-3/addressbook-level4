@@ -2135,9 +2135,6 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User requests to add a new Client/Service Provider</p>
 </li>
 <li>
-<p>System recognises the command</p>
-</li>
-<li>
 <p>System adds the new Client/Service Provider into the database</p>
 <div class="paragraph">
 <p>Use case ends.</p>
@@ -2151,11 +2148,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The new Client/Service Provider&#8217;s syntax is not entered correct.</p>
+<p>1a. The new Client/Service Provider&#8217;s syntax is not entered correct.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. System shows a feedback to the user that the Client/Service Provider was not entered correctly.</p>
+<p>1a1. System shows a feedback to the user that the Client/Service Provider was not entered correctly.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2175,9 +2172,6 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User requests to update an existing Client/Service Provider</p>
 </li>
 <li>
-<p>System recognises the command</p>
-</li>
-<li>
 <p>System updates the existing Client/Service Provider according to the User&#8217;s requests</p>
 <div class="paragraph">
 <p>Use case ends.</p>
@@ -2191,11 +2185,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The Client/Service Provider does not exist.</p>
+<p>1a. The Client/Service Provider does not exist.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. System shows a feedback to the user that the Client/Service Provider does not exist.</p>
+<p>1a1. System shows a feedback to the user that the Client/Service Provider does not exist.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2215,9 +2209,6 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User requests to delete an existing Client/Service Provider</p>
 </li>
 <li>
-<p>System recognises the command</p>
-</li>
-<li>
 <p>System deletes the Client/Service Provider specified</p>
 <div class="paragraph">
 <p>Use case ends.</p>
@@ -2231,11 +2222,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The Client/Service Provider does not exist.</p>
+<p>1a. The Client/Service Provider does not exist.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. System shows a feedback to the user that the Client/Service Provider does not exist</p>
+<p>1a1. System shows a feedback to the user that the Client/Service Provider does not exist</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2271,14 +2262,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. The system determines that the username is incorrect</p>
+<p>1a. User enters an incorrect username</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. The system display an error message</p>
-</li>
-<li>
-<p>1a2. The system prompts the user to re-enter his username</p>
+<p>1a1. The system display an error message and prompts the user to re-enter his username</p>
 </li>
 <li>
 <p>Use case resumes from step 1.</p>
@@ -2291,7 +2279,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b. The system determines that the password is incorrect</p>
+<p>1b. User enters an incorrect password</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -2302,10 +2290,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b2.1 The system determines that the password is incorrect</p>
-</li>
-<li>
-<p>1b2.2 The system provides the option for user to retrieve his forgotten password.</p>
+<p>1b2.1 The system determines that the password is incorrect and provides the option for user to retrieve his forgotten password</p>
 </li>
 </ul>
 </div>
@@ -2334,9 +2319,6 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User requests to logout from the System</p>
 </li>
 <li>
-<p>System recognises the command</p>
-</li>
-<li>
 <p>System logs User out</p>
 </li>
 <li>
@@ -2357,9 +2339,6 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User enters the list command and requests to view either all the Clients, or all the Service Providers</p>
 </li>
 <li>
-<p>System recognises the list command</p>
-</li>
-<li>
 <p>System returns either a list with all the Clients' names and contact numbers, or all the Service Providers' names and contact numbers</p>
 <div class="paragraph">
 <p>Use case ends.</p>
@@ -2373,14 +2352,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. There is no Client or no Service Provider available</p>
+<p>2a. There is no Client or no Service Provider available</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. System recognises that there is no Client or Service Provider’s data</p>
-</li>
-<li>
-<p>3a2. System returns a message to feedback to User that no Client or no Service Provider exist</p>
+<p>2a1. System returns a message to feedback to User that no Client or no Service Provider exist</p>
 </li>
 </ul>
 </div>
@@ -2400,9 +2376,6 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User requests to view either a specific Client’s or the Service Provider’s info</p>
 </li>
 <li>
-<p>The System recognises the command</p>
-</li>
-<li>
 <p>The System displays the info related to the party back to the user</p>
 <div class="paragraph">
 <p>Use case ends.</p>
@@ -2420,10 +2393,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. System does not recognise the client or service provider</p>
-</li>
-<li>
-<p>1a2. System prompts the User that such a Client or Service Provider does not exist</p>
+<p>1a1. System prompts the User that such a Client or Service Provider does not exist</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2441,9 +2411,6 @@ for <code>RemarkCommandParser</code>.</p>
 <ol class="arabic">
 <li>
 <p>User attempts to match a Client&#8217;s need to an available Service Provider</p>
-</li>
-<li>
-<p>System recognises the match command</p>
 </li>
 <li>
 <p>System matches a Service Provider that it deemed the most suitable to the Client</p>
@@ -2472,11 +2439,11 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </li>
 <li>
-<p>3a. There is no Service Provider available that matches the Client&#8217;s need</p>
+<p>2a. There is no Service Provider available that matches the Client&#8217;s need</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. System feedback to the User that no Service Provider is available for the current Client&#8217;s need</p>
+<p>2a1. System feedback to the User that no Service Provider is available for the current Client&#8217;s need</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2496,9 +2463,6 @@ for <code>RemarkCommandParser</code>.</p>
 <p>User types a letter (or letters) into the command line</p>
 </li>
 <li>
-<p>System recognises the letter(s) typed</p>
-</li>
-<li>
 <p>System suggests a list of commands that starts with the letter(s) that the User has typed</p>
 <div class="paragraph">
 <p>Use case ends.</p>
@@ -2512,11 +2476,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. There is no command that starts with the letter(s) that the User has typed</p>
+<p>2a. There is no command that starts with the letter(s) that the User has typed</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. System does not suggest anything to the User</p>
+<p>2a1. System does not suggest anything to the User</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2655,6 +2619,9 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Product Name</strong></p>
+</div>
+<div class="paragraph">
+<p>(This section is to be filled in later)</p>
 </div>
 <div class="paragraph">
 <p>Author: &#8230;&#8203;</p>
@@ -2796,4 +2763,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-11 05:46:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-11 07:29:05 UTC</div></div></div></body></html>
