@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import seedu.address.model.person.Person;
+import seedu.address.model.contact.Contact;
 
 /**
  * An UI component that displays information of a {@code Person}.
@@ -22,7 +22,7 @@ public class PersonCard extends UiPart<Region> {
      * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on AddressBook level 4</a>
      */
 
-    public final Person person;
+    public final Contact contact;
 
     @FXML
     private HBox cardPane;
@@ -39,24 +39,24 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private FlowPane tags;
 
-    public PersonCard(Person person, int displayedIndex) {
+    public PersonCard(Contact contact, int displayedIndex) {
         super(FXML);
-        this.person = person;
+        this.contact = contact;
         id.setText(displayedIndex + ". ");
-        name.setText(person.getName().fullName);
-        phone.setText(person.getPhone().value);
-        address.setText(person.getAddress().value);
-        email.setText(person.getEmail().value);
-        assignTags(person);
+        name.setText(contact.getName().fullName);
+        phone.setText(contact.getPhone().value);
+        address.setText(contact.getAddress().value);
+        email.setText(contact.getEmail().value);
+        assignTags(contact);
     }
 
     /**
      * Assigns all tags for the person with a label.
      *
-     * @param person Current person to assign tags to
+     * @param contact Current person to assign tags to
      */
-    private void assignTags(Person person) {
-        person.getTags().forEach(tag -> {
+    private void assignTags(Contact contact) {
+        contact.getTags().forEach(tag -> {
             Label tagLabel = createLabelforTag(tag.tagName);
             tags.getChildren().add(tagLabel);
         });
@@ -96,6 +96,6 @@ public class PersonCard extends UiPart<Region> {
         // state check
         PersonCard card = (PersonCard) other;
         return id.getText().equals(card.id.getText())
-                && person.equals(card.person);
+                && contact.equals(card.contact);
     }
 }

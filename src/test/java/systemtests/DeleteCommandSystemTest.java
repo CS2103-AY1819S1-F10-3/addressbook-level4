@@ -18,7 +18,7 @@ import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.model.Model;
-import seedu.address.model.person.Person;
+import seedu.address.model.contact.Contact;
 
 public class DeleteCommandSystemTest extends AddressBookSystemTest {
 
@@ -32,8 +32,8 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
         /* Case: delete the first person in the list, command with leading spaces and trailing spaces -> deleted */
         Model expectedModel = getModel();
         String command = "     " + DeleteCommand.COMMAND_WORD + "      " + INDEX_FIRST_PERSON.getOneBased() + "       ";
-        Person deletedPerson = removePerson(expectedModel, INDEX_FIRST_PERSON);
-        String expectedResultMessage = String.format(MESSAGE_DELETE_PERSON_SUCCESS, deletedPerson);
+        Contact deletedContact = removePerson(expectedModel, INDEX_FIRST_PERSON);
+        String expectedResultMessage = String.format(MESSAGE_DELETE_PERSON_SUCCESS, deletedContact);
         assertCommandSuccess(command, expectedModel, expectedResultMessage);
 
         /* Case: delete the last person in the list -> deleted */
@@ -81,8 +81,8 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
         Index expectedIndex = Index.fromZeroBased(selectedIndex.getZeroBased() - 1);
         selectPerson(selectedIndex);
         command = DeleteCommand.COMMAND_WORD + " " + selectedIndex.getOneBased();
-        deletedPerson = removePerson(expectedModel, selectedIndex);
-        expectedResultMessage = String.format(MESSAGE_DELETE_PERSON_SUCCESS, deletedPerson);
+        deletedContact = removePerson(expectedModel, selectedIndex);
+        expectedResultMessage = String.format(MESSAGE_DELETE_PERSON_SUCCESS, deletedContact);
         assertCommandSuccess(command, expectedModel, expectedResultMessage, expectedIndex);
 
         /* --------------------------------- Performing invalid delete operation ------------------------------------ */
@@ -115,10 +115,10 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
      * Removes the {@code Person} at the specified {@code index} in {@code model}'s address book.
      * @return the removed person
      */
-    private Person removePerson(Model model, Index index) {
-        Person targetPerson = getPerson(model, index);
-        model.deletePerson(targetPerson);
-        return targetPerson;
+    private Contact removePerson(Model model, Index index) {
+        Contact targetContact = getPerson(model, index);
+        model.deletePerson(targetContact);
+        return targetContact;
     }
 
     /**
@@ -128,8 +128,8 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
      */
     private void assertCommandSuccess(Index toDelete) {
         Model expectedModel = getModel();
-        Person deletedPerson = removePerson(expectedModel, toDelete);
-        String expectedResultMessage = String.format(MESSAGE_DELETE_PERSON_SUCCESS, deletedPerson);
+        Contact deletedContact = removePerson(expectedModel, toDelete);
+        String expectedResultMessage = String.format(MESSAGE_DELETE_PERSON_SUCCESS, deletedContact);
 
         assertCommandSuccess(
                 DeleteCommand.COMMAND_WORD + " " + toDelete.getOneBased(), expectedModel, expectedResultMessage);

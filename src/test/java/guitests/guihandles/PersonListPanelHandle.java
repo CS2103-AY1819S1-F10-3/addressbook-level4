@@ -6,19 +6,19 @@ import java.util.Set;
 
 import javafx.scene.Node;
 import javafx.scene.control.ListView;
-import seedu.address.model.person.Person;
+import seedu.address.model.contact.Contact;
 
 /**
  * Provides a handle for {@code PersonListPanel} containing the list of {@code PersonCard}.
  */
-public class PersonListPanelHandle extends NodeHandle<ListView<Person>> {
+public class PersonListPanelHandle extends NodeHandle<ListView<Contact>> {
     public static final String PERSON_LIST_VIEW_ID = "#personListView";
 
     private static final String CARD_PANE_ID = "#cardPane";
 
-    private Optional<Person> lastRememberedSelectedPersonCard;
+    private Optional<Contact> lastRememberedSelectedPersonCard;
 
-    public PersonListPanelHandle(ListView<Person> personListPanelNode) {
+    public PersonListPanelHandle(ListView<Contact> personListPanelNode) {
         super(personListPanelNode);
     }
 
@@ -29,15 +29,15 @@ public class PersonListPanelHandle extends NodeHandle<ListView<Person>> {
      * @throws IllegalStateException if the selected card is currently not in the scene graph.
      */
     public PersonCardHandle getHandleToSelectedCard() {
-        List<Person> selectedPersonList = getRootNode().getSelectionModel().getSelectedItems();
+        List<Contact> selectedContactList = getRootNode().getSelectionModel().getSelectedItems();
 
-        if (selectedPersonList.size() != 1) {
+        if (selectedContactList.size() != 1) {
             throw new AssertionError("Person list size expected 1.");
         }
 
         return getAllCardNodes().stream()
                 .map(PersonCardHandle::new)
-                .filter(handle -> handle.equals(selectedPersonList.get(0)))
+                .filter(handle -> handle.equals(selectedContactList.get(0)))
                 .findFirst()
                 .orElseThrow(IllegalStateException::new);
     }
@@ -53,7 +53,7 @@ public class PersonListPanelHandle extends NodeHandle<ListView<Person>> {
      * Returns true if a card is currently selected.
      */
     public boolean isAnyCardSelected() {
-        List<Person> selectedCardsList = getRootNode().getSelectionModel().getSelectedItems();
+        List<Contact> selectedCardsList = getRootNode().getSelectionModel().getSelectedItems();
 
         if (selectedCardsList.size() > 1) {
             throw new AssertionError("Card list size expected 0 or 1.");
@@ -65,13 +65,13 @@ public class PersonListPanelHandle extends NodeHandle<ListView<Person>> {
     /**
      * Navigates the listview to display {@code person}.
      */
-    public void navigateToCard(Person person) {
-        if (!getRootNode().getItems().contains(person)) {
+    public void navigateToCard(Contact contact) {
+        if (!getRootNode().getItems().contains(contact)) {
             throw new IllegalArgumentException("Person does not exist.");
         }
 
         guiRobot.interact(() -> {
-            getRootNode().scrollTo(person);
+            getRootNode().scrollTo(contact);
         });
         guiRobot.pauseForHuman();
     }
@@ -109,7 +109,7 @@ public class PersonListPanelHandle extends NodeHandle<ListView<Person>> {
                 .orElseThrow(IllegalStateException::new);
     }
 
-    private Person getPerson(int index) {
+    private Contact getPerson(int index) {
         return getRootNode().getItems().get(index);
     }
 
@@ -126,7 +126,7 @@ public class PersonListPanelHandle extends NodeHandle<ListView<Person>> {
      * Remembers the selected {@code PersonCard} in the list.
      */
     public void rememberSelectedPersonCard() {
-        List<Person> selectedItems = getRootNode().getSelectionModel().getSelectedItems();
+        List<Contact> selectedItems = getRootNode().getSelectionModel().getSelectedItems();
 
         if (selectedItems.size() == 0) {
             lastRememberedSelectedPersonCard = Optional.empty();
@@ -140,7 +140,7 @@ public class PersonListPanelHandle extends NodeHandle<ListView<Person>> {
      * {@code rememberSelectedPersonCard()} call.
      */
     public boolean isSelectedPersonCardChanged() {
-        List<Person> selectedItems = getRootNode().getSelectionModel().getSelectedItems();
+        List<Contact> selectedItems = getRootNode().getSelectionModel().getSelectedItems();
 
         if (selectedItems.size() == 0) {
             return lastRememberedSelectedPersonCard.isPresent();
