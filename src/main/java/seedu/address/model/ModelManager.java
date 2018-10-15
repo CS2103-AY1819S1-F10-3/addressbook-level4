@@ -59,7 +59,7 @@ public class ModelManager extends ComponentManager implements Model {
     @Override
     public boolean hasContact(Contact contact) {
         requireNonNull(contact);
-        return versionedAddressBook.hasContact(contact);
+        return contact.presentIn(versionedAddressBook);
     }
 
     @Override

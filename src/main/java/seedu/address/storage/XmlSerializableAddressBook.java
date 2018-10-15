@@ -49,7 +49,7 @@ public class XmlSerializableAddressBook {
         AddressBook addressBook = new AddressBook();
         for (XmlAdaptedPerson p : persons) {
             Contact contact = p.toModelType();
-            if (addressBook.hasContact(contact)) {
+            if (contact.presentIn(addressBook)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
             }
             addressBook.addContact(contact);
