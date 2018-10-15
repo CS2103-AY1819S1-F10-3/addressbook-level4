@@ -65,7 +65,7 @@ public class AddressBookTest {
     public void hasPerson_nullPerson_throwsNullPointerException() {
         thrown.expect(NullPointerException.class);
         Person person = null;
-        person.addTo(addressBook);
+        person.presentIn(addressBook);
     }
 
     @Test
