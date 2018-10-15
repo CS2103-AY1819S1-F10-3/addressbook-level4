@@ -22,6 +22,7 @@ import seedu.address.model.tag.Tag;
  * Parses input arguments and creates a new AddCommand object
  */
 public class AddClientCommandParser extends AddCommandParser {
+
     @Override
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap = createLegalArgumentMultimap(args);
@@ -36,4 +37,5 @@ public class AddClientCommandParser extends AddCommandParser {
 
         return new AddCommand(contact);
     }
+
 }

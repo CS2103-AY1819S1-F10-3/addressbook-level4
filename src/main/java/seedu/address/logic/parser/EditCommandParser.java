@@ -35,6 +35,12 @@ public abstract class EditCommandParser implements Parser<EditCommand> {
      */
     public abstract EditCommand parse(String args) throws ParseException;
 
+    /**
+     * Gets the {@code Index} given the {@code ArgumentMultimap}
+     * @param argMultimap The ArgumentMultimap object to get {@code Index} from
+     * @return The {@code Index} from parsing the ArgumentMultimap object
+     * @throws ParseException if the user input does not conform the expected format
+     */
     protected Index getIndex(ArgumentMultimap argMultimap) throws ParseException {
         Index index;
 
@@ -46,6 +52,12 @@ public abstract class EditCommandParser implements Parser<EditCommand> {
         return index;
     }
 
+    /**
+     * Gets the {@code EditContactDescriptor} given the {@code ArgumentMultimap}
+     * @param argMultimap The ArgumentMultimap object to create the {@code EditContactDescriptor}
+     * @return The {@code EditContactDescriptor} from parsing the ArgumentMultimap object
+     * @throws ParseException if the user input does not conform the expected format
+     */
     protected EditContactDescriptor getEditContactDescriptor(ArgumentMultimap argMultimap) throws ParseException {
         EditContactDescriptor editContactDescriptor = new EditContactDescriptor();
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
@@ -83,19 +95,29 @@ public abstract class EditCommandParser implements Parser<EditCommand> {
         return Optional.of(ParserUtil.parseTags(tagSet));
     }
 
+    /**
+     * Enum of the types of Contacts, namely the client and the service provider. In this enum it encapsulates the logic
+     * for EditCommand to retrieve the correct list to make edits in.
+     */
     public enum ContactType {
         CLIENT {
-            public Function<Model, List<Contact>> obtainCorrectList() {
+            public Function<Model, List<Contact>> getCorrectListFunction() {
                 return Model::getFilteredContactList;
             }
         },
         SERVICE_PROVIDER {
-            public Function<Model, List<Contact>> obtainCorrectList() {
+            public Function<Model, List<Contact>> getCorrectListFunction() {
                 return Model::getFilteredContactList;
             }
         };
 
-        public abstract Function<Model, List<Contact>> obtainCorrectList();
+        /**
+         * This method returns a function that encapsulates the correct logic for obtaining the contact list for the
+         * correct type.
+         * @return A function that takes in a Model as a parameter and returns the correct list based on the
+         *     ContactType enum
+         */
+        public abstract Function<Model, List<Contact>> getCorrectListFunction();
     }
 
 }

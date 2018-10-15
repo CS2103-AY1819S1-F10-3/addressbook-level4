@@ -71,7 +71,7 @@ public class EditCommand extends Command {
 
         this.index = index;
         this.editContactDescriptor = new EditContactDescriptor(editContactDescriptor);
-        this.getLastShownList = contactType.obtainCorrectList();
+        this.getLastShownList = contactType.getCorrectListFunction();
     }
 
     @Override
