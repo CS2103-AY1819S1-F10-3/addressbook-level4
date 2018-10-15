@@ -52,7 +52,7 @@ public class XmlSerializableAddressBook {
             if (contact.presentIn(addressBook)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
             }
-            addressBook.addContact(contact);
+            contact.addTo(addressBook);
         }
         return addressBook;
     }

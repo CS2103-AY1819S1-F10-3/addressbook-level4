@@ -93,8 +93,27 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Adds a contact to the address book.
      * The contact must not already exist in the address book.
      */
+    // depreciated
     public void addContact(Contact p) {
         contacts.add(p);
+    }
+
+    /**
+     * Adds a service provider to the address book.
+     * The service provider must not already exist in the address book.
+     * @param serviceProvider The service provider to be added to the address book
+     */
+    public void addServiceProvider(ServiceProvider serviceProvider) {
+        contacts.add(serviceProvider);
+    }
+
+    /**
+     * Adds a client to the address book.
+     * The client must not already exist in the address book.
+     * @param client The client to be added to the address book
+     */
+    public void addClient(Person client) {
+        contacts.add(client);
     }
 
     /**
@@ -140,13 +159,5 @@ public class AddressBook implements ReadOnlyAddressBook {
     @Override
     public int hashCode() {
         return contacts.hashCode();
-    }
-
-    public void addServiceProvider(ServiceProvider serviceProvider) {
-        contacts.add(serviceProvider);
-    }
-
-    public void addClient(Person client) {
-        contacts.add(client);
     }
 }

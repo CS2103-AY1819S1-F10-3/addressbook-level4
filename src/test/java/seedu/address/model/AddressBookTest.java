@@ -75,13 +75,13 @@ public class AddressBookTest {
 
     @Test
     public void hasPerson_personInAddressBook_returnsTrue() {
-        addressBook.addContact(ALICE);
+        ALICE.addTo(addressBook);
         assertTrue(ALICE.presentIn(addressBook));
     }
 
     @Test
     public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsTrue() {
-        addressBook.addContact(ALICE);
+        ALICE.addTo(addressBook);
         Contact editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
         assertTrue(editedAlice.presentIn(addressBook));

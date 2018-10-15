@@ -70,7 +70,7 @@ public class ModelManager extends ComponentManager implements Model {
 
     @Override
     public void addContact(Contact contact) {
-        versionedAddressBook.addContact(contact);
+        contact.addTo(versionedAddressBook);
         updateFilteredContactList(PREDICATE_SHOW_ALL_PERSONS);
         indicateAddressBookChanged();
     }
