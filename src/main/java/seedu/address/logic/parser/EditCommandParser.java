@@ -95,29 +95,4 @@ public abstract class EditCommandParser implements Parser<EditCommand> {
         return Optional.of(ParserUtil.parseTags(tagSet));
     }
 
-    /**
-     * Enum of the types of Contacts, namely the client and the service provider. In this enum it encapsulates the logic
-     * for EditCommand to retrieve the correct list to make edits in.
-     */
-    public enum ContactType {
-        CLIENT {
-            public Function<Model, List<Contact>> getCorrectListFunction() {
-                return Model::getFilteredContactList;
-            }
-        },
-        SERVICE_PROVIDER {
-            public Function<Model, List<Contact>> getCorrectListFunction() {
-                return Model::getFilteredContactList;
-            }
-        };
-
-        /**
-         * This method returns a function that encapsulates the correct logic for obtaining the contact list for the
-         * correct type.
-         * @return A function that takes in a Model as a parameter and returns the correct list based on the
-         *     ContactType enum
-         */
-        public abstract Function<Model, List<Contact>> getCorrectListFunction();
-    }
-
 }

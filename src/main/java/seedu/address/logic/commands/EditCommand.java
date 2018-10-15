@@ -21,7 +21,6 @@ import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.commands.exceptions.LackOfPrivilegeException;
-import seedu.address.logic.parser.EditCommandParser;
 import seedu.address.model.Model;
 import seedu.address.model.account.Role;
 import seedu.address.model.contact.Address;
@@ -65,7 +64,7 @@ public class EditCommand extends Command {
      * @param editContactDescriptor details to edit the contact with
      */
     public EditCommand(Index index, EditContactDescriptor editContactDescriptor,
-                       EditCommandParser.ContactType contactType) {
+                       ContactType contactType) {
         requireNonNull(index);
         requireNonNull(editContactDescriptor);
 
@@ -134,6 +133,31 @@ public class EditCommand extends Command {
         EditCommand e = (EditCommand) other;
         return index.equals(e.index)
                 && editContactDescriptor.equals(e.editContactDescriptor);
+    }
+
+    /**
+     * Enum of the types of Contacts, namely the client and the service provider. In this enum it encapsulates the logic
+     * for EditCommand to retrieve the correct list to make edits in.
+     */
+    public enum ContactType {
+        CLIENT {
+            public Function<Model, List<Contact>> getCorrectListFunction() {
+                return Model::getFilteredContactList;
+            }
+        },
+        SERVICE_PROVIDER {
+            public Function<Model, List<Contact>> getCorrectListFunction() {
+                return Model::getFilteredContactList;
+            }
+        };
+
+        /**
+         * This method returns a function that encapsulates the correct logic for obtaining the contact list for the
+         * correct type.
+         * @return A function that takes in a Model as a parameter and returns the correct list based on the
+         *     ContactType enum
+         */
+        public abstract Function<Model, List<Contact>> getCorrectListFunction();
     }
 
     /**

@@ -23,7 +23,7 @@ public class EditClientCommandParser extends EditCommandParser {
 
         EditCommand.EditContactDescriptor editContactDescriptor = getEditContactDescriptor(argMultimap);
 
-        return new EditCommand(index, editContactDescriptor, ContactType.CLIENT);
+        return new EditCommand(index, editContactDescriptor, EditCommand.ContactType.CLIENT);
     }
 
 }
