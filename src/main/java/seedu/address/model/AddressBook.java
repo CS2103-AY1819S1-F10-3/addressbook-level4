@@ -137,10 +137,20 @@ public class AddressBook implements ReadOnlyAddressBook {
         contacts.remove(key);
     }
 
+    /**
+     * Removes the client {@code key} from this AddressBook.
+     * {@code key} must exist in the address book.
+     * @param key The client to be removed
+     */
     public void removeClient(Person key) {
         contacts.remove(key);
     }
 
+    /**
+     * Removes the service provider {@code key} from this AddressBook.
+     * {@code key} must exist in the address book.
+     * @param key The service provider to be removed
+     */
     public void removeServiceProvider(ServiceProvider key) {
         contacts.remove(key);
     }
