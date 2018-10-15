@@ -32,4 +32,9 @@ public class Person extends Contact {
     public void addTo(AddressBook addressBook) {
         addressBook.addClient(this);
     }
+
+    @Override
+    public void removeFrom(AddressBook addressBook) {
+        addressBook.removeClient(this);
+    }
 }

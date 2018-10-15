@@ -132,7 +132,16 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Removes {@code key} from this {@code AddressBook}.
      * {@code key} must exist in the address book.
      */
+    // depreciated
     public void removeContact(Contact key) {
+        contacts.remove(key);
+    }
+
+    public void removeClient(Person key) {
+        contacts.remove(key);
+    }
+
+    public void removeServiceProvider(ServiceProvider key) {
         contacts.remove(key);
     }
 
@@ -160,4 +169,5 @@ public class AddressBook implements ReadOnlyAddressBook {
     public int hashCode() {
         return contacts.hashCode();
     }
+
 }

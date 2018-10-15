@@ -64,7 +64,7 @@ public class ModelManager extends ComponentManager implements Model {
 
     @Override
     public void deleteContact(Contact target) {
-        versionedAddressBook.removeContact(target);
+        target.removeFrom(versionedAddressBook);
         indicateAddressBookChanged();
     }
 

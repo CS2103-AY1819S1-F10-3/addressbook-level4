@@ -100,6 +100,8 @@ public abstract class Contact {
 
     public abstract void addTo(AddressBook addressBook);
 
+    public abstract void removeFrom(AddressBook addressBook);
+
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own

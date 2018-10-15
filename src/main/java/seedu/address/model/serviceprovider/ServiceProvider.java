@@ -33,4 +33,9 @@ public class ServiceProvider extends Contact {
     public void addTo(AddressBook addressBook) {
         addressBook.addServiceProvider(this);
     }
+
+    @Override
+    public void removeFrom(AddressBook addressBook) {
+        addressBook.removeServiceProvider(this);
+    }
 }
