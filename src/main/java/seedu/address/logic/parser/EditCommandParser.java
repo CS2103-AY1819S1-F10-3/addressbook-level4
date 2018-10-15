@@ -10,38 +10,32 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditContactDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.Model;
+import seedu.address.model.contact.Contact;
 import seedu.address.model.tag.Tag;
 
 /**
  * Parses input arguments and creates a new EditCommand object
  */
-public class EditCommandParser implements Parser<EditCommand> {
+public abstract class EditCommandParser implements Parser<EditCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the EditCommand
      * and returns an EditCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
-    public EditCommand parse(String args) throws ParseException {
-        requireNonNull(args);
-        ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
+    public abstract EditCommand parse(String args) throws ParseException;
 
-        Index index = getIndex(argMultimap);
-
-        EditContactDescriptor editContactDescriptor = getEditContactDescriptor(argMultimap);
-
-        return new EditCommand(index, editContactDescriptor);
-    }
-
-    private Index getIndex(ArgumentMultimap argMultimap) throws ParseException {
+    protected Index getIndex(ArgumentMultimap argMultimap) throws ParseException {
         Index index;
 
         try {
@@ -52,7 +46,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         return index;
     }
 
-    private EditContactDescriptor getEditContactDescriptor(ArgumentMultimap argMultimap) throws ParseException {
+    protected EditContactDescriptor getEditContactDescriptor(ArgumentMultimap argMultimap) throws ParseException {
         EditContactDescriptor editContactDescriptor = new EditContactDescriptor();
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
             editContactDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
@@ -87,6 +81,21 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
         Collection<String> tagSet = tags.size() == 1 && tags.contains("") ? Collections.emptySet() : tags;
         return Optional.of(ParserUtil.parseTags(tagSet));
+    }
+
+    public enum ContactType {
+        CLIENT {
+            public Function<Model, List<Contact>> obtainCorrectList() {
+                return Model::getFilteredContactList;
+            }
+        },
+        SERVICE_PROVIDER {
+            public Function<Model, List<Contact>> obtainCorrectList() {
+                return Model::getFilteredContactList;
+            }
+        };
+
+        public abstract Function<Model, List<Contact>> obtainCorrectList();
     }
 
 }
