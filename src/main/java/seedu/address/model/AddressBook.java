@@ -7,6 +7,8 @@ import java.util.List;
 import javafx.collections.ObservableList;
 import seedu.address.model.contact.Contact;
 import seedu.address.model.contact.UniqueContactList;
+import seedu.address.model.person.Person;
+import seedu.address.model.serviceprovider.ServiceProvider;
 
 /**
  * Wraps all data at the address-book level
@@ -67,6 +69,26 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
+     * Returns true if a contact with the same identity as {@code client} exists in the address book.
+     * @param client The client to compare to
+     * @return true if the address book contains the client, false otherwise
+     */
+    public boolean hasClient(Person client) {
+        requireNonNull(client);
+        return contacts.contains(client);
+    }
+
+    /**
+     * Returns true if a contact with the same identity as {@code serviceProvider} exists in the address book.
+     * @param serviceProvider The service provider to compare to
+     * @return true if the address book contains the client, false otherwise
+     */
+    public boolean hasServiceProvider(ServiceProvider serviceProvider) {
+        requireNonNull(serviceProvider);
+        return contacts.contains(serviceProvider);
+    }
+
+    /**
      * Adds a contact to the address book.
      * The contact must not already exist in the address book.
      */
@@ -117,5 +139,13 @@ public class AddressBook implements ReadOnlyAddressBook {
     @Override
     public int hashCode() {
         return contacts.hashCode();
+    }
+
+    public void addServiceProvider(ServiceProvider serviceProvider) {
+        contacts.add(serviceProvider);
+    }
+
+    public void addClient(Person client) {
+        contacts.add(client);
     }
 }

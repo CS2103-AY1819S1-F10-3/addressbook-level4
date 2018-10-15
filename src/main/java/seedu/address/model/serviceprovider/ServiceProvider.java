@@ -3,6 +3,7 @@ package seedu.address.model.serviceprovider;
 import java.util.Collections;
 import java.util.Set;
 
+import seedu.address.model.AddressBook;
 import seedu.address.model.contact.Address;
 import seedu.address.model.contact.Contact;
 import seedu.address.model.contact.Email;
@@ -18,34 +19,18 @@ public class ServiceProvider extends Contact {
 
     /**
      * Every field must be present and not null.
-     *
      */
     public ServiceProvider(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
         super(name, phone, email, address, tags);
     }
 
     @Override
-    public Name getName() {
-        return name;
+    public boolean presentIn(AddressBook addressBook) {
+        return addressBook.hasServiceProvider(this);
     }
 
     @Override
-    public Address getAddress() {
-        return address;
-    }
-
-    @Override
-    public Email getEmail() {
-        return email;
-    }
-
-    @Override
-    public Phone getPhone() {
-        return phone;
-    }
-
-    @Override
-    public Set<Tag> getTags() {
-        return Collections.unmodifiableSet(tags);
+    public void addTo(AddressBook addressBook) {
+        addressBook.addServiceProvider(this);
     }
 }
