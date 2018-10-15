@@ -1,6 +1,5 @@
 package seedu.address.model.serviceprovider;
 
-import java.util.Collections;
 import java.util.Set;
 
 import seedu.address.model.AddressBook;
