@@ -19,6 +19,10 @@ import seedu.address.model.serviceprovider.ServiceProvider;
 import seedu.address.model.tag.Tag;
 
 //TODO write tests for adding of service provider
+
+/**
+ * Parses the input arguments and create a new AddCommand Object
+ */
 public class AddServiceProviderCommandParser extends AddCommandParser {
     @Override
     public AddCommand parse(String args) throws ParseException {

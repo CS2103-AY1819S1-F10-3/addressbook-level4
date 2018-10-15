@@ -11,6 +11,9 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
+/**
+ * Parses input arguments and creates a new EditCommand object
+ */
 public class EditClientCommandParser extends EditCommandParser {
 
     @Override
