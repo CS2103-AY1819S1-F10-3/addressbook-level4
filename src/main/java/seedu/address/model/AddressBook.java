@@ -113,7 +113,13 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void updateContact(Contact target, Contact editedContact) {
         requireNonNull(editedContact);
 
-        contacts.setContact(target, editedContact);
+        if (target instanceof Person) {
+            contacts.setContact(target, editedContact);
+        } else {
+            // target is instance of ServiceProvider
+            serviceProviders.setContact(target, editedContact);
+        }
+        
     }
 
     /**
@@ -161,7 +167,9 @@ public class AddressBook implements ReadOnlyAddressBook {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof AddressBook // instanceof handles nulls
-                && contacts.equals(((AddressBook) other).contacts));
+                && contacts.equals(((AddressBook) other).contacts)
+                && clients.equals(((AddressBook) other).clients)
+                && serviceProviders.equals(((AddressBook) other).serviceProviders));
     }
 
     @Override
