@@ -12,6 +12,9 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
+/**
+ * Parses input arguments and creates a new EditCommand object
+ */
 public class EditServiceProviderCommandParser extends EditCommandParser {
     @Override
     public EditCommand parse(String args) throws ParseException {

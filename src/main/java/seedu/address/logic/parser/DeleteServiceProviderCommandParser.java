@@ -7,9 +7,12 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
+/**
+ * Parses input arguments and creates a new DeleteCommand object
+ */
 public class DeleteServiceProviderCommandParser extends DeleteCommandParser {
     @Override
-    public DeleteCommand parse(String args) throws ParseException{
+    public DeleteCommand parse(String args) throws ParseException {
         try {
             Index index = ParserUtil.parseIndex(args);
             return new DeleteCommand(index, Command.ContactType.SERVICE_PROVIDER);
