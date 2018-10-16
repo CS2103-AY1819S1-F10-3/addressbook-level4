@@ -49,8 +49,10 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Replaces the contents of the contact list with {@code contacts}.
      * {@code contacts} must not contain duplicate contacts.
      */
-    private void setContacts(List<Contact> contacts) {
+    private void setContacts(List<Contact> contacts, List<Contact> clients, List<Contact> serviceProviders) {
         this.contacts.setContacts(contacts);
+        this.clients.setContacts(clients);
+        this.serviceProviders.setContacts(serviceProviders);
     }
 
     /**
@@ -59,7 +61,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void resetData(ReadOnlyAddressBook newData) {
         requireNonNull(newData);
 
-        setContacts(newData.getContactList());
+        setContacts(newData.getContactList(), newData.getClientList(), newData.getServiceProviderList());
     }
 
     //// contact-level operations
