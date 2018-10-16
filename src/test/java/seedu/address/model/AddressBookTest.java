@@ -107,6 +107,16 @@ public class AddressBookTest {
         public ObservableList<Contact> getContactList() {
             return contacts;
         }
+
+        @Override
+        public ObservableList<Contact> getServiceProviderList() {
+            return contacts;
+        }
+
+        @Override
+        public ObservableList<Contact> getClientList() {
+            return contacts;
+        }
     }
 
 }
