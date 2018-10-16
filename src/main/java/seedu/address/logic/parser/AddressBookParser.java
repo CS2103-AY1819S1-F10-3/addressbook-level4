@@ -109,6 +109,7 @@ public class AddressBookParser {
             throw new ParseException("Already logged in.");
 
         case EditCommand.COMMAND_WORD:
+            //TODO this right now assumes that it is always client!!!
             return new EditClientCommandParser().parse(arguments);
 
         case SelectCommand.COMMAND_WORD:
