@@ -8,6 +8,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -26,7 +27,7 @@ public class EditClientCommandParser extends EditCommandParser {
 
         EditCommand.EditContactDescriptor editContactDescriptor = getEditContactDescriptor(argMultimap);
 
-        return new EditCommand(index, editContactDescriptor, EditCommand.ContactType.CLIENT);
+        return new EditCommand(index, editContactDescriptor, Command.ContactType.CLIENT);
     }
 
 }
