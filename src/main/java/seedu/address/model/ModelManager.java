@@ -59,18 +59,18 @@ public class ModelManager extends ComponentManager implements Model {
     @Override
     public boolean hasContact(Contact contact) {
         requireNonNull(contact);
-        return versionedAddressBook.hasContact(contact);
+        return contact.presentIn(versionedAddressBook);
     }
 
     @Override
     public void deleteContact(Contact target) {
-        versionedAddressBook.removeContact(target);
+        target.removeFrom(versionedAddressBook);
         indicateAddressBookChanged();
     }
 
     @Override
     public void addContact(Contact contact) {
-        versionedAddressBook.addContact(contact);
+        contact.addTo(versionedAddressBook);
         updateFilteredContactList(PREDICATE_SHOW_ALL_PERSONS);
         indicateAddressBookChanged();
     }

@@ -15,14 +15,15 @@ import seedu.address.model.contact.Contact;
 import seedu.address.model.contact.Email;
 import seedu.address.model.contact.Name;
 import seedu.address.model.contact.Phone;
-import seedu.address.model.person.Person;
+import seedu.address.model.serviceprovider.ServiceProvider;
 import seedu.address.model.tag.Tag;
 
-/**
- * Parses input arguments and creates a new AddCommand object
- */
-public class AddClientCommandParser extends AddCommandParser {
+//TODO write tests for adding of service provider
 
+/**
+ * Parses the input arguments and create a new AddCommand Object
+ */
+public class AddServiceProviderCommandParser extends AddCommandParser {
     @Override
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap = createLegalArgumentMultimap(args);
@@ -33,9 +34,8 @@ public class AddClientCommandParser extends AddCommandParser {
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Contact contact = new Person(name, phone, email, address, tagList);
+        Contact contact = new ServiceProvider(name, phone, email, address, tagList);
 
         return new AddCommand(contact);
     }
-
 }

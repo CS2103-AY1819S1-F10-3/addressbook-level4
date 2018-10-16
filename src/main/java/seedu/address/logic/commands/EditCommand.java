@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
@@ -56,17 +57,20 @@ public class EditCommand extends Command {
 
     private final Index index;
     private final EditContactDescriptor editContactDescriptor;
+    private final Function<Model, List<Contact>> getLastShownList;
 
     /**
      * @param index of the contact in the filtered contact list to edit
      * @param editContactDescriptor details to edit the contact with
      */
-    public EditCommand(Index index, EditContactDescriptor editContactDescriptor) {
+    public EditCommand(Index index, EditContactDescriptor editContactDescriptor,
+                       ContactType contactType) {
         requireNonNull(index);
         requireNonNull(editContactDescriptor);
 
         this.index = index;
         this.editContactDescriptor = new EditContactDescriptor(editContactDescriptor);
+        this.getLastShownList = contactType.getCorrectListFunction();
     }
 
     @Override
@@ -78,7 +82,7 @@ public class EditCommand extends Command {
             throw new LackOfPrivilegeException(COMMAND_WORD);
         }
 
-        List<Contact> lastShownList = model.getFilteredContactList();
+        List<Contact> lastShownList = getLastShownList.apply(model);
 
         if (index.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);

@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import seedu.address.model.AddressBook;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -60,8 +61,8 @@ public abstract class Contact {
     }
 
     /**
-     * Returns true if both persons of the same name have at least one other identity field that is the same.
-     * This defines a weaker notion of equality between two persons.
+     * Returns true if both contacts of the same name have at least one other identity field that is the same.
+     * This defines a weaker notion of equality between two contacts.
      */
     public boolean isSameContact(Contact otherContact) {
         if (otherContact == this) {
@@ -72,6 +73,34 @@ public abstract class Contact {
                 && otherContact.getName().equals(getName())
                 && (otherContact.getPhone().equals(getPhone()) || otherContact.getEmail().equals(getEmail()));
     }
+
+    /**
+     * Returns true if both contacts have the same identity and data fields.
+     * This defines a stronger notion of equality between two contacts.
+     */
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof Contact)) {
+            return false;
+        }
+
+        Contact otherContact = (Contact) other;
+        return otherContact.getName().equals(getName())
+                && otherContact.getPhone().equals(getPhone())
+                && otherContact.getEmail().equals(getEmail())
+                && otherContact.getAddress().equals(getAddress())
+                && otherContact.getTags().equals(getTags());
+    }
+
+    public abstract boolean presentIn(AddressBook addressBook);
+
+    public abstract void addTo(AddressBook addressBook);
+
+    public abstract void removeFrom(AddressBook addressBook);
 
     @Override
     public int hashCode() {

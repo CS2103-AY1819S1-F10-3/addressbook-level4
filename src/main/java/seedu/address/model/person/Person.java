@@ -2,6 +2,7 @@ package seedu.address.model.person;
 
 import java.util.Set;
 
+import seedu.address.model.AddressBook;
 import seedu.address.model.contact.Address;
 import seedu.address.model.contact.Contact;
 import seedu.address.model.contact.Email;
@@ -22,26 +23,18 @@ public class Person extends Contact {
         super(name, phone, email, address, tags);
     }
 
-    /**
-     * Returns true if both persons have the same identity and data fields.
-     * This defines a stronger notion of equality between two persons.
-     */
     @Override
-    public boolean equals(Object other) {
-        if (other == this) {
-            return true;
-        }
-
-        if (!(other instanceof Contact)) {
-            return false;
-        }
-
-        Contact otherContact = (Contact) other;
-        return otherContact.getName().equals(getName())
-                && otherContact.getPhone().equals(getPhone())
-                && otherContact.getEmail().equals(getEmail())
-                && otherContact.getAddress().equals(getAddress())
-                && otherContact.getTags().equals(getTags());
+    public boolean presentIn(AddressBook addressBook) {
+        return addressBook.hasClient(this);
     }
 
+    @Override
+    public void addTo(AddressBook addressBook) {
+        addressBook.addClient(this);
+    }
+
+    @Override
+    public void removeFrom(AddressBook addressBook) {
+        addressBook.removeClient(this);
+    }
 }

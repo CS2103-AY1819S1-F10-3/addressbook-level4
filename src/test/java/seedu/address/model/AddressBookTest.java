@@ -21,6 +21,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.contact.Contact;
 import seedu.address.model.contact.exceptions.DuplicateContactException;
+import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddressBookTest {
@@ -63,26 +64,27 @@ public class AddressBookTest {
     @Test
     public void hasPerson_nullPerson_throwsNullPointerException() {
         thrown.expect(NullPointerException.class);
-        addressBook.hasContact(null);
+        Person person = null;
+        person.presentIn(addressBook);
     }
 
     @Test
     public void hasPerson_personNotInAddressBook_returnsFalse() {
-        assertFalse(addressBook.hasContact(ALICE));
+        assertFalse(ALICE.presentIn(addressBook));
     }
 
     @Test
     public void hasPerson_personInAddressBook_returnsTrue() {
-        addressBook.addContact(ALICE);
-        assertTrue(addressBook.hasContact(ALICE));
+        ALICE.addTo(addressBook);
+        assertTrue(ALICE.presentIn(addressBook));
     }
 
     @Test
     public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsTrue() {
-        addressBook.addContact(ALICE);
+        ALICE.addTo(addressBook);
         Contact editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
-        assertTrue(addressBook.hasContact(editedAlice));
+        assertTrue(editedAlice.presentIn(addressBook));
     }
 
     @Test
@@ -103,6 +105,16 @@ public class AddressBookTest {
 
         @Override
         public ObservableList<Contact> getContactList() {
+            return contacts;
+        }
+
+        @Override
+        public ObservableList<Contact> getServiceProviderList() {
+            return contacts;
+        }
+
+        @Override
+        public ObservableList<Contact> getClientList() {
             return contacts;
         }
     }
