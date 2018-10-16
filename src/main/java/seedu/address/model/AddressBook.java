@@ -17,6 +17,8 @@ import seedu.address.model.serviceprovider.ServiceProvider;
 public class AddressBook implements ReadOnlyAddressBook {
 
     private final UniqueContactList<Contact> contacts;
+    private final UniqueContactList<Contact> clients;
+    private final UniqueContactList<Contact> serviceProviders;
 
     /*
      * The 'unusual' code block below is an non-static initialization block, sometimes used to avoid duplication
@@ -27,6 +29,8 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     {
         contacts = new UniqueContactList<>();
+        clients = new UniqueContactList<>();
+        serviceProviders = new UniqueContactList<>();
     }
 
     public AddressBook() {}
@@ -61,15 +65,6 @@ public class AddressBook implements ReadOnlyAddressBook {
     //// contact-level operations
 
     /**
-     * Returns true if a contact with the same identity as {@code contact} exists in the address book.
-     */
-    // depreciated
-    public boolean hasContact(Contact contact) {
-        requireNonNull(contact);
-        return contacts.contains(contact);
-    }
-
-    /**
      * Returns true if a contact with the same identity as {@code client} exists in the address book.
      * @param client The client to compare to
      * @return true if the address book contains the client, false otherwise
@@ -87,15 +82,6 @@ public class AddressBook implements ReadOnlyAddressBook {
     public boolean hasServiceProvider(ServiceProvider serviceProvider) {
         requireNonNull(serviceProvider);
         return contacts.contains(serviceProvider);
-    }
-
-    /**
-     * Adds a contact to the address book.
-     * The contact must not already exist in the address book.
-     */
-    // depreciated
-    public void addContact(Contact p) {
-        contacts.add(p);
     }
 
     /**
@@ -126,15 +112,6 @@ public class AddressBook implements ReadOnlyAddressBook {
         requireNonNull(editedContact);
 
         contacts.setContact(target, editedContact);
-    }
-
-    /**
-     * Removes {@code key} from this {@code AddressBook}.
-     * {@code key} must exist in the address book.
-     */
-    // depreciated
-    public void removeContact(Contact key) {
-        contacts.remove(key);
     }
 
     /**
@@ -170,12 +147,12 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     @Override
     public ObservableList<Contact> getClientList() {
-        return contacts.asUnmodifiableObservableList();
+        return clients.asUnmodifiableObservableList();
     }
 
     @Override
     public ObservableList<Contact> getServiceProviderList() {
-        return contacts.asUnmodifiableObservableList();
+        return serviceProviders.asUnmodifiableObservableList();
     }
 
     @Override
