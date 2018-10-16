@@ -118,7 +118,6 @@ public class AddressBook implements ReadOnlyAddressBook {
             // target is instance of ServiceProvider
             serviceProviders.setContact(target, editedContact);
         }
-        
     }
 
     /**
