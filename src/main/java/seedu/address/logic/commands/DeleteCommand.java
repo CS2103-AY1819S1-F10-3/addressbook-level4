@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 
 import java.util.List;
+import java.util.function.Function;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
@@ -28,9 +29,11 @@ public class DeleteCommand extends Command {
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
 
     private final Index targetIndex;
+    private final Function<Model, List<Contact>> getLastShownList;
 
-    public DeleteCommand(Index targetIndex) {
+    public DeleteCommand(Index targetIndex, ContactType contactType) {
         this.targetIndex = targetIndex;
+        this.getLastShownList = contactType.getCorrectListFunction();
     }
 
     @Override
@@ -42,7 +45,7 @@ public class DeleteCommand extends Command {
             throw new LackOfPrivilegeException(COMMAND_WORD);
         }
 
-        List<Contact> lastShownList = model.getFilteredContactList();
+        List<Contact> lastShownList = getLastShownList.apply(model);
 
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
