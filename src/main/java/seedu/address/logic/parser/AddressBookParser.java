@@ -83,19 +83,22 @@ public class AddressBookParser {
         final String helperCommandWord = matcher.group("helperCommandWord");
         final String arguments = matcher.group("arguments");
         switch (commandWord) {
-        //TODO: abstract out "client" string here and tidy up code here
+        //TODO: abstract out "client" string here and tidy up code here. make sure parsing are correct
         case "client":
 
             switch (helperCommandWord) {
 
             case AddCommand.COMMAND_WORD:
+                // client add ...
                 return new AddClientCommandParser().parse(arguments);
 
             case ListCommand.COMMAND_WORD:
                 //TODO: list doesn't differentiate client and service provider
+                // client list ...
                 return new ListCommandParser().parse(arguments);
 
             case DeleteCommand.COMMAND_WORD:
+                // client#xx delete
                 return new DeleteClientCommandParser().parse(arguments);
 
             default:
@@ -108,12 +111,15 @@ public class AddressBookParser {
             switch (helperCommandWord) {
 
             case AddCommand.COMMAND_WORD:
+                // serviceprovider add ...
                 return new AddServiceProviderCommandParser().parse(arguments);
 
             case ListCommand.COMMAND_WORD:
+                // serviceprovider list ...
                 return new ListCommandParser().parse(arguments);
 
             case DeleteCommand.COMMAND_WORD:
+                // serviceprovider#xx delete ...
                 return new DeleteServiceProviderCommandParser().parse(arguments);
 
             default:
@@ -129,12 +135,15 @@ public class AddressBookParser {
 
         case EditCommand.COMMAND_WORD:
             //TODO this right now assumes that it is always client!!! Should go into client/service provider case
+            // client#xx updateprofile ... serviceprovider#xx updateprofile
             return new EditClientCommandParser().parse(arguments);
 
         case SelectCommand.COMMAND_WORD:
+            // I ASSUME THIS IS VIEW: client#xx view serviceprovider#xx view
             return new SelectCommandParser().parse(arguments);
 
         case ClearCommand.COMMAND_WORD:
+            // TODO: should it clear all addressbook? should it clear by indication of client/serviceprovider?
             return new ClearCommand();
 
         case HistoryCommand.COMMAND_WORD:
