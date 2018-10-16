@@ -28,8 +28,8 @@ public class AddressBook implements ReadOnlyAddressBook {
      *   among constructors.
      */
     {
-        contacts = new UniqueContactList<>();
         clients = new UniqueContactList<>();
+        contacts = clients;
         serviceProviders = new UniqueContactList<>();
     }
 
@@ -49,8 +49,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Replaces the contents of the contact list with {@code contacts}.
      * {@code contacts} must not contain duplicate contacts.
      */
-    private void setContacts(List<Contact> contacts, List<Contact> clients, List<Contact> serviceProviders) {
-        this.contacts.setContacts(contacts);
+    private void setContacts(List<Contact> clients, List<Contact> serviceProviders) {
         this.clients.setContacts(clients);
         this.serviceProviders.setContacts(serviceProviders);
     }
@@ -61,7 +60,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void resetData(ReadOnlyAddressBook newData) {
         requireNonNull(newData);
 
-        setContacts(newData.getContactList(), newData.getClientList(), newData.getServiceProviderList());
+        setContacts(newData.getClientList(), newData.getServiceProviderList());
     }
 
     //// contact-level operations
@@ -73,7 +72,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public boolean hasClient(Person client) {
         requireNonNull(client);
-        return contacts.contains(client);
+        return clients.contains(client);
     }
 
     /**
@@ -83,7 +82,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public boolean hasServiceProvider(ServiceProvider serviceProvider) {
         requireNonNull(serviceProvider);
-        return contacts.contains(serviceProvider);
+        return serviceProviders.contains(serviceProvider);
     }
 
     /**
@@ -92,7 +91,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      * @param serviceProvider The service provider to be added to the address book
      */
     public void addServiceProvider(ServiceProvider serviceProvider) {
-        contacts.add(serviceProvider);
+        serviceProviders.add(serviceProvider);
     }
 
     /**
@@ -101,7 +100,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      * @param client The client to be added to the address book
      */
     public void addClient(Person client) {
-        contacts.add(client);
+        clients.add(client);
     }
 
     /**
@@ -114,7 +113,7 @@ public class AddressBook implements ReadOnlyAddressBook {
         requireNonNull(editedContact);
 
         if (target instanceof Person) {
-            contacts.setContact(target, editedContact);
+            clients.setContact(target, editedContact);
         } else {
             // target is instance of ServiceProvider
             serviceProviders.setContact(target, editedContact);
@@ -128,7 +127,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      * @param key The client to be removed
      */
     public void removeClient(Person key) {
-        contacts.remove(key);
+        clients.remove(key);
     }
 
     /**
@@ -137,19 +136,21 @@ public class AddressBook implements ReadOnlyAddressBook {
      * @param key The service provider to be removed
      */
     public void removeServiceProvider(ServiceProvider key) {
-        contacts.remove(key);
+        serviceProviders.remove(key);
     }
 
     //// util methods
 
     @Override
     public String toString() {
+        //TODO: NOTE!!!!
         return contacts.asUnmodifiableObservableList().size() + " contacts";
         // TODO: refine later
     }
 
     @Override
     public ObservableList<Contact> getContactList() {
+        //TODO: NOTE!!!!
         return contacts.asUnmodifiableObservableList();
     }
 
@@ -174,7 +175,8 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     @Override
     public int hashCode() {
-        return contacts.hashCode();
+        // TODO: a better hashcode?
+        return clients.hashCode() + serviceProviders.hashCode();
     }
 
 }
