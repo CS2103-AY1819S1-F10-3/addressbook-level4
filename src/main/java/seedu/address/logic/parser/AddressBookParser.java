@@ -92,10 +92,29 @@ public class AddressBookParser {
                 return new AddClientCommandParser().parse(arguments);
 
             case ListCommand.COMMAND_WORD:
+                //TODO: list doesn't differentiate client and service provider
                 return new ListCommandParser().parse(arguments);
 
             case DeleteCommand.COMMAND_WORD:
                 return new DeleteClientCommandParser().parse(arguments);
+
+            default:
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+
+            }
+
+        case "serviceprovider":
+
+            switch (helperCommandWord) {
+
+            case AddCommand.COMMAND_WORD:
+                return new AddServiceProviderCommandParser().parse(arguments);
+
+            case ListCommand.COMMAND_WORD:
+                return new ListCommandParser().parse(arguments);
+
+            case DeleteCommand.COMMAND_WORD:
+                return new DeleteServiceProviderCommandParser().parse(arguments);
 
             default:
                 throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
@@ -109,7 +128,7 @@ public class AddressBookParser {
             throw new ParseException("Already logged in.");
 
         case EditCommand.COMMAND_WORD:
-            //TODO this right now assumes that it is always client!!!
+            //TODO this right now assumes that it is always client!!! Should go into client/service provider case
             return new EditClientCommandParser().parse(arguments);
 
         case SelectCommand.COMMAND_WORD:
