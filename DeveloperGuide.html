@@ -50,6 +50,8 @@ developers of all levels learn more about the workings behind the scenes and how
 <li><a href="#proposed-data-encryption">4.2. [Proposed] Data Encryption</a></li>
 <li><a href="#logging">4.3. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.4. Configuration</a></li>
+<li><a href="#login">4.5. Login</a></li>
+<li><a href="#account-creation-and-account-storage">4.6. Account creation and account storage</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -878,6 +880,129 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.4. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="login"><a class="link" href="#login">4.5. Login</a></h3>
+<div class="paragraph">
+<p>Before user can use Heart² application, they must first log in with a registered account.</p>
+</div>
+<div class="sect3">
+<h4 id="before-logging-in"><a class="link" href="#before-logging-in">4.5.1. Before logging in</a></h4>
+<div class="paragraph">
+<p>User is presented with a login UI. There are only 2 commands available for user to execute:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>login</code> : Login to the system with a username and password</p>
+</li>
+<li>
+<p><code>help</code> : Shows the help panel</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="after-logging-in"><a class="link" href="#after-logging-in">4.5.2. After logging in</a></h4>
+<div class="paragraph">
+<p>User is presented with the main-screen UI. User can execute any commands available, provided the user-account is given the correct privilege. However, user cannot execute the <code>login</code> command again since he is already logged in.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="account-creation-and-account-storage"><a class="link" href="#account-creation-and-account-storage">4.6. Account creation and account storage</a></h3>
+<div class="paragraph">
+<p>Account is created for the purpose of logging in and authenticating the user, before the user is allowed to use the application. This protects the confidentiality and data integrity of the application.</p>
+</div>
+<div class="sect3">
+<h4 id="types-of-account"><a class="link" href="#types-of-account">4.6.1. Types of account</a></h4>
+<div class="paragraph">
+<p>There are 2 types of account:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SUPER_USER</code> : A user that is capable of executing all commands available in the application.</p>
+</li>
+<li>
+<p><code>READ_ONLY_USER</code> : A user that is capable of executing all commands except registering new account, adding, editing, and deleting entries in the database.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These 2 types of accounts are referred as Role and facilitated by the <code>Role</code> enum.</p>
+</div>
+<div class="paragraph">
+<p>The restrictions of a <code>READ_ONLY_USER</code> is enforced by the methods found in <code>Role</code> enum, specifically:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>boolean hasWritePrivilege()</code></p>
+</li>
+<li>
+<p><code>boolean hasDeletePrivilege()</code></p>
+</li>
+<li>
+<p><code>boolean hasAccountCreationPrivilege()</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Commands that prevents a <code>READ_ONLY_USER</code> from executing is checked with a condition as such:</p>
+</div>
+<div class="paragraph">
+<p><code>if (!Role.hasWritePrivilege()) {
+throw new LackOfPrivilegeException(COMMAND_WORD);}</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="account-storage"><a class="link" href="#account-storage">4.6.2. Account storage</a></h4>
+<div class="paragraph">
+<p>By default, a root account is hardcoded into the application with the username <code>rootUser</code> and password <code>rootPassword</code> with the role <code>SUPER_USER</code>.</p>
+</div>
+<div class="paragraph">
+<p>The diagram below shows what happen when a user launches the application:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/accountstoragediagram.png" alt="accountstoragediagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Only a <code>SUPER_USER</code> is allowed to create a new account, either for himself, or on behalf of another person. The diagram below shows what happen when a user attempts to register a new account:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/accountcreationdiagram.png" alt="accountcreationdiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="security-considerations"><a class="link" href="#security-considerations">4.6.3. Security Considerations</a></h4>
+<div class="sect4">
+<h5 id="database"><a class="link" href="#database">Database</a></h5>
+<div class="paragraph">
+<p>Currently, the list of accounts is stored locally on data/accountlist.xml. For security purposes, we may consider the following implementations in the future for v2.0:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Encrypt accountlist.xml:</strong> Prevent direct lookup of the file</p>
+</li>
+<li>
+<p><strong>Store the file on a server:</strong> Due to project restriction, we are unable to implement this at v1.4.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="storing-password"><a class="link" href="#storing-password">Storing password</a></h5>
+<div class="paragraph">
+<p>Username is stored in plaintext in accountlist.xml. However, user password is hashed with <code>PBKDF2</code> algorithm together with a <code>salt</code>, to prevent password from being visible in plaintext. <code>PBKDF2</code> is deliberately chosen as it is a slower algorithm, thus slowing down brute-force attack for finding out user password.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2779,4 +2904,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 15:34:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 15:31:51 UTC</div></div></div></body></html>
