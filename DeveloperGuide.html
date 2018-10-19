@@ -54,9 +54,10 @@ developers of all levels learn more about the workings behind the scenes and how
 <li><a href="#account-creation-and-account-storage-feature">4.6. Account creation and account storage Feature</a></li>
 <li><a href="#add-clients-and-service-providers-feature">4.7. Add clients and service providers feature</a></li>
 <li><a href="#remove-clients-and-service-providers-feature">4.8. Remove clients and service providers feature</a></li>
-<li><a href="#viewing-search-results-coming-in-v2-0">4.9. Viewing Search Results [Coming in v2.0]</a></li>
-<li><a href="#list-feature">4.10. List Feature</a></li>
-<li><a href="#finding-matches-between-clients-and-service-providers">4.11. Finding matches between clients and service providers</a></li>
+<li><a href="#edit-clients-and-service-provider-feature">4.9. Edit clients and service provider feature</a></li>
+<li><a href="#viewing-search-results-coming-in-v2-0">4.10. Viewing Search Results [Coming in v2.0]</a></li>
+<li><a href="#list-feature">4.11. List Feature</a></li>
+<li><a href="#finding-matches-between-clients-and-service-providers">4.12. Finding matches between clients and service providers</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1064,7 +1065,7 @@ throw new LackOfPrivilegeException(COMMAND_WORD);}</code></p>
 <p><strong><em>Heart²</em></strong> allows you to be able to distinguish between clients and service providers.</p>
 </div>
 <div class="paragraph">
-<p>When adding a new contact to <strong><em>Heart²</em></strong>, you would have to specify whether the contact is a 'Client' or a 'ServiceProvider' by appending 'client' or 'serviceprovider' during adding:</p>
+<p>When adding a new contact to <strong><em>Heart²</em></strong>, you would have to specify whether the contact is a 'client' or a 'serviceprovider' by appending 'client' or 'serviceprovider' during adding:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1075,6 +1076,9 @@ throw new LackOfPrivilegeException(COMMAND_WORD);}</code></p>
 <p>'serviceprovider add n/Lun Wai p/72336409 e/lunwai@u.nus.edu a/RVRC'</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The above commands adds a 'client' and a 'service provider' with the specified information respectively.</p>
 </div>
 <div class="paragraph">
 <p>This facilitates many other features of <strong><em>Heart²</em></strong> for your convenience!</p>
@@ -1089,7 +1093,7 @@ throw new LackOfPrivilegeException(COMMAND_WORD);}</code></p>
 <div class="sect2">
 <h3 id="remove-clients-and-service-providers-feature"><a class="link" href="#remove-clients-and-service-providers-feature">4.8. Remove clients and service providers feature</a></h3>
 <div class="paragraph">
-<p><strong><em>Heart²</em></strong> allows you to remove 'clients' and 'serviceprovider' if you so wish to!</p>
+<p><strong><em>Heart²</em></strong> allows you to remove 'client' and 'serviceprovider' if you so wish to!</p>
 </div>
 <div class="paragraph">
 <p>This can be easily done by specifying the 'client' or 'serviceprovider' at the front:</p>
@@ -1100,9 +1104,12 @@ throw new LackOfPrivilegeException(COMMAND_WORD);}</code></p>
 <p>'client remove 1'</p>
 </li>
 <li>
-<p>'serviceprovider remove 0'</p>
+<p>'serviceprovider remove 2'</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The above commands removes the 'client' in index 1 of the 'client' list and the 'service provider' in index 2 of the 'serviceprovider' list respectively.</p>
 </div>
 <div class="sect3">
 <h4 id="implementation-3"><a class="link" href="#implementation-3">4.8.1. Implementation</a></h4>
@@ -1112,7 +1119,36 @@ throw new LackOfPrivilegeException(COMMAND_WORD);}</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-search-results-coming-in-v2-0"><a class="link" href="#viewing-search-results-coming-in-v2-0">4.9. Viewing Search Results [Coming in v2.0]</a></h3>
+<h3 id="edit-clients-and-service-provider-feature"><a class="link" href="#edit-clients-and-service-provider-feature">4.9. Edit clients and service provider feature</a></h3>
+<div class="paragraph">
+<p><strong><em>Heart²</em></strong> allows you to make changes to existing 'client' and 'serviceprovider' too!</p>
+</div>
+<div class="paragraph">
+<p>With the list of 'client' or 'serviceprovider' shown on the GUI, simply specify the index of the contact in question, followed by the field to be edited:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>'edit 1 n/Wai Lua'</p>
+</li>
+<li>
+<p>'edit 2 p/9046 3328'</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The above commands will update the name of the first contact to Wai Lua and the phone number of the second contact to 9046 3328 respectively.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.9.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The index specified determines the contact in question. The arguments following the index is parsed and used to create an EditContactDescriptor.
+This EditContactDescriptor is then used in conjunction with the earlier in contact in question to create a new contact. A check on whether the contact is a 'client' or 'serviceprovider' is first performed to create a correct replacement contact, before updating the contact list.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-search-results-coming-in-v2-0"><a class="link" href="#viewing-search-results-coming-in-v2-0">4.10. Viewing Search Results [Coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>After the user entered the command into the <code>CommandBox</code>, the <code>BrowserPanel</code> would be deployed to list the search results in a tabular form:</p>
 </div>
@@ -1122,7 +1158,7 @@ throw new LackOfPrivilegeException(COMMAND_WORD);}</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="profile"><a class="link" href="#profile">4.9.1. Profile</a></h4>
+<h4 id="profile"><a class="link" href="#profile">4.10.1. Profile</a></h4>
 <div class="paragraph">
 <p>The client&#8217;s profile would be displayed on the left, so as to facilitate the user in picking the service
 providers while keeping the requirements in mind.</p>
@@ -1133,14 +1169,14 @@ tags at the bottom left.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="tabular-view"><a class="link" href="#tabular-view">4.9.2. Tabular View</a></h4>
+<h4 id="tabular-view"><a class="link" href="#tabular-view">4.10.2. Tabular View</a></h4>
 <div class="paragraph">
 <p>The results would be listed from the most to the least relevant based on the client&#8217;s needs.
 Users can then scroll through the list to view the other results in decreasing relevancy.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.9.3. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.10.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-display-search-results"><a class="link" href="#aspect-how-to-display-search-results">Aspect: How to display search results</a></h5>
 <div class="ulist">
@@ -1178,7 +1214,7 @@ the combination that best suits the client easily</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-feature"><a class="link" href="#list-feature">4.10. List Feature</a></h3>
+<h3 id="list-feature"><a class="link" href="#list-feature">4.11. List Feature</a></h3>
 <div class="paragraph">
 <p>The user can use the <code>list</code> command to list out the various contacts, be it a service provider or a client.</p>
 </div>
@@ -1196,7 +1232,7 @@ the combination that best suits the client easily</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">4.10.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">4.11.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command to be used for filtering is parsed and passed to a <code>Predicate</code> that is implemented as <code>EntryContainsKeyWordsPredicate</code>.</p>
 </div>
@@ -1205,7 +1241,7 @@ the combination that best suits the client easily</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.10.2. Design considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.11.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="substring-matching"><a class="link" href="#substring-matching">Substring matching</a></h5>
 <div class="paragraph">
@@ -1224,12 +1260,12 @@ the combination that best suits the client easily</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-matches-between-clients-and-service-providers"><a class="link" href="#finding-matches-between-clients-and-service-providers">4.11. Finding matches between clients and service providers</a></h3>
+<h3 id="finding-matches-between-clients-and-service-providers"><a class="link" href="#finding-matches-between-clients-and-service-providers">4.12. Finding matches between clients and service providers</a></h3>
 <div class="paragraph">
 <p>The application boasts matchmaking features that reduces the (once-laborious) task of matching service providers a single command.</p>
 </div>
 <div class="sect3">
-<h4 id="high-level-design"><a class="link" href="#high-level-design">4.11.1. High level design</a></h4>
+<h4 id="high-level-design"><a class="link" href="#high-level-design">4.12.1. High level design</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/matchmaking.png" alt="width:&quot;800&quot;">
@@ -1247,7 +1283,7 @@ the combination that best suits the client easily</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.11.2. Design considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.12.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-fairly-distribute-jobs-between-service-providers"><a class="link" href="#aspect-how-to-fairly-distribute-jobs-between-service-providers">Aspect: How to fairly distribute jobs between service providers</a></h5>
 <div class="ulist">
@@ -3195,4 +3231,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-19 05:59:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-19 06:13:15 UTC</div></div></div></body></html>
