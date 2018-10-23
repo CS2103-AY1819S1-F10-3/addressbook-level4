@@ -31,10 +31,9 @@ public class AddressBookParser {
     /**
      * Used for initial separation of command word and args.
      */
-    private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
-    private static final Pattern SECONDARY_COMMAND_FORMAT =
-            Pattern.compile("(?<commandWord>[a-zA-Z]+)(?<identifier>[#\\d]+)?[\\s]?(?<helperCommandWord>[a-zA-Z]+)?"
-                    + "(?<arguments>.*)");
+    private static final Pattern COMMAND_FORMAT =
+            Pattern.compile("(?<commandWord>[a-zA-Z]+)(?<identifier>[#\\d]+)?[\\s]*" +
+                    "(?<helperCommandWord>(?!./)[a-zA-Z]+)?(?<arguments>.*)");
 
     /**
      * Parses user input into command for execution. This method is use before user has successfully logged in.
@@ -43,7 +42,7 @@ public class AddressBookParser {
      * @throws ParseException if the user input does not conform the expected format.
      */
     public Command parseCommandBeforeLoggedIn(String userInput) throws ParseException {
-        final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
+        final Matcher matcher = COMMAND_FORMAT.matcher(userInput.trim());
         if (!matcher.matches()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
         }
@@ -73,7 +72,7 @@ public class AddressBookParser {
      * @throws ParseException if the user input does not conform the expected format
      */
     public Command parseCommand(String userInput) throws ParseException {
-        final Matcher matcher = SECONDARY_COMMAND_FORMAT.matcher(userInput.trim());
+        final Matcher matcher = COMMAND_FORMAT.matcher(userInput.trim());
         if (!matcher.matches()) {
             //TODO: update HelpCommand.MESSAGE_USAGE
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
