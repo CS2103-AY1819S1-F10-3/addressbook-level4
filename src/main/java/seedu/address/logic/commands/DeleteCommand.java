@@ -9,6 +9,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.commands.exceptions.LackOfPrivilegeException;
+import seedu.address.model.ContactType;
 import seedu.address.model.Model;
 import seedu.address.model.contact.Contact;
 
@@ -27,9 +28,11 @@ public class DeleteCommand extends Command {
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Client: %1$s";
 
     private final Index targetIndex;
+    private final ContactType contactType;
 
-    public DeleteCommand(Index targetIndex) {
+    public DeleteCommand(Index targetIndex, ContactType contactType) {
         this.targetIndex = targetIndex;
+        this.contactType = contactType;
     }
 
     @Override
@@ -41,14 +44,20 @@ public class DeleteCommand extends Command {
             throw new LackOfPrivilegeException(COMMAND_WORD);
         }
 
-        List<Contact> lastShownList = model.getFilteredContactList();
+        model.updateFilteredContactList(contactType.getFilter()
+                .and(contact -> contact.getID() == targetIndex.getOneBased()));
 
-        if (targetIndex.getZeroBased() >= lastShownList.size()) {
+        List<Contact> filteredList = model.getFilteredContactList();
+
+        if (filteredList.size() == 0) {
+            // filtered list size is 0, meaning there is no such contact
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        Contact contactToDelete = lastShownList.get(targetIndex.getZeroBased());
+        // filtered list size is 1 (unique ID for client/serviceprovider)
+        Contact contactToDelete = filteredList.get(0);
         model.deleteContact(contactToDelete);
+        model.updateFilteredContactList(contactType.getFilter());
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, contactToDelete));
     }

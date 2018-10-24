@@ -60,6 +60,14 @@ public class AddressBookParser {
         }
     }
 
+    private String requireStringNonNull(String str) throws ParseException {
+        if (str == null) {
+            throw new ParseException(MESSAGE_INVALID_COMMAND_FORMAT);
+        }
+
+        return str;
+    }
+
     private String getCommandWord(String firstWord, String secondWord) {
         String commandWord;
 
@@ -70,7 +78,6 @@ public class AddressBookParser {
         }
 
         return commandWord;
-
     }
 
     /**
@@ -130,26 +137,28 @@ public class AddressBookParser {
             return new AddClientCommandParser().parse(arguments);
 
         case "client delete":
-            return new DeleteCommandParser().parse(identifier.substring(1));
+            return new DeleteCommandParser(ContactType.CLIENT).parse(requireStringNonNull(identifier).substring(1));
 
         case "client list":
             return new ListClientCommandParser().parse(arguments);
 
         case "client update":
             return new EditCommandParser(ContactType.CLIENT)
-                    .parse(String.format("%s %s" ,identifier.substring(1), arguments));
+                    .parse(String.format("%s %s", requireStringNonNull(identifier).substring(1), arguments));
 
         case "serviceprovider add":
             return new AddServiceProviderCommandParser().parse(arguments);
 
         case "serviceprovider delete":
-            return new DeleteCommandParser().parse(identifier);
+            return new DeleteCommandParser(ContactType.SERVICE_PROVIDER)
+                    .parse(requireStringNonNull(identifier).substring(1));
 
         case "serviceprovider list":
             return new ListServiceProviderCommandParser().parse(arguments);
 
         case "serviceprovider update":
-            return new EditCommandParser(ContactType.SERVICE_PROVIDER).parse(arguments);
+            return new EditCommandParser(ContactType.SERVICE_PROVIDER)
+                    .parse(String.format("%s %s", requireStringNonNull(identifier). substring(1), arguments));
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
