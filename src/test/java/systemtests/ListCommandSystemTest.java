@@ -77,7 +77,7 @@ public class ListCommandSystemTest extends AddressBookSystemTest {
         assertSelectedCardUnchanged();
 
         /* Case: find same persons in address book after deleting 1 of them -> 1 client found */
-        executeCommand("client " + DeleteCommand.COMMAND_WORD + " 1");
+        executeCommand("client#1 " + DeleteCommand.COMMAND_WORD);
         assertFalse(getModel().getAddressBook().getContactList().contains(BENSON));
         command = "client " + ListCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_MEIER;
         expectedModel = getModel();

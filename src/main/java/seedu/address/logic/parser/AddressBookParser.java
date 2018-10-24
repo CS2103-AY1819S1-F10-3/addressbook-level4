@@ -26,7 +26,7 @@ public class AddressBookParser {
      * Used for initial separation of command word and args.
      */
     private static final Pattern COMMAND_FORMAT =
-            Pattern.compile("(?<firstWord>[a-zA-Z]+)#?(?<identifier>[\\d]+)?(?<secondWord>[\\s]+(?!./)"
+            Pattern.compile("(?<firstWord>[a-zA-Z]+)#?(?<identifier>[\\d\\w-]+)?(?<secondWord>[\\s]+(?!./)"
                     + "[a-zA-Z]+)?(?<arguments>.*)");
 
     /**

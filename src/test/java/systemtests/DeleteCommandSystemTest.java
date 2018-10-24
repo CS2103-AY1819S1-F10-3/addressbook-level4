@@ -31,8 +31,8 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
         /* Case: delete the first client in the list, command with leading spaces and trailing spaces -> deleted */
         Model expectedModel = getModel();
         //TODO: update command string
-        String command = "     " + "client " + DeleteCommand.COMMAND_WORD + "      "
-                + INDEX_FIRST_PERSON.getOneBased() + "       ";
+        String command = "     " + "client#" + INDEX_FIRST_PERSON.getOneBased() + " " + DeleteCommand.COMMAND_WORD
+                + "      ";
         Contact deletedContact = removePerson(expectedModel, INDEX_FIRST_PERSON);
         String expectedResultMessage = String.format(MESSAGE_DELETE_PERSON_SUCCESS, deletedContact);
         assertCommandSuccess(command, expectedModel, expectedResultMessage);
@@ -71,7 +71,7 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
         //TODO: update command
         showPersonsWithName(KEYWORD_MATCHING_MEIER);
         int invalidIndex = getModel().getAddressBook().getContactList().size();
-        command = "client " + DeleteCommand.COMMAND_WORD + " " + invalidIndex;
+        command = "client#" + invalidIndex + " " + DeleteCommand.COMMAND_WORD;
         assertCommandFailure(command, MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
 
         /* --------------------- Performing delete operation while a client card is selected ------------------------ */
@@ -82,7 +82,7 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
         Index selectedIndex = getLastIndex(expectedModel);
         Index expectedIndex = Index.fromZeroBased(selectedIndex.getZeroBased() - 1);
         selectPerson(selectedIndex);
-        command = "client " + DeleteCommand.COMMAND_WORD + " " + selectedIndex.getOneBased();
+        command = "client#" + selectedIndex.getOneBased() + " " + DeleteCommand.COMMAND_WORD;
         deletedContact = removePerson(expectedModel, selectedIndex);
         expectedResultMessage = String.format(MESSAGE_DELETE_PERSON_SUCCESS, deletedContact);
         assertCommandSuccess(command, expectedModel, expectedResultMessage, expectedIndex);
@@ -90,29 +90,29 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
         /* --------------------------------- Performing invalid delete operation ------------------------------------ */
 
         /* Case: invalid index (0) -> rejected */
-        command = "client " + DeleteCommand.COMMAND_WORD + " 0";
+        command = "client#0 " + DeleteCommand.COMMAND_WORD;
         assertCommandFailure(command, MESSAGE_INVALID_DELETE_COMMAND_FORMAT);
 
         /* Case: invalid index (-1) -> rejected */
-        command = "client " + DeleteCommand.COMMAND_WORD + " -1";
+        command = "client#-1 " + DeleteCommand.COMMAND_WORD;
         assertCommandFailure(command, MESSAGE_INVALID_DELETE_COMMAND_FORMAT);
 
         /* Case: invalid index (size + 1) -> rejected */
         Index outOfBoundsIndex = Index.fromOneBased(
                 getModel().getAddressBook().getContactList().size() + 1);
-        command = "client " + DeleteCommand.COMMAND_WORD + " " + outOfBoundsIndex.getOneBased();
+        command = "client#" + outOfBoundsIndex.getOneBased() + " " + DeleteCommand.COMMAND_WORD;
         assertCommandFailure(command, MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
 
         /* Case: invalid arguments (alphabets) -> rejected */
-        assertCommandFailure("client " + DeleteCommand.COMMAND_WORD + " abc",
+        assertCommandFailure("client#abc " + DeleteCommand.COMMAND_WORD,
                 MESSAGE_INVALID_DELETE_COMMAND_FORMAT);
 
         /* Case: invalid arguments (extra argument) -> rejected */
-        assertCommandFailure("client " + DeleteCommand.COMMAND_WORD + " 1 abc",
-                MESSAGE_INVALID_DELETE_COMMAND_FORMAT);
+        assertCommandFailure("client#1 abc " + DeleteCommand.COMMAND_WORD,
+                MESSAGE_UNKNOWN_COMMAND);
 
         /* Case: mixed case command word -> rejected */
-        assertCommandFailure("client DelETE 1", MESSAGE_UNKNOWN_COMMAND);
+        assertCommandFailure("client#1 DelETE", MESSAGE_UNKNOWN_COMMAND);
     }
 
     /**
@@ -137,8 +137,8 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
 
         //TODO: Update command input
         assertCommandSuccess(
-                "client " + DeleteCommand.COMMAND_WORD + " "
-                        + toDelete.getOneBased(), expectedModel, expectedResultMessage);
+                "client" + toDelete.getOneBased() + " " + DeleteCommand.COMMAND_WORD,
+                expectedModel, expectedResultMessage);
     }
 
     /**
