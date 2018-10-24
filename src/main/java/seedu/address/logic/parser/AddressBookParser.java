@@ -16,6 +16,7 @@ import seedu.address.logic.commands.MatchMakeCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.ContactType;
 
 /**
  * Parses user input.
@@ -134,6 +135,10 @@ public class AddressBookParser {
         case "client list":
             return new ListClientCommandParser().parse(arguments);
 
+        case "client update":
+            return new EditCommandParser(ContactType.CLIENT)
+                    .parse(String.format("%s %s" ,identifier.substring(1), arguments));
+
         case "serviceprovider add":
             return new AddServiceProviderCommandParser().parse(arguments);
 
@@ -142,6 +147,10 @@ public class AddressBookParser {
 
         case "serviceprovider list":
             return new ListServiceProviderCommandParser().parse(arguments);
+
+        case "serviceprovider update":
+            return new EditCommandParser(ContactType.SERVICE_PROVIDER).parse(arguments);
+
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }

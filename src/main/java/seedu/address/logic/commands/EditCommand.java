@@ -20,6 +20,7 @@ import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.commands.exceptions.LackOfPrivilegeException;
+import seedu.address.model.ContactType;
 import seedu.address.model.Model;
 import seedu.address.model.client.Client;
 import seedu.address.model.contact.Address;
@@ -35,7 +36,7 @@ import seedu.address.model.tag.Tag;
  */
 public class EditCommand extends Command {
 
-    public static final String COMMAND_WORD = "edit";
+    public static final String COMMAND_WORD = "update";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the client identified "
             + "by the index number used in the displayed client list. "
@@ -56,17 +57,20 @@ public class EditCommand extends Command {
 
     private final Index index;
     private final EditContactDescriptor editContactDescriptor;
+    private final ContactType contactType;
 
     /**
      * @param index of the contact in the filtered contact list to edit
      * @param editContactDescriptor details to edit the contact with
+     * @param contactType
      */
-    public EditCommand(Index index, EditContactDescriptor editContactDescriptor) {
+    public EditCommand(Index index, EditContactDescriptor editContactDescriptor, ContactType contactType) {
         requireNonNull(index);
         requireNonNull(editContactDescriptor);
 
         this.index = index;
         this.editContactDescriptor = new EditContactDescriptor(editContactDescriptor);
+        this.contactType = contactType;
     }
 
     @Override
@@ -78,6 +82,7 @@ public class EditCommand extends Command {
             throw new LackOfPrivilegeException(COMMAND_WORD);
         }
 
+        model.updateFilteredContactList(contactType.getFilter());
         List<Contact> lastShownList = model.getFilteredContactList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
@@ -85,7 +90,7 @@ public class EditCommand extends Command {
         }
 
         Contact contactToEdit = lastShownList.get(index.getZeroBased());
-        Contact editedContact = createEditedContact(contactToEdit, editContactDescriptor);
+        Contact editedContact = createEditedContact(contactToEdit, editContactDescriptor, contactType);
 
         if (!contactToEdit.isSameContact(editedContact) && model.hasContact(editedContact)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
@@ -101,7 +106,8 @@ public class EditCommand extends Command {
      * Creates and returns a {@code Contact} with the details of {@code contactToEdit}
      * edited with {@code editContactDescriptor}.
      */
-    private static Contact createEditedContact(Contact contactToEdit, EditContactDescriptor editContactDescriptor) {
+    private static Contact createEditedContact(Contact contactToEdit, EditContactDescriptor editContactDescriptor,
+                                               ContactType contactType) {
         assert contactToEdit != null;
 
         Name updatedName = editContactDescriptor.getName().orElse(contactToEdit.getName());
@@ -110,9 +116,12 @@ public class EditCommand extends Command {
         Address updatedAddress = editContactDescriptor.getAddress().orElse(contactToEdit.getAddress());
         Set<Tag> updatedTags = editContactDescriptor.getTags().orElse(contactToEdit.getTags());
 
-        if (contactToEdit instanceof Client) {
+        //TODO take a look at this below vvvvv
+        switch (contactType) {
+        case CLIENT:
             return new Client(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
-        } else {
+        case SERVICE_PROVIDER:
+        default:
             return new ServiceProvider(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
         }
     }
