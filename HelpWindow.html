@@ -1,7 +1,12 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Heart² - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Heart² - Enterprise Wedding Management System</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>Heart² - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>Heart² - Enterprise Wedding Management System</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/userguideimage.png" alt="userguideimage" width="700">
+</div>
+</div>
 <div class="paragraph">
 <p>By: <code>Team Heart²</code>      Since: <code>Aug 2018</code>      Licence: <code>MIT</code></p>
 </div>
@@ -16,16 +21,17 @@
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#logging-in-code-login-code">3.2. Logging in : <code>login</code></a></li>
 <li><a href="#logging-out-code-logout-code">3.3. Logging out : <code>logout</code></a></li>
-<li><a href="#manipulating-all-clients-code-client-code">3.4. Manipulating all clients: <code>client</code></a></li>
-<li><a href="#manipulating-a-specific-client-code-client-id-code">3.5. Manipulating a specific client: <code>client#ID</code></a></li>
-<li><a href="#manipulating-all-service-providers-code-serviceprovider-code">3.6. Manipulating all service providers: <code>serviceprovider</code></a></li>
-<li><a href="#manipulating-a-specific-service-provider-code-serviceprovider-id-code">3.7. Manipulating a specific service provider: <code>serviceprovider#ID</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.8. Listing entered commands: <code>history</code></a></li>
-<li><a href="#undo-the-previous-command-undo">3.9. Undo the previous command: 'undo'</a></li>
-<li><a href="#redo-the-most-recent-command-undone-redo">3.10. Redo the most recent command undone: 'redo'</a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.11. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.12. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.13. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#logging-in-code-register-account-code">3.4. Logging in : <code>register account</code></a></li>
+<li><a href="#logging-in-code-change-password-code">3.5. Logging in : <code>change password</code></a></li>
+<li><a href="#manipulating-all-clients-code-client-code">3.6. Manipulating all clients: <code>client</code></a></li>
+<li><a href="#manipulating-a-specific-client-code-client-id-code">3.7. Manipulating a specific client: <code>client#ID</code></a></li>
+<li><a href="#manipulating-all-service-providers-code-serviceprovider-code">3.8. Manipulating all service providers: <code>serviceprovider</code></a></li>
+<li><a href="#manipulating-a-specific-service-provider-code-serviceprovider-id-code">3.9. Manipulating a specific service provider: <code>serviceprovider#ID</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.10. Listing entered commands: <code>history</code></a></li>
+<li><a href="#undo-the-previous-command-undo">3.11. Undo the previous command: 'undo'</a></li>
+<li><a href="#redo-the-most-recent-command-undone-redo">3.12. Redo the most recent command undone: 'redo'</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.14. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -35,6 +41,11 @@
 <div class="sect1">
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/intropicture.png" alt="intropicture" width="256">
+</div>
+</div>
 <div class="paragraph">
 <p>Welcome to <strong><em>Heart²</em></strong>! <em>Heart²</em> is a desktop software for wedding planning agencies to efficiently manage clients' and agency companies' profiles.
 You can find suitable wedding service providers for couples using just a few keystrokes with our enterprise featureset. Jump over to <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started.</p>
@@ -77,10 +88,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect1">
 <h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
 <div class="sectionbody">
-<div class="exampleblock">
+<div class="imageblock">
 <div class="content">
-<div class="paragraph">
-<p><strong>Command Format</strong></p>
+<img src="images/format.png" alt="format" width="256">
+</div>
 </div>
 <div class="ulist">
 <ul>
@@ -96,9 +107,32 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <li>
 <p>Parameters can be in any order. E.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
 </li>
+<li>
+<p>Example: An example image shows the source code format for a particular command</p>
+</li>
 </ul>
 </div>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>login u/rootUser p/rootPassword</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="images/commands.png" alt="commands" width="256">
 </div>
+</div>
+<div class="paragraph">
+<p>The following section documents all the commands available in this application.</p>
 </div>
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
@@ -114,6 +148,20 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="paragraph">
 <p>Format: <code>login u/USERNAME p/PASSWORD</code></p>
 </div>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>login u/rootUser p/rootPassword</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="logging-out-code-logout-code"><a class="link" href="#logging-out-code-logout-code">3.3. Logging out : <code>logout</code></a></h3>
@@ -125,80 +173,185 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="manipulating-all-clients-code-client-code"><a class="link" href="#manipulating-all-clients-code-client-code">3.4. Manipulating all clients: <code>client</code></a></h3>
+<h3 id="logging-in-code-register-account-code"><a class="link" href="#logging-in-code-register-account-code">3.4. Logging in : <code>register account</code></a></h3>
+<div class="paragraph">
+<p>Register an account for this application.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>register account u/USERNAME p/PASSWORD r/ROLE</code></p>
+</div>
+<div class="paragraph">
+<p>role <code>ROLE</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>superuser</code></p>
+</li>
+<li>
+<p><code>readonlyuser</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>register account u/myNewUsername p/p@ssw0rd r/superuser</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="logging-in-code-change-password-code"><a class="link" href="#logging-in-code-change-password-code">3.5. Logging in : <code>change password</code></a></h3>
+<div class="paragraph">
+<p>Change your current account password.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>change password o/yourOldP@ssw0rd n/n3wP@ssw0rd</code></p>
+</div>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>change password o/jf3nv n/j9y3nd</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="manipulating-all-clients-code-client-code"><a class="link" href="#manipulating-all-clients-code-client-code">3.6. Manipulating all clients: <code>client</code></a></h3>
 <div class="sect3">
-<h4 id="creating-a-client"><a class="link" href="#creating-a-client">3.4.1. Creating a client</a></h4>
+<h4 id="creating-a-client"><a class="link" href="#creating-a-client">3.6.1. Creating a client</a></h4>
 <div class="paragraph">
 <p>You can register a client and his/her particulars into the database.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>client add n/FULL_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/HOME_ADDRESS</code></p>
 </div>
-<div class="paragraph">
-<p>Example: <code>client add n/John Doe p/87654321 e/johndoe@gmail.com a/123 Lorem Street, #45-67, Singapore 890123</code></p>
-</div>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>client add n/John Doe p/87654321 e/johndoe@gmail.com a/123 Lorem Street, #45-67, Singapore 890123</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
-<h4 id="listing-and-searching-for-clients"><a class="link" href="#listing-and-searching-for-clients">3.4.2. Listing and searching for clients</a></h4>
+<h4 id="listing-and-searching-for-clients"><a class="link" href="#listing-and-searching-for-clients">3.6.2. Listing and searching for clients</a></h4>
 <div class="paragraph">
 <p>You can list all clients in the database if no parameters are provided, otherwise lists all clients matching all of the search parameters.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>client list [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS]</code></p>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
 <ul>
 <li>
 <p><code>client list</code></p>
 </li>
 <li>
-<p><code>client list n/John Doe</code> (lists all clients that matches the name "John Doe")</p>
+<p><code>client list n/John Doe</code></p>
 </li>
 </ul>
-</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="manipulating-a-specific-client-code-client-id-code"><a class="link" href="#manipulating-a-specific-client-code-client-id-code">3.5. Manipulating a specific client: <code>client#ID</code></a></h3>
+<h3 id="manipulating-a-specific-client-code-client-id-code"><a class="link" href="#manipulating-a-specific-client-code-client-id-code">3.7. Manipulating a specific client: <code>client#ID</code></a></h3>
 <div class="sect3">
-<h4 id="viewing-a-client"><a class="link" href="#viewing-a-client">3.5.1. Viewing a client</a></h4>
+<h4 id="viewing-a-client"><a class="link" href="#viewing-a-client">3.7.1. Viewing a client</a></h4>
 <div class="paragraph">
 <p>You can view the detailed information about a specific client by his/her ID.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>client#ID view</code></p>
 </div>
-<div class="paragraph">
-<p>Example: <code>client#123 view</code></p>
-</div>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>client#123 view</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-client"><a class="link" href="#deleting-a-client">3.5.2. Deleting a client</a></h4>
+<h4 id="deleting-a-client"><a class="link" href="#deleting-a-client">3.7.2. Deleting a client</a></h4>
 <div class="paragraph">
 <p>You can delete a client by his/her ID.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>client#ID delete</code></p>
 </div>
-<div class="paragraph">
-<p>Example: <code>client#123 delete</code></p>
-</div>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>client#123 delete</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
-<h4 id="updating-a-client-profile"><a class="link" href="#updating-a-client-profile">3.5.3. Updating a client profile</a></h4>
+<h4 id="updating-a-client-profile"><a class="link" href="#updating-a-client-profile">3.7.3. Updating a client profile</a></h4>
 <div class="paragraph">
 <p>You can update a client profile by his/her ID with new particulars.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>client#ID updateprofile [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS]</code></p>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
 <ul>
 <li>
 <p><code>client#123 updateprofile p/98765432</code> (updates `client#123&#8217;s phone number)</p>
@@ -207,10 +360,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><code>client#123 updateprofile n/Jane Doe e/janedoe@gmail.com</code> (updates `client#123&#8217;s name and email address)</p>
 </li>
 </ul>
-</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
-<h4 id="adding-a-service-request-from-a-client"><a class="link" href="#adding-a-service-request-from-a-client">3.5.4. Adding a service request from a client</a></h4>
+<h4 id="adding-a-service-request-from-a-client"><a class="link" href="#adding-a-service-request-from-a-client">3.7.4. Adding a service request from a client</a></h4>
 <div class="paragraph">
 <p>You can add requests for a service from a client. You must specify the budget which will be in Singapore Dollars (SGD).</p>
 </div>
@@ -233,10 +389,15 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
 <ul>
 <li>
 <p><code>client#ID addservice t/photography p/2000</code></p>
@@ -245,62 +406,103 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><code>client#ID addservice t/catering p/10000</code></p>
 </li>
 </ul>
-</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="manipulating-all-service-providers-code-serviceprovider-code"><a class="link" href="#manipulating-all-service-providers-code-serviceprovider-code">3.6. Manipulating all service providers: <code>serviceprovider</code></a></h3>
+<h3 id="manipulating-all-service-providers-code-serviceprovider-code"><a class="link" href="#manipulating-all-service-providers-code-serviceprovider-code">3.8. Manipulating all service providers: <code>serviceprovider</code></a></h3>
 <div class="sect3">
-<h4 id="creating-a-service-provider"><a class="link" href="#creating-a-service-provider">3.6.1. Creating a service provider</a></h4>
+<h4 id="creating-a-service-provider"><a class="link" href="#creating-a-service-provider">3.8.1. Creating a service provider</a></h4>
 <div class="paragraph">
 <p>You can register a service provider to the system with the necessary particulars.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>serviceprovider add n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/OFFICE_ADDRESS</code></p>
 </div>
-<div class="paragraph">
-<p>Example: <code>serviceprovider add n/Infinite Studios p/61234567 e/contact@infinitestudios.sg a/123 Infinite Loop</code></p>
-</div>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>serviceprovider add n/Infinite Studios p/61234567 e/contact@infinitestudios.sg a/123 Infinite Loop</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="manipulating-a-specific-service-provider-code-serviceprovider-id-code"><a class="link" href="#manipulating-a-specific-service-provider-code-serviceprovider-id-code">3.7. Manipulating a specific service provider: <code>serviceprovider#ID</code></a></h3>
+<h3 id="manipulating-a-specific-service-provider-code-serviceprovider-id-code"><a class="link" href="#manipulating-a-specific-service-provider-code-serviceprovider-id-code">3.9. Manipulating a specific service provider: <code>serviceprovider#ID</code></a></h3>
 <div class="sect3">
-<h4 id="viewing-a-service-provider"><a class="link" href="#viewing-a-service-provider">3.7.1. Viewing a service provider</a></h4>
+<h4 id="viewing-a-service-provider"><a class="link" href="#viewing-a-service-provider">3.9.1. Viewing a service provider</a></h4>
 <div class="paragraph">
 <p>You can view the detailed information of a service provider by its ID.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>serviceprovider$ID view</code></p>
 </div>
-<div class="paragraph">
-<p>Example: <code>serviceprovider#123 view</code></p>
-</div>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>serviceprovider#123 view</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-service-provider"><a class="link" href="#deleting-a-service-provider">3.7.2. Deleting a service provider</a></h4>
+<h4 id="deleting-a-service-provider"><a class="link" href="#deleting-a-service-provider">3.9.2. Deleting a service provider</a></h4>
 <div class="paragraph">
 <p>You can delete a service provider by its ID.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>serviceprovider#ID delete</code></p>
 </div>
-<div class="paragraph">
-<p>Example: <code>serviceprovider#123 delete</code></p>
-</div>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>serviceprovider#123 delete</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
-<h4 id="updating-a-service-provider-profile"><a class="link" href="#updating-a-service-provider-profile">3.7.3. Updating a service provider profile</a></h4>
+<h4 id="updating-a-service-provider-profile"><a class="link" href="#updating-a-service-provider-profile">3.9.3. Updating a service provider profile</a></h4>
 <div class="paragraph">
 <p>You can update the details of a service provider by its ID with new particulars.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>serviceprovider#ID updateprofile [n/COMPANY_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/OFFICE_ADDRESS]</code></p>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
 <ul>
 <li>
 <p><code>serviceprovider#123 updateprofile p/98765432</code> (updates `serviceprovider#123&#8217;s phone number)</p>
@@ -309,20 +511,28 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><code>serviceprovider#123 updateprofile e/janedoe@gmail.com a/batcave</code> (updates `serviceprovider#123&#8217;s email address and office address)</p>
 </li>
 </ul>
-</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
-<h4 id="adding-a-service-type-supported-by-service-provider"><a class="link" href="#adding-a-service-type-supported-by-service-provider">3.7.4. Adding a service type supported by service provider</a></h4>
+<h4 id="adding-a-service-type-supported-by-service-provider"><a class="link" href="#adding-a-service-type-supported-by-service-provider">3.9.4. Adding a service type supported by service provider</a></h4>
 <div class="paragraph">
 <p>You can add a service type supported by the service provider by its ID in Singapore Dollars (SGD).</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>serviceprovider#ID addservice t/SERVICE_TYPE p/SERVICE_COST_ESTIMATE</code></p>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
 <ul>
 <li>
 <p><code>serviceprovider#123 addservice t/photography p/2000</code></p>
@@ -331,11 +541,14 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><code>serviceprovider#123 addservice t/catering p/10000</code></p>
 </li>
 </ul>
-</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.8. Listing entered commands: <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.10. Listing entered commands: <code>history</code></a></h3>
 <div class="paragraph">
 <p>You can list all the commands that you have entered in reverse chronological order.</p>
 </div>
@@ -358,7 +571,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-the-previous-command-undo"><a class="link" href="#undo-the-previous-command-undo">3.9. Undo the previous command: 'undo'</a></h3>
+<h3 id="undo-the-previous-command-undo"><a class="link" href="#undo-the-previous-command-undo">3.11. Undo the previous command: 'undo'</a></h3>
 <div class="paragraph">
 <p>You can undo the most recent command.</p>
 </div>
@@ -367,7 +580,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="redo-the-most-recent-command-undone-redo"><a class="link" href="#redo-the-most-recent-command-undone-redo">3.10. Redo the most recent command undone: 'redo'</a></h3>
+<h3 id="redo-the-most-recent-command-undone-redo"><a class="link" href="#redo-the-most-recent-command-undone-redo">3.12. Redo the most recent command undone: 'redo'</a></h3>
 <div class="paragraph">
 <p>You can redo the most recent command that was undone by undo.</p>
 </div>
@@ -376,7 +589,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.11. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.</p>
 </div>
@@ -385,7 +598,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.12. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.14. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.</p>
 </div>
@@ -393,20 +606,31 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>There is no need for you to save manually.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.13. Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
 <div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/faqpicture.png" alt="faqpicture" width="400">
+</div>
+</div>
 <div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<p><strong><span class="red">Q</strong></span>: <span class="red">How do I transfer my data to another Computer?</span><br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
+<div class="paragraph">
+<p><strong><span class="red">Q</strong></span>: <span class="red">What platform is this application available on?</span><br>
+<strong>A</strong>: This application is cross-platform, and can be used on both Windows and Mac OS.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 06:56:42 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p><strong><span class="red">Q</strong></span>: <span class="red">Is this application free-of-charge?</span><br>
+<strong>A</strong>: Yes, this application is open-source and can be use for free, even commercially.</p>
+</div>
+<div class="paragraph">
+<p><strong><span class="red">Q</strong></span>: <span class="red">How can I report an issue?</span><br>
+<strong>A</strong>: You can raise an issue in the issue section and our team will get back to you as soon as possbile.</p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 10:24:12 UTC</div></div></div></body></html>
