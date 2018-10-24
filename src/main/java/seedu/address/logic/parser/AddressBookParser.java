@@ -26,7 +26,7 @@ public class AddressBookParser {
      * Used for initial separation of command word and args.
      */
     private static final Pattern COMMAND_FORMAT =
-            Pattern.compile("(?<firstWord>[a-zA-Z]+)#?(?<identifier>[\\d]+)?(?<secondWord>[\\s](?!./)"
+            Pattern.compile("(?<firstWord>[a-zA-Z]+)#?(?<identifier>[\\d]+)?(?<secondWord>[\\s]+(?!./)"
                     + "[a-zA-Z]+)?(?<arguments>.*)");
 
     /**
@@ -65,7 +65,7 @@ public class AddressBookParser {
         if (secondWord == null) {
             commandWord = firstWord;
         } else {
-            commandWord =  String.format("%s%s", firstWord, secondWord);
+            commandWord =  String.format("%s %s", firstWord, secondWord.trim());
         }
 
         return commandWord;
