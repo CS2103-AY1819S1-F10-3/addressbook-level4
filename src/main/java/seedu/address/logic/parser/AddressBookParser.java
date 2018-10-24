@@ -6,20 +6,14 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.DeleteCommand;
-import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
-import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.LoginCommand;
 import seedu.address.logic.commands.MatchMakeCommand;
 import seedu.address.logic.commands.RedoCommand;
-import seedu.address.logic.commands.RegisterAccountCommand;
-import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -31,10 +25,6 @@ public class AddressBookParser {
     /**
      * Used for initial separation of command word and args.
      */
-    private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
-    private static final Pattern SECONDARY_COMMAND_FORMAT =
-            Pattern.compile("(?<commandWord>[a-zA-Z]+)(?<identifier>[#\\d]+)?[\\s]?(?<helperCommandWord>[a-zA-Z]+)?"
-                    + "(?<arguments>.*)");
     private static final Pattern COMMAND_FORMAT =
             Pattern.compile("(?<firstWord>[a-zA-Z]+)#?(?<identifier>[\\d]+)?(?<secondWord>[\\s](?!./)"
                     + "[a-zA-Z]+)?(?<arguments>.*)");
@@ -53,7 +43,6 @@ public class AddressBookParser {
 
         final String commandWord = getCommandWord(matcher.group("firstWord"), matcher.group("secondWord"));
         final String arguments = matcher.group("arguments");
-        System.out.println(arguments);
         switch (commandWord) {
 
         case LoginCommand.COMMAND_WORD:
@@ -61,6 +50,9 @@ public class AddressBookParser {
 
         case HelpCommand.COMMAND_WORD:
             return new HelpCommand();
+
+        case ExitCommand.COMMAND_WORD:
+            return new ExitCommand();
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
@@ -75,9 +67,6 @@ public class AddressBookParser {
         } else {
             commandWord =  String.format("%s%s", firstWord, secondWord);
         }
-
-        System.out.println(firstWord);
-        System.out.println(secondWord);
 
         return commandWord;
 
@@ -105,17 +94,8 @@ public class AddressBookParser {
 
         final String commandWord = getCommandWord(firstWord, secondWord);
 
-        System.out.println(firstWord);
-        System.out.println(secondWord);
-        System.out.println(identifier);
-        System.out.println(arguments);
-
+        //TODO: do away with new String cases
         switch (commandWord) {
-        case "login":
-            return new LoginCommandParser().parse(arguments);
-
-        case "help":
-            return new HelpCommand();
 
         case "registeraccount":
             return new RegisterAccountCommandParser().parse(arguments);
@@ -141,6 +121,9 @@ public class AddressBookParser {
 
         case RedoCommand.COMMAND_WORD:
             return new RedoCommand();
+            
+        case HelpCommand.COMMAND_WORD:
+            return new HelpCommand();
 
         case "client add":
             return new AddClientCommandParser().parse(arguments);
