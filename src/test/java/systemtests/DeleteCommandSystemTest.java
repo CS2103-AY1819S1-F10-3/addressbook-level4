@@ -137,7 +137,7 @@ public class DeleteCommandSystemTest extends AddressBookSystemTest {
 
         //TODO: Update command input
         assertCommandSuccess(
-                "client" + toDelete.getOneBased() + " " + DeleteCommand.COMMAND_WORD,
+                "client#" + toDelete.getOneBased() + " " + DeleteCommand.COMMAND_WORD,
                 expectedModel, expectedResultMessage);
     }
 
