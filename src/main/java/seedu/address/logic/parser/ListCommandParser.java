@@ -25,7 +25,7 @@ public abstract class ListCommandParser implements Parser<ListCommand> {
 
     /**
      * Creates a {@code ArgumentMultimap} using the arguments from the input.
-     * @param args The arguments from the input
+     * @param args The arguments from the input hi
      * @return the {@code ArgumentMultimap} generated using the input arguments.
      * @throws ParseException If a legal {@code ArgumentMultimap} is not able to be created due to an invalid command
      *     format.
