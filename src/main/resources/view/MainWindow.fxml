@@ -11,58 +11,159 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.Scene?>
 <?import javafx.stage.Stage?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
 <fx:root type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-         minWidth="450" minHeight="600" onCloseRequest="#handleExit">
-  <icons>
-    <Image url="@/images/address_book_32.png" />
-  </icons>
-  <scene>
-    <Scene>
-      <stylesheets>
-        <URL value="@DarkTheme.css" />
-        <URL value="@Extensions.css" />
-      </stylesheets>
+         minWidth="1000" minHeight="700" onCloseRequest="#handleExit">
+    <icons>
+        <Image url="@/images/address_book_32.png" />
+    </icons>
+    <scene>
+        <Scene>
+            <stylesheets>
+                <URL value="@MainTheme.css" />
+                <URL value="@Extensions.css" />
+            </stylesheets>
 
-      <VBox>
-        <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
-          <Menu mnemonicParsing="false" text="File">
-            <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
-          </Menu>
-        </MenuBar>
+            <VBox>
+                <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
+                    <Menu mnemonicParsing="false" text="File">
+                        <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+                    </Menu>
+                    <Menu mnemonicParsing="false" text="Help">
+                        <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
+                    </Menu>
+                </MenuBar>
 
-        <StackPane VBox.vgrow="NEVER" fx:id="commandBoxPlaceholder" styleClass="pane-with-border">
-          <padding>
-            <Insets top="5" right="10" bottom="5" left="10" />
-          </padding>
-        </StackPane>
+                <StackPane VBox.vgrow="NEVER" fx:id="commandBoxPlaceholder" styleClass="pane-with-border">
+                    <padding>
+                        <Insets top="5" right="10" bottom="5" left="10" />
+                    </padding>
+                </StackPane>
 
-        <StackPane VBox.vgrow="NEVER" fx:id="resultDisplayPlaceholder" styleClass="pane-with-border"
-                   minHeight="100" prefHeight="100" maxHeight="100">
-          <padding>
-            <Insets top="5" right="10" bottom="5" left="10" />
-          </padding>
-        </StackPane>
+                <StackPane VBox.vgrow="NEVER" fx:id="resultDisplayPlaceholder" styleClass="pane-with-border"
+                           minHeight="100" prefHeight="100" maxHeight="100">
+                    <padding>
+                        <Insets top="5" right="10" bottom="5" left="10" />
+                    </padding>
+                </StackPane>
 
-        <SplitPane id="splitPane" fx:id="splitPane" dividerPositions="0.4" VBox.vgrow="ALWAYS">
-          <VBox fx:id="personList" minWidth="340" prefWidth="340" SplitPane.resizableWithParent="false">
-            <padding>
-              <Insets top="10" right="10" bottom="10" left="10" />
-            </padding>
-            <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
-          </VBox>
+                <SplitPane id="splitPane" fx:id="splitPane" dividerPositions="0.4, 0.4" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="personList" minWidth="200" prefWidth="200" SplitPane.resizableWithParent="false">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10" />
+                        </padding>
+                        <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+                    </VBox>
 
-          <StackPane fx:id="browserPlaceholder" prefWidth="340" >
-            <padding>
-              <Insets top="10" right="10" bottom="10" left="10" />
-            </padding>
-          </StackPane>
-        </SplitPane>
+                    <ScrollPane fx:id="ClientSummaryTable" minWidth="600" prefWidth="1000">
+                        <HBox fx:id="serviceLists" minWidth="700" prefWidth="1420" fillHeight="true">
+                            <TitledPane collapsible="false" contentDisplay="TOP" prefWidth="200.0" minHeight="1000" text="Photographer">
+                                <VBox fx:id="photoList" minWidth="200" prefWidth="200" SplitPane.resizableWithParent="false">
+                                    <padding>
+                                        <Insets top="0" right="0" bottom="0" left="0" />
+                                    </padding>
+                                    <StackPane fx:id="photoListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+                                </VBox>
+                                <graphic>
+                                    <ImageView opacity="0.65" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                        <Image url="@/images/ic_photographer.png"/>
+                                    </ImageView>
+                                </graphic>
+                            </TitledPane>
+                            <TitledPane collapsible="false" contentDisplay="TOP" prefWidth="200.0" minHeight="1000" text="Hotel">
+                                <VBox fx:id="hotelList" minWidth="200" prefWidth="200" SplitPane.resizableWithParent="false">
+                                    <padding>
+                                        <Insets top="0" right="0" bottom="0" left="0" />
+                                    </padding>
+                                    <StackPane fx:id="hotelListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+                                </VBox>
+                                <graphic>
+                                    <ImageView opacity="0.65" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                        <Image url="@/images/ic_hotel.png"/>
+                                    </ImageView>
+                                </graphic>
+                            </TitledPane>
+                            <TitledPane collapsible="false" contentDisplay="TOP" prefWidth="200.0" minHeight="1000" text="Catering">
+                                <VBox fx:id="cateringList" minWidth="200" prefWidth="200" SplitPane.resizableWithParent="false">
+                                    <padding>
+                                        <Insets top="0" right="0" bottom="0" left="0" />
+                                    </padding>
+                                    <StackPane fx:id="cateringListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+                                </VBox>
+                                <graphic>
+                                    <ImageView opacity="0.65" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                        <Image url="@/images/ic_catering.png"/>
+                                    </ImageView>
+                                </graphic>
+                            </TitledPane>
+                            <TitledPane collapsible="false" contentDisplay="TOP" prefWidth="200.0" minHeight="1000" text="Dress">
+                                <VBox fx:id="dressList" minWidth="200" prefWidth="200" SplitPane.resizableWithParent="false">
+                                    <padding>
+                                        <Insets top="0" right="0" bottom="0" left="0" />
+                                    </padding>
+                                    <StackPane fx:id="dressListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+                                </VBox>
+                                <graphic>
+                                    <ImageView opacity="0.65" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                        <Image url="@/images/ic_dress.png"/>
+                                    </ImageView>
+                                </graphic>
+                            </TitledPane>
+                            <TitledPane collapsible="false" contentDisplay="TOP" prefWidth="200.0" minHeight="1000" text="Ring">
+                                <VBox fx:id="ringList" minWidth="200" prefWidth="200" SplitPane.resizableWithParent="false">
+                                    <padding>
+                                        <Insets top="0" right="0" bottom="0" left="0" />
+                                    </padding>
+                                    <StackPane fx:id="ringListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+                                </VBox>
+                                <graphic>
+                                    <ImageView opacity="0.65" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                        <Image url="@/images/ic_ring.png"/>
+                                    </ImageView>
+                                </graphic>
+                            </TitledPane>
+                            <TitledPane collapsible="false" contentDisplay="TOP" prefWidth="200.0" minHeight="1000" text="Transport">
+                                <VBox fx:id="transportList" minWidth="200" prefWidth="200" SplitPane.resizableWithParent="false">
+                                    <padding>
+                                        <Insets top="0" right="0" bottom="0" left="0" />
+                                    </padding>
+                                    <StackPane fx:id="transportListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+                                </VBox>
+                                <graphic>
+                                    <ImageView opacity="0.65" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                        <Image url="@/images/ic_transport.png"/>
+                                    </ImageView>
+                                </graphic>
+                            </TitledPane>
+                            <TitledPane collapsible="false" contentDisplay="TOP" prefWidth="200.0" minHeight="1000" text="Invitation">
+                                <VBox fx:id="invitationList" minWidth="200" prefWidth="200" SplitPane.resizableWithParent="false">
+                                    <padding>
+                                        <Insets top="0" right="0" bottom="0" left="0" />
+                                    </padding>
+                                    <StackPane fx:id="invitationListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+                                </VBox>
+                                <graphic>
+                                    <ImageView opacity="0.65" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                        <Image url="@/images/ic_invitation.png"/>
+                                    </ImageView>
+                                </graphic>
+                            </TitledPane>
+                        </HBox>
+                    </ScrollPane>
 
-        <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" />
-      </VBox>
-    </Scene>
-  </scene>
+
+                    <StackPane fx:id="browserPlaceholder" minWidth="340" prefWidth="340" >
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10" />
+                        </padding>
+                    </StackPane>
+                </SplitPane>
+
+                <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" />
+            </VBox>
+        </Scene>
+    </scene>
 </fx:root>

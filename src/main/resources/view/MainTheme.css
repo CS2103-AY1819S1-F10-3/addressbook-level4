@@ -173,6 +173,11 @@
     -fx-text-fill: white;
 }
 
+.titled-pane > .title {
+    -fx-background-color: derive(#f7d2e0, 30%);
+    -fx-alignment: top-center;
+}
+
 .grid-pane {
     -fx-background-color: derive(#1d1d1d, 30%);
     -fx-border-color: derive(#1d1d1d, 30%);
@@ -317,11 +322,12 @@
 }
 
 #commandTextField {
-    -fx-background-color: transparent #383838 transparent #383838;
+    -fx-background-color: transparent #ffffff transparent #ffffff;
     -fx-background-insets: 0;
-    -fx-border-color: #383838 #383838 #ffffff #383838;
+    -fx-border-color: #F7D2E0 #F7D2E0 #ffffff #F7D2E0;
     -fx-border-insets: 0;
     -fx-border-width: 1;
+    -fx-border-radius: 20;
     -fx-font-family: "Segoe UI Light";
     -fx-font-size: 13pt;
     -fx-text-fill: white;
