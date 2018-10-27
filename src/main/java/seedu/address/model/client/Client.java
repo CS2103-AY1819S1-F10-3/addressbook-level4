@@ -14,12 +14,21 @@ import seedu.address.model.tag.Tag;
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Client extends Contact {
+    public static int CID = 1;
+
+    private final int ID;
 
     /**
      * Every field must be present and not null.
      */
     public Client(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
         super(name, phone, email, address, tags);
+        this.ID = CID++;
+    }
+
+    @Override
+    public int getID() {
+        return ID;
     }
 
     /**

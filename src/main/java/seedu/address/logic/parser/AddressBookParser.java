@@ -6,22 +6,17 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.DeleteCommand;
-import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
-import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.LoginCommand;
 import seedu.address.logic.commands.MatchMakeCommand;
 import seedu.address.logic.commands.RedoCommand;
-import seedu.address.logic.commands.RegisterAccountCommand;
-import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.ContactType;
 
 /**
  * Parses user input.
@@ -31,10 +26,9 @@ public class AddressBookParser {
     /**
      * Used for initial separation of command word and args.
      */
-    private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
-    private static final Pattern SECONDARY_COMMAND_FORMAT =
-            Pattern.compile("(?<commandWord>[a-zA-Z]+)(?<identifier>[#\\d]+)?[\\s]?(?<helperCommandWord>[a-zA-Z]+)?"
-                    + "(?<arguments>.*)");
+    private static final Pattern COMMAND_FORMAT =
+            Pattern.compile("(?<firstWord>[a-zA-Z]+)(?<identifier>#[\\d\\w-]+)?(?<secondWord>[\\s]+(?!./)"
+                    + "[a-zA-Z]+)?(?<arguments>.*)");
 
     /**
      * Parses user input into command for execution. This method is use before user has successfully logged in.
@@ -43,12 +37,12 @@ public class AddressBookParser {
      * @throws ParseException if the user input does not conform the expected format.
      */
     public Command parseCommandBeforeLoggedIn(String userInput) throws ParseException {
-        final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
+        final Matcher matcher = COMMAND_FORMAT.matcher(userInput.trim());
         if (!matcher.matches()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
         }
 
-        final String commandWord = matcher.group("commandWord");
+        final String commandWord = getCommandWord(matcher.group("firstWord"), matcher.group("secondWord"));
         final String arguments = matcher.group("arguments");
         switch (commandWord) {
 
@@ -58,11 +52,33 @@ public class AddressBookParser {
         case HelpCommand.COMMAND_WORD:
             return new HelpCommand();
 
+        case ExitCommand.COMMAND_WORD:
+            return new ExitCommand();
+
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
 
+    private String requireStringNonNull(String str) throws ParseException {
+        if (str == null) {
+            throw new ParseException(MESSAGE_INVALID_COMMAND_FORMAT);
+        }
+
+        return str;
+    }
+
+    private String getCommandWord(String firstWord, String secondWord) {
+        String commandWord;
+
+        if (secondWord == null) {
+            commandWord = firstWord;
+        } else {
+            commandWord =  String.format("%s %s", firstWord, secondWord.trim());
+        }
+
+        return commandWord;
+    }
 
     /**
      * Parses user input into command for execution. This method will only be called after
@@ -73,62 +89,26 @@ public class AddressBookParser {
      * @throws ParseException if the user input does not conform the expected format
      */
     public Command parseCommand(String userInput) throws ParseException {
-        final Matcher matcher = SECONDARY_COMMAND_FORMAT.matcher(userInput.trim());
+        final Matcher matcher = COMMAND_FORMAT.matcher(userInput.trim());
         if (!matcher.matches()) {
             //TODO: update HelpCommand.MESSAGE_USAGE
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
         }
 
-        final String commandWord = matcher.group("commandWord");
+        final String firstWord = matcher.group("firstWord");
         final String identifier = matcher.group("identifier");
-        final String helperCommandWord = matcher.group("helperCommandWord");
+        final String secondWord = matcher.group("secondWord");
         final String arguments = matcher.group("arguments");
+
+        final String commandWord = getCommandWord(firstWord, secondWord);
+
+        //TODO: do away with new String cases
         switch (commandWord) {
-        //TODO: abstract out "client" and "serviceprovider" string here and tidy up code here
-        case "client":
-            switch (helperCommandWord) {
 
-            case AddCommand.COMMAND_WORD:
-                return new AddClientCommandParser().parse(arguments);
-
-            case ListCommand.COMMAND_WORD:
-                return new ListClientCommandParser().parse(arguments);
-
-            case DeleteCommand.COMMAND_WORD:
-                return new DeleteCommandParser().parse(arguments);
-
-            default:
-                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
-            }
-
-        case "serviceprovider":
-            switch (helperCommandWord) {
-
-            case AddCommand.COMMAND_WORD:
-                return new AddServiceProviderCommandParser().parse(arguments);
-
-            case ListCommand.COMMAND_WORD:
-                return new ListServiceProviderCommandParser().parse(arguments);
-
-            case DeleteCommand.COMMAND_WORD:
-                return new DeleteCommandParser().parse(arguments);
-
-            default:
-                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
-            }
-
-        case RegisterAccountCommand.COMMAND_WORD:
+        case "registeraccount":
             return new RegisterAccountCommandParser().parse(arguments);
 
-        case LoginCommand.COMMAND_WORD:
-            throw new ParseException("Already logged in.");
-
-        case EditCommand.COMMAND_WORD:
-            //TODO: edit command right now does edits to current list showing.
-            //TODO: syntax for command should be client#xx/serviceprovider#xx update ...
-            return new EditCommandParser().parse(arguments);
-
-        case SelectCommand.COMMAND_WORD:
+        case "select":
             return new SelectCommandParser().parse(arguments);
 
         case MatchMakeCommand.COMMAND_WORD:
@@ -144,14 +124,41 @@ public class AddressBookParser {
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
 
-        case HelpCommand.COMMAND_WORD:
-            return new HelpCommand();
-
         case UndoCommand.COMMAND_WORD:
             return new UndoCommand();
 
         case RedoCommand.COMMAND_WORD:
             return new RedoCommand();
+            
+        case HelpCommand.COMMAND_WORD:
+            return new HelpCommand();
+
+        case "client add":
+            return new AddClientCommandParser().parse(arguments);
+
+        case "client delete":
+            return new DeleteCommandParser(ContactType.CLIENT).parse(requireStringNonNull(identifier).substring(1));
+
+        case "client list":
+            return new ListClientCommandParser().parse(arguments);
+
+        case "client update":
+            return new EditCommandParser(ContactType.CLIENT)
+                    .parse(String.format("%s %s", requireStringNonNull(identifier).substring(1), arguments));
+
+        case "serviceprovider add":
+            return new AddServiceProviderCommandParser().parse(arguments);
+
+        case "serviceprovider delete":
+            return new DeleteCommandParser(ContactType.SERVICE_PROVIDER)
+                    .parse(requireStringNonNull(identifier).substring(1));
+
+        case "serviceprovider list":
+            return new ListServiceProviderCommandParser().parse(arguments);
+
+        case "serviceprovider update":
+            return new EditCommandParser(ContactType.SERVICE_PROVIDER)
+                    .parse(String.format("%s %s", requireStringNonNull(identifier). substring(1), arguments));
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
