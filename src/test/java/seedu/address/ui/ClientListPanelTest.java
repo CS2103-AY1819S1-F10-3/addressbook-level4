@@ -99,7 +99,6 @@ public class ClientListPanelTest extends GuiUnitTest {
             builder.append("<phone>000</phone>\n");
             builder.append("<email>a@aa</email>\n");
             builder.append("<address>a</address>\n");
-            builder.append("<type>CLIENT</type>\n");
             builder.append("</persons>\n");
         }
         builder.append("</addressbook>\n");

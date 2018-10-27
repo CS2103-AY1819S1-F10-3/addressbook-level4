@@ -8,6 +8,5 @@
         <street></street>
         <postalCode></postalCode>
         <city></city>
-        <type>CLIENT</type>
     </persons>
 </addressbook>
