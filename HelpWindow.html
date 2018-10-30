@@ -366,15 +366,30 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </table>
 </div>
 <div class="sect3">
-<h4 id="adding-a-service-request-from-a-client"><a class="link" href="#adding-a-service-request-from-a-client">3.7.4. Adding a service request from a client</a></h4>
+<h4 id="adding-a-service-requirement-for-a-client"><a class="link" href="#adding-a-service-requirement-for-a-client">3.7.4. Adding a service requirement for a client</a></h4>
 <div class="paragraph">
-<p>You can add requests for a service from a client. You must specify the budget which will be in Singapore Dollars (SGD).</p>
+<p>You can add a service requirement for a client by the client&#8217;s id.
+You must specify the cost which will be in <em>Singapore Dollars (SGD)</em>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Please exclude spacing and symbols (e.g. '$' ',') when entering the cost</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Format: <code>client#id addservice t/SERVICE_TYPE p/SERVICE_BUDGET</code></p>
+<p>Format: <code>client#id addservice s/SERVICE_TYPE c/SERVICE_COST_BUDGET</code></p>
 </div>
 <div class="paragraph">
-<p>Service Types <code>SERVICE_TYPE</code>:</p>
+<p>Available Service Types <code>SERVICE_TYPE</code>:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -382,10 +397,22 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><code>photography</code></p>
 </li>
 <li>
+<p><code>hotel</code></p>
+</li>
+<li>
 <p><code>catering</code></p>
 </li>
 <li>
-<p><code>hosting</code></p>
+<p><code>dress</code></p>
+</li>
+<li>
+<p><code>ring</code></p>
+</li>
+<li>
+<p><code>transport</code></p>
+</li>
+<li>
+<p><code>invitation</code></p>
 </li>
 </ul>
 </div>
@@ -400,10 +427,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <td class="tableblock halign-left valign-top"><div><div class="ulist">
 <ul>
 <li>
-<p><code>client#id addservice t/photography p/2000</code></p>
+<p><code>client#123 addservice s/photography c/2000</code></p>
 </li>
 <li>
-<p><code>client#id addservice t/catering p/10000</code></p>
+<p><code>client#123 addservice s/catering c/10000</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -519,10 +546,25 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect3">
 <h4 id="adding-a-service-type-supported-by-service-provider"><a class="link" href="#adding-a-service-type-supported-by-service-provider">3.9.4. Adding a service type supported by service provider</a></h4>
 <div class="paragraph">
-<p>You can add a service type supported by the service provider by its id in Singapore Dollars (SGD).</p>
+<p>You can add a service type supported by the service provider by its id.
+You must specify the cost which will be in <em>Singapore Dollars (SGD)</em>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Please exclude spacing and symbols (e.g. '$' ',') when entering the cost</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Format: <code>serviceprovider#id addservice t/SERVICE_TYPE p/SERVICE_COST_ESTIMATE</code></p>
+<p>Format: <code>serviceprovider#id addservice s/SERVICE_TYPE c/SERVICE_COST_ESTIMATE</code></p>
 </div>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
@@ -535,10 +577,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <td class="tableblock halign-left valign-top"><div><div class="ulist">
 <ul>
 <li>
-<p><code>serviceprovider#123 addservice t/photography p/2000</code></p>
+<p><code>serviceprovider#123 addservice s/photography c/2000</code></p>
 </li>
 <li>
-<p><code>serviceprovider#123 addservice t/catering p/10000</code></p>
+<p><code>serviceprovider#123 addservice s/catering c/10000</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -633,4 +675,4 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <strong>A</strong>: You can raise an issue in the issue section and our team will get back to you as soon as possbile.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-29 16:03:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 08:18:55 UTC</div></div></div></body></html>
