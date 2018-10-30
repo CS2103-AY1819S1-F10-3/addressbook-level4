@@ -4,11 +4,11 @@
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/userguideimage.png" alt="userguideimage" width="700">
+<img src="images/userguide.png" alt="userguide" width="700">
 </div>
 </div>
 <div class="paragraph">
-<p>By: <code>Team Heart²</code>      Since: <code>Aug 2018</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team Heart²</code>      Since: <code>Aug 2018</code>      Last updated: <code>November 2018</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -21,8 +21,8 @@
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#logging-in-code-login-code">3.2. Logging in : <code>login</code></a></li>
 <li><a href="#logging-out-code-logout-code">3.3. Logging out : <code>logout</code></a></li>
-<li><a href="#logging-in-code-register-account-code">3.4. Logging in : <code>register account</code></a></li>
-<li><a href="#logging-in-code-change-password-code">3.5. Logging in : <code>change password</code></a></li>
+<li><a href="#registering-a-new-account-code-register-account-code">3.4. Registering a new account : <code>register account</code></a></li>
+<li><a href="#change-the-current-password-code-change-password-code">3.5. Change the current password : <code>change password</code></a></li>
 <li><a href="#manipulating-all-clients-code-client-code">3.6. Manipulating all clients: <code>client</code></a></li>
 <li><a href="#manipulating-a-specific-client-code-client-id-code">3.7. Manipulating a specific client: <code>client#id</code></a></li>
 <li><a href="#manipulating-all-service-providers-code-serviceprovider-code">3.8. Manipulating all service providers: <code>serviceprovider</code></a></li>
@@ -55,6 +55,9 @@ You can find suitable wedding service providers for couples using just a few key
 <div class="sect1">
 <h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section provides a quick overview to get you started with the application.</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -88,6 +91,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect1">
 <h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The following format is consistent for all the commands listed in this section.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/format.png" alt="format" width="256">
@@ -143,7 +149,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="logging-in-code-login-code"><a class="link" href="#logging-in-code-login-code">3.2. Logging in : <code>login</code></a></h3>
 <div class="paragraph">
-<p>Securely logs you in to access the system.</p>
+<p>Securely logs you in to access the system. By default, a root account with <code>SUPER_USER</code> privilege is provided, using the username <code>rootUser</code> and password <code>rootPassword</code>.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>login u/USERNAME p/PASSWORD</code></p>
@@ -173,25 +179,30 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging-in-code-register-account-code"><a class="link" href="#logging-in-code-register-account-code">3.4. Logging in : <code>register account</code></a></h3>
+<h3 id="registering-a-new-account-code-register-account-code"><a class="link" href="#registering-a-new-account-code-register-account-code">3.4. Registering a new account : <code>register account</code></a></h3>
 <div class="paragraph">
-<p>Register an account for this application.</p>
+<p>Register a new account for this application. You can only register a new account via an account with <code>SUPER_USER</code> privilege. By default, <code>rootUser</code> is a default account with <code>SUPER_USER</code> privilege.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It may sound counter-intuitive to require an account before registering a new account. We make this requirement as only authorised personal should be given an account. Ideally, the owner of the application should dictate the account given to employees by helping them register an account.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Format: <code>register account u/USERNAME p/PASSWORD r/ROLE</code></p>
 </div>
 <div class="paragraph">
-<p>role <code>ROLE</code>:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>superuser</code></p>
-</li>
-<li>
-<p><code>readonlyuser</code></p>
-</li>
-</ul>
+<p><code>r/ROLE</code>:
+either
+<code>r/superuser</code>
+ or <code>r/readonlyuser</code> to create a <code>SUPER_USER</code> account or <code>READ_ONLY_USER</code> account respectively.</p>
 </div>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
@@ -209,12 +220,27 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </table>
 </div>
 <div class="sect2">
-<h3 id="logging-in-code-change-password-code"><a class="link" href="#logging-in-code-change-password-code">3.5. Logging in : <code>change password</code></a></h3>
+<h3 id="change-the-current-password-code-change-password-code"><a class="link" href="#change-the-current-password-code-change-password-code">3.5. Change the current password : <code>change password</code></a></h3>
 <div class="paragraph">
-<p>Change your current account password.</p>
+<p>Change your current account password from an old password to a new password.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>change password o/yourOldP@ssw0rd n/n3wP@ssw0rd</code></p>
+<p>Condition: your old password is typed in correctly, and new password should not be the same as old password.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Make sure your new password is typed correctly. There is no confirmation prompt once you execute the command.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>change password o/YOUR_OLD_PASSWORD n/YOUR_NEW_PASSWORD</code></p>
 </div>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
@@ -675,4 +701,4 @@ You must specify the cost which will be in <em>Singapore Dollars (SGD)</em>.</p>
 <strong>A</strong>: You can raise an issue in the issue section and our team will get back to you as soon as possbile.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 08:19:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 13:20:36 UTC</div></div></div></body></html>
