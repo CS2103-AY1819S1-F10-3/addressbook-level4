@@ -34,7 +34,7 @@ developers of all levels learn more about the workings behind the scenes and how
 </div>
 </div>
 <div class="paragraph">
-<p>Callouts are a rectangular box with icon and words to point out some information. Below are the 3 call outs that will be used consistently throughout this document:</p>
+<p>Callouts are a rectangular box with icon and words to point out some information. Below are the 3 callouts that will be used consistently throughout this document:</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -43,7 +43,7 @@ developers of all levels learn more about the workings behind the scenes and how
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This represents a <strong>note</strong>. A note is information that may be important, but may not be applicable to you. Be sure to read a note and see if it is applicable to you.
+This represents a <strong>note</strong>. A note is information that is important, but may not be applicable to you. Be sure to read a note and see if it is applicable to you.
 </td>
 </tr>
 </table>
@@ -94,7 +94,8 @@ This represents a <strong>warning</strong>. You should be extremely cautious and
 <li><a href="#Design-Logic">3.3. Logic component</a></li>
 <li><a href="#Design-Model">3.4. Model component</a></li>
 <li><a href="#Design-Storage">3.5. Storage component</a></li>
-<li><a href="#Design-Commons">3.6. Common classes</a></li>
+<li><a href="#account-storage-component">3.6. Account Storage component</a></li>
+<li><a href="#Design-Commons">3.7. Common classes</a></li>
 </ul>
 </li>
 <li><a href="#implementation">4. Implementation</a>
@@ -104,13 +105,14 @@ This represents a <strong>warning</strong>. You should be extremely cautious and
 <li><a href="#logging">4.3. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.4. Configuration</a></li>
 <li><a href="#login-feature">4.5. Login Feature</a></li>
-<li><a href="#account-creation-and-account-storage-feature">4.6. Account creation and account storage Feature</a></li>
-<li><a href="#add-clients-and-service-providers-feature">4.7. Add clients and service providers feature</a></li>
-<li><a href="#remove-clients-and-service-providers-feature">4.8. Remove clients and service providers feature</a></li>
-<li><a href="#edit-clients-and-service-provider-feature">4.9. Edit clients and service provider feature</a></li>
-<li><a href="#viewing-search-results-coming-in-v2-0">4.10. Viewing Search Results [Coming in v2.0]</a></li>
-<li><a href="#list-feature">4.11. List Feature</a></li>
-<li><a href="#finding-matches-between-clients-and-service-providers">4.12. Finding matches between clients and service providers</a></li>
+<li><a href="#account-creation">4.6. Account creation</a></li>
+<li><a href="#account-storage">4.7. Account storage</a></li>
+<li><a href="#add-clients-and-service-providers-feature">4.8. Add clients and service providers feature</a></li>
+<li><a href="#remove-clients-and-service-providers-feature">4.9. Remove clients and service providers feature</a></li>
+<li><a href="#edit-clients-and-service-provider-feature">4.10. Edit clients and service provider feature</a></li>
+<li><a href="#viewing-search-results-coming-in-v2-0">4.11. Viewing Search Results [Coming in v2.0]</a></li>
+<li><a href="#list-feature">4.12. List Feature</a></li>
+<li><a href="#finding-matches-between-clients-and-service-providers">4.13. Finding matches between clients and service providers</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -674,6 +676,9 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>stores the Address Book data.</p>
 </li>
 <li>
+<p>stores the Account data that was used to log in.</p>
+</li>
+<li>
 <p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
@@ -725,7 +730,38 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
+<h3 id="account-storage-component"><a class="link" href="#account-storage-component">3.6. Account Storage component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/AccountStorageClassDiagram.png" alt="AccountStorageClassDiagram" width="800">
+</div>
+<div class="title">Figure 10. Structure of the Account Storage Component</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-F10-3/main/tree/master/src/main/java/seedu/address/storage/AccountStorage.java"><code>AccountStorage.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>AccountStorage</code> component</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>can save the Account data in xml format and read it back.</p>
+</li>
+<li>
+<p>can populate a default root Account data in xml format if missing</p>
+</li>
+<li>
+<p>can update existing Account password stored in the storage</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.7. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
 </div>
@@ -1010,7 +1046,10 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="images/UiLoginDiagram.png" alt="UiLoginDiagram" width="800">
 </div>
-<div class="title">Figure 10. The login screen when user launches the application.</div>
+<div class="title">Figure 11. The login screen when user launches the application.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <div class="paragraph">
 <p>There are only 3 commands available for user to execute:</p>
@@ -1076,9 +1115,21 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="account-creation-and-account-storage-feature"><a class="link" href="#account-creation-and-account-storage-feature">4.6. Account creation and account storage Feature</a></h3>
+<h3 id="account-creation"><a class="link" href="#account-creation">4.6. Account creation</a></h3>
 <div class="paragraph">
 <p>Account is created for the purpose of logging in and authenticating the user, before the user is allowed to use the application. This protects the confidentiality and data integrity of the application.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+User can only register for an account via an existing account with <code>SUPER_USER</code> privilege. It may sound counter-intuitive to require an account before registering a new account. We make this requirement as only authorised personal should be given an account. Ideally, the owner of the application should dictate the account given to employees by helping them register an account.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="types-of-account"><a class="link" href="#types-of-account">4.6.1. Types of account</a></h4>
@@ -1119,16 +1170,50 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">if</span> (!<span class="predefined-type">Role</span>.hasWritePrivilege()) {
+<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">if</span> (!account.hasWritePrivilege()) {
     <span class="keyword">throw</span> <span class="keyword">new</span> LackOfPrivilegeException(COMMAND_WORD);
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="account-storage"><a class="link" href="#account-storage">4.6.2. Account storage</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-should-the-privilege-be-tied-to-role-enum-or-account-class"><a class="link" href="#aspect-should-the-privilege-be-tied-to-role-enum-or-account-class">Aspect: Should the privilege be tied to Role enum or Account class?</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Account class contains the privileges methods such has <code>hasWritePrivilege</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This makes sense as the type of privilege is tied to the account.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Role enum should contains the privileges methods</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Since Role enum contains all the different roles such as <code>READ_ONLY_USER</code> and <code>SUPER_USER</code>, it is easy to reference all the different types of roles and the privileges in 1 file. This makes adding more roles and privileges in the future easy.</p>
+</li>
+<li>
+<p>Cons: It sounds awkward to have privileges associated with Role rather than with an Account.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="account-storage"><a class="link" href="#account-storage">4.7. Account storage</a></h3>
 <div class="paragraph">
-<p>By default, a root account is hardcoded into the application with the username <code>rootUser</code> and password <code>rootPassword</code> with the role <code>SUPER_USER</code>.</p>
+<p>All accounts are stored in a file call <code>/data/accountlist.xml</code>. This file is generated on the fly during first launch and populated with a root account. By default, a root account is hardcoded into the application with the username <code>rootUser</code> and password <code>rootPassword</code> with the role <code>SUPER_USER</code>.</p>
 </div>
 <div class="paragraph">
 <p>The diagram below shows what happen when a user launches the application:</p>
@@ -1137,7 +1222,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="images/accountstoragediagram.png" alt="accountstoragediagram" width="800">
 </div>
-<div class="title">Figure 11. Activity diagram when user launches the application</div>
+<div class="title">Figure 12. Activity diagram when user launches the application</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -1149,14 +1234,52 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="images/accountcreationdiagram.png" alt="accountcreationdiagram" width="800">
 </div>
-<div class="title">Figure 12. Activity diagram when user registers an account</div>
+<div class="title">Figure 13. Activity diagram when user registers an account</div>
 </div>
 <div class="paragraph">
 <p><br></p>
 </div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.7.1. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-what-file-type-to-store-user-account-as"><a class="link" href="#aspect-what-file-type-to-store-user-account-as">Aspect: What file type to store user account as?</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Store it as a <code>xml</code> file locally.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The code to write and read xml file is already present for adding address book contact initially in the Address Book - level 4 app. Hence, adopting this code and modifying it for account storage is easier than coming up with code from scratch.</p>
+</li>
+<li>
+<p>Cons: Relatively wordy and verbose with all the opening and closing tag. For the same amount of account information, compared to other format such as <code>json</code>, more data has to be stored to account for tag elements.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store it as a <code>json</code> file locally.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simpler syntax than <code>xml</code> and hence less data is required to store the same amount of account information.</p>
+</li>
+<li>
+<p>Pros: Can be parsed into a ready-to-use JavaScript object.</p>
+</li>
+<li>
+<p>Cons: Not familiar with json, hence more effort is needed to write code to store account in json format, compared to the already given code for xml storage.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="security-considerations"><a class="link" href="#security-considerations">4.6.3. Security Considerations</a></h4>
+<h4 id="security-considerations"><a class="link" href="#security-considerations">4.7.2. Security Considerations</a></h4>
 <div class="sect4">
 <h5 id="database"><a class="link" href="#database">Database</a></h5>
 <div class="paragraph">
@@ -1165,10 +1288,10 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Encrypt accountlist.xml:</strong> Prevent direct lookup of the file</p>
+<p><strong>Encrypt accountlist.xml:</strong> This can prevent direct lookup of the file as the content is encrypted</p>
 </li>
 <li>
-<p><strong>Store the file on a server:</strong> Due to project restriction, we are unable to implement this at v1.4.</p>
+<p><strong>Store the file on a server:</strong> Due to project restriction, we are unable to implement this at v1.4. Storing file on a server has an added advantage of utilising web security practises or employing third party services to help protect our account list in private servers.</p>
 </li>
 </ul>
 </div>
@@ -1176,13 +1299,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="sect4">
 <h5 id="storing-password"><a class="link" href="#storing-password">Storing password</a></h5>
 <div class="paragraph">
-<p>Username is stored in plaintext in accountlist.xml. However, user password is hashed with <code>PBKDF2</code> algorithm together with a <code>salt</code>, to prevent password from being visible in plaintext. <code>PBKDF2</code> is deliberately chosen as it is a slower algorithm, thus slowing down brute-force attack for finding out user password.</p>
+<p>Username is stored in plaintext in accountlist.xml, as username is not private information. However, user password is hashed with <code>PBKDF2WithHmacSHA512</code> algorithm together with a <code>salt</code>, to prevent password from being visible in plaintext. <code>PBKDF2WithHmacSHA512</code> is deliberately chosen as it is a <a href="https://adambard.com/blog/3-wrong-ways-to-store-a-password/">slower</a> algorithm, thus slowing down brute-force attack for finding out user password. The hashing algorithm is present in <code>PasswordAuthentication</code> class and the implementation is based off this <a href="http://stackoverflow.com/a/2861125/3474">stackoverflow</a> answer.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-clients-and-service-providers-feature"><a class="link" href="#add-clients-and-service-providers-feature">4.7. Add clients and service providers feature</a></h3>
+<h3 id="add-clients-and-service-providers-feature"><a class="link" href="#add-clients-and-service-providers-feature">4.8. Add clients and service providers feature</a></h3>
 <div class="paragraph">
 <p><strong><em>Heart²</em></strong> allows you to be able to distinguish between clients and service providers.</p>
 </div>
@@ -1206,14 +1329,14 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>This facilitates many other features of <strong><em>Heart²</em></strong> for your convenience!</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">4.7.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.8.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The keyword 'client' or 'serviceprovider' is used to determine whether a 'Client' or a 'ServiceProvider' is instantiated before adding to the contact list. The contact list is a single list containing both 'Client' and 'ServiceProvider' objects. Filters are then applied based on subsequent commands to select only 'client' or 'serviceprovider' objects.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remove-clients-and-service-providers-feature"><a class="link" href="#remove-clients-and-service-providers-feature">4.8. Remove clients and service providers feature</a></h3>
+<h3 id="remove-clients-and-service-providers-feature"><a class="link" href="#remove-clients-and-service-providers-feature">4.9. Remove clients and service providers feature</a></h3>
 <div class="paragraph">
 <p><strong><em>Heart²</em></strong> allows you to remove 'client' and 'serviceprovider' if you so wish to!</p>
 </div>
@@ -1234,14 +1357,14 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>The above commands removes the 'client' in index 1 of the 'client' list and the 'service provider' in index 2 of the 'serviceprovider' list respectively.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">4.8.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">4.9.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The keyword 'client' or 'serviceprovider' is used to determine the context of  whether a 'client' or 'serviceprovider' is to be deleted to select the appropriate contact based on the 'index' specified. The contact in question is then removed from the contact list.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-clients-and-service-provider-feature"><a class="link" href="#edit-clients-and-service-provider-feature">4.9. Edit clients and service provider feature</a></h3>
+<h3 id="edit-clients-and-service-provider-feature"><a class="link" href="#edit-clients-and-service-provider-feature">4.10. Edit clients and service provider feature</a></h3>
 <div class="paragraph">
 <p><strong><em>Heart²</em></strong> allows you to make changes to existing 'client' and 'serviceprovider' too!</p>
 </div>
@@ -1262,7 +1385,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>The above commands will update the name of the first contact to Wai Lua and the phone number of the second contact to 9046 3328 respectively.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">4.9.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.10.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The index specified determines the contact in question. The arguments following the index is parsed and used to create an EditContactDescriptor.
 This EditContactDescriptor is then used in conjunction with the earlier in contact in question to create a new contact. A check on whether the contact is a 'client' or 'serviceprovider' is first performed to create a correct replacement contact, before updating the contact list.</p>
@@ -1270,7 +1393,7 @@ This EditContactDescriptor is then used in conjunction with the earlier in conta
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-search-results-coming-in-v2-0"><a class="link" href="#viewing-search-results-coming-in-v2-0">4.10. Viewing Search Results [Coming in v2.0]</a></h3>
+<h3 id="viewing-search-results-coming-in-v2-0"><a class="link" href="#viewing-search-results-coming-in-v2-0">4.11. Viewing Search Results [Coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>After the user entered the command into the <code>CommandBox</code>, the <code>BrowserPanel</code> would be deployed to list the search results in a tabular form:</p>
 </div>
@@ -1280,7 +1403,7 @@ This EditContactDescriptor is then used in conjunction with the earlier in conta
 </div>
 </div>
 <div class="sect3">
-<h4 id="profile"><a class="link" href="#profile">4.10.1. Profile</a></h4>
+<h4 id="profile"><a class="link" href="#profile">4.11.1. Profile</a></h4>
 <div class="paragraph">
 <p>The client&#8217;s profile would be displayed on the left, so as to facilitate the user in picking the service
 providers while keeping the requirements in mind.</p>
@@ -1291,14 +1414,14 @@ tags at the bottom left.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="tabular-view"><a class="link" href="#tabular-view">4.10.2. Tabular View</a></h4>
+<h4 id="tabular-view"><a class="link" href="#tabular-view">4.11.2. Tabular View</a></h4>
 <div class="paragraph">
 <p>The results would be listed from the most to the least relevant based on the client&#8217;s needs.
 Users can then scroll through the list to view the other results in decreasing relevancy.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.10.3. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.11.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-display-search-results"><a class="link" href="#aspect-how-to-display-search-results">Aspect: How to display search results</a></h5>
 <div class="ulist">
@@ -1336,7 +1459,7 @@ the combination that best suits the client easily</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-feature"><a class="link" href="#list-feature">4.11. List Feature</a></h3>
+<h3 id="list-feature"><a class="link" href="#list-feature">4.12. List Feature</a></h3>
 <div class="paragraph">
 <p>The user can use the <code>list</code> command to list out the various contacts, be it a service provider or a client.</p>
 </div>
@@ -1344,7 +1467,7 @@ the combination that best suits the client easily</p>
 <div class="content">
 <img src="images/ListCommand.png" alt="ListCommand" width="800">
 </div>
-<div class="title">Figure 13. The UI showing the list command</div>
+<div class="title">Figure 14. The UI showing the list command</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -1356,13 +1479,13 @@ the combination that best suits the client easily</p>
 <div class="content">
 <img src="images/ListCommandPhoneNumber.png" alt="ListCommandPhoneNumber" width="800">
 </div>
-<div class="title">Figure 14. The UI showing list filtering</div>
+<div class="title">Figure 15. The UI showing list filtering</div>
 </div>
 <div class="paragraph">
 <p><br></p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">4.11.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">4.12.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command to be used for filtering is parsed and passed to a <code>Predicate</code> that is implemented as <code>EntryContainsKeyWordsPredicate</code>.</p>
 </div>
@@ -1371,7 +1494,7 @@ the combination that best suits the client easily</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.11.2. Design considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.12.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="substring-matching"><a class="link" href="#substring-matching">Substring matching</a></h5>
 <div class="paragraph">
@@ -1390,17 +1513,17 @@ the combination that best suits the client easily</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-matches-between-clients-and-service-providers"><a class="link" href="#finding-matches-between-clients-and-service-providers">4.12. Finding matches between clients and service providers</a></h3>
+<h3 id="finding-matches-between-clients-and-service-providers"><a class="link" href="#finding-matches-between-clients-and-service-providers">4.13. Finding matches between clients and service providers</a></h3>
 <div class="paragraph">
 <p>The application boasts matchmaking features that reduces the (once-laborious) task of matching service providers a single command.</p>
 </div>
 <div class="sect3">
-<h4 id="high-level-design"><a class="link" href="#high-level-design">4.12.1. High level design</a></h4>
+<h4 id="high-level-design"><a class="link" href="#high-level-design">4.13.1. High level design</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/matchmaking.png" alt="width:&quot;800&quot;">
 </div>
-<div class="title">Figure 15. High level overview of how matchmaking works</div>
+<div class="title">Figure 16. High level overview of how matchmaking works</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1414,7 +1537,7 @@ the combination that best suits the client easily</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.12.2. Design considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.13.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-fairly-distribute-jobs-between-service-providers"><a class="link" href="#aspect-how-to-fairly-distribute-jobs-between-service-providers">Aspect: How to fairly distribute jobs between service providers</a></h5>
 <div class="ulist">
@@ -1529,7 +1652,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 16. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 17. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -3423,4 +3546,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 20:16:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 03:08:19 UTC</div></div></div></body></html>
