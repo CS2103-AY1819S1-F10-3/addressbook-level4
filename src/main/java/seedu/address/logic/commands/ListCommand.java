@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.logic.CommandHistory;
+import seedu.address.model.ContactType;
 import seedu.address.model.Model;
 import seedu.address.model.contact.Contact;
 import seedu.address.model.contact.ContactContainsKeywordsPredicate;
@@ -37,12 +38,24 @@ public class ListCommand extends Command {
 
         if (predicate.equals(new ContactContainsKeywordsPredicate())) {
             model.updateFilteredContactList(contactFilter);
-            return new CommandResult(Messages.MESSAGE_LIST_ALL_PERSON);
+            if (contactFilter.equals(ContactType.CLIENT.getFilter())) {
+                return new CommandResult(Messages.MESSAGE_LIST_ALL_CLIENTS);
+            } else {
+                return new CommandResult(Messages.MESSAGE_LIST_ALL_SERVICEPROVIDERS);
+            }
         }
 
         model.updateFilteredContactList(contact -> contactFilter.test(contact) && predicate.test(contact));
+        String resultMessage;
+
+        if (contactFilter.equals(ContactType.CLIENT.getFilter())) {
+            resultMessage = Messages.MESSAGE_CLIENTS_LISTED_OVERVIEW;
+        } else {
+            resultMessage = Messages.MESSAGE_SERVICEPROVIDERS_LISTED_OVERVIEW;
+        }
+
         return new CommandResult(
-                String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredContactList().size()));
+                String.format(resultMessage, model.getFilteredContactList().size()));
     }
 
     @Override

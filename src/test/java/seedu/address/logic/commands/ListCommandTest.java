@@ -3,8 +3,8 @@ package seedu.address.logic.commands;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static seedu.address.commons.core.Messages.MESSAGE_LIST_ALL_PERSON;
-import static seedu.address.commons.core.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
+import static seedu.address.commons.core.Messages.MESSAGE_LIST_ALL_CLIENTS;
+import static seedu.address.commons.core.Messages.MESSAGE_CLIENTS_LISTED_OVERVIEW;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalContacts.ALICE;
 import static seedu.address.testutil.TypicalContacts.BENSON;
@@ -67,7 +67,7 @@ public class ListCommandTest {
 
     @Test
     public void execute_zeroKeywords_everyPersonFound() {
-        String expectedMessage = MESSAGE_LIST_ALL_PERSON;
+        String expectedMessage = MESSAGE_LIST_ALL_CLIENTS;
         ContactContainsKeywordsPredicate predicate = preparePredicate();
         ListCommand command = new ListCommand(predicate, ContactType.CLIENT.getFilter());
         expectedModel.updateFilteredContactList(predicate.and(ContactType.CLIENT.getFilter()));
@@ -79,7 +79,7 @@ public class ListCommandTest {
     public void execute_multipleKeywords_zeroOrOnePersonFound() {
 
         /* Case: List with 3 person's name -> 0 persons found */
-        String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 0);
+        String expectedMessage = String.format(MESSAGE_CLIENTS_LISTED_OVERVIEW, 0);
         ContactContainsKeywordsPredicate predicate = preparePredicate("Kurz Elle Kunz");
         ListCommand command = new ListCommand(predicate, ContactType.CLIENT.getFilter());
         expectedModel.updateFilteredContactList(predicate);
@@ -87,7 +87,7 @@ public class ListCommandTest {
         assertEquals(Arrays.asList(), model.getFilteredContactList());
 
         /* Case: List with 1 person's name -> 1 persons found */
-        expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 1);
+        expectedMessage = String.format(MESSAGE_CLIENTS_LISTED_OVERVIEW, 1);
         predicate = preparePredicate("Benson Meier");
         command = new ListCommand(predicate, ContactType.CLIENT.getFilter());
         expectedModel.updateFilteredContactList(predicate);

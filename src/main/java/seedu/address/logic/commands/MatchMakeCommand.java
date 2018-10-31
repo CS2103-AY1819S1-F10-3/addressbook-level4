@@ -64,7 +64,7 @@ public class MatchMakeCommand extends Command {
         }
 
         return new CommandResult(
-                String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredContactList().size()));
+                String.format(Messages.MESSAGE_CLIENTS_LISTED_OVERVIEW, model.getFilteredContactList().size()));
     }
 
     @Override
