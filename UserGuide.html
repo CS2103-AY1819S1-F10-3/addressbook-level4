@@ -29,7 +29,7 @@
 <li><a href="#manipulating-a-specific-service-provider-code-serviceprovider-id-code">3.9. Manipulating a specific service provider: <code>serviceprovider#id</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">3.10. Listing entered commands: <code>history</code></a></li>
 <li><a href="#undo-the-previous-command-undo">3.11. Undo the previous command: 'undo'</a></li>
-<li><a href="#redo-the-most-recent-command-undone-redo">3.12. Redo the most recent command undone: 'redo'</a></li>
+<li><a href="#redo-the-commands-undone-redo">3.12. Redo the commands undone: 'redo'</a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></li>
 <li><a href="#saving-the-data">3.14. Saving the data</a></li>
 </ul>
@@ -105,10 +105,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional. E.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times. E.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
 </li>
 <li>
 <p>Parameters can be in any order. E.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
@@ -142,6 +142,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<div class="paragraph">
+<p>Opens a new window that contains the user guide to help you find out any information you need.</p>
+</div>
 <div class="paragraph">
 <p>Format: <code>help</code></p>
 </div>
@@ -265,7 +268,7 @@ Make sure your new password is typed correctly. There is no confirmation prompt 
 <p>You can register a client and his/her particulars into the database.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>client add n/FULL_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/HOME_ADDRESS</code></p>
+<p>Format: <code>client add n/FULL_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/HOME_ADDRESS [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
@@ -285,10 +288,11 @@ Make sure your new password is typed correctly. There is no confirmation prompt 
 <div class="sect3">
 <h4 id="listing-and-searching-for-clients"><a class="link" href="#listing-and-searching-for-clients">3.6.2. Listing and searching for clients</a></h4>
 <div class="paragraph">
-<p>You can list all clients in the database if no parameters are provided, otherwise lists all clients matching all of the search parameters.</p>
+<p>You can list all clients in the database if no parameters are provided,
+otherwise lists all clients matching all of the search parameters you provided.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>client list [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS]</code></p>
+<p>Format: <code>client list [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
@@ -367,7 +371,7 @@ Make sure your new password is typed correctly. There is no confirmation prompt 
 <p>You can update a client profile by his/her id with new particulars.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>client#id updateprofile [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS]</code></p>
+<p>Format: <code>client#id updateprofile [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
@@ -473,7 +477,7 @@ You must specify the cost which will be in <em>Singapore Dollars (SGD)</em>.</p>
 <p>You can register a service provider to the system with the necessary particulars.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>serviceprovider add n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/OFFICE_ADDRESS</code></p>
+<p>Format: <code>serviceprovider add n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/OFFICE_ADDRESS [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
@@ -485,6 +489,37 @@ You must specify the cost which will be in <em>Singapore Dollars (SGD)</em>.</p>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p><code>serviceprovider add n/Infinite Studios p/61234567 e/contact@infinitestudios.sg a/123 Infinite Loop</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="listing-and-searching-for-service-providers"><a class="link" href="#listing-and-searching-for-service-providers">3.8.2. Listing and searching for service providers</a></h4>
+<div class="paragraph">
+<p>You can list all service providers in the database if no parameters are provided,
+otherwise it will list all service providers matching all of the search parameters you provided.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>serviceprovider list [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p><code>serviceprovider list</code></p>
+</li>
+<li>
+<p><code>serviceprovider list n/John Doe</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
@@ -545,7 +580,7 @@ You must specify the cost which will be in <em>Singapore Dollars (SGD)</em>.</p>
 <p>You can update the details of a service provider by its id with new particulars.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>serviceprovider#id updateprofile [n/COMPANY_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/OFFICE_ADDRESS]</code></p>
+<p>Format: <code>serviceprovider#id updateprofile [n/COMPANY_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/OFFICE_ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
@@ -618,7 +653,7 @@ You must specify the cost which will be in <em>Singapore Dollars (SGD)</em>.</p>
 <div class="sect2">
 <h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.10. Listing entered commands: <code>history</code></a></h3>
 <div class="paragraph">
-<p>You can list all the commands that you have entered in reverse chronological order.</p>
+<p>Lists all the commands that you have entered in reverse chronological order.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>history</code></p>
@@ -641,19 +676,63 @@ You must specify the cost which will be in <em>Singapore Dollars (SGD)</em>.</p>
 <div class="sect2">
 <h3 id="undo-the-previous-command-undo"><a class="link" href="#undo-the-previous-command-undo">3.11. Undo the previous command: 'undo'</a></h3>
 <div class="paragraph">
-<p>You can undo the most recent command.</p>
+<p>Undo the commands that you have entered in chronological order.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>undo</code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The application will only undo commands that modifies the list of contacts: <code>add</code>, <code>update</code>, <code>delete</code>, <code>clear</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The application will show either the client list or service
+provider list corresponding to the command that was undone.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
-<h3 id="redo-the-most-recent-command-undone-redo"><a class="link" href="#redo-the-most-recent-command-undone-redo">3.12. Redo the most recent command undone: 'redo'</a></h3>
+<h3 id="redo-the-commands-undone-redo"><a class="link" href="#redo-the-commands-undone-redo">3.12. Redo the commands undone: 'redo'</a></h3>
 <div class="paragraph">
-<p>You can redo the most recent command that was undone by undo.</p>
+<p>Redo the commands that you have undone by undo in chronological order.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>redo</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The application will show either the client list or service
+provider list corresponding to the command that was redone.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -701,4 +780,4 @@ You must specify the cost which will be in <em>Singapore Dollars (SGD)</em>.</p>
 <strong>A</strong>: You can raise an issue in the issue section and our team will get back to you as soon as possbile.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 12:50:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 13:43:25 UTC</div></div></div></body></html>
