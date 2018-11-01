@@ -7,9 +7,12 @@
 
 ---
 
-== Overview
+== Introduction
 
-Heart² is a desktop wedding application used for matching service providers to clients. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+Welcome to *_Heart²_*! _Heart²_ is a desktop software intended to make the job of wedding planning agencies simpler.
+It provides simple yet powerful features to efficiently manage clients' and agency companies' profiles.
+Users can find suitable wedding service providers for clients using just a few keystrokes with our enterprise featureset.
+
 
 == Summary of contributions
 
