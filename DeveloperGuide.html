@@ -980,6 +980,52 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </ul>
 </div>
 </div>
+<div class="sect4">
+<h5 id="aspect-what-it-shows-after-undo-redo-command-successfully-executes"><a class="link" href="#aspect-what-it-shows-after-undo-redo-command-successfully-executes">Aspect: What it shows after undo/redo command successfully executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Shows the list that was changed due to the undo/redo command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy for the user to identify what was changed, whether a client or service provider was modified.</p>
+</li>
+<li>
+<p>Cons: It switches the list out of the current filter and the user have to re-type the list command if he wants to filter the list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Keeps showing what was shown before the command was executed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Hard for the user to identify what was changed in the addressbook.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Show what was changed, before and after.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can easily tell what was changed.</p>
+</li>
+<li>
+<p>Cons: Hard to implement, need to have an additional UI components to show what was changed and need additional components to store the list before it was changed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1461,25 +1507,79 @@ the combination that best suits the client easily</p>
 <div class="sect2">
 <h3 id="list-feature"><a class="link" href="#list-feature">4.12. List Feature</a></h3>
 <div class="paragraph">
-<p>The user can use the <code>list</code> command to list out the various contacts, be it a service provider or a client.</p>
+<p><strong><em>Heart²</em></strong> allows you view all the clients or the service providers with a simple command: <code>list</code>.</p>
+</div>
+<div class="paragraph">
+<p>When listing contacts, you would have to specify whether the contact is a client or a service provider
+by prefixing it to list:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>client list</code></p>
+</li>
+<li>
+<p><code>serviceprovider list</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Below shows an example of how listing all clients works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ListCommand.png" alt="ListCommand" width="800">
+<img src="images/ListAllClients.png" alt="ListAllClients" width="800">
 </div>
-<div class="title">Figure 14. The UI showing the list command</div>
+<div class="title">Figure 14. <em>The UI showing listing all clients.</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
 </div>
 <div class="paragraph">
-<p>Furthermore, the user is also able to add keywords after the list to do filtering, be it categorised or not, and only contacts which contains all of the keywords will be shown.</p>
+<p>Furthermore, you are also able to add keywords after the list to do filtering, and each keyword is specified to
+belong to a category and only contacts which contains all of the keywords in their respective categories will be shown.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Categories include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>n/</code> NAME</p>
+</li>
+<li>
+<p><code>p/</code> PHONE_NUMBER</p>
+</li>
+<li>
+<p><code>e/</code> EMAIL_ADDRESS</p>
+</li>
+<li>
+<p><code>a/</code> ADDRESS</p>
+</li>
+<li>
+<p><code>t/</code> TAGS</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Below shows an example of how list filtering works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ListCommandPhoneNumber.png" alt="ListCommandPhoneNumber" width="800">
+<img src="images/ListClientsWithKeywords.png" alt="ListClientsWithKeywords" width="800">
 </div>
-<div class="title">Figure 15. The UI showing list filtering</div>
+<div class="title">Figure 15. <em>The UI showing list filtering.</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -1487,28 +1587,116 @@ the combination that best suits the client easily</p>
 <div class="sect3">
 <h4 id="implementation-5"><a class="link" href="#implementation-5">4.12.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The keywords from the command to be used for filtering is parsed and passed to a <code>Predicate</code> that is implemented as <code>EntryContainsKeyWordsPredicate</code>.</p>
+<p>The keywords from the command to be used for filtering is parsed by the <code>ListCommandParser</code> and passed to a <code>Predicate</code>
+that is implemented as <code>ContactContainsKeywordsPredicate</code>.</p>
 </div>
 <div class="paragraph">
-<p>We then use a <code>FilteredList</code> using the <code>Predicate</code> to filter out the contacts.</p>
+<p>We then use a <code>FilteredList</code> and pass the combination of 2 <code>Predicates</code> into it, one to filter the type of contact,
+clients or service providers and the other is to filter by keywords.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.12.2. Design considerations</a></h4>
-<div class="sect4">
-<h5 id="substring-matching"><a class="link" href="#substring-matching">Substring matching</a></h5>
-<div class="paragraph">
-<p>Instead of doing an exact match for keywords, we will search for a substring match in the contacts instead by using the <code>contains()</code> method in <code>String</code>.</p>
+
 </div>
-<div class="paragraph">
-<p>This is done so that users do not need to type in the exact keyword when they want to filter the list of contacts and it saves time for the user as well if they make a mistake.</p>
+<div class="sect3">
+<h4 id="aspect-1-substring-matching-or-word-matching"><a class="link" href="#aspect-1-substring-matching-or-word-matching">Aspect 1: Substring Matching or Word Matching</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Substring matching.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users would be able to view a wider range of results that matches the substring they have given. Easier to use.</p>
+</li>
+<li>
+<p>Cons: Irrelevant results might not be filtered away if they contain the substring.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Word matching.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Guarantees that no irrelevant results are shown.</p>
+</li>
+<li>
+<p>Cons: Relevant results that have a small difference in the wording will be filtered away and not shown.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
-<div class="sect4">
-<h5 id="tags"><a class="link" href="#tags">Tags</a></h5>
-<div class="paragraph">
-<p>Currently, the <code>list</code> command does not take into account of the tags for each contact, and the tags could be used to list different types of clients or service providers, and it is an upcoming feature in v2.0.</p>
+<div class="sect3">
+<h4 id="aspect-2-categorised-or-non-categorised-keywords"><a class="link" href="#aspect-2-categorised-or-non-categorised-keywords">Aspect 2: Categorised or Non-categorised keywords</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Categorised keywords.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users are able to specify which keywords they want to search for in which category.
+Gives better control over the searching.</p>
+</li>
+<li>
+<p>Cons: Users have to follow a specific format to type the keywords.</p>
+</li>
+</ul>
 </div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Non-categorised keywords.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can type in the keywords in any order they want. Easier to use.</p>
+</li>
+<li>
+<p>Cons: Irrelevant results that contains the keywords will be shown.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-3-all-match-or-any-match"><a class="link" href="#aspect-3-all-match-or-any-match">Aspect 3: All Match or Any Match</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> All match.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users can specify what they want to search for and filter out all irrelevant results.</p>
+</li>
+<li>
+<p>Cons: Users are not able to search for multiple things, when they only require one of them to match.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Any match.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users are able to obtain a wider search result. Easier to use.</p>
+</li>
+<li>
+<p>Cons: Irrelevant results that contains only one or a few keywords will be shown as well.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -3099,10 +3287,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters the list command and requests to view either all the Clients, or all the Service Providers</p>
+<p>User enters the list command and requests to view either all the Clients, or all the Service Providers.</p>
 </li>
 <li>
-<p>System returns either a list with all the Clients' names and contact numbers, or all the Service Providers' names and contact numbers</p>
+<p>System returns either a list with all the Clients' information, or all the Service Providers' information.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3119,7 +3307,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. System returns a message to feedback to User that no Client or no Service Provider exist</p>
+<p>2a1. System returns an empty list.</p>
 </li>
 </ul>
 </div>
@@ -3129,17 +3317,18 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-filter-and-show-a-specific-client-s-or-service-provider-s-info" class="discrete">Use case: Filter and show a specific Client’s or Service Provider’s info</h3>
+<h3 id="use-case-filter-and-show-client-s-or-service-provider-s-info-according-to-the-filter" class="discrete">Use case: Filter and show Client’s or Service Provider’s info according to the filter</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view either a specific Client’s or the Service Provider’s info</p>
+<p>User enters the list command and requests to view either Client’s or Service Provider’s information with some
+keywords provided indicated by prefixes.</p>
 </li>
 <li>
-<p>The System displays the info related to the party back to the user</p>
+<p>The System displays a list of Clients or Service Providers whose information matches what was provided.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3152,16 +3341,26 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. User enters a Client or Service Provider that does not exist</p>
+<p>1a. User enters a prefix that does not exist.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. System prompts the User that such a Client or Service Provider does not exist</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
+<p>1a1. System prompts the User the correct format of the command and prefixes that can be used.</p>
 </li>
 </ul>
+</div>
+</li>
+<li>
+<p>1b. User enters an empty prefix.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System prompts the User the correct format of the command and prefixes that can be used.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
 </li>
 </ul>
@@ -3207,43 +3406,6 @@ for <code>RemarkCommandParser</code>.</p>
 <ul class="none">
 <li>
 <p>2a1. System feedback to the User that no Service Provider is available for the current Client&#8217;s need</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-auto-complete-typed-command" class="discrete">Use case: Auto-complete typed command</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User types a letter (or letters) into the command line</p>
-</li>
-<li>
-<p>System suggests a list of commands that starts with the letter(s) that the User has typed</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. There is no command that starts with the letter(s) that the User has typed</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. System does not suggest anything to the User</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3546,4 +3708,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 14:28:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 14:48:34 UTC</div></div></div></body></html>

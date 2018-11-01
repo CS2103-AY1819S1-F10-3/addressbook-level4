@@ -136,6 +136,82 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="undo-the-previous-command-undo"><a class="link" href="#undo-the-previous-command-undo">Undo the previous command: 'undo'</a></h3>
+<div class="paragraph">
+<p>Undo the commands that you have entered in chronological order.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>undo</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The application will only undo commands that modifies the list of contacts: <code>add</code>, <code>update</code>, <code>delete</code>, <code>clear</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The application will show either the client list or service
+provider list corresponding to the command that was undone.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redo-the-commands-undone-redo"><a class="link" href="#redo-the-commands-undone-redo">Redo the commands undone: 'redo'</a></h3>
+<div class="paragraph">
+<p>Redo the commands that you have undone by undo in chronological order.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>redo</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Commands that have been undone will be reset upon a <code>clear</code> command.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The application will show either the client list or service
+provider list corresponding to the command that was redone.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -351,6 +427,52 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </ul>
 </div>
 </div>
+<div class="sect4">
+<h5 id="aspect-what-it-shows-after-undo-redo-command-successfully-executes"><a class="link" href="#aspect-what-it-shows-after-undo-redo-command-successfully-executes">Aspect: What it shows after undo/redo command successfully executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Shows the list that was changed due to the undo/redo command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy for the user to identify what was changed, whether a client or service provider was modified.</p>
+</li>
+<li>
+<p>Cons: It switches the list out of the current filter and the user have to re-type the list command if he wants to filter the list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Keeps showing what was shown before the command was executed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Hard for the user to identify what was changed in the addressbook.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Show what was changed, before and after.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can easily tell what was changed.</p>
+</li>
+<li>
+<p>Cons: Hard to implement, need to have an additional UI components to show what was changed and need additional components to store the list before it was changed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -369,4 +491,4 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 14:28:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 14:48:34 UTC</div></div></div></body></html>
