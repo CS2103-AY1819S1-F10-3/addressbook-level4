@@ -32,7 +32,8 @@
 <li><a href="#saving-the-data">3.12. Saving the data</a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
+<li><a href="#command-summary">4. Command summary</a></li>
+<li><a href="#faq">5. FAQ</a></li>
 </ul>
 </div>
 </div>
@@ -199,6 +200,9 @@ The following section documents all the commands available for you in this appli
 <div class="paragraph">
 <p>Register a new account for this application. You can only register a new account via an account with <code>SUPER_USER</code> privilege. By default, <code>rootUser</code> is a default account with <code>SUPER_USER</code> privilege.</p>
 </div>
+<div class="paragraph">
+<p>Condition: Username and password cannot be empty, or contain space.</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -241,7 +245,7 @@ either
 <p>Change your current account password from an old password to a new password.</p>
 </div>
 <div class="paragraph">
-<p>Condition: your old password is typed in correctly, and new password should not be the same as old password.</p>
+<p>Condition: your old password is typed in correctly, and new password should not be the same as old password. Password cannot be empty or contains space.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -901,7 +905,114 @@ provider list corresponding to the command that was redone.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">4. Command summary</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Before logging in</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To log in: <code>login</code></p>
+</li>
+<li>
+<p>To get help: <code>help</code></p>
+</li>
+<li>
+<p>Close the application: <code>exit</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>After logging in</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Register for a new account: <code>register account</code></p>
+</li>
+<li>
+<p>Log out of your account: <code>logout</code></p>
+</li>
+<li>
+<p>Change your account password: <code>change password</code></p>
+</li>
+<li>
+<p>View the detail of a client: <code>client# select</code></p>
+</li>
+<li>
+<p>View the detail of a vendor: <code>vendor# select</code></p>
+</li>
+<li>
+<p>Delete the entire data entries for both client and vendor: <code>clear</code></p>
+</li>
+<li>
+<p>Delete a particular data entry of a client: <code>client# delete</code></p>
+</li>
+<li>
+<p>Delete a particular data entry of a vendor: <code>vendor# delete</code></p>
+</li>
+<li>
+<p>List all the commands entered: <code>history</code></p>
+</li>
+<li>
+<p>Undo the previous command: <code>undo</code></p>
+</li>
+<li>
+<p>Redo the previous command: <code>redo</code></p>
+</li>
+<li>
+<p>Add an entry to the client: <code>client add</code></p>
+</li>
+<li>
+<p>Add an entry to the vendor: <code>vendor add</code></p>
+</li>
+<li>
+<p>Update the entry of a particular client: <code>client# update</code></p>
+</li>
+<li>
+<p>Update the entry of a particular vendor: <code>vendor# update</code></p>
+</li>
+<li>
+<p>List all the client data: <code>client list</code></p>
+</li>
+<li>
+<p>List all the vendor data: <code>vendor list</code></p>
+</li>
+<li>
+<p>Add a service requirement for a particular client: <code>client# addservice</code></p>
+</li>
+<li>
+<p>Add a service supported by a particular vendor: <code>vendor# addservice</code></p>
+</li>
+<li>
+<p>Auto find a match to fit a particular client&#8217;s requirements: <code>client# automatch</code></p>
+</li>
+<li>
+<p>Auto find a match to fit a particular vendor&#8217;s services: <code>vendor# automatch</code></p>
+</li>
+<li>
+<p>To get help: <code>help</code></p>
+</li>
+<li>
+<p>Close the application: <code>exit</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Coming in v2.0</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Retrieve forgotten password: <code>forget password</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
@@ -925,4 +1036,4 @@ provider list corresponding to the command that was redone.</p>
 <strong>A</strong>: You can raise an issue in the issue section and our team will get back to you as soon as possbile.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 14:24:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 16:55:54 UTC</div></div></div></body></html>

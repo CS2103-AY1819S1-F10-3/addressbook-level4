@@ -150,7 +150,11 @@ This represents a <strong>warning</strong>. You should be extremely cautious and
 </li>
 <li><a href="#product-scope">Appendix B: Product Scope</a></li>
 <li><a href="#user-stories">Appendix C: User Stories</a></li>
-<li><a href="#use-cases">Appendix D: Use Cases</a></li>
+<li><a href="#use-cases">Appendix D: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-changing-an-existing-account-password">D.1. Use case: Changing an existing account password</a></li>
+</ul>
+</li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a>
 <ul class="sectlevel2">
 <li><a href="#availability">Availability</a></li>
@@ -1247,6 +1251,39 @@ User can only register for an account via an existing account with <code>SUPER_U
 </li>
 <li>
 <p>Cons: It sounds awkward to have privileges associated with Role rather than with an Account.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-what-type-of-access-control-to-use"><a class="link" href="#aspect-what-type-of-access-control-to-use">Aspect: What type of access control to use?</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Role based access control. (RBAC)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Most relevant in the context of this application. Allows application owner to set privileges for employees.</p>
+</li>
+<li>
+<p>Cons: User does not have a say in access control, even in content created by them.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Discretionary Access Control (DAC)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less restrictive. Allows individual complete control over content they have created.</p>
+</li>
+<li>
+<p>Cons: Not really applicable in our context as we want to restrict employee access to data. Employee&#8217;s access control based on their individual roles in the company seems more appropriate than employees having access based on the content they create.</p>
 </li>
 </ul>
 </div>
@@ -3280,6 +3317,143 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
+<h3 id="use-case-register-an-account" class="discrete">Use case: Register an account</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to register a new account</p>
+</li>
+<li>
+<p>System validates the information entered and register the new account</p>
+</li>
+<li>
+<p>User has successfully register a new account</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User is not a <code>SUPER_USER</code>.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System rejects the command to register a new account and feedback to the user that he is not a <code>SUPER_USER</code>.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. User types in an invalid username.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System prompts the User the correct format of the command that can be used.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1c. User types in an invalid password.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System prompts the User the correct format of the password that can be used.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1d. User types in a username that already exists.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1d1. System prompts the User that the username has been taken and suggest the User to choose another username.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="use-case-changing-an-existing-account-password"><a class="link" href="#use-case-changing-an-existing-account-password">D.1. Use case: Changing an existing account password</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to change the password of his account</p>
+</li>
+<li>
+<p>System validates the information entered and change the user password.</p>
+</li>
+<li>
+<p>User&#8217;s password is successfully updated.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User&#8217;s old password is typed in wrongly.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System rejects the command to change the user&#8217;s password and feedback to the user that his old password was typed in wrongly.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. User new password is invalid format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System prompts the user that his password is not a valid password and proceed to tell the user whether he has entered an empty password or a password with space.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <h3 id="use-case-list-all-the-clients-or-service-providers" class="discrete">Use case: List all the Clients or Service Providers</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -3414,6 +3588,7 @@ keywords provided indicated by prefixes.</p>
 </div>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -3708,4 +3883,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 14:24:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 16:55:54 UTC</div></div></div></body></html>

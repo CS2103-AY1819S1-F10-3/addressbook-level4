@@ -106,7 +106,7 @@
 <p><strong>Minor enhancement:</strong> Allows user to <code>edit password</code> as well as creating account access privilege with either <code>Super User</code> or <code>Read-Only User</code> role.</p>
 </li>
 <li>
-<p><strong>Justification:</strong> Edit password is needed as user may want to change his/her password from time to time, especially for compromised accounts. Allocating account privileges tied to the user account helps in preventing unnecessary modifications to the application database. For example, an employee tasked as call-support role would be allocated <code>Read-Only User</code> role as he/she does not need to modify data in the application.</p>
+<p><strong>Justification:</strong> Edit password is needed as user may want to change his/her password from time to time, especially for compromised accounts. Allocating account privileges helps in preventing unnecessary modifications to the application database. For example, an employee tasked as call-support role would be allocated <code>Read-Only User</code> role as he/she does not need to modify data in the application.</p>
 </li>
 <li>
 <p><strong>Functional Code contributed</strong>: <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/165/">EditPassword</a> | <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/89">Access privilege</a></p>
@@ -175,6 +175,16 @@
 </ul>
 </div>
 </li>
+<li>
+<p><strong>All codes contributed</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Check out <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=nightyeti">here</a></p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -202,7 +212,7 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p>Github link to full User Guide: <a href="https://github.com/CS2103-AY1819S1-F10-3/main/blob/master/docs/UserGuide.adoc" class="bare">https://github.com/CS2103-AY1819S1-F10-3/main/blob/master/docs/UserGuide.adoc</a></p>
+<p>Link to the full User Guide: <a href="https://github.com/CS2103-AY1819S1-F10-3/main/blob/master/docs/UserGuide.adoc">Github link</a></p>
 </div>
 <div class="sect2">
 <h3 id="overview-of-contributions"><a class="link" href="#overview-of-contributions">3.1. Overview of contributions</a></h3>
@@ -455,7 +465,7 @@ Make sure your new password is typed correctly. There is no confirmation prompt 
 </tbody>
 </table>
 <div class="paragraph">
-<p>Github link to full Developer Guide: <a href="https://github.com/CS2103-AY1819S1-F10-3/main/blob/master/docs/DeveloperGuide.adoc" class="bare">https://github.com/CS2103-AY1819S1-F10-3/main/blob/master/docs/DeveloperGuide.adoc</a></p>
+<p>Link to the full Developer Guide: <a href="https://github.com/CS2103-AY1819S1-F10-3/main/blob/master/docs/DeveloperGuide.adoc">Github link</a></p>
 </div>
 <div class="sect2">
 <h3 id="overview-of-contributions-2"><a class="link" href="#overview-of-contributions-2">4.1. Overview of contributions</a></h3>
@@ -519,7 +529,7 @@ Make sure your new password is typed correctly. There is no confirmation prompt 
 <h3 id="account-storage-component"><a class="link" href="#account-storage-component">Account Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/AccountStorageClassDiagram.png" alt="AccountStorageClassDiagram" width="800">
+<img src="./images/AccountStorageClassDiagram.png" alt="AccountStorageClassDiagram" width="700">
 </div>
 <div class="title">Figure 3. Structure of the Account Storage Component</div>
 </div>
@@ -564,24 +574,18 @@ Make sure your new password is typed correctly. There is no confirmation prompt 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/accountstoragediagram.png" alt="accountstoragediagram" width="800">
+<img src="./images/accountstoragediagram.png" alt="accountstoragediagram" width="700">
 </div>
 <div class="title">Figure 4. Activity diagram when user launches the application</div>
-</div>
-<div class="paragraph">
-<p><br></p>
 </div>
 <div class="paragraph">
 <p>Only a <code>SUPER_USER</code> is allowed to create a new account, either for himself, or on behalf of another person. The diagram below shows what happen when a user attempts to register a new account:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/accountcreationdiagram.png" alt="accountcreationdiagram" width="800">
+<img src="./images/accountcreationdiagram.png" alt="accountcreationdiagram" width="700">
 </div>
 <div class="title">Figure 5. Activity diagram when user registers an account</div>
-</div>
-<div class="paragraph">
-<p><br></p>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
@@ -597,7 +601,7 @@ Make sure your new password is typed correctly. There is no confirmation prompt 
 <p>Pros: The code to write and read xml file is already present for adding address book contact initially in the Address Book - level 4 app. Hence, adopting this code and modifying it for account storage is easier than coming up with code from scratch.</p>
 </li>
 <li>
-<p>Cons: Xml file is relatively wordy and verbose with all the opening and closing tag. For the same amount of account information, compared to other format such as <code>json</code>, more data has to be stored to account for tag elements.</p>
+<p>Cons: Xml file is relatively wordy and verbose with all the opening and closing tags. For the same amount of account information, more data has to be stored using xml than format such as json.</p>
 </li>
 </ul>
 </div>
@@ -736,4 +740,4 @@ Make sure your new password is typed correctly. There is no confirmation prompt 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 14:24:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 16:55:54 UTC</div></div></div></body></html>
