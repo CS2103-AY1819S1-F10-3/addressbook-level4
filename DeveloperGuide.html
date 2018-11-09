@@ -18,7 +18,7 @@
 <div class="paragraph">
 <p>Welcome to <strong><em>Heart²</em></strong>! <em>Heart²</em> is a desktop software intended to make the job of wedding planning agencies simpler.
 It provides simple yet powerful features to efficiently manage clients' and agency companies' profiles.
-Users can find suitable wedding service providers for couples using just a few keystrokes with our enterprise featureset.</p>
+Users can find suitable vendors providing wedding services for couples using just a few keystrokes with our enterprise featureset.</p>
 </div>
 <div class="paragraph">
 <p>This developer guide is a self-contained resource designed to align all developers around a common vision. It helps
@@ -107,12 +107,12 @@ This represents a <strong>warning</strong>. You should be extremely cautious and
 <li><a href="#login-feature">4.5. Login Feature</a></li>
 <li><a href="#account-creation">4.6. Account creation</a></li>
 <li><a href="#account-storage">4.7. Account storage</a></li>
-<li><a href="#add-clients-and-service-providers-feature">4.8. Add clients and service providers feature</a></li>
-<li><a href="#remove-clients-and-service-providers-feature">4.9. Remove clients and service providers feature</a></li>
-<li><a href="#edit-clients-and-service-provider-feature">4.10. Edit clients and service provider feature</a></li>
+<li><a href="#add-clients-and-vendors-feature">4.8. Add clients and vendors feature</a></li>
+<li><a href="#remove-clients-and-vendors-feature">4.9. Remove clients and vendors feature</a></li>
+<li><a href="#edit-clients-and-vendors-feature">4.10. Edit clients and vendors feature</a></li>
 <li><a href="#viewing-search-results-coming-in-v2-0">4.11. Viewing Search Results [Coming in v2.0]</a></li>
 <li><a href="#list-feature">4.12. List Feature</a></li>
-<li><a href="#finding-matches-between-clients-and-service-providers">4.13. Finding matches between clients and service providers</a></li>
+<li><a href="#finding-matches-between-clients-and-vendors">4.13. Finding matches between clients and vendors</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -166,12 +166,11 @@ This represents a <strong>warning</strong>. You should be extremely cautious and
 </ul>
 </li>
 <li><a href="#glossary">Appendix F: Glossary</a></li>
-<li><a href="#product-survey">Appendix G: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
-<li><a href="#saving-data">H.3. Saving data</a></li>
+<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
+<li><a href="#saving-data">G.3. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -993,7 +992,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy for the user to identify what was changed, whether a client or service provider was modified.</p>
+<p>Pros: Easy for the user to identify what was changed, whether a client or vendor was modified.</p>
 </li>
 <li>
 <p>Cons: It switches the list out of the current filter and the user have to re-type the list command if he wants to filter the list.</p>
@@ -1388,9 +1387,9 @@ User can only register for an account via an existing account with <code>SUPER_U
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-clients-and-service-providers-feature"><a class="link" href="#add-clients-and-service-providers-feature">4.8. Add clients and service providers feature</a></h3>
+<h3 id="add-clients-and-vendors-feature"><a class="link" href="#add-clients-and-vendors-feature">4.8. Add clients and vendors feature</a></h3>
 <div class="paragraph">
-<p><strong><em>Heart²</em></strong> allows you to be able to distinguish between clients and service providers.</p>
+<p><strong><em>Heart²</em></strong> allows you to be able to distinguish between clients and vendors.</p>
 </div>
 <div class="paragraph">
 <p>When adding a new contact to <strong><em>Heart²</em></strong>, you would have to specify whether the contact is a 'client' or a 'vendor' by appending 'client' or 'vendor' during adding:</p>
@@ -1406,7 +1405,7 @@ User can only register for an account via an existing account with <code>SUPER_U
 </ul>
 </div>
 <div class="paragraph">
-<p>The above commands adds a 'client' and a 'service provider' with the specified information respectively.</p>
+<p>The above commands adds a 'client' and a 'vendor' with the specified information respectively.</p>
 </div>
 <div class="paragraph">
 <p>This facilitates many other features of <strong><em>Heart²</em></strong> for your convenience!</p>
@@ -1419,7 +1418,7 @@ User can only register for an account via an existing account with <code>SUPER_U
 </div>
 </div>
 <div class="sect2">
-<h3 id="remove-clients-and-service-providers-feature"><a class="link" href="#remove-clients-and-service-providers-feature">4.9. Remove clients and service providers feature</a></h3>
+<h3 id="remove-clients-and-vendors-feature"><a class="link" href="#remove-clients-and-vendors-feature">4.9. Remove clients and vendors feature</a></h3>
 <div class="paragraph">
 <p><strong><em>Heart²</em></strong> allows you to remove 'client' and 'vendor' if you so wish to!</p>
 </div>
@@ -1437,7 +1436,7 @@ User can only register for an account via an existing account with <code>SUPER_U
 </ul>
 </div>
 <div class="paragraph">
-<p>The above commands removes the 'client' in index 1 of the 'client' list and the 'service provider' in index 2 of the 'vendor' list respectively.</p>
+<p>The above commands removes the 'client' in index 1 of the 'client' list and the 'vendor' in index 2 of the 'vendor' list respectively.</p>
 </div>
 <div class="sect3">
 <h4 id="implementation-3"><a class="link" href="#implementation-3">4.9.1. Implementation</a></h4>
@@ -1447,7 +1446,7 @@ User can only register for an account via an existing account with <code>SUPER_U
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-clients-and-service-provider-feature"><a class="link" href="#edit-clients-and-service-provider-feature">4.10. Edit clients and service provider feature</a></h3>
+<h3 id="edit-clients-and-vendors-feature"><a class="link" href="#edit-clients-and-vendors-feature">4.10. Edit clients and vendors feature</a></h3>
 <div class="paragraph">
 <p><strong><em>Heart²</em></strong> allows you to make changes to existing 'client' and 'vendor' too!</p>
 </div>
@@ -1488,8 +1487,7 @@ This EditContactDescriptor is then used in conjunction with the earlier in conta
 <div class="sect3">
 <h4 id="profile"><a class="link" href="#profile">4.11.1. Profile</a></h4>
 <div class="paragraph">
-<p>The client&#8217;s profile would be displayed on the left, so as to facilitate the user in picking the service
-providers while keeping the requirements in mind.</p>
+<p>The client&#8217;s profile would be displayed on the left, so as to facilitate the user in picking the vendors while keeping the requirements in mind.</p>
 </div>
 <div class="paragraph">
 <p>Data would be extracted from the client&#8217;s <code>Contact</code> and the text would be set at their respective placeholders, with the
@@ -1514,7 +1512,7 @@ Users can then scroll through the list to view the other results in decreasing r
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Provides a bird&#8217;s-eye view of all plausible service providers for the client so that the user can pick
+<p>Pros: Provides a bird&#8217;s-eye view of all plausible vendors for the client so that the user can pick
 the combination that best suits the client easily</p>
 </li>
 <li>
@@ -1531,7 +1529,7 @@ the combination that best suits the client easily</p>
 <p>Pros: More efficient performance</p>
 </li>
 <li>
-<p>Cons: Users need to scroll through the list for each service provider individually</p>
+<p>Cons: Users need to scroll through the list for each vendor individually</p>
 </li>
 </ul>
 </div>
@@ -1544,10 +1542,10 @@ the combination that best suits the client easily</p>
 <div class="sect2">
 <h3 id="list-feature"><a class="link" href="#list-feature">4.12. List Feature</a></h3>
 <div class="paragraph">
-<p><strong><em>Heart²</em></strong> allows you view all the clients or the service providers with a simple command: <code>list</code>.</p>
+<p><strong><em>Heart²</em></strong> allows you view all the clients or the vendors with a simple command: <code>list</code>.</p>
 </div>
 <div class="paragraph">
-<p>When listing contacts, you would have to specify whether the contact is a client or a service provider
+<p>When listing contacts, you would have to specify whether the contact is a client or a vendor
 by prefixing it to list:</p>
 </div>
 <div class="ulist">
@@ -1629,7 +1627,7 @@ that is implemented as <code>ContactContainsKeywordsPredicate</code>.</p>
 </div>
 <div class="paragraph">
 <p>We then use a <code>FilteredList</code> and pass the combination of 2 <code>Predicates</code> into it, one to filter the type of contact,
-clients or service providers and the other is to filter by keywords.</p>
+clients or vendors and the other is to filter by keywords.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1738,9 +1736,9 @@ Gives better control over the searching.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-matches-between-clients-and-service-providers"><a class="link" href="#finding-matches-between-clients-and-service-providers">4.13. Finding matches between clients and service providers</a></h3>
+<h3 id="finding-matches-between-clients-and-vendors"><a class="link" href="#finding-matches-between-clients-and-vendors">4.13. Finding matches between clients and vendors</a></h3>
 <div class="paragraph">
-<p>The application boasts auto-matching features that reduces the (once-laborious) task of matching service providers a single command.</p>
+<p>The application boasts matchmaking features that reduces the (once-laborious) task of matching vendors a single command.</p>
 </div>
 <div class="sect3">
 <h4 id="high-level-design"><a class="link" href="#high-level-design">4.13.1. High level design</a></h4>
@@ -1753,10 +1751,10 @@ Gives better control over the searching.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>On invocation, the auto-matching algorithm functionally maps all service requirements from a Client into predicates for performing the first step of filtering the Service Providers.</p>
+<p>On invocation, the auto-matchmaking algorithm functionally maps all service requirements from a Client into predicates for performing the first step of filtering the Vendors.</p>
 </li>
 <li>
-<p>The service providers are then sorted by a fair ranking algorithm to ensure even distribution of jobs between Service Providers.</p>
+<p>The vendors are then sorted by a fair ranking algorithm to ensure even distribution of jobs between Vendors.</p>
 </li>
 </ol>
 </div>
@@ -1764,7 +1762,7 @@ Gives better control over the searching.</p>
 <div class="sect3">
 <h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.13.2. Design considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-fairly-distribute-jobs-between-service-providers"><a class="link" href="#aspect-how-to-fairly-distribute-jobs-between-service-providers">Aspect: How to fairly distribute jobs between service providers</a></h5>
+<h5 id="aspect-how-to-fairly-distribute-jobs-between-vendors"><a class="link" href="#aspect-how-to-fairly-distribute-jobs-between-vendors">Aspect: How to fairly distribute jobs between vendors</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1788,7 +1786,7 @@ Gives better control over the searching.</p>
 <p>Pros: Even job distribution guaranteed</p>
 </li>
 <li>
-<p>Cons: Requires keeping count of jobs allocated for each service provider</p>
+<p>Cons: Requires keeping count of jobs allocated for each vendor</p>
 </li>
 </ul>
 </div>
@@ -2983,7 +2981,7 @@ for <code>RemarkCommandParser</code>.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: simplify the process of wedding management for the user, his clients and service providers</p>
+<p><strong>Value proposition</strong>: simplify the process of wedding management for the user, his clients and vendors</p>
 </div>
 </div>
 </div>
@@ -3018,19 +3016,19 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">on-task project manager</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add new clients with the type of services they request for</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get the required service providers for the event accordingly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get the required vendors for the event accordingly</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">thoughtful project manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add new service providers with the type of services they can offer and their costs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">match the service providers to the clients accordingly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add new vendors with the type of services they can offer and their costs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match the vendors to the clients accordingly</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">efficient project manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">search the database for the service provider that best suits the requirements based on filters</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find the most suitable service provider for my clients</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">search the database for the vendor that best suits the requirements based on filters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find the most suitable vendor for my clients</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -3041,26 +3039,26 @@ for <code>RemarkCommandParser</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">flexible project manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">update the database of service providers’ data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have an up-to-date database that accurately reflects my service providers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">update the database of vendors’ data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have an up-to-date database that accurately reflects my vendors</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">busy project manager</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">easily see all unserviced clients</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I can quickly complete assigning service providers to them</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can quickly complete assigning vendors to them</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">organised project manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view the availability of my service providers</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I will not assign service providers to clients when they are unavailable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view the availability of my vendors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I will not assign vendors to clients when they are unavailable</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">responsible project head</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">provide authentication for the project managers and staff</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">our clients’ and service providers’ data are only accessible by those who has access to them</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">our clients’ and vendors’ data are only accessible by those who has access to them</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -3071,7 +3069,7 @@ for <code>RemarkCommandParser</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">organised project manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">access clients and service providers separately</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">access clients and vendors separately</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">I can look through their data more efficiently</p></td>
 </tr>
 <tr>
@@ -3089,14 +3087,14 @@ for <code>RemarkCommandParser</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">customer-first project manager</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have a ratings and feedback system given by clients for the service providers</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I can sieve out the better service providers for future clients</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a ratings and feedback system given by clients for the vendors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can sieve out the better vendors for future clients</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">profit-motivated marketing head</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">calculate the rough estimate of the cost of each project</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">source for service providers that would maximise my profits</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source for vendors that would maximise my profits</p></td>
 </tr>
 </tbody>
 </table>
@@ -3113,17 +3111,17 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <strong><em>Heart²</em></strong> application, and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-add-client-service-provider" class="discrete">Use case: Add Client/Service Provider</h3>
+<h3 id="use-case-add-client-vendor" class="discrete">Use case: Add Client/Vendor</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to add a new Client/Service Provider</p>
+<p>User requests to add a new Client/Vendor</p>
 </li>
 <li>
-<p>System adds the new Client/Service Provider into the database</p>
+<p>System adds the new Client/Vendor into the database</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3136,11 +3134,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. The new Client/Service Provider&#8217;s syntax is not entered correct.</p>
+<p>1a. The new Client/Vendor&#8217;s syntax is not entered correct.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. System shows a feedback to the user that the Client/Service Provider was not entered correctly.</p>
+<p>1a1. System shows a feedback to the user that the Client/Vendor was not entered correctly.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3150,17 +3148,17 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-update-client-service-provider" class="discrete">Use case: Update Client/Service Provider</h3>
+<h3 id="use-case-update-client-vendor" class="discrete">Use case: Update Client/Vendor</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to update an existing Client/Service Provider</p>
+<p>User requests to update an existing Client/Vendor</p>
 </li>
 <li>
-<p>System updates the existing Client/Service Provider according to the User&#8217;s requests</p>
+<p>System updates the existing Client/Vendor according to the User&#8217;s requests</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3173,11 +3171,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. The Client/Service Provider does not exist.</p>
+<p>1a. The Client/Vendor does not exist.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. System shows a feedback to the user that the Client/Service Provider does not exist.</p>
+<p>1a1. System shows a feedback to the user that the Client/Vendor does not exist.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3187,17 +3185,17 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-delete-client-service-provider" class="discrete">Use case: Delete Client/Service Provider</h3>
+<h3 id="use-case-delete-client-vendor" class="discrete">Use case: Delete Client/Vendor</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to delete an existing Client/Service Provider</p>
+<p>User requests to delete an existing Client/Vendor</p>
 </li>
 <li>
-<p>System deletes the Client/Service Provider specified</p>
+<p>System deletes the Client/Vendor specified</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3210,11 +3208,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. The Client/Service Provider does not exist.</p>
+<p>1a. The Client/Vendor does not exist.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. System shows a feedback to the user that the Client/Service Provider does not exist</p>
+<p>1a1. System shows a feedback to the user that the Client/Vendor does not exist</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3454,17 +3452,17 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-list-all-the-clients-or-service-providers" class="discrete">Use case: List all the Clients or Service Providers</h3>
+<h3 id="use-case-list-all-the-clients-or-vendors" class="discrete">Use case: List all the Clients or Vendors</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters the list command and requests to view either all the Clients, or all the Service Providers.</p>
+<p>User enters the list command and requests to view either all the Clients, or all the Vendors.</p>
 </li>
 <li>
-<p>System returns either a list with all the Clients' information, or all the Service Providers' information.</p>
+<p>System returns either a list with all the Clients' information, or all the Vendors' information.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3477,7 +3475,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. There is no Client or no Service Provider available</p>
+<p>2a. There is no Client or no Vendor available</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -3491,18 +3489,18 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-filter-and-show-client-s-or-service-provider-s-info-according-to-the-filter" class="discrete">Use case: Filter and show Client’s or Service Provider’s info according to the filter</h3>
+<h3 id="use-case-filter-and-show-client-s-or-vendor-s-info-according-to-the-filter" class="discrete">Use case: Filter and show Client’s or Vendor’s info according to the filter</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters the list command and requests to view either Client’s or Service Provider’s information with some
+<p>User enters the list command and requests to view either Client’s or Vendor’s information with some
 keywords provided indicated by prefixes.</p>
 </li>
 <li>
-<p>The System displays a list of Clients or Service Providers whose information matches what was provided.</p>
+<p>The System displays a list of Clients or Vendors whose information matches what was provided.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3539,17 +3537,17 @@ keywords provided indicated by prefixes.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-match-the-most-suitable-service-provider-to-a-client-s-needs" class="discrete">Use case: Match the most suitable Service Provider to a Client&#8217;s needs</h3>
+<h3 id="use-case-match-the-most-suitable-vendor-to-a-client-s-needs" class="discrete">Use case: Match the most suitable Vendor to a Client&#8217;s needs</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User attempts to match a Client&#8217;s need to an available Service Provider</p>
+<p>User attempts to match a Client&#8217;s need to an available Vendor</p>
 </li>
 <li>
-<p>System matches a Service Provider that it deemed the most suitable to the Client</p>
+<p>System matches a Vendor that it deemed the most suitable to the Client</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3562,7 +3560,7 @@ keywords provided indicated by prefixes.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. The Client has no need. That is to say, the Client is not looking for any Service Provider</p>
+<p>1a. The Client has no need. That is to say, the Client is not looking for any Vendor</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -3575,11 +3573,11 @@ keywords provided indicated by prefixes.</p>
 </div>
 </li>
 <li>
-<p>2a. There is no Service Provider available that matches the Client&#8217;s need</p>
+<p>2a. There is no Vendor available that matches the Client&#8217;s need</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. System feedback to the User that no Service Provider is available for the current Client&#8217;s need</p>
+<p>2a1. System feedback to the User that no Vendor is available for the current Client&#8217;s need</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3624,7 +3622,7 @@ keywords provided indicated by prefixes.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Application should be able to hold up to 1000 Clients and 1000 Service Providers without a noticeable sluggishness in performance for typical usage.</p>
+<p>Application should be able to hold up to 1000 Clients and 1000 Vendors without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 </ol>
 </div>
@@ -3650,7 +3648,7 @@ keywords provided indicated by prefixes.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Application should be able to match Service Provider to Client&#8217;s needs correctly.</p>
+<p>Application should be able to match Vendor to Client&#8217;s needs correctly.</p>
 </li>
 <li>
 <p>Application should be able to perform all the commands without fail.</p>
@@ -3663,10 +3661,10 @@ keywords provided indicated by prefixes.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Application should be able to scale automatically even after reaching 1000 Clients or 1000 Service Providers.</p>
+<p>Application should be able to scale automatically even after reaching 1000 Clients or 1000 Vendors.</p>
 </li>
 <li>
-<p>Huge number of Clients and Service Providers&#8217;s data may cause some waiting time for commands to process, but Application should still be able to execute all the commands without fail.</p>
+<p>Huge number of Clients and Vendors&#8217;s data may cause some waiting time for commands to process, but Application should still be able to execute all the commands without fail.</p>
 </li>
 </ol>
 </div>
@@ -3706,75 +3704,30 @@ keywords provided indicated by prefixes.</p>
 </dd>
 <dt class="hdlist1"><a id="client"></a> Client</dt>
 <dd>
-<p>The Client is the primary receiver and the party that requires the services of the Project Manager and Service Providers. The Client puts up requests to the Project Manager to handle their wedding event.</p>
+<p>The Client is the primary receiver and the party that requires the services of the Project Manager and Vendors. The Client puts up requests to the Project Manager to handle their wedding event.</p>
 </dd>
-<dt class="hdlist1"><a id="service-provider"></a> Service Provider</dt>
+<dt class="hdlist1"><a id="vendor"></a> Vendor</dt>
 <dd>
-<p>The Service Providers are what the Project Manager needs to connect his Clients to, to fulfil the Clients' needs and wants. Service Providers provide goods and services required for the clients’ weddings and they depend on the Project Manager to look for suitable Clients.</p>
+<p>The Vendors are what the Project Manager needs to connect his Clients to, to fulfil the Clients' needs and wants. Vendors provide goods and services required for the clients’ weddings and they depend on the Project Manager to look for suitable Clients.</p>
 </dd>
 <dt class="hdlist1"><a id="project-manager"></a> Project Manager</dt>
 <dd>
-<p>The User of the application; the Project Manager of a wedding planning company that needs to engage his Clients with his Service Providers, managing a large amount of wedding requests at a time.</p>
+<p>The User of the application; the Project Manager of a wedding planning company that needs to engage his Clients with his Vendors, managing a large amount of wedding requests at a time.</p>
 </dd>
 <dt class="hdlist1"><a id="event"></a> Event</dt>
 <dd>
-<p>A single request related to the wedding that the Client expects. The Project Manager plans for and provide this request from a Service Provider. The event encapsulates many different services, such as: wedding photography, formal wedding attire rental, banquet catering, invitation printing, and many others.</p>
+<p>A single request related to the wedding that the Client expects. The Project Manager plans for and provide this request from a Vendor. The event encapsulates many different services, such as: wedding photography, formal wedding attire rental, banquet catering, invitation printing, and many others.</p>
 </dd>
 </dl>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix G: Product Survey</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
 <img src="images/appendixgheader.png" alt="appendixgheader" width="320">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>(This section is to be filled in later)</p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a></h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="images/appendixhheader.png" alt="appendixhheader" width="320">
 </div>
 </div>
 <div class="paragraph">
@@ -3793,7 +3746,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">H.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3831,7 +3784,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">H.2. Deleting a person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3863,7 +3816,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">H.3. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3883,4 +3836,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 09:25:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 09:28:58 UTC</div></div></div></body></html>
