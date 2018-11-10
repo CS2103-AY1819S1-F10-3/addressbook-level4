@@ -146,8 +146,8 @@ To search, simply append your search parameters to the back of the original comm
 </div>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
-<col style="width: 10%;">
-<col style="width: 90%;">
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
 </colgroup>
 <tbody>
 <tr>
@@ -160,8 +160,8 @@ To search, simply append your search parameters to the back of the original comm
 </table>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
-<col style="width: 10%;">
-<col style="width: 90%;">
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
 </colgroup>
 <tbody>
 <tr>
@@ -183,8 +183,8 @@ To search, simply append your search parameters to the back of the original comm
 </div>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
-<col style="width: 10%;">
-<col style="width: 90%;">
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
 </colgroup>
 <tbody>
 <tr>
@@ -197,8 +197,8 @@ To search, simply append your search parameters to the back of the original comm
 </table>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
-<col style="width: 10%;">
-<col style="width: 90%;">
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
 </colgroup>
 <tbody>
 <tr>
@@ -209,15 +209,6 @@ To search, simply append your search parameters to the back of the original comm
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits the program.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>exit</code></p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
@@ -239,10 +230,10 @@ To search, simply append your search parameters to the back of the original comm
 <div class="ulist">
 <ul>
 <li>
-<p>To log in: <code>login</code></p>
+<p>To get help: <code>help</code></p>
 </li>
 <li>
-<p>To get help: <code>help</code></p>
+<p>To log in: <code>login</code></p>
 </li>
 <li>
 <p>Close the application: <code>exit</code></p>
@@ -258,34 +249,7 @@ To search, simply append your search parameters to the back of the original comm
 <p>Register for a new account: <code>register account</code></p>
 </li>
 <li>
-<p>Log out of your account: <code>logout</code></p>
-</li>
-<li>
 <p>Change your account password: <code>change password</code></p>
-</li>
-<li>
-<p>View the detail of a client: <code>client# select</code></p>
-</li>
-<li>
-<p>View the detail of a vendor: <code>vendor# select</code></p>
-</li>
-<li>
-<p>Delete the entire data entries for both client and vendor: <code>clear</code></p>
-</li>
-<li>
-<p>Delete a particular data entry of a client: <code>client# delete</code></p>
-</li>
-<li>
-<p>Delete a particular data entry of a vendor: <code>vendor# delete</code></p>
-</li>
-<li>
-<p>List all the commands entered: <code>history</code></p>
-</li>
-<li>
-<p>Undo the previous command: <code>undo</code></p>
-</li>
-<li>
-<p>Redo the previous command: <code>redo</code></p>
 </li>
 <li>
 <p>Add an entry to the client: <code>client add</code></p>
@@ -294,31 +258,58 @@ To search, simply append your search parameters to the back of the original comm
 <p>Add an entry to the vendor: <code>vendor add</code></p>
 </li>
 <li>
-<p>Update the entry of a particular client: <code>client# update</code></p>
-</li>
-<li>
-<p>Update the entry of a particular vendor: <code>vendor# update</code></p>
-</li>
-<li>
-<p>List all the client data: <code>client list</code></p>
-</li>
-<li>
-<p>List all the vendor data: <code>vendor list</code></p>
-</li>
-<li>
 <p>Add a service requirement for a particular client: <code>client# addservice</code></p>
 </li>
 <li>
 <p>Add a service supported by a particular vendor: <code>vendor# addservice</code></p>
 </li>
 <li>
-<p>Auto find a match to fit a particular client&#8217;s requirements: <code>client# automatch</code></p>
+<p>Update the entry of a particular client: <code>client# update</code></p>
 </li>
 <li>
-<p>Auto find a match to fit a particular vendor&#8217;s services: <code>vendor# automatch</code></p>
+<p>Update the entry of a particular vendor: <code>vendor# update</code></p>
+</li>
+<li>
+<p>Delete a particular data entry of a client: <code>client# delete</code></p>
+</li>
+<li>
+<p>Delete a particular data entry of a vendor: <code>vendor# delete</code></p>
+</li>
+<li>
+<p>Delete the entire data entries for all clients and vendors: <code>clear</code></p>
+</li>
+<li>
+<p>List all the commands entered in this session: <code>history</code></p>
+</li>
+<li>
+<p>Undo the previous command: <code>undo</code></p>
+</li>
+<li>
+<p>Redo the previous command: <code>redo</code></p>
+</li>
+<li>
+<p>View the details of a client: <code>client# select</code></p>
+</li>
+<li>
+<p>View the details of a vendor: <code>vendor# select</code></p>
+</li>
+<li>
+<p>List all the clients' data: <code>client list</code></p>
+</li>
+<li>
+<p>List all the vendors' data: <code>vendor list</code></p>
+</li>
+<li>
+<p>Automatically find a match to fit a particular client&#8217;s requirements: <code>client# automatch</code></p>
+</li>
+<li>
+<p>Automatically find a match to fit a particular vendor&#8217;s services: <code>vendor# automatch</code></p>
 </li>
 <li>
 <p>To get help: <code>help</code></p>
+</li>
+<li>
+<p>Log out of your account: <code>logout</code></p>
 </li>
 <li>
 <p>Close the application: <code>exit</code></p>
@@ -628,92 +619,7 @@ Gives better control over the searching.</p>
 <div class="paragraph">
 <p><br></p>
 </div>
-<h3 id="use-case-list-all-the-clients-or-vendors" class="discrete">Use case: List all the Clients or Vendors</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters the list command and requests to view either all the Clients, or all the Vendors.</p>
-</li>
-<li>
-<p>System returns either a list with all the Clients' information, or all the Vendors' information.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. There is no Client or no Vendor available</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. System returns an empty list.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-filter-and-show-client-s-or-vendor-s-info-according-to-the-filter" class="discrete">Use case: Filter and show Client’s or Vendor’s info according to the filter</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User enters the list command and requests to view either Client’s or Vendor’s information with some
-keywords provided indicated by prefixes.</p>
-</li>
-<li>
-<p>The System displays a list of Clients or Vendors whose information matches what was provided.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. User enters a prefix that does not exist.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. System prompts the User the correct format of the command and prefixes that can be used.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>1b. User enters an empty prefix.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b1. System prompts the User the correct format of the command and prefixes that can be used.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
 </div>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 08:48:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 09:39:33 UTC</div></div></div></body></html>

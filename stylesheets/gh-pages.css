@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat|Open+Sans);
+@import "style.css";
 @import "asciidoctor.css"; /* Default asciidoc style framework - important */
 
 /* Custom block: details */

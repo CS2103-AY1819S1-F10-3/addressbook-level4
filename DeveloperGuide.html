@@ -8,7 +8,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>By: <code>Team Heart²</code>      Since: <code>Aug 2018</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team Heart²</code>      Since: <code>Aug 2018</code>      Last updated: <code>November 2018</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 </div>
@@ -101,18 +101,17 @@ This represents a <strong>warning</strong>. You should be extremely cautious and
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">4.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">4.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.4. Configuration</a></li>
-<li><a href="#login-feature">4.5. Login Feature</a></li>
-<li><a href="#account-creation">4.6. Account creation</a></li>
-<li><a href="#account-storage">4.7. Account storage</a></li>
-<li><a href="#add-clients-and-vendors-feature">4.8. Add clients and vendors feature</a></li>
-<li><a href="#remove-clients-and-vendors-feature">4.9. Remove clients and vendors feature</a></li>
-<li><a href="#edit-clients-and-vendors-feature">4.10. Edit clients and vendors feature</a></li>
-<li><a href="#viewing-search-results-coming-in-v2-0">4.11. Viewing Search Results [Coming in v2.0]</a></li>
-<li><a href="#list-feature">4.12. List Feature</a></li>
-<li><a href="#finding-matches-between-clients-and-vendors">4.13. Finding matches between clients and vendors</a></li>
+<li><a href="#logging">4.2. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.3. Configuration</a></li>
+<li><a href="#login-feature">4.4. Login Feature</a></li>
+<li><a href="#account-creation">4.5. Account creation</a></li>
+<li><a href="#account-storage">4.6. Account storage</a></li>
+<li><a href="#add-clients-and-vendors-feature">4.7. Add clients and vendors feature</a></li>
+<li><a href="#remove-clients-and-vendors-feature">4.8. Remove clients and vendors feature</a></li>
+<li><a href="#edit-clients-and-vendors-feature">4.9. Edit clients and vendors feature</a></li>
+<li><a href="#viewing-search-results-coming-in-v2-0">4.10. Viewing Search Results [Coming in v2.0]</a></li>
+<li><a href="#list-feature">4.11. List Feature</a></li>
+<li><a href="#finding-matches-between-clients-and-vendors">4.12. Finding matches between clients and vendors</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -152,27 +151,29 @@ This represents a <strong>warning</strong>. You should be extremely cautious and
 <li><a href="#user-stories">Appendix C: User Stories</a></li>
 <li><a href="#use-cases">Appendix D: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#use-case-changing-an-existing-account-password">D.1. Use case: Changing an existing account password</a></li>
+<li><a href="#use-case-add-client-vendor">D.1. Use case: Add Client/Vendor</a></li>
+<li><a href="#use-case-update-client-vendor">D.2. Use case: Update Client/Vendor</a></li>
+<li><a href="#use-case-delete-client-vendor">D.3. Use case: Delete Client/Vendor</a></li>
+<li><a href="#use-case-login">D.4. Use case: Login</a></li>
+<li><a href="#use-case-logout">D.5. Use case: Logout</a></li>
+<li><a href="#use-case-register-an-account">D.6. Use case: Register an account</a></li>
+<li><a href="#use-case-changing-an-existing-account-password">D.7. Use case: Changing an existing account password</a></li>
+<li><a href="#use-case-list-all-the-clients-or-vendors">D.8. Use case: List all the Clients or Vendors</a></li>
+<li><a href="#use-case-filter-and-show-client-s-or-vendor-s-info-according-to-the-filter">D.9. Use case: Filter and show Client’s or Vendor’s info according to the filter</a></li>
+<li><a href="#use-case-match-the-most-suitable-vendor-to-a-client-s-needs">D.10. Use case: Match the most suitable Vendor to a Client&#8217;s needs</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a>
 <ul class="sectlevel2">
-<li><a href="#availability">Availability</a></li>
-<li><a href="#performance">Performance</a></li>
-<li><a href="#usability">Usability</a></li>
-<li><a href="#reliability">Reliability</a></li>
-<li><a href="#scalability">Scalability</a></li>
-<li><a href="#data-integrity">Data Integrity</a></li>
+<li><a href="#availability">E.1. Availability</a></li>
+<li><a href="#performance">E.2. Performance</a></li>
+<li><a href="#usability">E.3. Usability</a></li>
+<li><a href="#reliability">E.4. Reliability</a></li>
+<li><a href="#scalability">E.5. Scalability</a></li>
+<li><a href="#data-integrity">E.6. Data Integrity</a></li>
 </ul>
 </li>
 <li><a href="#glossary">Appendix F: Glossary</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
-<ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
-</ul>
-</li>
 </ul>
 </div>
 </div>
@@ -435,7 +436,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 <div class="content">
 <img src="images/Architecture.png" alt="Architecture" width="600">
 </div>
-<div class="title">Figure 1. Architecture Diagram</div>
+<div class="title">Figure 1. <em>Architecture Diagram</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -520,7 +521,7 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
 </div>
-<div class="title">Figure 2. Class Diagram of the Logic Component</div>
+<div class="title">Figure 2. <em>Class Diagram of the Logic Component</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -533,7 +534,7 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 <div class="content">
 <img src="images/SDforDeletePerson.png" alt="SDforDeletePerson" width="800">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 1</code> command (part 1)<br></div>
+<div class="title">Figure 3. <em>Component interactions for <code>delete 1</code> command (part 1)</em><br></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -554,7 +555,7 @@ Note how the <code>Model</code> simply raises a <code>AddressBookChangedEvent</c
 <div class="content">
 <img src="images/SDforDeletePersonEventHandling.png" alt="SDforDeletePersonEventHandling" width="800">
 </div>
-<div class="title">Figure 4. Component interactions for <code>delete 1</code> command (part 2)<br></div>
+<div class="title">Figure 4. <em>Component interactions for <code>delete 1</code> command (part 2)</em><br></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -578,7 +579,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
 </div>
-<div class="title">Figure 5. Structure of the UI Component</div>
+<div class="title">Figure 5. <em>Structure of the UI Component</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -615,7 +616,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
 </div>
-<div class="title">Figure 6. Structure of the Logic Component</div>
+<div class="title">Figure 6. <em>Structure of the Logic Component</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -647,7 +648,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="content">
 <img src="images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="800">
 </div>
-<div class="title">Figure 7. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 7. <em>Interactions Inside the Logic Component for the <code>delete 1</code> Command</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -659,7 +660,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
 </div>
-<div class="title">Figure 8. Structure of the Model Component</div>
+<div class="title">Figure 8. <em>Structure of the Model Component</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -710,7 +711,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
 </div>
-<div class="title">Figure 9. Structure of the Storage Component</div>
+<div class="title">Figure 9. <em>Structure of the Storage Component</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -738,7 +739,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="content">
 <img src="images/AccountStorageClassDiagram.png" alt="AccountStorageClassDiagram" width="800">
 </div>
-<div class="title">Figure 10. Structure of the Account Storage Component</div>
+<div class="title">Figure 10. <em>Structure of the Account Storage Component</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -1032,20 +1033,14 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.2. [Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.2. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.3, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1076,18 +1071,18 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.3. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="login-feature"><a class="link" href="#login-feature">4.5. Login Feature</a></h3>
+<h3 id="login-feature"><a class="link" href="#login-feature">4.4. Login Feature</a></h3>
 <div class="paragraph">
 <p>Before user can use <strong><em>Heart²</em></strong>, they must first log in with a registered account.</p>
 </div>
 <div class="sect3">
-<h4 id="before-logging-in"><a class="link" href="#before-logging-in">4.5.1. Before logging in</a></h4>
+<h4 id="before-logging-in"><a class="link" href="#before-logging-in">4.4.1. Before logging in</a></h4>
 <div class="paragraph">
 <p>User is presented with a login UI:</p>
 </div>
@@ -1095,7 +1090,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="images/UiLoginDiagram.png" alt="UiLoginDiagram" width="800">
 </div>
-<div class="title">Figure 11. The login screen when user launches the application.</div>
+<div class="title">Figure 11. <em>The login screen when user launches the application.</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -1118,7 +1113,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="after-logging-in"><a class="link" href="#after-logging-in">4.5.2. After logging in</a></h4>
+<h4 id="after-logging-in"><a class="link" href="#after-logging-in">4.4.2. After logging in</a></h4>
 <div class="paragraph">
 <p>The <code>LoginWindow</code> would direct to open the <code>MainWindow</code> upon successful login, by parsing in the current <code>stage</code>.</p>
 </div>
@@ -1127,7 +1122,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.5.3. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-when-to-show-the-login-ui"><a class="link" href="#aspect-when-to-show-the-login-ui">Aspect: When to show the Login UI</a></h5>
 <div class="ulist">
@@ -1164,7 +1159,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="account-creation"><a class="link" href="#account-creation">4.6. Account creation</a></h3>
+<h3 id="account-creation"><a class="link" href="#account-creation">4.5. Account creation</a></h3>
 <div class="paragraph">
 <p>Account is created for the purpose of logging in and authenticating the user, before the user is allowed to use the application. This protects the confidentiality and data integrity of the application.</p>
 </div>
@@ -1181,7 +1176,7 @@ User can only register for an account via an existing account with <code>SUPER_U
 </table>
 </div>
 <div class="sect3">
-<h4 id="types-of-account"><a class="link" href="#types-of-account">4.6.1. Types of account</a></h4>
+<h4 id="types-of-account"><a class="link" href="#types-of-account">4.5.1. Types of account</a></h4>
 <div class="paragraph">
 <p>There are 2 types of account:</p>
 </div>
@@ -1226,7 +1221,7 @@ User can only register for an account via an existing account with <code>SUPER_U
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-should-the-privilege-be-tied-to-role-enum-or-account-class"><a class="link" href="#aspect-should-the-privilege-be-tied-to-role-enum-or-account-class">Aspect: Should the privilege be tied to Role enum or Account class?</a></h5>
 <div class="ulist">
@@ -1293,7 +1288,7 @@ User can only register for an account via an existing account with <code>SUPER_U
 </div>
 </div>
 <div class="sect2">
-<h3 id="account-storage"><a class="link" href="#account-storage">4.7. Account storage</a></h3>
+<h3 id="account-storage"><a class="link" href="#account-storage">4.6. Account storage</a></h3>
 <div class="paragraph">
 <p>All accounts are stored in a file call <code>/data/accountlist.xml</code>. This file is generated on the fly during first launch and populated with a root account. By default, a root account is hardcoded into the application with the username <code>rootUser</code> and password <code>rootPassword</code> with the role <code>SUPER_USER</code>.</p>
 </div>
@@ -1304,7 +1299,7 @@ User can only register for an account via an existing account with <code>SUPER_U
 <div class="content">
 <img src="images/accountstoragediagram.png" alt="accountstoragediagram" width="800">
 </div>
-<div class="title">Figure 12. Activity diagram when user launches the application</div>
+<div class="title">Figure 12. <em>Activity diagram when user launches the application</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -1316,13 +1311,13 @@ User can only register for an account via an existing account with <code>SUPER_U
 <div class="content">
 <img src="images/accountcreationdiagram.png" alt="accountcreationdiagram" width="800">
 </div>
-<div class="title">Figure 13. Activity diagram when user registers an account</div>
+<div class="title">Figure 13. <em>Activity diagram when user registers an account</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.7.1. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.1. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-what-file-type-to-store-user-account-as"><a class="link" href="#aspect-what-file-type-to-store-user-account-as">Aspect: What file type to store user account as?</a></h5>
 <div class="ulist">
@@ -1361,7 +1356,7 @@ User can only register for an account via an existing account with <code>SUPER_U
 </div>
 </div>
 <div class="sect3">
-<h4 id="security-considerations"><a class="link" href="#security-considerations">4.7.2. Security Considerations</a></h4>
+<h4 id="security-considerations"><a class="link" href="#security-considerations">4.6.2. Security Considerations</a></h4>
 <div class="sect4">
 <h5 id="database"><a class="link" href="#database">Database</a></h5>
 <div class="paragraph">
@@ -1387,7 +1382,7 @@ User can only register for an account via an existing account with <code>SUPER_U
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-clients-and-vendors-feature"><a class="link" href="#add-clients-and-vendors-feature">4.8. Add clients and vendors feature</a></h3>
+<h3 id="add-clients-and-vendors-feature"><a class="link" href="#add-clients-and-vendors-feature">4.7. Add clients and vendors feature</a></h3>
 <div class="paragraph">
 <p><strong><em>Heart²</em></strong> allows you to be able to distinguish between clients and vendors.</p>
 </div>
@@ -1411,14 +1406,14 @@ User can only register for an account via an existing account with <code>SUPER_U
 <p>This facilitates many other features of <strong><em>Heart²</em></strong> for your convenience!</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">4.8.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.7.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The keyword 'client' or 'vendor' is used to determine whether a 'Client' or a 'Vendor' is instantiated before adding to the contact list. The contact list is a single list containing both 'Client' and 'Vendor' objects. Filters are then applied based on subsequent commands to select only 'client' or 'vendor' objects.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remove-clients-and-vendors-feature"><a class="link" href="#remove-clients-and-vendors-feature">4.9. Remove clients and vendors feature</a></h3>
+<h3 id="remove-clients-and-vendors-feature"><a class="link" href="#remove-clients-and-vendors-feature">4.8. Remove clients and vendors feature</a></h3>
 <div class="paragraph">
 <p><strong><em>Heart²</em></strong> allows you to remove 'client' and 'vendor' if you so wish to!</p>
 </div>
@@ -1439,14 +1434,14 @@ User can only register for an account via an existing account with <code>SUPER_U
 <p>The above commands removes the 'client' in index 1 of the 'client' list and the 'vendor' in index 2 of the 'vendor' list respectively.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">4.9.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">4.8.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The keyword 'client' or 'vendor' is used to determine the context of  whether a 'client' or 'vendor' is to be deleted to select the appropriate contact based on the 'index' specified. The contact in question is then removed from the contact list.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-clients-and-vendors-feature"><a class="link" href="#edit-clients-and-vendors-feature">4.10. Edit clients and vendors feature</a></h3>
+<h3 id="edit-clients-and-vendors-feature"><a class="link" href="#edit-clients-and-vendors-feature">4.9. Edit clients and vendors feature</a></h3>
 <div class="paragraph">
 <p><strong><em>Heart²</em></strong> allows you to make changes to existing 'client' and 'vendor' too!</p>
 </div>
@@ -1467,7 +1462,7 @@ User can only register for an account via an existing account with <code>SUPER_U
 <p>The above commands will update the name of the first contact to Wai Lua and the phone number of the second contact to 9046 3328 respectively.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">4.10.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.9.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The index specified determines the contact in question. The arguments following the index is parsed and used to create an EditContactDescriptor.
 This EditContactDescriptor is then used in conjunction with the earlier in contact in question to create a new contact. A check on whether the contact is a 'client' or 'vendor' is first performed to create a correct replacement contact, before updating the contact list.</p>
@@ -1475,7 +1470,7 @@ This EditContactDescriptor is then used in conjunction with the earlier in conta
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-search-results-coming-in-v2-0"><a class="link" href="#viewing-search-results-coming-in-v2-0">4.11. Viewing Search Results [Coming in v2.0]</a></h3>
+<h3 id="viewing-search-results-coming-in-v2-0"><a class="link" href="#viewing-search-results-coming-in-v2-0">4.10. Viewing Search Results [Coming in v2.0]</a></h3>
 <div class="paragraph">
 <p>After the user entered the command into the <code>CommandBox</code>, the <code>BrowserPanel</code> would be deployed to list the search results in a tabular form:</p>
 </div>
@@ -1485,7 +1480,7 @@ This EditContactDescriptor is then used in conjunction with the earlier in conta
 </div>
 </div>
 <div class="sect3">
-<h4 id="profile"><a class="link" href="#profile">4.11.1. Profile</a></h4>
+<h4 id="profile"><a class="link" href="#profile">4.10.1. Profile</a></h4>
 <div class="paragraph">
 <p>The client&#8217;s profile would be displayed on the left, so as to facilitate the user in picking the vendors while keeping the requirements in mind.</p>
 </div>
@@ -1495,14 +1490,14 @@ tags at the bottom left.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="tabular-view"><a class="link" href="#tabular-view">4.11.2. Tabular View</a></h4>
+<h4 id="tabular-view"><a class="link" href="#tabular-view">4.10.2. Tabular View</a></h4>
 <div class="paragraph">
 <p>The results would be listed from the most to the least relevant based on the client&#8217;s needs.
 Users can then scroll through the list to view the other results in decreasing relevancy.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.11.3. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.10.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-display-search-results"><a class="link" href="#aspect-how-to-display-search-results">Aspect: How to display search results</a></h5>
 <div class="ulist">
@@ -1540,7 +1535,7 @@ the combination that best suits the client easily</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-feature"><a class="link" href="#list-feature">4.12. List Feature</a></h3>
+<h3 id="list-feature"><a class="link" href="#list-feature">4.11. List Feature</a></h3>
 <div class="paragraph">
 <p><strong><em>Heart²</em></strong> allows you view all the clients or the vendors with a simple command: <code>list</code>.</p>
 </div>
@@ -1620,7 +1615,7 @@ belong to a category and only contacts which contains all of the keywords in the
 <p><br></p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">4.12.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">4.11.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command to be used for filtering is parsed by the <code>ListCommandParser</code> and passed to a <code>Predicate</code>
 that is implemented as <code>ContactContainsKeywordsPredicate</code>.</p>
@@ -1631,7 +1626,7 @@ clients or vendors and the other is to filter by keywords.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.12.2. Design considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.11.2. Design considerations</a></h4>
 
 </div>
 <div class="sect3">
@@ -1736,17 +1731,17 @@ Gives better control over the searching.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-matches-between-clients-and-vendors"><a class="link" href="#finding-matches-between-clients-and-vendors">4.13. Finding matches between clients and vendors</a></h3>
+<h3 id="finding-matches-between-clients-and-vendors"><a class="link" href="#finding-matches-between-clients-and-vendors">4.12. Finding matches between clients and vendors</a></h3>
 <div class="paragraph">
 <p>The application boasts matchmaking features that reduces the (once-laborious) task of matching vendors a single command.</p>
 </div>
 <div class="sect3">
-<h4 id="high-level-design"><a class="link" href="#high-level-design">4.13.1. High level design</a></h4>
+<h4 id="high-level-design"><a class="link" href="#high-level-design">4.12.1. High level design</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/auto-matching.png" alt="width:&quot;800&quot;">
 </div>
-<div class="title">Figure 16. High level overview of how auto-matching works</div>
+<div class="title">Figure 16. <em>High level overview of how auto-matching works</em></div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1760,7 +1755,7 @@ Gives better control over the searching.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.13.2. Design considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.12.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-fairly-distribute-jobs-between-vendors"><a class="link" href="#aspect-how-to-fairly-distribute-jobs-between-vendors">Aspect: How to fairly distribute jobs between vendors</a></h5>
 <div class="ulist">
@@ -1875,7 +1870,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 17. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 17. <em>Saving documentation as PDF files in Chrome</em></div>
 </div>
 </div>
 <div class="sect2">
@@ -3111,7 +3106,8 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <strong><em>Heart²</em></strong> application, and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-add-client-vendor" class="discrete">Use case: Add Client/Vendor</h3>
+<div class="sect2">
+<h3 id="use-case-add-client-vendor"><a class="link" href="#use-case-add-client-vendor">D.1. Use case: Add Client/Vendor</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3148,7 +3144,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-update-client-vendor" class="discrete">Use case: Update Client/Vendor</h3>
+</div>
+<div class="sect2">
+<h3 id="use-case-update-client-vendor"><a class="link" href="#use-case-update-client-vendor">D.2. Use case: Update Client/Vendor</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3185,7 +3183,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-delete-client-vendor" class="discrete">Use case: Delete Client/Vendor</h3>
+</div>
+<div class="sect2">
+<h3 id="use-case-delete-client-vendor"><a class="link" href="#use-case-delete-client-vendor">D.3. Use case: Delete Client/Vendor</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3222,7 +3222,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-login" class="discrete">Use case: Login</h3>
+</div>
+<div class="sect2">
+<h3 id="use-case-login"><a class="link" href="#use-case-login">D.4. Use case: Login</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3289,13 +3291,12 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
 </li>
 </ul>
 </div>
-<h3 id="use-case-logout" class="discrete">Use case: Logout</h3>
+</div>
+<div class="sect2">
+<h3 id="use-case-logout"><a class="link" href="#use-case-logout">D.5. Use case: Logout</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3315,7 +3316,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
-<h3 id="use-case-register-an-account" class="discrete">Use case: Register an account</h3>
+</div>
+<div class="sect2">
+<h3 id="use-case-register-an-account"><a class="link" href="#use-case-register-an-account">D.6. Use case: Register an account</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3394,8 +3397,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
+</div>
 <div class="sect2">
-<h3 id="use-case-changing-an-existing-account-password"><a class="link" href="#use-case-changing-an-existing-account-password">D.1. Use case: Changing an existing account password</a></h3>
+<h3 id="use-case-changing-an-existing-account-password"><a class="link" href="#use-case-changing-an-existing-account-password">D.7. Use case: Changing an existing account password</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3452,7 +3456,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-list-all-the-clients-or-vendors" class="discrete">Use case: List all the Clients or Vendors</h3>
+</div>
+<div class="sect2">
+<h3 id="use-case-list-all-the-clients-or-vendors"><a class="link" href="#use-case-list-all-the-clients-or-vendors">D.8. Use case: List all the Clients or Vendors</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3489,7 +3495,9 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-filter-and-show-client-s-or-vendor-s-info-according-to-the-filter" class="discrete">Use case: Filter and show Client’s or Vendor’s info according to the filter</h3>
+</div>
+<div class="sect2">
+<h3 id="use-case-filter-and-show-client-s-or-vendor-s-info-according-to-the-filter"><a class="link" href="#use-case-filter-and-show-client-s-or-vendor-s-info-according-to-the-filter">D.9. Use case: Filter and show Client’s or Vendor’s info according to the filter</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3537,7 +3545,9 @@ keywords provided indicated by prefixes.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-match-the-most-suitable-vendor-to-a-client-s-needs" class="discrete">Use case: Match the most suitable Vendor to a Client&#8217;s needs</h3>
+</div>
+<div class="sect2">
+<h3 id="use-case-match-the-most-suitable-vendor-to-a-client-s-needs"><a class="link" href="#use-case-match-the-most-suitable-vendor-to-a-client-s-needs">D.10. Use case: Match the most suitable Vendor to a Client&#8217;s needs</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3599,7 +3609,7 @@ keywords provided indicated by prefixes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="availability"><a class="link" href="#availability">Availability</a></h3>
+<h3 id="availability"><a class="link" href="#availability">E.1. Availability</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3618,7 +3628,7 @@ keywords provided indicated by prefixes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="performance"><a class="link" href="#performance">Performance</a></h3>
+<h3 id="performance"><a class="link" href="#performance">E.2. Performance</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3628,7 +3638,7 @@ keywords provided indicated by prefixes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="usability"><a class="link" href="#usability">Usability</a></h3>
+<h3 id="usability"><a class="link" href="#usability">E.3. Usability</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3644,7 +3654,7 @@ keywords provided indicated by prefixes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="reliability"><a class="link" href="#reliability">Reliability</a></h3>
+<h3 id="reliability"><a class="link" href="#reliability">E.4. Reliability</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3657,7 +3667,7 @@ keywords provided indicated by prefixes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="scalability"><a class="link" href="#scalability">Scalability</a></h3>
+<h3 id="scalability"><a class="link" href="#scalability">E.5. Scalability</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3670,7 +3680,7 @@ keywords provided indicated by prefixes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="data-integrity"><a class="link" href="#data-integrity">Data Integrity</a></h3>
+<h3 id="data-integrity"><a class="link" href="#data-integrity">E.6. Data Integrity</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3721,119 +3731,4 @@ keywords provided indicated by prefixes.</p>
 </dl>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="images/appendixgheader.png" alt="appendixgheader" width="320">
-</div>
-</div>
-<div class="paragraph">
-<p>Given below are instructions to test the app manually.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
-</td>
-</tr>
-</table>
-</div>
-<div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Initial launch</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Download the jar file and copy into an empty folder</p>
-</li>
-<li>
-<p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Saving window preferences</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
-</li>
-<li>
-<p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Deleting a person while all persons are listed</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
-</li>
-<li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Dealing with missing/corrupted data files</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 08:48:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 09:39:33 UTC</div></div></div></body></html>
