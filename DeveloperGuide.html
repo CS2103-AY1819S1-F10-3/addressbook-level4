@@ -174,6 +174,18 @@ This represents a <strong>warning</strong>. You should be extremely cautious and
 </ul>
 </li>
 <li><a href="#glossary">Appendix F: Glossary</a></li>
+<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<ul class="sectlevel2">
+<li><a href="#launch-the-application">G.1. Launch the application</a></li>
+<li><a href="#shutdown-the-application">G.2. Shutdown the application</a></li>
+<li><a href="#deleting-a-client">G.3. Deleting a client</a></li>
+<li><a href="#deleting-a-vendor">G.4. Deleting a vendor</a></li>
+<li><a href="#logging-in">G.5. Logging in</a></li>
+<li><a href="#logging-out">G.6. Logging out</a></li>
+<li><a href="#registering-a-new-account">G.7. Registering a new account</a></li>
+<li><a href="#changing-your-account-password">G.8. Changing your account password</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -3731,4 +3743,264 @@ keywords provided indicated by prefixes.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 12:03:53 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/appendixgheader.png" alt="appendixgheader" width="320">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below are instructions to test the app manually.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
+For all commands except for <code>login</code>, <code>help</code>, and <code>exit</code>, user is expected to have already logged in to the application successfully and be at the main screen GUI page, not the login GUI page.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="launch-the-application"><a class="link" href="#launch-the-application">G.1. Launch the application</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Initial launch</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Download the jar file and copy into an empty folder</p>
+</li>
+<li>
+<p>Double-click the jar file<br>
+Expected: Shows the login page GUI. The window size may not be optimum.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Saving window preferences</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
+</li>
+<li>
+<p>Re-launch the app by double-clicking the jar file.<br>
+Expected: The most recent window size and location is retained.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="shutdown-the-application"><a class="link" href="#shutdown-the-application">G.2. Shutdown the application</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Exit the application with a command</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>exit</code><br>
+Expected: The GUI screen closes and the application exits.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Exit the application by clicking on the GUI close button or force quitting the app (e.g. <code>alt</code> + <code>f4</code> on Windows, and <code>cmd</code> + <code>q</code> on Mac)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Expected: The GUI screen closes and the application exits.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-client"><a class="link" href="#deleting-a-client">G.3. Deleting a client</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a client while all clients are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all clients using the <code>client list</code> command. Multiple clients in the list.</p>
+</li>
+<li>
+<p>Test case: <code>client#1 delete</code><br>
+Expected: First client is deleted from the list. Details of the deleted client shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>client#0 delete</code><br>
+Expected: No client is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>client3 delete</code>, <code>client#x delete</code> (where x is not a client&#8217;s id), <code>delete client#1</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-vendor"><a class="link" href="#deleting-a-vendor">G.4. Deleting a vendor</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a vendor while all vendors are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all vendors using the <code>vendor list</code> command. Multiple vendors in the list.</p>
+</li>
+<li>
+<p>Test case: <code>vendor#1 delete</code><br>
+Expected: First vendor is deleted from the list. Details of the deleted vendor shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>vendor#0 delete</code><br>
+Expected: No vendor is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>vendor3 delete</code>, <code>vendor#x delete</code> (where x is not a vendor&#8217;s id), <code>delete vendor#1</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging-in"><a class="link" href="#logging-in">G.5. Logging in</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to the application on new launch, or on log out.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: User must not already been logged in.</p>
+</li>
+<li>
+<p>Test case: <code>login u/rootUser p/rootPassword</code><br>
+Expected: Successfully logged in as rootUser. Login GUI is closed, and the main screen GUI is shown. Your username and your account role (either a super_user or read_only_user) are shown at the footer of the app.</p>
+</li>
+<li>
+<p>Test case: <code>login u/YourCreatedUsername p/YourCreatedPassword</code><br>
+Expected: Successfully logged in as YourCreatedUsername. Login GUI is closed, and the main screen GUI is shown. Your username and your account role (either a super_user or read_only_user) are shown at the footer of the app.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>login u/YourCreatedUsername p/YourOldPassword</code>, <code>login u/YourCreatedUsername p/WrongPassword</code>, <code>login u/WrongUsername p/YourCreatedPassword</code><br>
+Expected: Failed to log in. GUI remains on the same page, with a feedback saying that the username or password is wrong.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Log in to the application after logging in.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: User must have already logged in successfully and on the main screen GUI page.</p>
+</li>
+<li>
+<p>Test case: <code>login u/rootUser p/rootPassword</code><br>
+Expected: Unknown command.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging-out"><a class="link" href="#logging-out">G.6. Logging out</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log out of the application</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>logout</code><br>
+Expected: Successfully logged out. Main screen GUI is closed, and login screen GUI appears.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="registering-a-new-account"><a class="link" href="#registering-a-new-account">G.7. Registering a new account</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Register a new account that can be used as login credentials subsequently.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: User account must be a super_user_account.</p>
+</li>
+<li>
+<p>Test case: <code>register account u/newUserName p/newPassword r/superuser</code><br>
+Expected: Screen GUI feedback to say that you have successfully registered an account. You can now <code>logout</code> and log in with <code>login u/newUserName p/newPassword</code>.</p>
+</li>
+<li>
+<p>Test case: <code>register account u/us3r p/p@ssw0rD r/readonlyuser</code><br>
+Expected: Screen GUI feedback to say that you have successfully registered an account. You can now <code>logout</code> and log in with <code>login u/us3r p/p@ssw0rD</code>.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>login u/ p/password r/superuser</code>, <code>login u/username p/ r/readonlyuser</code> (basically cannot contain empty field in any of u/ p/ or r/ parameter), <code>login u/usernameAlreadyExist p/password r/superuser</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changing-your-account-password"><a class="link" href="#changing-your-account-password">G.8. Changing your account password</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Change your current account password to a new password.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must know your old password.</p>
+</li>
+<li>
+<p>Test case: <code>change password o/rootPassword n/newPassword</code><br>
+Expected: Screen GUI feedback to say that you have successfully changed your password. You can now <code>logout</code> and log in with <code>login u/rootUser p/newPassword</code>.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>changepassword o/rootPassword n/newPassword</code>, <code>change password o/WrongOldPassword n/newPasword</code>, <code>change password o/rootPassword n/</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 14:28:52 UTC</div></div></div></body></html>
