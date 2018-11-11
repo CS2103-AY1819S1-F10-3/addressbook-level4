@@ -25,7 +25,7 @@
 <li><a href="#registering-a-new-account-code-register-account-code">3.5. Registering a new account : <code>register account</code></a></li>
 <li><a href="#change-the-current-password-code-change-password-code">3.6. Change the current password : <code>change password</code></a></li>
 <li><a href="#working-with-contacts">3.7. Working with contacts</a></li>
-<li><a href="#manipulating-a-specific-contact">3.8. Manipulating a specific contact</a></li>
+<li><a href="#working-with-a-specific-contact">3.8. Working with a specific contact</a></li>
 <li><a href="#listing-entered-commands-code-history-code">3.9. Listing entered commands: <code>history</code></a></li>
 <li><a href="#undo-the-previous-command-code-undo-code">3.10. Undo the previous command: <code>undo</code></a></li>
 <li><a href="#redo-the-commands-undone-code-redo-code">3.11. Redo the commands undone: <code>redo</code></a></li>
@@ -522,7 +522,7 @@ The following section documents all the commands available for you in this appli
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/icon-notes.png" alt="icon notes" width="48"></span></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Condition: You cannot add a contact that already exists in the application. Two contacts are considered equal if they are the same type (either both clients or both vendors), possess the same name, and either the same phone number or the same email address.</p>
+<p>You cannot add a contact that already exists in the application. Two contacts are considered equal if they are of the same type (either both clients or both vendors), possess the same name and either the same phone number or the same email address.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -551,6 +551,20 @@ The following section documents all the commands available for you in this appli
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p><code>vendor add n/Mary Jane p/98765432 e/maryjane@gmail.com a/123 Lorem Street, #67-89, Singapore 890321</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/icon-tips.png" alt="icon tips" width="48"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>You can <code>undo</code> and <code>redo</code> adding of a contact!</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -634,7 +648,7 @@ Searching is done through substring matching, so you do not need to enter the fu
 </div>
 </div>
 <div class="sect2">
-<h3 id="manipulating-a-specific-contact"><a class="link" href="#manipulating-a-specific-contact">3.8. Manipulating a specific contact</a></h3>
+<h3 id="working-with-a-specific-contact"><a class="link" href="#working-with-a-specific-contact">3.8. Working with a specific contact</a></h3>
 <div class="paragraph">
 <p>Contacts in <strong><em>Heart²</em></strong> are assigned a unique ID each for you to refer to the contact at any point of time when using <strong><em>Heart²</em></strong>.</p>
 </div>
@@ -661,7 +675,7 @@ Searching is done through substring matching, so you do not need to enter the fu
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/icon-tips.png" alt="icon tips" width="48"></span></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>These IDs are persistent for one session. Each restart of <strong><em>Heart²</em></strong> reassigns IDs to contacts, effectively compacting the IDs of your contacts.</p>
+<p>These IDs are persistent for one session. Each restart of Heart reassigns IDs to contacts, effectively accounting for deleted contacts and compacting the IDs of your contacts.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -675,7 +689,7 @@ Searching is done through substring matching, so you do not need to enter the fu
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/icon-notes.png" alt="icon notes" width="48"></span></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>IDs can be similar for <code>client</code> and <code>vendor</code>. However, since the contact type and ID comes together, they would still refer to different contacts!</p>
+<p>IDs can be similar for <code>client</code> and <code>vendor</code>. However, since the contact type and ID come hand in hand, the contacts are still effectively unique!</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -686,6 +700,34 @@ Searching is done through substring matching, so you do not need to enter the fu
 <p>You can <code>view</code> detailed information about a specific contact using its unique ID.
 This information will be displayed on the right panel in <strong><em>Heart²</em></strong>.</p>
 </div>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/icon-tips.png" alt="icon tips" width="48"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>view</code> shows you all the information regarding the specific client, which includes the name, phone number, email address, tags, residential (client) or office (vendor) address and services requested (client) or offered (vendor).</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/icon-notes.png" alt="icon notes" width="48"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>Any</strong> command following <code>view</code> will hide the information shown before on the panel on the right.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Format: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; view</code></p>
 </div>
@@ -713,6 +755,20 @@ This information will be displayed on the right panel in <strong><em>Heart²</em
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p><code>vendor#3 view</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/icon-tips.png" alt="icon tips" width="48"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Clicking on the contact panels on the left of <strong><em>Heart²</em></strong>'s GUI corresponds to a <code>view</code> command for that contact!</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -750,6 +806,20 @@ This information will be displayed on the right panel in <strong><em>Heart²</em
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p><code>vendor#123 delete</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/icon-tips.png" alt="icon tips" width="48"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>You can <code>undo</code> and <code>redo</code> deleting a contact!</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -805,6 +875,20 @@ This information will be displayed on the right panel in <strong><em>Heart²</em
 </tr>
 </tbody>
 </table>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/icon-tips.png" alt="icon tips" width="48"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>You can <code>undo</code> and <code>redo</code> updating a contact!</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
 <h4 id="adding-a-service-code-addservice-code"><a class="link" href="#adding-a-service-code-addservice-code">3.8.4. Adding a service: <code>addservice</code></a></h4>
@@ -821,7 +905,7 @@ This information will be displayed on the right panel in <strong><em>Heart²</em
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/icon-danger.png" alt="icon danger" width="48"></span></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Every service can only be added <strong>once</strong>. You can undo this command but cannot update it in the future.</p>
+<p>Every service can only be added <strong>once</strong>. Updating this service is not supported.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -892,6 +976,20 @@ This information will be displayed on the right panel in <strong><em>Heart²</em
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p><code>vendor#123 addservice s/catering c/10000.00</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="images/icon-tips.png" alt="icon tips" width="48"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>You can <code>undo</code> and <code>redo</code> adding a service to a contact!</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1200,4 +1298,4 @@ This information will be displayed on the right panel in <strong><em>Heart²</em
 <strong>A</strong>: You can raise an issue in the issue section and our team will get back to you as soon as possbile.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 10:34:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 10:35:09 UTC</div></div></div></body></html>
