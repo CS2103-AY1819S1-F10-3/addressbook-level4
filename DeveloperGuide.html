@@ -163,7 +163,8 @@ This represents a <strong>warning</strong>. A warning denotes something of cruci
 <li><a href="#use-case-changing-an-existing-account-password">D.7. Use case: Changing an existing account password</a></li>
 <li><a href="#use-case-list-all-the-clients-or-vendors">D.8. Use case: List all the Clients or Vendors</a></li>
 <li><a href="#use-case-filter-and-show-client-s-or-vendor-s-info-according-to-the-filter">D.9. Use case: Filter and show Client’s or Vendor’s info according to the filter</a></li>
-<li><a href="#use-case-match-the-most-suitable-vendor-to-a-client-s-needs">D.10. Use case: Match the most suitable Vendor to a Client&#8217;s needs</a></li>
+<li><a href="#use-case-adding-a-new-service-request">D.10. Use Case: Adding a new service request</a></li>
+<li><a href="#use-case-match-the-most-suitable-vendor-to-a-client-s-needs">D.11. Use case: Match the most suitable Vendor to a Client&#8217;s needs</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a>
@@ -188,6 +189,7 @@ This represents a <strong>warning</strong>. A warning denotes something of cruci
 <li><a href="#registering-a-new-account">G.7. Registering a new account</a></li>
 <li><a href="#changing-your-account-password">G.8. Changing your account password</a></li>
 <li><a href="#listing-contacts">G.9. Listing contacts</a></li>
+<li><a href="#adding-a-new-service-request">G.10. Adding a new service request</a></li>
 </ul>
 </li>
 </ul>
@@ -3502,6 +3504,9 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect2">
 <h3 id="use-case-add-client-vendor"><a class="link" href="#use-case-add-client-vendor">D.1. Use case: Add Client/Vendor</a></h3>
 <div class="paragraph">
+<p><strong>Preconditions</strong>: User is logged in with a <code>SUPER_USER</code> account.</p>
+</div>
+<div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
@@ -3540,6 +3545,9 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="use-case-update-client-vendor"><a class="link" href="#use-case-update-client-vendor">D.2. Use case: Update Client/Vendor</a></h3>
+<div class="paragraph">
+<p><strong>Preconditions</strong>: User is logged in with a <code>SUPER_USER</code> account.</p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3580,6 +3588,9 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect2">
 <h3 id="use-case-delete-client-vendor"><a class="link" href="#use-case-delete-client-vendor">D.3. Use case: Delete Client/Vendor</a></h3>
 <div class="paragraph">
+<p><strong>Preconditions</strong>: User is logged in with a <code>SUPER_USER</code> account.</p>
+</div>
+<div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
@@ -3618,6 +3629,9 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="use-case-login"><a class="link" href="#use-case-login">D.4. Use case: Login</a></h3>
+<div class="paragraph">
+<p><strong>Preconditions</strong>: User is logged out.</p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3691,6 +3705,9 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect2">
 <h3 id="use-case-logout"><a class="link" href="#use-case-logout">D.5. Use case: Logout</a></h3>
 <div class="paragraph">
+<p><strong>Preconditions</strong>: User is logged in.</p>
+</div>
+<div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
@@ -3712,6 +3729,9 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="use-case-register-an-account"><a class="link" href="#use-case-register-an-account">D.6. Use case: Register an account</a></h3>
+<div class="paragraph">
+<p><strong>Preconditions</strong>: User is logged in with a <code>SUPER_USER</code> account.</p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3794,6 +3814,9 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect2">
 <h3 id="use-case-changing-an-existing-account-password"><a class="link" href="#use-case-changing-an-existing-account-password">D.7. Use case: Changing an existing account password</a></h3>
 <div class="paragraph">
+<p><strong>Preconditions</strong>: User is logged in.</p>
+</div>
+<div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
@@ -3853,6 +3876,9 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect2">
 <h3 id="use-case-list-all-the-clients-or-vendors"><a class="link" href="#use-case-list-all-the-clients-or-vendors">D.8. Use case: List all the Clients or Vendors</a></h3>
 <div class="paragraph">
+<p><strong>Preconditions</strong>: User is logged in with a <code>SUPER_USER</code> account.</p>
+</div>
+<div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
@@ -3891,6 +3917,9 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="use-case-filter-and-show-client-s-or-vendor-s-info-according-to-the-filter"><a class="link" href="#use-case-filter-and-show-client-s-or-vendor-s-info-according-to-the-filter">D.9. Use case: Filter and show Client’s or Vendor’s info according to the filter</a></h3>
+<div class="paragraph">
+<p><strong>Preconditions</strong>: User is logged in with a <code>SUPER_USER</code> account.</p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3940,7 +3969,91 @@ keywords provided indicated by prefixes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-match-the-most-suitable-vendor-to-a-client-s-needs"><a class="link" href="#use-case-match-the-most-suitable-vendor-to-a-client-s-needs">D.10. Use case: Match the most suitable Vendor to a Client&#8217;s needs</a></h3>
+<h3 id="use-case-adding-a-new-service-request"><a class="link" href="#use-case-adding-a-new-service-request">D.10. Use Case: Adding a new service request</a></h3>
+<div class="paragraph">
+<p><strong>Preconditions</strong>: User is logged in with a <code>SUPER_USER</code> account.</p>
+</div>
+<div class="paragraph">
+<p><strong>Guarantees</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Service would be added to the specified contact only if the command is successful.</p>
+</li>
+<li>
+<p>The new service addition will not wipe out the previous service additions.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters the add service command with the specified client or vendor, along with the service type and price.</p>
+</li>
+<li>
+<p>System adds the service to the contact and displays the result of the command in the result display.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. System detects an invalid ID.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System prompts User that the ID is invalid.</p>
+</li>
+<li>
+<p>Use case ends.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. System detects an invalid service type.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System prompts User with the available service types.</p>
+</li>
+<li>
+<p>Use case ends.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1c. System detects an invalid service cost.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System prompts User with the cost format requirements.</p>
+</li>
+<li>
+<p>Use case ends.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-match-the-most-suitable-vendor-to-a-client-s-needs"><a class="link" href="#use-case-match-the-most-suitable-vendor-to-a-client-s-needs">D.11. Use case: Match the most suitable Vendor to a Client&#8217;s needs</a></h3>
+<div class="paragraph">
+<p><strong>Preconditions</strong>: User is logged in with a <code>SUPER_USER</code> account.</p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -4427,5 +4540,65 @@ Expected: List all vendors that matches the parameters provided. Test with diffe
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="adding-a-new-service-request"><a class="link" href="#adding-a-new-service-request">G.10. Adding a new service request</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new service to a client or vendor with no service requests</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must create a new client or vendor with no service requests</p>
+</li>
+<li>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt;#1 addservice s/photographer c/1000.00</code><br>
+Expected: Service is added to the contact. Details of the service and the contact&#8217;s name shown in status message.
+You can now <code>view</code> the contact to rectify that the service is added with <code>&lt;CONTACT_TYPE&gt;#1 view</code>.
+This would display the contact&#8217;s information under "Service Requested" in the <code>BrowserPanel</code> on the right.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>&lt;CONTACT_TYPE&gt;#1 addservice s/florist c/1000.00</code>, <code>&lt;CONTACT_TYPE&gt;#1 addservice s/photographer c/1000</code>, <code>&lt;CONTACT_TYPE&gt;#1 addservice s/photographer c/$1000.00</code></p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 09:58:05 UTC</div></div></div></body></html>
+</li>
+<li>
+<p>Adding a new service to a client or vendor with existing service requests</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must have a client or vendor with at least one existing service request, that is not of <code>photographer</code> type</p>
+</li>
+<li>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt;#1 addservice s/photographer c/1000.00</code><br>
+Expected: Service is added to the contact. Details of the service and the contact&#8217;s name shown in status message.
+You can now <code>view</code> the contact to rectify that the service is added with <code>&lt;CONTACT_TYPE&gt;#1 view</code>.
+This would display the contact&#8217;s information under "Service Requested" in the <code>BrowserPanel</code> on the right, in addition to the existing services listed previously.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>&lt;CONTACT_TYPE&gt;#1 addservice s/florist c/1000.00</code>, <code>&lt;CONTACT_TYPE&gt;#1 addservice s/photographer c/1000</code>, <code>&lt;CONTACT_TYPE&gt;#1 addservice s/photographer c/$1000.00</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a duplicate service to a client or vendor</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must have a client or vendor with a <code>photographer</code> type service request</p>
+</li>
+<li>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt;#1 addservice s/photographer c/1000.00</code><br>
+Expected: Service is not added to the client. Duplicate service message shown in status message.
+You can now <code>view</code> the contact to rectify that the service is not overwritten with <code>&lt;CONTACT_TYPE&gt;#1 view</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 10:34:35 UTC</div></div></div></body></html>
