@@ -187,6 +187,7 @@ This represents a <strong>warning</strong>. A warning denotes something of cruci
 <li><a href="#logging-out">G.6. Logging out</a></li>
 <li><a href="#registering-a-new-account">G.7. Registering a new account</a></li>
 <li><a href="#changing-your-account-password">G.8. Changing your account password</a></li>
+<li><a href="#listing-contacts">G.9. Listing contacts</a></li>
 </ul>
 </li>
 </ul>
@@ -1931,7 +1932,7 @@ by prefixing it to list:</p>
 <div class="content">
 <img src="images/ListAllClients.png" alt="ListAllClients" width="800">
 </div>
-<div class="title">Figure 15. <em>The UI showing listing all clients.</em></div>
+<div class="title">Figure 15. <em>The UI showing how to list all clients.</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -1953,19 +1954,19 @@ belong to a category and only contacts which contains all of the keywords in the
 <div class="ulist">
 <ul>
 <li>
-<p><code>n/</code> NAME</p>
+<p><code>n/ NAME</code></p>
 </li>
 <li>
-<p><code>p/</code> PHONE_NUMBER</p>
+<p><code>p/ PHONE_NUMBER</code></p>
 </li>
 <li>
-<p><code>e/</code> EMAIL_ADDRESS</p>
+<p><code>e/ EMAIL_ADDRESS</code></p>
 </li>
 <li>
-<p><code>a/</code> ADDRESS</p>
+<p><code>a/ ADDRESS</code></p>
 </li>
 <li>
-<p><code>t/</code> TAGS</p>
+<p><code>t/ TAGS</code></p>
 </li>
 </ul>
 </div>
@@ -1988,12 +1989,33 @@ belong to a category and only contacts which contains all of the keywords in the
 <div class="sect3">
 <h4 id="implementation-6"><a class="link" href="#implementation-6">4.14.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The keywords from the command to be used for filtering is parsed by the <code>ListCommandParser</code> and passed to a <code>Predicate</code>
-that is implemented as <code>ContactContainsKeywordsPredicate</code>.</p>
+<p>The keywords from the command to be used for filtering is parsed by the <code>ListCommandParser</code> into a <code>ContactInformation</code>
+and passed to a <code>Predicate</code> to be used for filtering. The <code>Predicate</code> is implemented as <code>ContactContainsKeywordsPredicate</code>.</p>
 </div>
 <div class="paragraph">
-<p>We then use a <code>FilteredList</code> and pass the combination of 2 <code>Predicates</code> into it, one to filter the type of contact,
-clients or vendors and the other is to filter by keywords.</p>
+<p>Below is a sequence diagram showing the creation of the <code>ListCommand</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListSequenceDiagram1.png" alt="ListSequenceDiagram1" width="800">
+</div>
+<div class="title">Figure 17. <em>The Sequence Diagram of the creation of a list command.</em></div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+<div class="paragraph">
+<p>We use a <code>FilteredList</code> and pass the combination of 2 <code>Predicates</code> into it, one to filter the type of contact,
+clients or vendors and the other is to filter by keywords, which is the <code>ContactContainsKeywordsPredicate</code> from the <code>ListCommandParser</code>.</p>
+</div>
+<div class="paragraph">
+<p>Below is a sequence diagram showing the execution of the <code>ListCommand</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListSequenceDiagram2.png" alt="ListSequenceDiagram2" width="800">
+</div>
+<div class="title">Figure 18. <em>The Sequence Diagram of the execution of a list command.</em></div>
 </div>
 </div>
 <div class="sect3">
@@ -2112,7 +2134,7 @@ Gives better control over the searching.</p>
 <div class="content">
 <img src="images/auto-matching.png" alt="width:&quot;800&quot;">
 </div>
-<div class="title">Figure 17. <em>High level overview of how auto-matching works</em></div>
+<div class="title">Figure 19. <em>High level overview of how auto-matching works</em></div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -2241,7 +2263,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 18. <em>Saving documentation as PDF files in Chrome</em></div>
+<div class="title">Figure 20. <em>Saving documentation as PDF files in Chrome</em></div>
 </div>
 </div>
 <div class="sect2">
@@ -4361,5 +4383,49 @@ Expected: Screen GUI feedback to say that you have successfully changed your pas
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="listing-contacts"><a class="link" href="#listing-contacts">G.9. Listing contacts</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List all clients.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>client list</code><br>
+Expected: Screen GUI feedback to say that all client(s) listed. You can further verify whether each contact is a client.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 08:07:56 UTC</div></div></div></body></html>
+</li>
+<li>
+<p>List all vendors.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>vendor list</code><br>
+Expected: Screen GUI feedback to say that all vendor(s) listed. You can further verify whether each contact is a vendor.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>List with parameters.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>client list n/&#8230;&#8203; p/&#8230;&#8203; e/&#8230;&#8203; a/&#8230;&#8203; t/&#8230;&#8203;</code><br>
+Expected: List all clients that matches the parameters provided. Test with different combinations of parameters and invalid ones to verify functionality of list.</p>
+</li>
+<li>
+<p>Test case: <code>vendor list n/&#8230;&#8203; p/&#8230;&#8203; e/&#8230;&#8203; a/&#8230;&#8203; t/&#8230;&#8203;</code><br>
+Expected: List all vendors that matches the parameters provided. Test with different combinations of parameters and invalid ones to verify functionality of list.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 09:58:05 UTC</div></div></div></body></html>

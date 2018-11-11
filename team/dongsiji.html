@@ -231,7 +231,7 @@ by prefixing it to list:</p>
 <div class="content">
 <img src="../images/ListAllClients.png" alt="ListAllClients" width="800">
 </div>
-<div class="title">Figure 1. <em>The UI showing listing all clients.</em></div>
+<div class="title">Figure 1. <em>The UI showing how to list all clients.</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -253,19 +253,19 @@ belong to a category and only contacts which contains all of the keywords in the
 <div class="ulist">
 <ul>
 <li>
-<p><code>n/</code> NAME</p>
+<p><code>n/ NAME</code></p>
 </li>
 <li>
-<p><code>p/</code> PHONE_NUMBER</p>
+<p><code>p/ PHONE_NUMBER</code></p>
 </li>
 <li>
-<p><code>e/</code> EMAIL_ADDRESS</p>
+<p><code>e/ EMAIL_ADDRESS</code></p>
 </li>
 <li>
-<p><code>a/</code> ADDRESS</p>
+<p><code>a/ ADDRESS</code></p>
 </li>
 <li>
-<p><code>t/</code> TAGS</p>
+<p><code>t/ TAGS</code></p>
 </li>
 </ul>
 </div>
@@ -288,12 +288,33 @@ belong to a category and only contacts which contains all of the keywords in the
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p>The keywords from the command to be used for filtering is parsed by the <code>ListCommandParser</code> and passed to a <code>Predicate</code>
-that is implemented as <code>ContactContainsKeywordsPredicate</code>.</p>
+<p>The keywords from the command to be used for filtering is parsed by the <code>ListCommandParser</code> into a <code>ContactInformation</code>
+and passed to a <code>Predicate</code> to be used for filtering. The <code>Predicate</code> is implemented as <code>ContactContainsKeywordsPredicate</code>.</p>
 </div>
 <div class="paragraph">
-<p>We then use a <code>FilteredList</code> and pass the combination of 2 <code>Predicates</code> into it, one to filter the type of contact,
-clients or vendors and the other is to filter by keywords.</p>
+<p>Below is a sequence diagram showing the creation of the <code>ListCommand</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListSequenceDiagram1.png" alt="ListSequenceDiagram1" width="800">
+</div>
+<div class="title">Figure 3. <em>The Sequence Diagram of the creation of a list command.</em></div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+<div class="paragraph">
+<p>We use a <code>FilteredList</code> and pass the combination of 2 <code>Predicates</code> into it, one to filter the type of contact,
+clients or vendors and the other is to filter by keywords, which is the <code>ContactContainsKeywordsPredicate</code> from the <code>ListCommandParser</code>.</p>
+</div>
+<div class="paragraph">
+<p>Below is a sequence diagram showing the execution of the <code>ListCommand</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListSequenceDiagram2.png" alt="ListSequenceDiagram2" width="800">
+</div>
+<div class="title">Figure 4. <em>The Sequence Diagram of the execution of a list command.</em></div>
 </div>
 </div>
 <div class="sect3">
@@ -405,4 +426,4 @@ Gives better control over the searching.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 08:07:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 09:58:05 UTC</div></div></div></body></html>
