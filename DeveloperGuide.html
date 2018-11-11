@@ -16,7 +16,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to <strong><em>Heart²</em></strong>! <em>Heart²</em> is a desktop software intended to make the job of wedding planning agencies simpler.
+<p>Welcome to <strong><em>Heart²</em></strong>! <strong><em>Heart²</em></strong> is a desktop software intended to make the job of wedding planning agencies simpler.
 It provides simple yet powerful features to efficiently manage clients' and agency companies' profiles.
 Users can find suitable vendors providing wedding services for couples using just a few keystrokes with our enterprise featureset.</p>
 </div>
@@ -25,7 +25,7 @@ Users can find suitable vendors providing wedding services for couples using jus
 developers of all levels learn more about the workings behind the scenes and how to make use of them effectively.</p>
 </div>
 <div class="paragraph">
-<p>So if you want to know how to make <em>Heart²</em> even better, here&#8217;s where you start!
+<p>So if you want to know how to make <strong><em>Heart²</em></strong> even better, here&#8217;s where you start!
 <br></p>
 </div>
 <div class="imageblock">
@@ -34,7 +34,7 @@ developers of all levels learn more about the workings behind the scenes and how
 </div>
 </div>
 <div class="paragraph">
-<p>Callouts are a rectangular box with icon and words to point out some information. Below are the 3 callouts that will be used consistently throughout this document:</p>
+<p>Callouts are rectangular boxes with an icon and words to point out some information. Below are 3 callouts that will be used throughout this document:</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -43,7 +43,7 @@ developers of all levels learn more about the workings behind the scenes and how
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This represents a <strong>note</strong>. A note is information that is important, but may not be applicable to you. Be sure to read a note and see if it is applicable to you.
+This represents a <strong>note</strong>. A note indicates additional important information. Be sure to read these notes as they might be applicable to you!
 </td>
 </tr>
 </table>
@@ -55,7 +55,7 @@ This represents a <strong>note</strong>. A note is information that is important
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-This represents a <strong>tip</strong>. A tip is something that is often handy, and good for you to know. Tip is often not crucial, and you can choose to skip them.
+This represents a <strong>tip</strong>. A tip denotes something that is often handy, and good for you to know. Tips are often less crucial, and you can choose to skip them.
 </td>
 </tr>
 </table>
@@ -67,7 +67,7 @@ This represents a <strong>tip</strong>. A tip is something that is often handy, 
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-This represents a <strong>warning</strong>. You should be extremely cautious and read the warning statement carefully.
+This represents a <strong>warning</strong>. A warning denotes something of crucial importance, and you should be extremely cautious when reading the statement.
 </td>
 </tr>
 </table>
@@ -109,9 +109,10 @@ This represents a <strong>warning</strong>. You should be extremely cautious and
 <li><a href="#add-clients-and-vendors-feature">4.7. Add clients and vendors feature</a></li>
 <li><a href="#remove-clients-and-vendors-feature">4.8. Remove clients and vendors feature</a></li>
 <li><a href="#edit-clients-and-vendors-feature">4.9. Edit clients and vendors feature</a></li>
-<li><a href="#viewing-search-results-coming-in-v2-0">4.10. Viewing Search Results [Coming in v2.0]</a></li>
-<li><a href="#list-feature">4.11. List Feature</a></li>
-<li><a href="#finding-matches-between-clients-and-vendors">4.12. Finding matches between clients and vendors</a></li>
+<li><a href="#adding-a-service-request-for-client-or-vendor-feature">4.10. Adding a service request for client or vendor feature</a></li>
+<li><a href="#automatch-feature">4.11. Automatch feature</a></li>
+<li><a href="#list-feature">4.12. List Feature</a></li>
+<li><a href="#finding-matches-between-clients-and-vendors">4.13. Finding matches between clients and vendors</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -199,7 +200,7 @@ This represents a <strong>warning</strong>. You should be extremely cautious and
 </div>
 </div>
 <div class="paragraph">
-<p>This section sets up your local computer and import all the necessary tools required to run this application.</p>
+<p>This section provides information on setting up your local computer and importing all the necessary tools required to run this application.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -600,7 +601,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-F10-3/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>LoginWindow</code> and a <code>MainWindow</code>. The <code>MainWindow</code> is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code>. The <code>MainWindow</code> is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2103-AY1819S1-F10-3/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2103-AY1819S1-F10-3/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -1116,7 +1117,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p><code>login</code> : Login to the system with a username and password</p>
 </li>
 <li>
-<p><code>help</code> : Shows the help panel</p>
+<p><code>help</code> : Show the help panel</p>
 </li>
 <li>
 <p><code>exit</code> : Quit the application</p>
@@ -1127,40 +1128,40 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="sect3">
 <h4 id="after-logging-in"><a class="link" href="#after-logging-in">4.4.2. After logging in</a></h4>
 <div class="paragraph">
-<p>The <code>LoginWindow</code> would direct to open the <code>MainWindow</code> upon successful login, by parsing in the current <code>stage</code>.</p>
+<p>The <code>LoginWindow</code> is hidden and the <code>MainWindow</code> is shown upon successful login.</p>
 </div>
 <div class="paragraph">
-<p>User can execute any commands available, provided the user-account is given the correct privilege. However, user cannot execute the <code>login</code> command again since he is already logged in.</p>
+<p>The user can execute all available commands, if the user-account is given the correct privilege. However, user cannot execute the <code>login</code> command again since he is already logged in.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-when-to-show-the-login-ui"><a class="link" href="#aspect-when-to-show-the-login-ui">Aspect: When to show the Login UI</a></h5>
+<h5 id="aspect-how-to-show-the-login-ui"><a class="link" href="#aspect-how-to-show-the-login-ui">Aspect: How to show the Login UI</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Deploy the <code>LoginWindow</code> only upon launch.</p>
+<p><strong>Alternative 1 (current choice):</strong> Deploy the <code>LoginWindow</code> upon launch by parsing a new <code>loginStage</code> each time.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Similar to existing applications, easier for users to use</p>
+<p>Pros: Similar to existing applications, easier for users to use. Hides all <code>MainWindow</code> details.</p>
 </li>
 <li>
-<p>Cons: Difficult to implement</p>
+<p>Cons: Creation of a new <code>loginStage</code> may result in performance issues.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Incorporate <code>LoginWindow</code> within <code>MainWindow</code></p>
+<p><strong>Alternative 2:</strong> Deploy the <code>LoginWindow</code> as a modal window above the <code>MainWindow</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement</p>
+<p>Pros: Easy to implement.</p>
 </li>
 <li>
-<p>Cons: Users are able to see the main UI before login</p>
+<p>Cons: Users are able to see the <code>MainWindow</code> before login. Requires the hiding and showing of inner parts in the <code>MainWindow</code> which may result in performance issues.</p>
 </li>
 </ul>
 </div>
@@ -1482,36 +1483,50 @@ This EditContactDescriptor is then used in conjunction with the earlier in conta
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-search-results-coming-in-v2-0"><a class="link" href="#viewing-search-results-coming-in-v2-0">4.10. Viewing Search Results [Coming in v2.0]</a></h3>
+<h3 id="adding-a-service-request-for-client-or-vendor-feature"><a class="link" href="#adding-a-service-request-for-client-or-vendor-feature">4.10. Adding a service request for client or vendor feature</a></h3>
 <div class="paragraph">
-<p>After the user entered the command into the <code>CommandBox</code>, the <code>BrowserPanel</code> would be deployed to list the search results in a tabular form:</p>
+<p>Attributes of the services the user&#8217;s clients require or vendors can provide can be indicated using the <code>addservice</code> command, by their unique IDs.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">4.10.1. Implementation</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="automatch-feature"><a class="link" href="#automatch-feature">4.11. Automatch feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-6"><a class="link" href="#implementation-6">4.11.1. Implementation</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="search-result-display"><a class="link" href="#search-result-display">4.11.2. Search Result Display</a></h4>
+<div class="paragraph">
+<p>After the user enters the <code>automatch</code> command into the <code>CommandBox</code>, individual <code>ServiceListPanel</code> s would be deployed to list the search results in a tabular form:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="width&quot;800&quot;">
 </div>
+<div class="title">Figure 14. Automatch table view</div>
 </div>
-<div class="sect3">
-<h4 id="profile"><a class="link" href="#profile">4.10.1. Profile</a></h4>
+<div class="sect4">
+<h5 id="profile"><a class="link" href="#profile">Profile</a></h5>
 <div class="paragraph">
-<p>The client&#8217;s profile would be displayed on the left, so as to facilitate the user in picking the vendors while keeping the requirements in mind.</p>
+<p>The enquired contact&#8217;s profile would be displayed on the right, so as to facilitate the user in picking the vendors or clients while keeping the requirements in mind.
+The contact&#8217;s data is extracted from <code>Contact#getUrlContactData()</code> and the text is set at their respective placeholders.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="tabular-view"><a class="link" href="#tabular-view">Tabular View</a></h5>
 <div class="paragraph">
-<p>Data would be extracted from the client&#8217;s <code>Contact</code> and the text would be set at their respective placeholders, with the
-tags at the bottom left.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="tabular-view"><a class="link" href="#tabular-view">4.10.2. Tabular View</a></h4>
-<div class="paragraph">
-<p>The results would be listed from the most to the least relevant based on the client&#8217;s needs.
+<p>The results would be listed from the most to the least relevant based on the enquired contact&#8217;s price requests.
 Users can then scroll through the list to view the other results in decreasing relevancy.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.10.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-display-search-results"><a class="link" href="#aspect-how-to-display-search-results">Aspect: How to display search results</a></h5>
+<h5 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-how-to-display-search-results"><a class="link" href="#aspect-how-to-display-search-results">Aspect: How to display search results</a></h6>
 <div class="ulist">
 <ul>
 <li>
@@ -1519,11 +1534,11 @@ Users can then scroll through the list to view the other results in decreasing r
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Provides a bird&#8217;s-eye view of all plausible vendors for the client so that the user can pick
-the combination that best suits the client easily</p>
+<p>Pros: Provides a bird&#8217;s-eye view of all plausible vendors for the enquired client or clients for the enquired vendor
+so that the user can pick the combination that best suits the client or vendor easily</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of extracting of data</p>
+<p>Cons: May have performance issues in terms of the extraction of data</p>
 </li>
 </ul>
 </div>
@@ -1536,18 +1551,20 @@ the combination that best suits the client easily</p>
 <p>Pros: More efficient performance</p>
 </li>
 <li>
-<p>Cons: Users need to scroll through the list for each vendor individually</p>
+<p>Cons: Users need to scroll through the list for each contact individually without knowing which service category
+the contact falls under.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-feature"><a class="link" href="#list-feature">4.11. List Feature</a></h3>
+<h3 id="list-feature"><a class="link" href="#list-feature">4.12. List Feature</a></h3>
 <div class="paragraph">
 <p><strong><em>Heart²</em></strong> allows you view all the clients or the vendors with a simple command: <code>list</code>.</p>
 </div>
@@ -1572,7 +1589,7 @@ by prefixing it to list:</p>
 <div class="content">
 <img src="images/ListAllClients.png" alt="ListAllClients" width="800">
 </div>
-<div class="title">Figure 14. <em>The UI showing listing all clients.</em></div>
+<div class="title">Figure 15. <em>The UI showing listing all clients.</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -1621,13 +1638,13 @@ belong to a category and only contacts which contains all of the keywords in the
 <div class="content">
 <img src="images/ListClientsWithKeywords.png" alt="ListClientsWithKeywords" width="800">
 </div>
-<div class="title">Figure 15. <em>The UI showing list filtering.</em></div>
+<div class="title">Figure 16. <em>The UI showing list filtering.</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">4.11.1. Implementation</a></h4>
+<h4 id="implementation-7"><a class="link" href="#implementation-7">4.12.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command to be used for filtering is parsed by the <code>ListCommandParser</code> and passed to a <code>Predicate</code>
 that is implemented as <code>ContactContainsKeywordsPredicate</code>.</p>
@@ -1638,7 +1655,7 @@ clients or vendors and the other is to filter by keywords.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.11.2. Design considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.12.2. Design considerations</a></h4>
 
 </div>
 <div class="sect3">
@@ -1743,17 +1760,17 @@ Gives better control over the searching.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-matches-between-clients-and-vendors"><a class="link" href="#finding-matches-between-clients-and-vendors">4.12. Finding matches between clients and vendors</a></h3>
+<h3 id="finding-matches-between-clients-and-vendors"><a class="link" href="#finding-matches-between-clients-and-vendors">4.13. Finding matches between clients and vendors</a></h3>
 <div class="paragraph">
 <p>The application boasts matchmaking features that reduces the (once-laborious) task of matching vendors a single command.</p>
 </div>
 <div class="sect3">
-<h4 id="high-level-design"><a class="link" href="#high-level-design">4.12.1. High level design</a></h4>
+<h4 id="high-level-design"><a class="link" href="#high-level-design">4.13.1. High level design</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/auto-matching.png" alt="width:&quot;800&quot;">
 </div>
-<div class="title">Figure 16. <em>High level overview of how auto-matching works</em></div>
+<div class="title">Figure 17. <em>High level overview of how auto-matching works</em></div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1767,7 +1784,7 @@ Gives better control over the searching.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.12.2. Design considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.13.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-fairly-distribute-jobs-between-vendors"><a class="link" href="#aspect-how-to-fairly-distribute-jobs-between-vendors">Aspect: How to fairly distribute jobs between vendors</a></h5>
 <div class="ulist">
@@ -1882,7 +1899,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 17. <em>Saving documentation as PDF files in Chrome</em></div>
+<div class="title">Figure 18. <em>Saving documentation as PDF files in Chrome</em></div>
 </div>
 </div>
 <div class="sect2">
@@ -4003,4 +4020,4 @@ Expected: Screen GUI feedback to say that you have successfully changed your pas
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 07:47:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 07:59:20 UTC</div></div></div></body></html>
