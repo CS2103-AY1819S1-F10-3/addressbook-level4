@@ -4,23 +4,26 @@
 <h2 id="project-heart"><a class="link" href="#project-heart">PROJECT: Heart²</a></h2>
 <div class="sectionbody">
 <hr>
+<div class="paragraph">
+<p>This document serves to note down my contributions to <a href="https://github.com/CS2103-AY1819S1-F10-3/main"><strong><em>Heart²</em></strong></a>, my team&#8217;s product for our
+Software Engineering project.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document serves to note down my contributions to <strong><em>Heart²</em></strong>, my team&#8217;s product for the
-Software Engineering module, CS2103T, offered by the  National University of Singapore (NUS) School of Computing.</p>
-</div>
-<div class="paragraph">
 <p><strong><em>Heart²</em></strong> is a desktop software meant for wedding planning agencies to efficiently manage clients' and agency companies' profiles.
-It is primarily used for matching various wedding service providers to clients' specific needs.</p>
+It is primarily used for matching various wedding vendors to clients' specific needs.</p>
 </div>
 <div class="paragraph">
 <p>The user keys in commands using a <em>Command Line Interface (CLI)</em>, and views the command results on a <em>Graphical User Interface (GUI)</em> created with JavaFX.
-<strong><em>Heart²</em></strong> was built upon a given base code provided by the SE-EDU team in CS2103T.
-It is written in Java, and has about 10 kLoC.</p>
+<strong><em>Heart²</em></strong> was built upon a given <a href="https://github.com/se-edu/addressbook-level4">base code</a> provided by the SE-EDU team.
+It is written in Java, and has about 20 kLoC.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>Heart²</em></strong> also supports both Windows and Mac operating systems.</p>
 </div>
 </div>
 </div>
@@ -28,47 +31,55 @@ It is written in Java, and has about 10 kLoC.</p>
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section provides the overall view of my contributions to <strong><em>Heart²</em></strong>.</p>
+<p>This section provides the overall view of my contributions to <strong><em>Heart²</em></strong>.
+All my pull requests (PRs) can be found <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pulls?q=is%3Apr+author%3Aeehooi">here</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="major-enhancements"><a class="link" href="#major-enhancements">Major Enhancements</a></h3>
+<div class="paragraph">
+<p>I have contributed 2 supportive features for <strong><em>Heart²</em></strong>'s main feature <code>AutoMatch</code>.
+<code>AutoMatch</code> finds all vendors that fulfill the specified client&#8217;s requirements or clients that the specified vendor can serve.</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>Ability to add a service under a client and service provider</strong></p>
+<p><strong>Ability to add a <code>Service</code> under a client and vendor</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: Allows the user to specify a service type and cost requested by the client or offered by the service provider.</p>
+<p><strong>What it does:</strong> Allows the user to specify a service type and cost requested by the client or offered by the vendor.</p>
 </li>
 <li>
-<p>Justification: This feature is a crucial first step for the <code>AutoMatchCommand</code> as it provides the criteria for
-filtering of service providers for the client to provide the most suitable matching.</p>
+<p><strong>Justification:</strong> This feature is a crucial first step for <code>AutoMatch</code> as it provides the criteria for
+filtering out the matching contacts for a particular contact enquired.</p>
 </li>
 <li>
-<p>Highlights:</p>
-</li>
-<li>
-<p>Code contributed: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>]</p>
+<p><strong>Code contributed:</strong> Activation [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/174">#174</a>],
+Enhancement [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/202">#202</a>],
+<code>Service</code> Cost BigDecimal Integration [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/229">#229</a>,
+<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/237">#237</a>],
+Test [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/280">#280</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/284">#284</a>]</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Viewing the results of the <code>AutoMatchCommand</code> in a tabular view</strong></p>
+<p><strong>Viewing the results of <code>AutoMatch</code> in a tabular view</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: Shows the user the service providers that fulfill the client requirements or the clients that the service providers can serve in a table.</p>
+<p><strong>What it does:</strong> Shows the user the vendors that fulfill the client requirements or the clients that the vendors can serve in a single table.</p>
 </li>
 <li>
-<p>Justification: This feature is important for the <code>AutoMatchCommand</code> as it presents all results together for easy selection.</p>
+<p><strong>Justification:</strong> This feature categorises the results of <code>AutoMatch</code> based on each service type.
+Instead of returning users a single string of vendor names, displaying the results in a single table with the relevant information would enable a much easier selection.</p>
 </li>
 <li>
-<p>Highlights:</p>
+<p><strong>Highlights:</strong> I had to pick up a new XML-based user interface markup language, FXML, from scratch in order to incorporate this new <code>UiPart</code>.
+Furthermore, this enhancement required the integration of 3 major components of <strong><em>Heart²</em></strong>: <code>Logic</code>, <code>Model</code> and <code>Ui</code> in order to populate the table with the right information.</p>
 </li>
 <li>
-<p>Code contributed: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>]</p>
+<p><strong>Code contributed:</strong> Design [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/162">#162</a>], Integration [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/206">#206</a>]</p>
 </li>
 </ul>
 </div>
@@ -81,11 +92,28 @@ filtering of service providers for the client to provide the most suitable match
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Login window UI display before login and after logout.</p>
+<p><strong>Login window UI display before login and after logout</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>]</p>
+<p><strong>What it does:</strong> Prevents the user from accessing the <code>MainWindow</code> before login and after logout.</p>
+</li>
+<li>
+<p><strong>Justification:</strong> This enhancement complements the <code>Login</code> and <code>Logout</code> feature.
+With a separate login window, it would be clear to users that they would have to login in order to access the data.
+This prevents confusion as to why the data is not shown on the main screen.</p>
+</li>
+<li>
+<p><strong>Highlights:</strong> This enhancement disrupts the original flow of logic of displaying the <code>MainWindow</code> right when <strong><em>Heart²</em></strong> is launched.
+I had to create a new <code>loginStage</code> and activate it based on the respective <code>Event</code> raised, whilst hiding the <code>primaryStage</code>.
+Detailed understanding of how <code>Event</code> and event <code>Subscribers</code> worked was also critical.</p>
+</li>
+<li>
+<p><strong>Code contributed:</strong> Design [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/66">#66</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/101">#101</a>],
+Activation [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/148">#148</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/154">#154</a>],
+Enhancement [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/163">#163</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/207">#207</a>,
+<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/231">#231</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/276">#276</a>],
+Logout integration [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/189">#189</a>]</p>
 </li>
 </ul>
 </div>
@@ -98,23 +126,93 @@ filtering of service providers for the client to provide the most suitable match
 <div class="ulist">
 <ul>
 <li>
-<p>Documentation</p>
+<p><strong>Project Management</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Changed GUI images for login and main screen.</p>
+<p>Did minor refactoring to make the code more comprehensive and uniform. [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/280">#280</a>]</p>
+</li>
+<li>
+<p>Updated App name to <strong><em>Heart²</em></strong>. [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/111">#111</a>]</p>
+</li>
+<li>
+<p>Removed unnecessary images. [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/103">#103</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Documentation</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Changed GUI images for login and main window. [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/211">#211</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/215">#215</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/285">#285</a>]</p>
 </li>
 <li>
 <p>Updated Ui class diagram to incorporate new <code>LoginWindow</code> and <code>ServiceListPanel</code>.</p>
 </li>
 <li>
-<p>Added design considerations for <code>LoginCommand</code> and <code>AutoMatchCommand</code>.</p>
+<p>Added and updated introductions to the User Guide and Developer Guide. [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/55">#55</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/56">#56</a>]</p>
 </li>
 <li>
-<p>Added implementation details for <code>AddServiceCommand</code> (Pull request <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/185">#185</a>)</p>
+<p>Added design considerations for <code>LoginCommand</code> and <code>AutoMatchCommand</code>. [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/110">#110</a>]</p>
+</li>
+<li>
+<p>Added implementation details for <code>AddServiceCommand</code> [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/185">#185</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/323">#323</a>]</p>
+</li>
+<li>
+<p>Updated roles in AboutUs. [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/285">#285</a>]</p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p><strong>Minor UI Contributions</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Update tag color to fit in with <strong><em>Heart²</em></strong>'s theme [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/44">#44</a>]</p>
+</li>
+<li>
+<p>Generate URL string of <code>Contact</code> details for <code>BrowserPanel</code> [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/208">#208</a>]</p>
+</li>
+<li>
+<p>Updated <strong><em>Heart²</em></strong> launch logo. [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/296">#296</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Create Sample Data for <code>.jar</code> launch</strong> [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/301">#301</a>]</p>
+</li>
+<li>
+<p><strong>Community</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Actively looked through and approved PRs.</p>
+</li>
+<li>
+<p>Actively raised issues in the issue tracker.</p>
+</li>
+<li>
+<p>Always ensured that at least one team member has approved my PR before merging.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Tools</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Set up Coveralls. [<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/38">#38</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Overall Code Contributed:</strong> <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=eehooi">RepoSense</a></p>
 </li>
 </ul>
 </div>
@@ -124,19 +222,19 @@ filtering of service providers for the client to provide the most suitable match
 <div class="sect1">
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>This section includes excerpts of the User Guide that I have contributed to.</p>
-</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This section includes excerpts of the User Guide that I have contributed to.</em></p></td>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="excerpt-add-service-feature"><a class="link" href="#excerpt-add-service-feature">Excerpt: Add Service Feature</a></h3>
+<hr>
 <div class="sect3">
 <h4 id="adding-a-service-code-addservice-code"><a class="link" href="#adding-a-service-code-addservice-code">Adding a service: <code>addservice</code></a></h4>
 <div class="paragraph">
@@ -236,320 +334,406 @@ You can <code>undo</code> and <code>redo</code> adding a service to a contact!
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="automatching-for-a-client-code-automatch-code"><a class="link" href="#automatching-for-a-client-code-automatch-code">Automatching for a client: <code>automatch</code></a></h4>
-<div class="paragraph">
-<p>You can easily find vendors that can fulfill the request services with this command.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>client#&lt;ID&gt; automatch</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-It only shows you the vendors within the budget requirement that fulfils a particular service requirement of the client.
-</td>
-</tr>
-</table>
-</div>
-<table class="tableblock frame-none grid-all spread">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 83.3334%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="../images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><code>client#123 automatch</code></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="automatching-for-a-vendor-code-automatch-code"><a class="link" href="#automatching-for-a-vendor-code-automatch-code">Automatching for a vendor: <code>automatch</code></a></h4>
-<div class="paragraph">
-<p>You can easily find clients whose service requirements match the services offered by a vendor.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>vendor#&lt;ID&gt; automatch</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-It only shows you the clients whose budgets can afford the service of the particular vendor.
-</td>
-</tr>
-</table>
-</div>
-<table class="tableblock frame-none grid-all spread">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 83.3334%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="../images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><code>vendor#123 automatch</code></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">Listing entered commands: <code>history</code></a></h3>
-<div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order for this particular session. Histories are deleted upon logging out or exiting the app. By default, command containing the word <code>login</code> will not be save to history. This is to protect user password from being revealed. The command <code>logout</code> will also not be save to history as the session has ended due to logging out.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>history</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="undo-the-previous-command-code-undo-code"><a class="link" href="#undo-the-previous-command-code-undo-code">Undo the previous command: <code>undo</code></a></h3>
-<div class="paragraph">
-<p>Undo the commands that you have entered in chronological order for this particular session. Once you logout or exit the application, you cannot <code>undo</code> a command from the last session.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>undo</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The application will only undo commands that modifies the list of contacts: <code>add</code>, <code>update</code>, <code>delete</code>, <code>clear</code>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The application will show either the client list or vendor list corresponding to the command that was undone.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redo-the-commands-undone-code-redo-code"><a class="link" href="#redo-the-commands-undone-code-redo-code">Redo the commands undone: <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Redo the commands that you have undone by undo in chronological order for this particular session. Once you logout or exit the application, you cannot <code>redo</code> a command from the last session.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>redo</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Commands that have been undone will be reset upon a <code>clear</code> command.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The application will show either the client list or vendor list corresponding to the command that was redone.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
-<div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.</p>
-</div>
-<div class="paragraph">
-<p>There is no need for you to save manually.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">Command summary</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Below is a summary of the commands available for you to use.</p>
-</div>
-<div class="paragraph">
-<p><strong>Before logging in</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>To get help: <code>help</code></p>
-</li>
-<li>
-<p>To log in: <code>login u/USERNAME p/PASSWORD</code></p>
-</li>
-<li>
-<p>Close the application: <code>exit</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>After logging in</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Register for a new account: <code>register account u/USERNAME p/PASSWORD r/ROLE</code></p>
-</li>
-<li>
-<p>Change your account password: <code>change password o/YOUR_OLD_PASSWORD n/YOUR_NEW_PASSWORD</code></p>
-</li>
-<li>
-<p>Add a contact: <code>&lt;CONTACT_TYPE&gt; add n/FULL_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/HOME_ADDRESS [t/TAG]…​</code></p>
-</li>
-<li>
-<p>Add a service requirement: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; addservice s/SERVICE_TYPE c/SERVICE_COST</code></p>
-</li>
-<li>
-<p>Update a specific contact: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; update [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
-</li>
-<li>
-<p>List contacts that matches the inputs: <code>&lt;CONTACT_TYPE&gt; list [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
-</li>
-<li>
-<p>Automatically find a match that fits a particular contact&#8217;s requirements: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; automatch</code></p>
-</li>
-<li>
-<p>View a specific contact: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; view</code></p>
-</li>
-<li>
-<p>Delete a specific contact: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; delete</code></p>
-</li>
-<li>
-<p>Delete all contacts: <code>clear</code></p>
-</li>
-<li>
-<p>List all the commands entered in this session: <code>history</code></p>
-</li>
-<li>
-<p>Undo the previous command: <code>undo</code></p>
-</li>
-<li>
-<p>Redo the previous undone command: <code>redo</code></p>
-</li>
-<li>
-<p>To get help: <code>help</code></p>
-</li>
-<li>
-<p>Log out of your account: <code>logout</code></p>
-</li>
-<li>
-<p>Close the application: <code>exit</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Coming in v2.0</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Retrieve forgotten password: <code>forget password</code></p>
-</li>
-<li>
-<p>Assigning vendors to clients: <code>client# assign vendor#</code></p>
-</li>
-<li>
-<p>Assigning clients to vendors: <code>vendor# assign client#</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="../images/faqpicture.png" alt="faqpicture" width="400">
-</div>
-</div>
-<div class="paragraph">
-<p><strong><span class="red">Q</strong></span>: <span class="red">How do I transfer my data to another Computer?</span><br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
-</div>
-<div class="paragraph">
-<p><strong><span class="red">Q</strong></span>: <span class="red">What platform is this application available on?</span><br>
-<strong>A</strong>: This application is cross-platform, and can be used on both Windows and Mac OS.</p>
-</div>
-<div class="paragraph">
-<p><strong><span class="red">Q</strong></span>: <span class="red">Is this application free-of-charge?</span><br>
-<strong>A</strong>: Yes, this application is open-source and can be use for free, even commercially.</p>
-</div>
-<div class="paragraph">
-<p><strong><span class="red">Q</strong></span>: <span class="red">How can I report an issue?</span><br>
-<strong>A</strong>: You can raise an issue in the issue section and our team will get back to you as soon as possbile.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>This section includes excerpts of the Developer Guide that I have contributed to.</p>
-</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This section includes excerpts of the Developer Guide that I have contributed to.</em></p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="adding-a-service-request-for-client-or-vendor-feature"><a class="link" href="#adding-a-service-request-for-client-or-vendor-feature">Adding a service request for client or vendor feature</a></h3>
+<h3 id="excerpt-1-login-ui-design-considerations"><a class="link" href="#excerpt-1-login-ui-design-considerations">Excerpt 1: Login UI Design Considerations</a></h3>
+<hr>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-show-the-login-ui"><a class="link" href="#aspect-how-to-show-the-login-ui">Aspect: How to show the Login UI</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Deploy the <code>LoginWindow</code> upon launch by parsing a new <code>loginStage</code> each time.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Similar to existing applications, easier for users to use. Hides all <code>MainWindow</code> details.</p>
+</li>
+<li>
+<p>Cons: Creation of a new <code>loginStage</code> may result in performance issues.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Deploy the <code>LoginWindow</code> as a modal window above the <code>MainWindow</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Users are able to see the <code>MainWindow</code> before login. Requires the hiding and showing of inner parts in the <code>MainWindow</code> which may result in performance issues.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="excerpt-2-add-service-feature"><a class="link" href="#excerpt-2-add-service-feature">Excerpt 2: Add Service Feature</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="adding-a-service-request-feature"><a class="link" href="#adding-a-service-request-feature">Adding a service request feature</a></h3>
 <div class="paragraph">
-<p>Attributes of the services the user&#8217;s clients require or vendors can provide can be indicated using the <code>addservice</code> command, by their unique IDs.</p>
+<p><strong><em>Heart²</em></strong> allows the user to add attributes of the services the user&#8217;s clients require or vendors can provide.
+ They can be indicated using the <code>addservice</code> command, by their unique IDs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>client#123 addservice s/photographer c/1000.00</code></p>
+</li>
+<li>
+<p><code>vendor#123 addservice s/photographer c/1000.00</code></p>
+</li>
+</ul>
 </div>
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
-
+<div class="paragraph">
+<p>Given below is a sequence diagram of how the <code>addservice</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddServiceSequenceDiagram.png" alt="AddServiceSequenceDiagram" width=""800">
+</div>
+<div class="title">Figure 1. Add Service Command Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>The command is first parsed into the <code>AddServiceCommandParser</code>, which breaks up the arguments into their respective fields.
+A new <code>Service</code> is created and parsed into the <code>AddServiceCommand</code> along with the ID.</p>
+</div>
+<div class="paragraph">
+<p>Only when there is no existing request of that service type that the specified service request can be added with <code>AddServiceCommand#createContactWithService()</code>.
+All fields of the <code>Contact</code> including the existing services would be copied over to a new <code>Contact</code> with the <code>EditContactDescriptor</code> in <code>UpdateCommand</code>.
+Next, the new service would be added with <code>EditCommandDescriptor#addservice()</code>.</p>
+</div>
+<div class="paragraph">
+<p>The contact would be updated with <code>Model#updateContact()</code> and later saved into the <code>AddressBook</code> storage.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-1-cost-storage"><a class="link" href="#aspect-1-cost-storage">Aspect 1: Cost storage</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Store with <code>BigDecimal</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More precise representation, crucial to sensitive data like money.</p>
+</li>
+<li>
+<p>Cons: Difficult to retrieve value for display and parsing.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Store with <code>Double</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to retrieve value for display and parsing.</p>
+</li>
+<li>
+<p>Cons: Less precise representation, may lose accuracy.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-2-updating-of-service-request"><a class="link" href="#aspect-2-updating-of-service-request">Aspect 2: Updating of Service request</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: No updating allowed. Each request type can only be entered once.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Users who made a mistake while updating would have to delete and add the entire contact to the database.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Update with the same <code>addservice</code> command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users can still update without much hassle.</p>
+</li>
+<li>
+<p>Cons: Users might accidentally overwrite the wrong data.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3</strong>: Update with the <code>update</code> command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users can update with less possibility of overwriting the wrong data.</p>
+</li>
+<li>
+<p>Cons: Difficult to implement. <code>UpdateCommand</code> would have too many command variations.
+In addition, both the service cost and type has to be stated in the command.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 16:18:20 UTC</div></div></div></body></html>
+</div>
+<div class="sect2">
+<h3 id="excerpt-3-automatch-ui-design-considerations"><a class="link" href="#excerpt-3-automatch-ui-design-considerations">Excerpt 3: Automatch UI Design Considerations</a></h3>
+<hr>
+<div class="sect3">
+<h4 id="search-result-display"><a class="link" href="#search-result-display">Search Result Display</a></h4>
+<div class="paragraph">
+<p>After the user enters the <code>automatch</code> command into the <code>CommandBox</code>, individual <code>ServiceListPanel</code> s would be deployed to list the search results in a tabular form:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="width&quot;800&quot;">
+</div>
+<div class="title">Figure 2. Automatch table view</div>
+</div>
+<div class="sect4">
+<h5 id="profile"><a class="link" href="#profile">Profile</a></h5>
+<div class="paragraph">
+<p>The enquired contact&#8217;s profile would be displayed on the right, so as to facilitate the user in picking the vendors or clients while keeping the requirements in mind.
+The contact&#8217;s data is extracted from <code>Contact#getUrlContactData()</code> and the text is set at their respective placeholders.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="tabular-view"><a class="link" href="#tabular-view">Tabular View</a></h5>
+<div class="paragraph">
+<p>The results would be listed from the most to the least relevant based on the enquired contact&#8217;s price requests.
+Users can then scroll through the list to view the other results in decreasing relevancy.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-how-to-display-search-results"><a class="link" href="#aspect-how-to-display-search-results">Aspect: How to display search results</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Present in a table</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Provides a bird&#8217;s-eye view of all plausible vendors for the enquired client or clients for the enquired vendor
+so that the user can pick the combination that best suits the client or vendor easily</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of the extraction of data</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Present in a list</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More efficient performance</p>
+</li>
+<li>
+<p>Cons: Users need to scroll through the list for each contact individually without knowing which service category
+the contact falls under.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="excerpt-4-add-service-use-case"><a class="link" href="#excerpt-4-add-service-use-case">Excerpt 4: Add Service Use Case</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="use-case-adding-a-new-service-request"><a class="link" href="#use-case-adding-a-new-service-request">Use Case: Adding a new service request</a></h3>
+<div class="paragraph">
+<p><strong>Preconditions</strong>: User is logged in with a <code>SUPER_USER</code> account.</p>
+</div>
+<div class="paragraph">
+<p><strong>Guarantees</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Service would be added to the specified contact only if the command is successful.</p>
+</li>
+<li>
+<p>The new service addition will not wipe out the previous service additions.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters the add service command with the specified client or vendor, along with the service type and price.</p>
+</li>
+<li>
+<p>System adds the service to the contact and displays the result of the command in the result display.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. System detects an invalid ID.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System prompts User that the ID is invalid.</p>
+</li>
+<li>
+<p>Use case ends.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. System detects an invalid service type.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System prompts User with the available service types.</p>
+</li>
+<li>
+<p>Use case ends.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1c. System detects an invalid service cost.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. System prompts User with the cost format requirements.</p>
+</li>
+<li>
+<p>Use case ends.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="excerpt-5-add-service-manual-testing"><a class="link" href="#excerpt-5-add-service-manual-testing">Excerpt 5: Add Service Manual Testing</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="adding-a-new-service-request"><a class="link" href="#adding-a-new-service-request">Adding a new service request</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new service to a client or vendor with no service requests</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must create a new client or vendor with no service requests</p>
+</li>
+<li>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt;#1 addservice s/photographer c/1000.00</code><br>
+Expected: Service is added to the contact. Details of the service and the contact&#8217;s name shown in status message.
+You can now <code>view</code> the contact to rectify that the service is added with <code>&lt;CONTACT_TYPE&gt;#1 view</code>.
+This would display the contact&#8217;s information under "Service Requested" in the <code>BrowserPanel</code> on the right.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>&lt;CONTACT_TYPE&gt;#1 addservice s/florist c/1000.00</code>, <code>&lt;CONTACT_TYPE&gt;#1 addservice s/photographer c/1000</code>, <code>&lt;CONTACT_TYPE&gt;#1 addservice s/photographer c/$1000.00</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a new service to a client or vendor with existing service requests</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must have a client or vendor with at least one existing service request, that is not of <code>photographer</code> type</p>
+</li>
+<li>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt;#1 addservice s/photographer c/1000.00</code><br>
+Expected: Service is added to the contact. Details of the service and the contact&#8217;s name shown in status message.
+You can now <code>view</code> the contact to rectify that the service is added with <code>&lt;CONTACT_TYPE&gt;#1 view</code>.
+This would display the contact&#8217;s information under "Service Requested" in the <code>BrowserPanel</code> on the right, in addition to the existing services listed previously.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>&lt;CONTACT_TYPE&gt;#1 addservice s/florist c/1000.00</code>, <code>&lt;CONTACT_TYPE&gt;#1 addservice s/photographer c/1000</code>, <code>&lt;CONTACT_TYPE&gt;#1 addservice s/photographer c/$1000.00</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a duplicate service to a client or vendor</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must have a client or vendor with a <code>photographer</code> type service request</p>
+</li>
+<li>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt;#1 addservice s/photographer c/1000.00</code><br>
+Expected: Service is not added to the client. Duplicate service message shown in status message.
+You can now <code>view</code> the contact to rectify that the service is not overwritten with <code>&lt;CONTACT_TYPE&gt;#1 view</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 17:55:11 UTC</div></div></div></body></html>

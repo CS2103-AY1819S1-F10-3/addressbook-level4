@@ -111,7 +111,7 @@ This represents a <strong>warning</strong>. A warning denotes something of cruci
 <li><a href="#delete-contact-feature">4.9. Delete contact feature</a></li>
 <li><a href="#update-contact-feature">4.10. Update contact feature</a></li>
 <li><a href="#view-contact-feature">4.11. View contact feature</a></li>
-<li><a href="#adding-a-service-request-for-client-or-vendor-feature">4.12. Adding a service request for client or vendor feature</a></li>
+<li><a href="#adding-a-service-request-feature">4.12. Adding a service request feature</a></li>
 <li><a href="#automatch-feature">4.13. Automatch feature</a></li>
 <li><a href="#list-feature">4.14. List Feature</a></li>
 <li><a href="#finding-matches-between-clients-and-vendors">4.15. Finding matches between clients and vendors</a></li>
@@ -1828,13 +1828,127 @@ This is part of a standardisation effort to have cohesiveness in the command syn
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-service-request-for-client-or-vendor-feature"><a class="link" href="#adding-a-service-request-for-client-or-vendor-feature">4.12. Adding a service request for client or vendor feature</a></h3>
+<h3 id="adding-a-service-request-feature"><a class="link" href="#adding-a-service-request-feature">4.12. Adding a service request feature</a></h3>
 <div class="paragraph">
-<p>Attributes of the services the user&#8217;s clients require or vendors can provide can be indicated using the <code>addservice</code> command, by their unique IDs.</p>
+<p><strong><em>Heart²</em></strong> allows the user to add attributes of the services the user&#8217;s clients require or vendors can provide.
+ They can be indicated using the <code>addservice</code> command, by their unique IDs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>client#123 addservice s/photographer c/1000.00</code></p>
+</li>
+<li>
+<p><code>vendor#123 addservice s/photographer c/1000.00</code></p>
+</li>
+</ul>
 </div>
 <div class="sect3">
 <h4 id="implementation-4"><a class="link" href="#implementation-4">4.12.1. Implementation</a></h4>
-
+<div class="paragraph">
+<p>Given below is a sequence diagram of how the <code>addservice</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddServiceSequenceDiagram.png" alt="AddServiceSequenceDiagram" width=""800">
+</div>
+<div class="title">Figure 14. Add Service Command Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>The command is first parsed into the <code>AddServiceCommandParser</code>, which breaks up the arguments into their respective fields.
+A new <code>Service</code> is created and parsed into the <code>AddServiceCommand</code> along with the ID.</p>
+</div>
+<div class="paragraph">
+<p>Only when there is no existing request of that service type that the specified service request can be added with <code>AddServiceCommand#createContactWithService()</code>.
+All fields of the <code>Contact</code> including the existing services would be copied over to a new <code>Contact</code> with the <code>EditContactDescriptor</code> in <code>UpdateCommand</code>.
+Next, the new service would be added with <code>EditCommandDescriptor#addservice()</code>.</p>
+</div>
+<div class="paragraph">
+<p>The contact would be updated with <code>Model#updateContact()</code> and later saved into the <code>AddressBook</code> storage.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.12.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-1-cost-storage"><a class="link" href="#aspect-1-cost-storage">Aspect 1: Cost storage</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Store with <code>BigDecimal</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More precise representation, crucial to sensitive data like money.</p>
+</li>
+<li>
+<p>Cons: Difficult to retrieve value for display and parsing.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Store with <code>Double</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to retrieve value for display and parsing.</p>
+</li>
+<li>
+<p>Cons: Less precise representation, may lose accuracy.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-2-updating-of-service-request"><a class="link" href="#aspect-2-updating-of-service-request">Aspect 2: Updating of Service request</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: No updating allowed. Each request type can only be entered once.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Users who made a mistake while updating would have to delete and add the entire contact to the database.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Update with the same <code>addservice</code> command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users can still update without much hassle.</p>
+</li>
+<li>
+<p>Cons: Users might accidentally overwrite the wrong data.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3</strong>: Update with the <code>update</code> command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users can update with less possibility of overwriting the wrong data.</p>
+</li>
+<li>
+<p>Cons: Difficult to implement. <code>UpdateCommand</code> would have too many command variations.
+In addition, both the service cost and type has to be stated in the command.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1852,7 +1966,7 @@ This is part of a standardisation effort to have cohesiveness in the command syn
 <div class="content">
 <img src="images/Ui.png" alt="width&quot;800&quot;">
 </div>
-<div class="title">Figure 14. Automatch table view</div>
+<div class="title">Figure 15. Automatch table view</div>
 </div>
 <div class="sect4">
 <h5 id="profile"><a class="link" href="#profile">Profile</a></h5>
@@ -1869,7 +1983,7 @@ Users can then scroll through the list to view the other results in decreasing r
 </div>
 </div>
 <div class="sect4">
-<h5 id="design-considerations-9"><a class="link" href="#design-considerations-9">Design Considerations</a></h5>
+<h5 id="design-considerations-10"><a class="link" href="#design-considerations-10">Design Considerations</a></h5>
 <div class="sect5">
 <h6 id="aspect-how-to-display-search-results"><a class="link" href="#aspect-how-to-display-search-results">Aspect: How to display search results</a></h6>
 <div class="ulist">
@@ -1934,7 +2048,7 @@ by prefixing it to list:</p>
 <div class="content">
 <img src="images/ListAllClients.png" alt="ListAllClients" width="800">
 </div>
-<div class="title">Figure 15. <em>The UI showing how to list all clients.</em></div>
+<div class="title">Figure 16. <em>The UI showing how to list all clients.</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -1983,7 +2097,7 @@ belong to a category and only contacts which contains all of the keywords in the
 <div class="content">
 <img src="images/ListClientsWithKeywords.png" alt="ListClientsWithKeywords" width="800">
 </div>
-<div class="title">Figure 16. <em>The UI showing list filtering.</em></div>
+<div class="title">Figure 17. <em>The UI showing list filtering.</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2001,7 +2115,7 @@ and passed to a <code>Predicate</code> to be used for filtering. The <code>Predi
 <div class="content">
 <img src="images/ListSequenceDiagram1.png" alt="ListSequenceDiagram1" width="800">
 </div>
-<div class="title">Figure 17. <em>The Sequence Diagram of the creation of a list command.</em></div>
+<div class="title">Figure 18. <em>The Sequence Diagram of the creation of a list command.</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2017,11 +2131,11 @@ clients or vendors and the other is to filter by keywords, which is the <code>Co
 <div class="content">
 <img src="images/ListSequenceDiagram2.png" alt="ListSequenceDiagram2" width="800">
 </div>
-<div class="title">Figure 18. <em>The Sequence Diagram of the execution of a list command.</em></div>
+<div class="title">Figure 19. <em>The Sequence Diagram of the execution of a list command.</em></div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.14.2. Design considerations</a></h4>
+<h4 id="design-considerations-11"><a class="link" href="#design-considerations-11">4.14.2. Design considerations</a></h4>
 
 </div>
 <div class="sect3">
@@ -2136,7 +2250,7 @@ Gives better control over the searching.</p>
 <div class="content">
 <img src="images/auto-matching.png" alt="width:&quot;800&quot;">
 </div>
-<div class="title">Figure 19. <em>High level overview of how auto-matching works</em></div>
+<div class="title">Figure 20. <em>High level overview of how auto-matching works</em></div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -2150,7 +2264,7 @@ Gives better control over the searching.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-11"><a class="link" href="#design-considerations-11">4.15.2. Design considerations</a></h4>
+<h4 id="design-considerations-12"><a class="link" href="#design-considerations-12">4.15.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-fairly-distribute-jobs-between-vendors"><a class="link" href="#aspect-how-to-fairly-distribute-jobs-between-vendors">Aspect: How to fairly distribute jobs between vendors</a></h5>
 <div class="ulist">
@@ -2265,7 +2379,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 20. <em>Saving documentation as PDF files in Chrome</em></div>
+<div class="title">Figure 21. <em>Saving documentation as PDF files in Chrome</em></div>
 </div>
 </div>
 <div class="sect2">
@@ -4613,4 +4727,4 @@ You can now <code>view</code> the contact to rectify that the service is not ove
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 16:18:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 17:55:11 UTC</div></div></div></body></html>
