@@ -3,48 +3,262 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">main</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-F10-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Lim Wai Lun - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-heart"><a class="link" href="#project-heart">PROJECT: Heart²</a></h2>
 <div class="sectionbody">
-<hr>
+<div class="paragraph">
+<p>This portfolio aims to document my contributions to the project <strong><em>Heart²</em></strong>.</p>
+</div>
+<div class="paragraph">
+<p>GitHub: <a href="https://github.com/CS2103-AY1819S1-F10-3/main" class="bare">https://github.com/CS2103-AY1819S1-F10-3/main</a></p>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Heart² is a desktop wedding application used for matching service providers to clients. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p><strong><em>Heart²</em></strong> is a desktop wedding application for wedding planners to efficiently manage their clients and vendors.
+<strong><em>Heart²</em></strong> allows wedding planners to quickly find suitable clients and vendors by automatically matching them together based on the vendors' services and the client&#8217;s requirements.
+The user primarily interacts with <strong><em>Heart²</em></strong> through a CLI, and it has a GUI created with JavaFX.
+<strong><em>Heart²</em></strong> is written in Java, with about 10 kLoC.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="strong-major-enhancement-strong"><a class="link" href="#strong-major-enhancement-strong"><strong>Major enhancement</strong>:</a></h3>
+<div class="paragraph">
+<p>Enabled support for two different types of contacts, clients and vendors, in <strong><em>Heart²</em></strong>.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does:</p>
-</li>
-<li>
-<p>Justification:</p>
-</li>
-<li>
-<p>Highlights:</p>
+<p><strong>What it does</strong>:</p>
 </li>
 </ul>
 </div>
-</li>
+<div class="paragraph">
+<p>Allows the user to be work with two different types of contacts using <strong><em>Heart²</em></strong>.</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p><strong>Minor enhancement</strong>:</p>
-</li>
-<li>
-<p><strong>Code contributed</strong>:</p>
-</li>
-<li>
-<p><strong>Other contributions</strong>:</p>
+<p><strong>Justification</strong>:</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><strong><em>Heart²</em></strong> is made for wedding planners to efficiently manage their clients and vendors, two of their key stakeholders.
+Therefore, we chose to model the contacts in <strong><em>Heart²</em></strong> after clients and vendors.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Highlights</strong>:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>This enhancement serves a foundation of many features in <strong><em>Heart²</em></strong>, including:
+<code>add</code>, <code>delete</code>, <code>update</code>, <code>view</code>, <code>list</code>, <code>addservice</code> and <code>automatch</code>.</p>
+</li>
+<li>
+<p>In <strong><em>Heart²</em></strong>, the users are presented with two separated lists.
+However, in <strong><em>Heart²</em></strong>, there is only one contact list for both clients and vendors.
+Filters are constantly applied to this contact list as commands are entered so as to maintain the illusion of a distinct list to the user.</p>
+</li>
+<li>
+<p>This enhancement required extensive refactoring of the codebase as the inherited, legacy code only supported a single contact.
+<strong><em>Heart²</em></strong> currently supports two types of contacts, and can easily be extended to support even more types of contacts with this enhancement.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="strong-major-enhancement-strong-2"><a class="link" href="#strong-major-enhancement-strong-2"><strong>Major enhancement</strong>:</a></h3>
+<div class="paragraph">
+<p>Implemented unique IDs for contacts.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>:</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Allows the user to refer to contacts by their unique IDs.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justification</strong>:</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The inherited implementation from AddressBook (Level 4) had users use the contact&#8217;s relative position in the currently shown list to refer to that contact.
+For our users to make use of their time most efficiently, we chose to have our users be able to refer to contacts using IDs, as opposed to the previous implementation.</p>
+</div>
+<div class="paragraph">
+<p>In the previous, inherited implementation from AddressBook (Level 4), the user must ensure that the current list shown in the UI contains the contact <strong>and</strong> check the contact&#8217;s relative position on the list.
+With unique IDs for contacts, the context of the commands do not change, and this allows our users to know quickly the context of their commands and thus execute any command at any point of time in <strong><em>Heart²</em></strong>.</p>
+</div>
+<div class="paragraph">
+<p>With this unique ID system, our users are able to simplify and improve their workflow on <strong><em>Heart²</em></strong>,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Highlights</strong>:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>This enhancement serves as another foundation of many features in <strong><em>Heart²</em></strong>, including:
+<code>delete</code>, <code>update</code>, <code>view</code>, <code>addservice</code> and <code>automatch</code>.</p>
+</li>
+<li>
+<p>Together with the contact type, it allows <strong><em>Heart²</em></strong> to be able to offer a very simple and intuitive command syntax.</p>
+<div class="paragraph">
+<p>Commands pertaining to a contact type start with the contact type (<code>client</code> or <code>vendor</code>).
+More specific commands pertaining to a specific contact have the unique ID appended to the contact type.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="strong-minor-enhancement-strong"><a class="link" href="#strong-minor-enhancement-strong"><strong>Minor enhancement</strong>:</a></h3>
+<div class="paragraph">
+<p>Updated the main parser that parses all commands entered by the user.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>:</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Implements the command syntax enabled by the two previously mentioned enhancements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Highlights</strong>:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>This enhancement although minor proved to be quite a challenge, because commands differ in their components.</p>
+<div class="paragraph">
+<p>For example, <code>help</code> consists of just a word, <code>client list</code> consists of two words, <code>vendor#3 delete</code> consists of 2 words and the unique ID, and lastly <code>client#1 update n/Wai Lun</code> consists of 2 words, the unique ID and the parameters for the command.</p>
+</div>
+<div class="paragraph">
+<p>It required some research on regular expressions in Java and tinkering in JShell.
+In the end, only a single parser is used to parse and identify all of <strong><em>Heart²</em></strong> commands when they are entered by the user.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="strong-minor-enhancement-strong-2"><a class="link" href="#strong-minor-enhancement-strong-2"><strong>Minor enhancement</strong>:</a></h3>
+<div class="paragraph">
+<p>Extended the <code>add</code>, <code>delete</code>, <code>update</code> and <code>view</code> commands in <strong><em>Heart²</em></strong>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>:</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Gives functionality to the mentioned commands.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Highlights</strong>:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>This enhancement makes use of and relies on all three enhancements mentioned above.</p>
+</li>
+<li>
+<p>The text feedback to the user is customised based on the command entered by the user.
+Due to having two possibilities (<code>client</code> and <code>vendor</code>) for these commands, and in order avoid "hard-coding" every possible text feedback to the user, these text feedback use Java&#8217;s string formatting feature.</p>
+<div class="paragraph">
+<p>With this, the text feedback can be easily extended for even more contact types if we choose to add more contact types in the future.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="strong-code-contributed-strong"><a class="link" href="#strong-code-contributed-strong"><strong>Code contributed</strong>:</a></h3>
+<div class="paragraph">
+<p>The following pull requests are some examples of my code contribution, both functional and test code, to the <strong><em>Heart²</em></strong> project.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/83">[Support for different types of contacts</a>]</p>
+</li>
+<li>
+<p><a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/161">[Implementing the unique ID feature</a>]</p>
+</li>
+<li>
+<p><a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/193">[Displaying the correct text feedback to the user</a>]</p>
+</li>
+<li>
+<p><a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/300">[Adding tests for uncovered lines</a>]</p>
+</li>
+<li>
+<p><a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/303">[Finding and fixing bugs, and adding test cases to cover them</a>]</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="strong-other-contributions-strong"><a class="link" href="#strong-other-contributions-strong"><strong>Other contributions</strong>:</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Helped solve bug fixes in <strong><em>Heart²</em></strong>.</p>
+</li>
+<li>
+<p>Participated actively in discussions regarding <strong><em>Heart²</em></strong> and its features.</p>
+</li>
+<li>
+<p>As of 11 November 2018:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Contributed 39 <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pulls?utf8=✓&amp;q=is%3Apr+author%3Awailunlim+is%3Aclosed">pull requests</a> on Github.</p>
+</li>
+<li>
+<p>Reviewed 21 <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pulls?utf8=✓&amp;q=is%3Apr+reviewed-by%3Awailunlim+">pull requests</a> on Github.</p>
+</li>
+<li>
+<p>Raised 21 <a href="https://github.com/CS2103-AY1819S1-F10-3/main/issues?utf8=✓&amp;q=is%3Aclosed+is%3Aissue+author%3Awailunlim+">issues</a> on Github.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
@@ -77,4 +291,4 @@
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 10:35:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 13:03:13 UTC</div></div></div></body></html>
