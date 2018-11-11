@@ -4262,6 +4262,18 @@ For all commands except for <code>login</code>, <code>help</code>, and <code>exi
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For all <code>add</code>, <code>update</code>, <code>delete</code>, <code>clear</code>, and <code>register account</code> commands, the account that executes it must be a <code>SUPER_USER</code> account.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect2">
 <h3 id="launch-the-application"><a class="link" href="#launch-the-application">G.1. Launch the application</a></h3>
 <div class="olist arabic">
@@ -4453,7 +4465,7 @@ Expected: Successfully logged out. Main screen GUI is closed, and login screen G
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: User account must be a super_user_account.</p>
+<p>Prerequisites: User account must be a <code>SUPER_USER</code>.</p>
 </li>
 <li>
 <p>Test case: <code>register account u/newUserName p/newPassword r/superuser</code><br>
@@ -4601,4 +4613,4 @@ You can now <code>view</code> the contact to rectify that the service is not ove
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 13:03:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 13:05:31 UTC</div></div></div></body></html>
