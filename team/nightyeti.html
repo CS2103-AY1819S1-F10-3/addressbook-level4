@@ -337,7 +337,10 @@
 <div class="sect2">
 <h3 id="registering-a-new-account-code-register-account-code"><a class="link" href="#registering-a-new-account-code-register-account-code">Registering a new account : <code>register account</code></a></h3>
 <div class="paragraph">
-<p>Register a new account for this application. You can only register a new account <strong>after logging in</strong> via an account with <code>SUPER_USER</code> privilege. By default, <code>rootUser</code> is a default account with <code>SUPER_USER</code> privilege.</p>
+<p>Register a new account for this application. You can only register a new account after logging in with a <code>SUPER_USER</code> account. By default, <code>rootUser</code> is a default account with <code>SUPER_USER</code> privilege.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>register account u/USERNAME p/PASSWORD r/ROLE</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -346,19 +349,22 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-It may sound counter-intuitive to log in to the application before you can register a new account. We make this a requirement as only authorised personal should be given an account. Ideally, the owner of the application should dictate the account given to employees by helping them register an account.
+<code>r/ROLE</code>: either <code>r/superuser</code> or <code>r/readonlyuser</code> to create a <code>SUPER_USER</code> account or <code>READ_ONLY_USER</code> account respectively.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Format: <code>register account u/USERNAME p/PASSWORD r/ROLE</code></p>
-</div>
-<div class="paragraph">
-<p><code>r/ROLE</code>:
-either
-<code>r/superuser</code>
- or <code>r/readonlyuser</code> to create a <code>SUPER_USER</code> account or <code>READ_ONLY_USER</code> account respectively.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It may sound counter-intuitive to require an account before registering a new account. We make this requirement as only authorised personal should be given an account. Ideally, the owner of the application should dictate the account given to employees by helping them register an account.
+</td>
+</tr>
+</table>
 </div>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
@@ -381,22 +387,43 @@ either
 <p>Change your current account password from an old password to a new password.</p>
 </div>
 <div class="paragraph">
-<p>Condition: your old password is typed in correctly, and new password should not be the same as old password.</p>
+<p>Format: <code>change password o/YOUR_OLD_PASSWORD n/YOUR_NEW_PASSWORD</code></p>
 </div>
-<div class="admonitionblock caution">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Make sure your new password is typed correctly. There is no confirmation prompt once you execute the command.
+You cannot <code>undo</code> changing of password.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Format: <code>change password o/YOUR_OLD_PASSWORD n/YOUR_NEW_PASSWORD</code></p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+New password should not be the same as old password, and it cannot be empty, or contain spaces.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Make sure your password is typed correctly. There is no confirmation prompt once you execute the command.
+</td>
+</tr>
+</table>
 </div>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
@@ -436,7 +463,7 @@ Make sure your new password is typed correctly. There is no confirmation prompt 
 </div>
 <div class="paragraph">
 <p><strong><span class="red">Q</strong></span>: <span class="red">How can I report an issue?</span><br>
-<strong>A</strong>: You can raise an issue in the issue section and our team will get back to you as soon as possbile.</p>
+<strong>A</strong>: You can raise an issue in the issue section and our team will get back to you as soon as possible.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -737,4 +764,4 @@ Make sure your new password is typed correctly. There is no confirmation prompt 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 15:55:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 16:18:20 UTC</div></div></div></body></html>
