@@ -106,13 +106,15 @@ This represents a <strong>warning</strong>. A warning denotes something of cruci
 <li><a href="#login-feature">4.4. Login Feature</a></li>
 <li><a href="#account-creation">4.5. Account creation</a></li>
 <li><a href="#account-storage">4.6. Account storage</a></li>
-<li><a href="#add-clients-and-vendors-feature">4.7. Add clients and vendors feature</a></li>
-<li><a href="#remove-clients-and-vendors-feature">4.8. Remove clients and vendors feature</a></li>
-<li><a href="#edit-clients-and-vendors-feature">4.9. Edit clients and vendors feature</a></li>
-<li><a href="#adding-a-service-request-for-client-or-vendor-feature">4.10. Adding a service request for client or vendor feature</a></li>
-<li><a href="#automatch-feature">4.11. Automatch feature</a></li>
-<li><a href="#list-feature">4.12. List Feature</a></li>
-<li><a href="#finding-matches-between-clients-and-vendors">4.13. Finding matches between clients and vendors</a></li>
+<li><a href="#unique-id-feature">4.7. Unique ID feature</a></li>
+<li><a href="#add-contact-feature">4.8. Add contact feature</a></li>
+<li><a href="#delete-contact-feature">4.9. Delete contact feature</a></li>
+<li><a href="#update-contact-feature">4.10. Update contact feature</a></li>
+<li><a href="#view-contact-feature">4.11. View contact feature</a></li>
+<li><a href="#adding-a-service-request-for-client-or-vendor-feature">4.12. Adding a service request for client or vendor feature</a></li>
+<li><a href="#automatch-feature">4.13. Automatch feature</a></li>
+<li><a href="#list-feature">4.14. List Feature</a></li>
+<li><a href="#finding-matches-between-clients-and-vendors">4.15. Finding matches between clients and vendors</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -541,13 +543,13 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </div>
 <h4 id="events-driven-nature-of-the-design" class="discrete">Events-Driven nature of the design</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact for the scenario where the user issues the command <code>delete 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact for the scenario where the user issues the command <code>client#1 delete</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SDforDeletePerson.png" alt="SDforDeletePerson" width="800">
+<img src="images/SdForDeleteClient.png" alt="SdForDeleteClient" width="800">
 </div>
-<div class="title">Figure 3. <em>Component interactions for <code>delete 1</code> command (part 1)</em><br></div>
+<div class="title">Figure 3. <em>Component interactions for `client#1 delete ` command (part 1)</em><br></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -566,9 +568,9 @@ Note how the <code>Model</code> simply raises a <code>AddressBookChangedEvent</c
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SDforDeletePersonEventHandling.png" alt="SDforDeletePersonEventHandling" width="800">
+<img src="images/SdForDeleteClientEventHandling.png" alt="SdForDeleteClientEventHandling" width="800">
 </div>
-<div class="title">Figure 4. <em>Component interactions for <code>delete 1</code> command (part 2)</em><br></div>
+<div class="title">Figure 4. <em>Component interactions for <code>client#1 delete</code> command (part 2)</em><br></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -655,13 +657,13 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("client#1 delete")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="800">
+<img src="images/DeleteClientSdForLogic.png" alt="DeleteClientSdForLogic" width="800">
 </div>
-<div class="title">Figure 7. <em>Interactions Inside the Logic Component for the <code>delete 1</code> Command</em></div>
+<div class="title">Figure 7. <em>Interactions Inside the Logic Component for the <code>client#1 delete</code> Command</em></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -1395,111 +1397,451 @@ User can only register for an account via an existing account with <code>SUPER_U
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-clients-and-vendors-feature"><a class="link" href="#add-clients-and-vendors-feature">4.7. Add clients and vendors feature</a></h3>
+<h3 id="unique-id-feature"><a class="link" href="#unique-id-feature">4.7. Unique ID feature</a></h3>
 <div class="paragraph">
-<p><strong><em>Heart²</em></strong> allows you to be able to distinguish between clients and vendors.</p>
+<p><strong><em>Heart²</em></strong> assigns a unique ID to every <code>client</code> and <code>vendor</code> when they are added into <strong><em>Heart²</em></strong>.
+This ID is unique within their contact type, meaning that a <code>client</code> and a <code>vendor</code> may have the same ID, but since this ID comes hand in hand with the contact type, they are effectively unique.
+These IDs are last for a single session, and <strong><em>Heart²</em></strong> reassigns the IDs at the start of the next session.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.7.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Both the <code>Client</code> and <code>Vendor</code> class have a <code>public static</code> running counter starting from 1.
+When a <code>client</code> or <code>vendor</code> is created, it is assigned that number, before incrementing it by 1.
+The <code>contact</code> then has this ID for this session, and the user can use this ID, coupled with the contact type to always refer to this particular contact.</p>
 </div>
 <div class="paragraph">
-<p>When adding a new contact to <strong><em>Heart²</em></strong>, you would have to specify whether the contact is a 'client' or a 'vendor' by appending 'client' or 'vendor' during adding:</p>
+<p>This unique ID is used by many other commands, namely: <code>add</code>, <code>delete</code>, <code>update</code>, <code>view</code>, <code>addservice</code>, <code>automatch</code>.
+It allows for these commands to be executed at any point in <strong><em>Heart²</em></strong>, with always the same context.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-should-we-refer-to-contacts-in-strong-em-heart-em-strong"><a class="link" href="#aspect-how-should-we-refer-to-contacts-in-strong-em-heart-em-strong">Aspect: How should we refer to contacts in <strong><em>Heart²</em></strong>?</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p>'client add n/Wai Lun p/90463327 e/wailun@u.nus.edu a/PGP House'</p>
+<p><strong>Alternative 1</strong>:
+Use the legacy implementation, which is to use the relative position of the contact in the list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No change is required, as it is the legacy implementation.</p>
 </li>
 <li>
-<p>'vendor add n/Lun Wai p/72336409 e/lunwai@u.nus.edu a/RVRC'</p>
+<p>Cons: Users have to navigate to a list that shows that contact, and the relative position of that contact may keep changing throughout a session.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong> (current choice):</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Users are able to refer back to a particular contact at any time, without requiring the current list shown to contain that contact.
+Also, this ID will never change during a session, so the user can confidently use the ID knowing that it will always refer to that contact.</p>
+</li>
+<li>
+<p>Cons: Users still have to remember this unique ID to refer back to the contact. It might be hard to remember the ID.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The above commands adds a 'client' and a 'vendor' with the specified information respectively.</p>
+<p>After much consideration, we decided to go with option 2.
+<strong><em>Heart²</em></strong> is built for speed, and we would like to give our users flexibility to execute any command within <strong><em>Heart²</em></strong> at any time.
+We believe that this can give users more control and power over their work using <strong><em>Heart²</em></strong>, and therefore we chose to implement this unique ID system.</p>
 </div>
 <div class="paragraph">
-<p>This facilitates many other features of <strong><em>Heart²</em></strong> for your convenience!</p>
+<p>However, we also do realise that users might find it hard to remember the unique ID assigned to the contact.
+While users can quickly look at a recent contact using the command <code>history</code>, a possibly quality-of-life improvement would be to implement a mnemonic unique identifier.</p>
 </div>
-<div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">4.7.1. Implementation</a></h4>
-<div class="paragraph">
-<p>The keyword 'client' or 'vendor' is used to determine whether a 'Client' or a 'Vendor' is instantiated before adding to the contact list. The contact list is a single list containing both 'Client' and 'Vendor' objects. Filters are then applied based on subsequent commands to select only 'client' or 'vendor' objects.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="remove-clients-and-vendors-feature"><a class="link" href="#remove-clients-and-vendors-feature">4.8. Remove clients and vendors feature</a></h3>
+<h3 id="add-contact-feature"><a class="link" href="#add-contact-feature">4.8. Add contact feature</a></h3>
 <div class="paragraph">
-<p><strong><em>Heart²</em></strong> allows you to remove 'client' and 'vendor' if you so wish to!</p>
-</div>
-<div class="paragraph">
-<p>This can be easily done by specifying the 'client' or 'vendor' at the front:</p>
+<p><strong><em>Heart²</em></strong> requires users to explicitly specify whether the contact to be added is a <code>client</code> or a <code>vendor</code> in the command.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>'client remove 1'</p>
+<p><code>client add n/Wai Lun p/90463327 e/wailun@u.nus.edu a/PGP House</code></p>
 </li>
 <li>
-<p>'vendor remove 2'</p>
+<p><code>vendor add n/Lun Wai p/72336409 e/lunwai@u.nus.edu a/RVRC</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The above commands removes the 'client' in index 1 of the 'client' list and the 'vendor' in index 2 of the 'vendor' list respectively.</p>
+<p>The above commands add a <code>client</code> and a <code>vendor</code>, together with the details provided, respectively.</p>
+</div>
+<div class="paragraph">
+<p>This differentiation between <code>client</code> and <code>vendor</code> facilitates many other features of <strong><em>Heart²</em></strong>.
+It complements the unique ID feature earlier to ensure that a <code>client</code> and a <code>vendor</code> with the same ID are still differentiable due to the contact type.</p>
+</div>
+<div class="paragraph">
+<p>Adding of duplicate contacts are not allowed in <strong><em>Heart²</em></strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A contact is considered a duplicate if they are of the same contact type <strong>and</strong> have the same name <strong>and</strong> have <strong>either</strong> the same phone number <strong>or</strong> email address.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">4.8.1. Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.8.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The keyword 'client' or 'vendor' is used to determine the context of  whether a 'client' or 'vendor' is to be deleted to select the appropriate contact based on the 'index' specified. The contact in question is then removed from the contact list.</p>
+<p>Both <code>Client</code> and <code>Vendor</code> classes inherit from an abstract <code>Contact</code> class.
+When adding a contact, either a new <code>Client</code> or a <code>Vendor</code> object is instantiated.
+Both <code>Client</code> and <code>Vendor</code> objects are added to a list of generic type <code>Contact</code>.</p>
+</div>
+<div class="paragraph">
+<p>In order to differentiate them, there is an abstract method <code>Contact#getType()</code> that <code>Client</code> and <code>Vendor</code> implement differently.
+<code>Client</code> objects return a <code>ContactType.CLIENT</code> enum while <code>Vendor</code> objects return a <code>ContactType.VENDOR</code> enum.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.8.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-should-we-store-code-client-code-and-code-vendor-code-objects-in-strong-em-heart-em-strong"><a class="link" href="#aspect-how-should-we-store-code-client-code-and-code-vendor-code-objects-in-strong-em-heart-em-strong">Aspect: How should we store <code>Client</code> and <code>Vendor</code> objects in <strong><em>Heart²</em></strong>?</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1</strong> (current choice):
+<code>Client</code> and <code>Vendor</code> objects are stored in a more general <code>Contact</code> list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement by tweak the inherited legacy list slightly.</p>
+</li>
+<li>
+<p>Cons: Cannot tell immediately if an element in the <code>Contact</code> list is a <code>Client</code> or <code>Vendor</code>.
+This might take a longer time to display lists, due to having to filter them every time.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>:
+Hold <code>Client</code> and <code>Vendor</code> objects differently in two different lists.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to get <code>Client</code> or <code>Vendor</code> immediately without having to go through the entire <code>Contact</code> list as in alternative 1.</p>
+</li>
+<li>
+<p>Cons: Difficult and extremely tedious to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-restrictive-should-the-definition-of-a-duplicate-contact-be"><a class="link" href="#aspect-how-restrictive-should-the-definition-of-a-duplicate-contact-be">Aspect: How restrictive should the definition of a duplicate contact be?</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1</strong>:
+It should be regardless of contact type, meaning a <code>client</code> and a <code>vendor</code> cannot have the same name <strong>and</strong> either the same phone number <strong>or</strong> email.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No additional implementation required. The legacy implementation already supports this.</p>
+</li>
+<li>
+<p>Cons: Less flexibility for our users. A <code>client</code> cannot be a <code>vendor</code> possibly.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong> (current choice):
+A <code>client</code> and a <code>vendor</code> can have similar fields, meaining a <code>client</code> and a <code>vendor</code> can possibly have the same name, phone number <strong>and/or</strong> email.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More flexibility for our users. A <code>client</code> can be a <code>vendor</code> too, which is possible in the real world.</p>
+</li>
+<li>
+<p>Cons: Additional implementation to have.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-clients-and-vendors-feature"><a class="link" href="#edit-clients-and-vendors-feature">4.9. Edit clients and vendors feature</a></h3>
+<h3 id="delete-contact-feature"><a class="link" href="#delete-contact-feature">4.9. Delete contact feature</a></h3>
 <div class="paragraph">
-<p><strong><em>Heart²</em></strong> allows you to make changes to existing 'client' and 'vendor' too!</p>
-</div>
-<div class="paragraph">
-<p>With the list of 'client' or 'vendor' shown on the GUI, simply specify the index of the contact in question, followed by the field to be edited:</p>
+<p><strong><em>Heart²</em></strong> allows the user to delete any contact, using the combination of its contact type and its unique ID, followed by <code>delete</code>.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>'edit 1 n/Wai Lua'</p>
+<p><code>client#2 delete</code></p>
 </li>
 <li>
-<p>'edit 2 p/9046 3328'</p>
+<p><code>vendor#3 delete</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The above commands will update the name of the first contact to Wai Lua and the phone number of the second contact to 9046 3328 respectively.</p>
+<p>The above commands delete the <code>client</code> given the unique ID #2 and the <code>vendor</code> given the unique ID #3.</p>
+</div>
+<div class="paragraph">
+<p>This feature makes use of the fact that contacts are either <code>Client</code> or <code>Vendor</code> objects.
+The unique ID is then used to identify the particular <code>Client</code> or <code>Vendor</code> object to be deleted.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">4.9.1. Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.9.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The index specified determines the contact in question. The arguments following the index is parsed and used to create an EditContactDescriptor.
-This EditContactDescriptor is then used in conjunction with the earlier in contact in question to create a new contact. A check on whether the contact is a 'client' or 'vendor' is first performed to create a correct replacement contact, before updating the contact list.</p>
+<p>The current implementation filters the contact list by the specified contact type and ID.
+The predicate to filter by <code>client</code> and <code>vendor</code> can be retrieved by <code>ContactType.CLIENT#getFilter()</code> and <code>ContactType.VENDOR#getFilter()</code> respectively.
+This first predicate is then combined with another predicate that is looking for the ID of the <code>client</code> or <code>vendor</code>, specified in the command.</p>
+</div>
+<div class="paragraph">
+<p>Since IDs are unique, after filtering by this (combined) predicate, the list can only have a maximum length of 1.
+This would indicate that the contact in the list is the contact we are to delete.
+However, if the list is of size 0, this means that the contact that is specified to be deleted does not exist.
+We then can feedback to the user that the ID specified is invalid.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The sequence diagram for the <code>delete</code> command can be found together with the structure of the logic component <a href="#Design-Logic">here</a>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-service-request-for-client-or-vendor-feature"><a class="link" href="#adding-a-service-request-for-client-or-vendor-feature">4.10. Adding a service request for client or vendor feature</a></h3>
+<h3 id="update-contact-feature"><a class="link" href="#update-contact-feature">4.10. Update contact feature</a></h3>
+<div class="paragraph">
+<p><strong><em>Heart²</em></strong> allows the user to update any contact, using the combination of its contact type and its unique ID, followed by <code>update</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>'client#1 update n/Wai Lua'</p>
+</li>
+<li>
+<p>'vendor#2 update p/9046 3328'</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The above commands update the name of the <code>client</code> given the unique ID #2 to "Wai Lua", and the phone number of the <code>vendor</code> given the unique ID #2 to 9046 3328.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A contact is considered a duplicate if they are of the same contact type <strong>and</strong> have the same name <strong>and</strong> have <strong>either</strong> the same phone number <strong>or</strong> email address.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>As mentioned earlier, duplicate contacts are not allowed in <strong><em>Heart²</em></strong>.
+Thus, when updating, the user is not allowed to update a contact in <strong><em>Heart²</em></strong> if updating it will result in duplicated contacts.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.10.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The current implementation uses part of the legacy implementation to do the updating of contacts.
+The arguments are parsed and tokenized using <code>ArgumentTokenizer#tokenize(String, Prefix&#8230;&#8203;)</code>.
+An <code>EditContactDescriptor</code> object is then created to hold this new information temporarily.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The prefixes applicable to <code>update</code> are <code>n/</code>, <code>p/</code>, <code>e/</code>, <code>a/</code>, <code>t/</code>. At least one of them must follow the <code>update</code> command.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Then, the current implementation filters the contact list by the specified contact type and ID.
+The predicate to filter by <code>client</code> and <code>vendor</code> can be retrieved by <code>ContactType.CLIENT#getFilter()</code> and <code>ContactType.VENDOR#getFilter()</code> respectively.
+This first predicate is then combined with another predicate that is looking for the ID of the <code>client</code> or <code>vendor</code>, specified in the command.</p>
+</div>
+<div class="paragraph">
+<p>Since IDs are unique, after filtering by this (combined) predicate, the list can only have a maximum length of 1.
+The contact in this list would be the contact to be updated.
+A new contact is created using <code>UpdateCommand#createEditedContact(Contact, EditContactDescriptor, ContactType)</code>.
+The next step is then to ensure that this new contact is not a duplicate contact, before replacing the old contact in <strong><em>Heart²</em></strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A contact is considered a duplicate if they are of the same contact type <strong>and</strong> have the same name <strong>and</strong> have <strong>either</strong> the same phone number <strong>or</strong> email address.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>However, if the list is of size 0, this means that the contact that is specified to be deleted does not exist.
+We then can feedback to the user that the ID specified is invalid.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.10.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-should-a-similar-have-the-same-name-strong-and-strong-same-phone-number-strong-or-strong-email-code-client-code-and-code-vendor-code-object-be-updated-together"><a class="link" href="#aspect-should-a-similar-have-the-same-name-strong-and-strong-same-phone-number-strong-or-strong-email-code-client-code-and-code-vendor-code-object-be-updated-together">Aspect: Should a similar (have the same name <strong>and</strong> same phone number <strong>or</strong> email) <code>client</code> and <code>vendor</code> object be updated together?</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1</strong> (current choice):
+A <code>client</code> can be similar to a <code>vendor</code>, but they are still considered independent contacts in <strong><em>Heart²</em></strong>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No implementation required. The user has the choice to have their <code>client</code> and <code>vendor</code> be similar or not be.</p>
+</li>
+<li>
+<p>Cons: There are scenarios where the user would like to update the details of both the <code>client</code> and <code>vendor</code> together as they are similar.
+In this case, they will have to update both manually.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>:
+Updating a similar <code>client</code> or <code>vendor</code> should update its counterpart.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The user can update a similar <code>client</code> and <code>vendor</code> together.</p>
+</li>
+<li>
+<p>Cons: Hard to implement. Also, the user will lack the flexibility of having his <code>client</code> and <code>vendor</code> be updated individually.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After much consideration, we decided to choose option 1, so that our user can have more flexibility in <strong><em>Heart²</em></strong>.
+A lot of people have separate phone numbers and emails for personal use and work, and thus it made sense to us that these contacts should still be updated separately.</p>
+</div>
+<div class="paragraph">
+<p>However, there will definitely be cases where users might want such similar contacts to be linked and updated together.
+A possible quality-of-life improvement would be to allow an option (command) to link such similar contacts to each other, for updating.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-contact-feature"><a class="link" href="#view-contact-feature">4.11. View contact feature</a></h3>
+<div class="paragraph">
+<p><strong><em>Heart²</em></strong> allows the user to view any contact, using the combination of its contact type and its unique ID, followed by <code>view</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>client#3 view</code></p>
+</li>
+<li>
+<p><code>vendor#6 view</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The above commands selects the <code>client</code> with the unique ID #3 and the <code>vendor</code> with the unique ID #6 respectively for viewing.
+The contact&#8217;s card is shown on the panel on the right in <strong><em>Heart²</em></strong>, containing all the information regarding the contact.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+By using <code>view</code>, all the information regarding the contact will be shown.
+This includes the name, phone number, email address, tags, residential (<code>client</code>) or office address (<code>vendor</code>), and services requested (<code>client</code>) or services offered (<code>vendor</code>).
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">4.11.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>view</code> command uses a similar implementation to the <code>add</code>, <code>delete</code> and <code>update</code> commands.
+The current implementation filters the contact list by the specified contact type and ID.
+The predicate to filter by <code>client</code> and <code>vendor</code> can be retrieved by <code>ContactType.CLIENT#getFilter()</code> and <code>ContactType.VENDOR#getFilter()</code> respectively.
+This first predicate is then combined with another predicate that is looking for the ID of the <code>client</code> or <code>vendor</code>, specified in the command.</p>
+</div>
+<div class="paragraph">
+<p>Since IDs are unique, after filtering by this (combined) predicate, the list can only have a maximum length of 1.
+After obtaining this contact, a new <code>JumpToListRequestEvent</code> is posted to the event bus.
+The <code>PersonListPanel</code> class is registered as an event handler, and it handles this <code>JumpToListRequestEvent</code> with <code>PersonListPanel#handleJumpToListRequestEvent(JumpToListRequestEvent)</code>.
+The contact&#8217;s card is then selected for viewing.</p>
+</div>
+<div class="paragraph">
+<p>However, if the list is of size 0, this means that the contact that is specified for viewing does not exist.
+We then can feedback to the user that the ID specified is invalid.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.11.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>The implementation of <code>view</code> was chosen to also use the combination of the contact type and ID to select a contact for viewing.
+This is part of a standardisation effort to have cohesiveness in the command syntax.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-service-request-for-client-or-vendor-feature"><a class="link" href="#adding-a-service-request-for-client-or-vendor-feature">4.12. Adding a service request for client or vendor feature</a></h3>
 <div class="paragraph">
 <p>Attributes of the services the user&#8217;s clients require or vendors can provide can be indicated using the <code>addservice</code> command, by their unique IDs.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">4.10.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.12.1. Implementation</a></h4>
 
 </div>
 </div>
 <div class="sect2">
-<h3 id="automatch-feature"><a class="link" href="#automatch-feature">4.11. Automatch feature</a></h3>
+<h3 id="automatch-feature"><a class="link" href="#automatch-feature">4.13. Automatch feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-6"><a class="link" href="#implementation-6">4.11.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">4.13.1. Implementation</a></h4>
 
 </div>
 <div class="sect3">
-<h4 id="search-result-display"><a class="link" href="#search-result-display">4.11.2. Search Result Display</a></h4>
+<h4 id="search-result-display"><a class="link" href="#search-result-display">4.13.2. Search Result Display</a></h4>
 <div class="paragraph">
 <p>After the user enters the <code>automatch</code> command into the <code>CommandBox</code>, individual <code>ServiceListPanel</code> s would be deployed to list the search results in a tabular form:</p>
 </div>
@@ -1524,7 +1866,7 @@ Users can then scroll through the list to view the other results in decreasing r
 </div>
 </div>
 <div class="sect4">
-<h5 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design Considerations</a></h5>
+<h5 id="design-considerations-9"><a class="link" href="#design-considerations-9">Design Considerations</a></h5>
 <div class="sect5">
 <h6 id="aspect-how-to-display-search-results"><a class="link" href="#aspect-how-to-display-search-results">Aspect: How to display search results</a></h6>
 <div class="ulist">
@@ -1564,7 +1906,7 @@ the contact falls under.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-feature"><a class="link" href="#list-feature">4.12. List Feature</a></h3>
+<h3 id="list-feature"><a class="link" href="#list-feature">4.14. List Feature</a></h3>
 <div class="paragraph">
 <p><strong><em>Heart²</em></strong> allows you view all the clients or the vendors with a simple command: <code>list</code>.</p>
 </div>
@@ -1644,7 +1986,7 @@ belong to a category and only contacts which contains all of the keywords in the
 <p><br></p>
 </div>
 <div class="sect3">
-<h4 id="implementation-7"><a class="link" href="#implementation-7">4.12.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">4.14.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command to be used for filtering is parsed by the <code>ListCommandParser</code> and passed to a <code>Predicate</code>
 that is implemented as <code>ContactContainsKeywordsPredicate</code>.</p>
@@ -1655,7 +1997,7 @@ clients or vendors and the other is to filter by keywords.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.12.2. Design considerations</a></h4>
+<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.14.2. Design considerations</a></h4>
 
 </div>
 <div class="sect3">
@@ -1760,12 +2102,12 @@ Gives better control over the searching.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-matches-between-clients-and-vendors"><a class="link" href="#finding-matches-between-clients-and-vendors">4.13. Finding matches between clients and vendors</a></h3>
+<h3 id="finding-matches-between-clients-and-vendors"><a class="link" href="#finding-matches-between-clients-and-vendors">4.15. Finding matches between clients and vendors</a></h3>
 <div class="paragraph">
 <p>The application boasts matchmaking features that reduces the (once-laborious) task of matching vendors a single command.</p>
 </div>
 <div class="sect3">
-<h4 id="high-level-design"><a class="link" href="#high-level-design">4.13.1. High level design</a></h4>
+<h4 id="high-level-design"><a class="link" href="#high-level-design">4.15.1. High level design</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/auto-matching.png" alt="width:&quot;800&quot;">
@@ -1784,7 +2126,7 @@ Gives better control over the searching.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.13.2. Design considerations</a></h4>
+<h4 id="design-considerations-11"><a class="link" href="#design-considerations-11">4.15.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-fairly-distribute-jobs-between-vendors"><a class="link" href="#aspect-how-to-fairly-distribute-jobs-between-vendors">Aspect: How to fairly distribute jobs between vendors</a></h5>
 <div class="ulist">
@@ -4020,4 +4362,4 @@ Expected: Screen GUI feedback to say that you have successfully changed your pas
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 07:59:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 08:07:56 UTC</div></div></div></body></html>
