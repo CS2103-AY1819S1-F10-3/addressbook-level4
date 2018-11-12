@@ -182,14 +182,13 @@ This represents a <strong>warning</strong>. A warning denotes something of cruci
 <ul class="sectlevel2">
 <li><a href="#launch-the-application">G.1. Launch the application</a></li>
 <li><a href="#shutdown-the-application">G.2. Shutdown the application</a></li>
-<li><a href="#deleting-a-client">G.3. Deleting a client</a></li>
-<li><a href="#deleting-a-vendor">G.4. Deleting a vendor</a></li>
-<li><a href="#logging-in">G.5. Logging in</a></li>
-<li><a href="#logging-out">G.6. Logging out</a></li>
-<li><a href="#registering-a-new-account">G.7. Registering a new account</a></li>
-<li><a href="#changing-your-account-password">G.8. Changing your account password</a></li>
-<li><a href="#listing-contacts">G.9. Listing contacts</a></li>
-<li><a href="#adding-a-new-service-request">G.10. Adding a new service request</a></li>
+<li><a href="#deleting-a-contact">G.3. Deleting a contact</a></li>
+<li><a href="#logging-in">G.4. Logging in</a></li>
+<li><a href="#logging-out">G.5. Logging out</a></li>
+<li><a href="#registering-a-new-account">G.6. Registering a new account</a></li>
+<li><a href="#changing-your-account-password">G.7. Changing your account password</a></li>
+<li><a href="#listing-contacts">G.8. Listing contacts</a></li>
+<li><a href="#adding-a-new-service-request">G.9. Adding a new service request</a></li>
 </ul>
 </li>
 </ul>
@@ -4452,26 +4451,26 @@ Expected: The GUI screen closes and the application exits.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-client"><a class="link" href="#deleting-a-client">G.3. Deleting a client</a></h3>
+<h3 id="deleting-a-contact"><a class="link" href="#deleting-a-contact">G.3. Deleting a contact</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a client while all clients are listed</p>
+<p>Deleting a contact while all contacts of that type are listed</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all clients using the <code>client list</code> command. Multiple clients in the list.</p>
+<p>Prerequisites: List all contacts of that type using the <code>list</code> command. Multiple contacts of that type in the list.</p>
 </li>
 <li>
-<p>Test case: <code>client#1 delete</code><br>
-Expected: First client is deleted from the list. Details of the deleted client shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt;#1 delete</code><br>
+Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
 </li>
 <li>
-<p>Test case: <code>client#0 delete</code><br>
-Expected: No client is deleted. Error details shown in the status message. Status bar remains the same.</p>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt;#0 delete</code><br>
+Expected: No contact is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>client3 delete</code>, <code>client#x delete</code> (where x is not a client&#8217;s id), <code>delete client#1</code><br>
+<p>Other incorrect delete commands to try: <code>&lt;CONTACT_TYPE&gt;3 delete</code>, <code>&lt;CONTACT_TYPE&gt;#x delete</code> (where x is not a contact&#8217;s id), <code>delete &lt;CONTACT_TYPE&gt;#1</code><br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -4481,36 +4480,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-vendor"><a class="link" href="#deleting-a-vendor">G.4. Deleting a vendor</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Deleting a vendor while all vendors are listed</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: List all vendors using the <code>vendor list</code> command. Multiple vendors in the list.</p>
-</li>
-<li>
-<p>Test case: <code>vendor#1 delete</code><br>
-Expected: First vendor is deleted from the list. Details of the deleted vendor shown in the status message. Timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>vendor#0 delete</code><br>
-Expected: No vendor is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>vendor3 delete</code>, <code>vendor#x delete</code> (where x is not a vendor&#8217;s id), <code>delete vendor#1</code><br>
-Expected: Similar to previous.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="logging-in"><a class="link" href="#logging-in">G.5. Logging in</a></h3>
+<h3 id="logging-in"><a class="link" href="#logging-in">G.4. Logging in</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4553,7 +4523,7 @@ Expected: Unknown command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging-out"><a class="link" href="#logging-out">G.6. Logging out</a></h3>
+<h3 id="logging-out"><a class="link" href="#logging-out">G.5. Logging out</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4571,7 +4541,7 @@ Expected: Successfully logged out. Main screen GUI is closed, and login screen G
 </div>
 </div>
 <div class="sect2">
-<h3 id="registering-a-new-account"><a class="link" href="#registering-a-new-account">G.7. Registering a new account</a></h3>
+<h3 id="registering-a-new-account"><a class="link" href="#registering-a-new-account">G.6. Registering a new account</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4599,7 +4569,7 @@ Expected: Screen GUI feedback to say that you have successfully registered an ac
 </div>
 </div>
 <div class="sect2">
-<h3 id="changing-your-account-password"><a class="link" href="#changing-your-account-password">G.8. Changing your account password</a></h3>
+<h3 id="changing-your-account-password"><a class="link" href="#changing-your-account-password">G.7. Changing your account password</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4623,7 +4593,7 @@ Expected: Screen GUI feedback to say that you have successfully changed your pas
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-contacts"><a class="link" href="#listing-contacts">G.9. Listing contacts</a></h3>
+<h3 id="listing-contacts"><a class="link" href="#listing-contacts">G.8. Listing contacts</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4667,7 +4637,7 @@ Expected: List all vendors that matches the parameters provided. Test with diffe
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-new-service-request"><a class="link" href="#adding-a-new-service-request">G.10. Adding a new service request</a></h3>
+<h3 id="adding-a-new-service-request"><a class="link" href="#adding-a-new-service-request">G.9. Adding a new service request</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4727,4 +4697,4 @@ You can now <code>view</code> the contact to rectify that the service is not ove
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:25:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:34:31 UTC</div></div></div></body></html>
