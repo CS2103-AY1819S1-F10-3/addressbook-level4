@@ -1147,90 +1147,142 @@ The application will show either the client list or vendor list corresponding to
 <div class="paragraph">
 <p><strong>Before logging in</strong></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>To get help: <code>help</code></p>
-</li>
-<li>
-<p>To log in: <code>login u/USERNAME p/PASSWORD</code></p>
-</li>
-<li>
-<p>Close the application: <code>exit</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top">FEATURE</th>
+<th class="tableblock halign-center valign-top">FORMAT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To get help</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>help</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To log in</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>login u/USERNAME p/PASSWORD</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To close the application</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>exit</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><strong>After logging in</strong></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Register for a new account: <code>register account u/USERNAME p/PASSWORD r/ROLE</code></p>
-</li>
-<li>
-<p>Change your account password: <code>change password o/YOUR_OLD_PASSWORD n/YOUR_NEW_PASSWORD</code></p>
-</li>
-<li>
-<p>Add a contact: <code>&lt;CONTACT_TYPE&gt; add n/FULL_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/HOME_ADDRESS [t/TAG]…​</code></p>
-</li>
-<li>
-<p>Add a service requirement: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; addservice s/SERVICE_TYPE c/SERVICE_COST</code></p>
-</li>
-<li>
-<p>Update a specific contact: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; update [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
-</li>
-<li>
-<p>List contacts that matches the inputs: <code>&lt;CONTACT_TYPE&gt; list [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
-</li>
-<li>
-<p>Automatically find a match that fits a particular contact&#8217;s requirements: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; automatch</code></p>
-</li>
-<li>
-<p>View a specific contact: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; view</code></p>
-</li>
-<li>
-<p>Delete a specific contact: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; delete</code></p>
-</li>
-<li>
-<p>Delete all contacts: <code>clear</code></p>
-</li>
-<li>
-<p>List all the commands entered in this session: <code>history</code></p>
-</li>
-<li>
-<p>Undo the previous command: <code>undo</code></p>
-</li>
-<li>
-<p>Redo the previous undone command: <code>redo</code></p>
-</li>
-<li>
-<p>To get help: <code>help</code></p>
-</li>
-<li>
-<p>Log out of your account: <code>logout</code></p>
-</li>
-<li>
-<p>Close the application: <code>exit</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top">FEATURE</th>
+<th class="tableblock halign-center valign-top">FORMAT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To register a new account</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>register account u/USERNAME p/PASSWORD r/ROLE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To change your account password</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>change password o/YOUR_OLD_PASSWORD n/YOUR_NEW_PASSWORD</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To add a contact</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;CONTACT_TYPE&gt; add n/FULL_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/HOME_ADDRESS [t/TAG]…​</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To add a service requirement</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; addservice s/SERVICE_TYPE c/SERVICE_COST</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To update a specific contact</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; update [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To list contacts that matches the inputs</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;CONTACT_TYPE&gt; list [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To find a match that fits a particular contact&#8217;s requirements</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; automatch</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To view a specific contact</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; view</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To delete a specific contact</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; delete</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To delete all contacts</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>clear</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To list all the commands entered in this session</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>history</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To undo the previous command</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>undo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To redo the previous undone command</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>redo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To get help</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>help</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To log out of your account</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>logout</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To close the application</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>exit</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><strong>Coming in v2.0</strong></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Retrieve forgotten password: <code>forget password</code></p>
-</li>
-<li>
-<p>Assigning vendors to clients: <code>client# assign vendor#</code></p>
-</li>
-<li>
-<p>Assigning clients to vendors: <code>vendor# assign client#</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top">FEATURE</th>
+<th class="tableblock halign-center valign-top">FORMAT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To retrieve forgotten password</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>forget password</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To assigning vendors to clients</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>client#&lt;ID&gt; assign vendor#&lt;ID&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To assigning clients to vendors</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>vendor#&lt;ID&gt; assign client#&lt;ID&gt;</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
@@ -1258,4 +1310,4 @@ The application will show either the client list or vendor list corresponding to
 <strong>A</strong>: You can raise an issue in the issue section and our team will get back to you as soon as possbile.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:04:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:25:25 UTC</div></div></div></body></html>

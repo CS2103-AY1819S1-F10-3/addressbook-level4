@@ -3,53 +3,32 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">main</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-F10-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Dong SiJi - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-heart"><a class="link" href="#project-heart">PROJECT: Heart²</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The purpose of this document is to document the contribution that I have made in the project: <strong><em>Heart²</em></strong>
+as a student undertaking the module CS2103T under NUS School of Computing.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>Heart²</em></strong> github link: <a href="https://github.com/CS2103-AY1819S1-F10-3/main" class="bare">https://github.com/CS2103-AY1819S1-F10-3/main</a></p>
+</div>
 <hr>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Heart² is a desktop wedding application used for matching service providers to clients. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p><strong><em>Heart²</em></strong> is a desktop software aiming to make the job of wedding planning agencies simpler.
+It provides simple yet powerful features to efficiently manage clients' and agency companies' profiles.
+Users can find suitable wedding service providers for clients using just a few keystrokes with our enterprise featureset.</p>
+</div>
+<div class="paragraph">
+<p>The project is written in Java and has about 10 thousand lines of code. The user interacts with the application mainly using a Command Line Interface (CLI),
+and it also has a Graphic User Interface (GUI) created with JavaFX for users who are not so adept with the keyboard.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Major enhancement</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does:</p>
-</li>
-<li>
-<p>Justification:</p>
-</li>
-<li>
-<p>Highlights:</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Minor enhancement</strong>:</p>
-</li>
-<li>
-<p><strong>Code contributed</strong>:</p>
-</li>
-<li>
-<p><strong>Other contributions</strong>:</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary of contributions</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -57,18 +36,199 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Below is a summary of the contributions that I have made to the project.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="major-enhancement"><a class="link" href="#major-enhancement">2.1. Major Enhancement</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: Revamp the <code>list</code> command.</p>
+</li>
+<li>
+<p><strong>Functionality</strong>: The user is able to use the <code>list</code> command to list all clients or vendors. They are also able to use the command to search through clients and vendors by providing the relevant keywords that they want to search for.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: By having both the searching and listing functionality in one command the user will have less commands to familiarise with and it increases the ease of use of the application.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: To revamp the list command, I need to have a deep understanding of how the commands work as well as how the parser works, which I spent time to familiarise myself with. I also had to change how some of the information was stored in the application, so that the relevant information could be retrieved easily when needed.</p>
+</li>
+<li>
+<p><strong>Functional Code Contributed</strong>: <a href="https://github.com/dongsiji/main/blob/dongsiji-pp/docs/team/dongsijiContributedCodeList.adoc">all code</a></p>
+</li>
+<li>
+<p><strong>Test Code Contributed</strong>: <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/150">all tests</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="minor-enhancement"><a class="link" href="#minor-enhancement">2.2. Minor Enhancement</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Minor enhancement</strong>: Enhance <code>undo</code> and <code>redo</code> commands to display the list which was modified.</p>
+</li>
+<li>
+<p><strong>Functionality</strong>: The list shown to the user after executing the <code>undo</code> and <code>redo</code> commands will be the list of clients or vendors that was changed through the command.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: This is to allow the user to be able to see what was changed at a glance without needing to navigate to the corresponding list.</p>
+</li>
+<li>
+<p><strong>Functional Code Contributed</strong>: <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/188">all code</a></p>
+</li>
+<li>
+<p><strong>Test Code Contributed</strong>: <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/188">all tests</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">2.3. Other Contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Community</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported bugs and provide suggestions to other team members' code. Check it out <a href="https://github.com/CS2103-AY1819S1-F10-3/main/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+label%3Atype.Bug+involves%3Adongsiji">here</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Documentation</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote the <a href="https://github.com/CS2103-AY1819S1-F10-3/main/blob/master/docs/AboutUs.adoc">about us</a> documentation.</p>
+</li>
+<li>
+<p>Contributed to the User Guide and Developer Guide for this project. See below for more details.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Summary of contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Over 35 <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pulls?page=1&amp;q=is%3Apr+author%3Adongsiji&amp;utf8=%E2%9C%93">Pull Requests</a> on Github.</p>
+</li>
+<li>
+<p>Over 25 <a href="https://github.com/CS2103-AY1819S1-F10-3/main/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+author%3Adongsiji+">Issues</a> raised on Github.</p>
+</li>
+<li>
+<p>Over 30 <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+commenter%3Adongsiji">Reviews</a> of Pull Requests on Github.</p>
+</li>
+<li>
+<p>Overview of all <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=dongsiji&amp;sort=displayName&amp;since=2018-09-12&amp;until=2018-11-12&amp;timeframe=day&amp;reverse=false&amp;repoSort=true">contributions</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="listing-and-searching-for-contacts-code-list-code"><a class="link" href="#listing-and-searching-for-contacts-code-list-code">3.1. Listing and searching for contacts: <code>list</code></a></h3>
+<div class="paragraph">
+<p>You can view all the contact of a specific type in a list by specifying the contact type to be shown.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>&lt;CONTACT_TYPE&gt; list</code></p>
+</div>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="../images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>client list</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="../images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>vendor list</code></p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p><br></p>
+<p><strong><em>Heart²</em></strong> also supports searching via name, phone number, email, address and tags for you to quickly find your contacts.
+To search, simply append your search parameters to the back of the original command.</p>
 </div>
 <div class="paragraph">
-<p><br></p>
+<p>Only contacts that matches all the search parameters will be displayed to you in the form of a list.
+Searching is done through substring matching, so you do not need to enter the full name, just part of the name will do.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>&lt;CONTACT_TYPE&gt; list [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="../images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>client list n/John</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="../images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>vendor list p/98765432</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
-<h3 id="undo-the-previous-command-code-undo-code"><a class="link" href="#undo-the-previous-command-code-undo-code">Undo the previous command: <code>undo</code></a></h3>
+<h3 id="undo-the-previous-command-code-undo-code"><a class="link" href="#undo-the-previous-command-code-undo-code">3.2. Undo the previous command: <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Undo the commands that you have entered in chronological order for this particular session. Once you logout or exit the application, you cannot <code>undo</code> a command from the last session.</p>
 </div>
@@ -101,7 +261,7 @@ The application will show either the client list or vendor list corresponding to
 </div>
 </div>
 <div class="sect2">
-<h3 id="redo-the-commands-undone-code-redo-code"><a class="link" href="#redo-the-commands-undone-code-redo-code">Redo the commands undone: <code>redo</code></a></h3>
+<h3 id="redo-the-commands-undone-code-redo-code"><a class="link" href="#redo-the-commands-undone-code-redo-code">3.3. Redo the commands undone: <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Redo the commands that you have undone by undo in chronological order for this particular session. Once you logout or exit the application, you cannot <code>redo</code> a command from the last session.</p>
 </div>
@@ -134,139 +294,125 @@ The application will show either the client list or vendor list corresponding to
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
-<div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.</p>
-</div>
-<div class="paragraph">
-<p>There is no need for you to save manually.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">Command summary</a></h2>
-<div class="sectionbody">
+<h3 id="command-summary"><a class="link" href="#command-summary">3.4. Command summary</a></h3>
 <div class="paragraph">
 <p>Below is a summary of the commands available for you to use.</p>
 </div>
 <div class="paragraph">
 <p><strong>Before logging in</strong></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>To get help: <code>help</code></p>
-</li>
-<li>
-<p>To log in: <code>login u/USERNAME p/PASSWORD</code></p>
-</li>
-<li>
-<p>Close the application: <code>exit</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top">FEATURE</th>
+<th class="tableblock halign-center valign-top">FORMAT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To get help</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>help</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To log in</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>login u/USERNAME p/PASSWORD</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To close the application</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>exit</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><strong>After logging in</strong></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Register for a new account: <code>register account u/USERNAME p/PASSWORD r/ROLE</code></p>
-</li>
-<li>
-<p>Change your account password: <code>change password o/YOUR_OLD_PASSWORD n/YOUR_NEW_PASSWORD</code></p>
-</li>
-<li>
-<p>Add a contact: <code>&lt;CONTACT_TYPE&gt; add n/FULL_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/HOME_ADDRESS [t/TAG]…​</code></p>
-</li>
-<li>
-<p>Add a service requirement: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; addservice s/SERVICE_TYPE c/SERVICE_COST</code></p>
-</li>
-<li>
-<p>Update a specific contact: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; update [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
-</li>
-<li>
-<p>List contacts that matches the inputs: <code>&lt;CONTACT_TYPE&gt; list [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
-</li>
-<li>
-<p>Automatically find a match that fits a particular contact&#8217;s requirements: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; automatch</code></p>
-</li>
-<li>
-<p>View a specific contact: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; view</code></p>
-</li>
-<li>
-<p>Delete a specific contact: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; delete</code></p>
-</li>
-<li>
-<p>Delete all contacts: <code>clear</code></p>
-</li>
-<li>
-<p>List all the commands entered in this session: <code>history</code></p>
-</li>
-<li>
-<p>Undo the previous command: <code>undo</code></p>
-</li>
-<li>
-<p>Redo the previous undone command: <code>redo</code></p>
-</li>
-<li>
-<p>To get help: <code>help</code></p>
-</li>
-<li>
-<p>Log out of your account: <code>logout</code></p>
-</li>
-<li>
-<p>Close the application: <code>exit</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Coming in v2.0</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Retrieve forgotten password: <code>forget password</code></p>
-</li>
-<li>
-<p>Assigning vendors to clients: <code>client# assign vendor#</code></p>
-</li>
-<li>
-<p>Assigning clients to vendors: <code>vendor# assign client#</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="../images/faqpicture.png" alt="faqpicture" width="400">
-</div>
-</div>
-<div class="paragraph">
-<p><strong><span class="red">Q</strong></span>: <span class="red">How do I transfer my data to another Computer?</span><br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
-</div>
-<div class="paragraph">
-<p><strong><span class="red">Q</strong></span>: <span class="red">What platform is this application available on?</span><br>
-<strong>A</strong>: This application is cross-platform, and can be used on both Windows and Mac OS.</p>
-</div>
-<div class="paragraph">
-<p><strong><span class="red">Q</strong></span>: <span class="red">Is this application free-of-charge?</span><br>
-<strong>A</strong>: Yes, this application is open-source and can be use for free, even commercially.</p>
-</div>
-<div class="paragraph">
-<p><strong><span class="red">Q</strong></span>: <span class="red">How can I report an issue?</span><br>
-<strong>A</strong>: You can raise an issue in the issue section and our team will get back to you as soon as possbile.</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top">FEATURE</th>
+<th class="tableblock halign-center valign-top">FORMAT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To register a new account</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>register account u/USERNAME p/PASSWORD r/ROLE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To change your account password</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>change password o/YOUR_OLD_PASSWORD n/YOUR_NEW_PASSWORD</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To add a contact</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;CONTACT_TYPE&gt; add n/FULL_NAME p/PHONE_NUMBER e/EMAIL_ADDRESS a/HOME_ADDRESS [t/TAG]…​</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To add a service requirement</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; addservice s/SERVICE_TYPE c/SERVICE_COST</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To update a specific contact</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; update [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To list contacts that matches the inputs</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;CONTACT_TYPE&gt; list [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To find a match that fits a particular contact&#8217;s requirements</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; automatch</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To view a specific contact</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; view</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To delete a specific contact</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; delete</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To delete all contacts</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>clear</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To list all the commands entered in this session</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>history</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To undo the previous command</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>undo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To redo the previous undone command</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>redo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To get help</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>help</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To log out of your account</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>logout</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">To close the application</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>exit</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -274,61 +420,12 @@ The application will show either the client list or vendor list corresponding to
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="sect4">
-<h5 id="aspect-what-it-shows-after-undo-redo-command-successfully-executes"><a class="link" href="#aspect-what-it-shows-after-undo-redo-command-successfully-executes">Aspect: What it shows after undo/redo command successfully executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Shows the list that was changed due to the undo/redo command.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for the user to identify what was changed, whether a client or vendor was modified.</p>
-</li>
-<li>
-<p>Cons: It switches the list out of the current filter and the user have to re-type the list command if he wants to filter the list.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Keeps showing what was shown before the command was executed.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: Hard for the user to identify what was changed in the addressbook.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 3:</strong> Show what was changed, before and after.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: User can easily tell what was changed.</p>
-</li>
-<li>
-<p>Cons: Hard to implement, need to have an additional UI components to show what was changed and need additional components to store the list before it was changed.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><br></p>
-</div>
-</div>
 <div class="sect2">
-<h3 id="list-feature"><a class="link" href="#list-feature">List Feature</a></h3>
+<h3 id="list-feature"><a class="link" href="#list-feature">4.1. List Feature</a></h3>
 <div class="paragraph">
 <p><strong><em>Heart²</em></strong> allows you view all the clients or the vendors with a simple command: <code>list</code>.</p>
 </div>
@@ -354,9 +451,6 @@ by prefixing it to list:</p>
 <img src="../images/ListAllClients.png" alt="ListAllClients" width="800">
 </div>
 <div class="title">Figure 1. <em>The UI showing how to list all clients.</em></div>
-</div>
-<div class="paragraph">
-<p><br></p>
 </div>
 <div class="paragraph">
 <p>Furthermore, you are also able to add keywords after the list to do filtering, and each keyword is specified to
@@ -404,11 +498,8 @@ belong to a category and only contacts which contains all of the keywords in the
 </div>
 <div class="title">Figure 2. <em>The UI showing list filtering.</em></div>
 </div>
-<div class="paragraph">
-<p><br></p>
-</div>
 <div class="sect3">
-<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<h4 id="implementation"><a class="link" href="#implementation">4.1.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The keywords from the command to be used for filtering is parsed by the <code>ListCommandParser</code> into a <code>ContactInformation</code>
 and passed to a <code>Predicate</code> to be used for filtering. The <code>Predicate</code> is implemented as <code>ContactContainsKeywordsPredicate</code>.</p>
@@ -421,9 +512,6 @@ and passed to a <code>Predicate</code> to be used for filtering. The <code>Predi
 <img src="../images/ListSequenceDiagram1.png" alt="ListSequenceDiagram1" width="800">
 </div>
 <div class="title">Figure 3. <em>The Sequence Diagram of the creation of a list command.</em></div>
-</div>
-<div class="paragraph">
-<p><br></p>
 </div>
 <div class="paragraph">
 <p>We use a <code>FilteredList</code> and pass the combination of 2 <code>Predicates</code> into it, one to filter the type of contact,
@@ -440,7 +528,7 @@ clients or vendors and the other is to filter by keywords, which is the <code>Co
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design considerations</a></h4>
 
 </div>
 <div class="sect3">
@@ -542,10 +630,151 @@ Gives better control over the searching.</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-and-redo-aspect-what-it-shows-after-undo-redo-command-successfully-executes"><a class="link" href="#undo-and-redo-aspect-what-it-shows-after-undo-redo-command-successfully-executes">4.2. Undo and Redo Aspect: What it shows after undo/redo command successfully executes</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Shows the list that was changed due to the undo/redo command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy for the user to identify what was changed, whether a client or vendor was modified.</p>
+</li>
+<li>
+<p>Cons: It switches the list out of the current filter and the user have to re-type the list command if he wants to filter the list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Keeps showing what was shown before the command was executed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Hard for the user to identify what was changed in the addressbook.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Show what was changed, before and after.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can easily tell what was changed.</p>
+</li>
+<li>
+<p>Cons: Hard to implement, need to have an additional UI components to show what was changed and need additional components to store the list before it was changed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-cases"><a class="link" href="#use-cases">4.3. Use Cases</a></h3>
+<div class="sect3">
+<h4 id="use-case-list-all-the-clients-or-vendors"><a class="link" href="#use-case-list-all-the-clients-or-vendors">4.3.1. Use case: List all the Clients or Vendors</a></h4>
 <div class="paragraph">
-<p><br></p>
+<p><strong>Preconditions</strong>: User is logged in with a <code>SUPER_USER</code> account.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters the list command and requests to view either all the Clients, or all the Vendors.</p>
+</li>
+<li>
+<p>System returns either a list with all the Clients' information, or all the Vendors' information.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. There is no Client or no Vendor available</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. System returns an empty list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="use-case-filter-and-show-client-s-or-vendor-s-info-according-to-the-filter"><a class="link" href="#use-case-filter-and-show-client-s-or-vendor-s-info-according-to-the-filter">4.3.2. Use case: Filter and show Client’s or Vendor’s info according to the filter</a></h4>
+<div class="paragraph">
+<p><strong>Preconditions</strong>: User is logged in with a <code>SUPER_USER</code> account.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters the list command and requests to view either Client’s or Vendor’s information with some
+keywords provided indicated by prefixes.</p>
+</li>
+<li>
+<p>The System displays a list of Clients or Vendors whose information matches what was provided.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User enters a prefix that does not exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System prompts the User the correct format of the command and prefixes that can be used.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. User enters an empty prefix.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System prompts the User the correct format of the command and prefixes that can be used.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:04:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:25:25 UTC</div></div></div></body></html>
