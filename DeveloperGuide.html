@@ -182,13 +182,16 @@ This represents a <strong>warning</strong>. A warning denotes something of cruci
 <ul class="sectlevel2">
 <li><a href="#launch-the-application">G.1. Launch the application</a></li>
 <li><a href="#shutdown-the-application">G.2. Shutdown the application</a></li>
-<li><a href="#deleting-a-contact">G.3. Deleting a contact</a></li>
-<li><a href="#logging-in">G.4. Logging in</a></li>
-<li><a href="#logging-out">G.5. Logging out</a></li>
-<li><a href="#registering-a-new-account">G.6. Registering a new account</a></li>
-<li><a href="#changing-your-account-password">G.7. Changing your account password</a></li>
-<li><a href="#listing-contacts">G.8. Listing contacts</a></li>
-<li><a href="#adding-a-new-service-request">G.9. Adding a new service request</a></li>
+<li><a href="#adding-a-contact">G.3. Adding a contact</a></li>
+<li><a href="#deleting-a-contact">G.4. Deleting a contact</a></li>
+<li><a href="#updating-a-contact">G.5. Updating a contact</a></li>
+<li><a href="#viewing-a-contact">G.6. Viewing a contact</a></li>
+<li><a href="#logging-in">G.7. Logging in</a></li>
+<li><a href="#logging-out">G.8. Logging out</a></li>
+<li><a href="#registering-a-new-account">G.9. Registering a new account</a></li>
+<li><a href="#changing-your-account-password">G.10. Changing your account password</a></li>
+<li><a href="#listing-contacts">G.11. Listing contacts</a></li>
+<li><a href="#adding-a-new-service-request">G.12. Adding a new service request</a></li>
 </ul>
 </li>
 </ul>
@@ -4468,26 +4471,23 @@ Expected: The GUI screen closes and the application exits.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-contact"><a class="link" href="#deleting-a-contact">G.3. Deleting a contact</a></h3>
+<h3 id="adding-a-contact"><a class="link" href="#adding-a-contact">G.3. Adding a contact</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a contact while all contacts of that type are listed</p>
+<p>Adding a contact in Heart²</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all contacts of that type using the <code>list</code> command. Multiple contacts of that type in the list.</p>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt; add n/Test user e/test@example.com a/test address p/11111111 t/test</code><br>
+Expected: The contact is added to either the <code>client</code> or <code>vendor</code> list, depending on the contact type specified in the command. Timestamp in the status bar is updated.</p>
 </li>
 <li>
-<p>Test case: <code>&lt;CONTACT_TYPE&gt;#1 delete</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt; add n/Test two user e/test a/test address 2 p/22222222 t/test</code><br>
+Expected: No contact is added. Error details are shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Test case: <code>&lt;CONTACT_TYPE&gt;#0 delete</code><br>
-Expected: No contact is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>&lt;CONTACT_TYPE&gt;3 delete</code>, <code>&lt;CONTACT_TYPE&gt;#x delete</code> (where x is not a contact&#8217;s id), <code>delete &lt;CONTACT_TYPE&gt;#1</code><br>
+<p>Other incorrect <code>add</code> commands to try: commands missing required fields, adding a duplicate contact (same name, contact type and email address or phone number).<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -4497,7 +4497,94 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging-in"><a class="link" href="#logging-in">G.4. Logging in</a></h3>
+<h3 id="deleting-a-contact"><a class="link" href="#deleting-a-contact">G.4. Deleting a contact</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a contact in Heart²</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are contacts in the list you are trying to delete (<code>client</code> or <code>vendor</code> list).</p>
+</li>
+<li>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt;#1 delete</code><br>
+Expected: The contact with ID #1 is deleted from the list. Details of the deleted contact are shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt;#0 delete</code><br>
+Expected: No contact is deleted. Error details are shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect <code>delete</code> commands to try: <code>&lt;CONTACT_TYPE&gt;3 delete</code>, <code>&lt;CONTACT_TYPE&gt;#x delete</code> (where x is not a contact&#8217;s id), <code>delete &lt;CONTACT_TYPE&gt;#1</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="updating-a-contact"><a class="link" href="#updating-a-contact">G.5. Updating a contact</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Updating a contact that is present in Heart²</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: There are contacts to be updated.</p>
+</li>
+<li>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt;#1 update n/Test 2</code><br>
+Expected: The contact with ID #1 has its name updated in Heart². Details of the updated contact are shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt;#0 update e/test@example.com</code><br>
+Expected: No contact is updated. Error details are shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect <code>update</code> commands to try: updating a contact to another contact already present in Heart² (same name, contact type and email address or phone number).<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-a-contact"><a class="link" href="#viewing-a-contact">G.6. Viewing a contact</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing a contact that is present in Heart²</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The contact to be viewed is present in Heart².</p>
+</li>
+<li>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt;#1 view</code><br>
+Expected: The contact with ID #1 has its information displayed on the panel on the right of Heart². The contact card on the panel on the left of Heart² is selected.</p>
+</li>
+<li>
+<p>Test case: <code>&lt;CONTACT_TYPE&gt;#0 view</code><br>
+Expected: The contact card on the panel on the left is empty. Error details are shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect <code>view</code> commands to try: <code>client#1 view asdf</code>, <code>client view</code>.<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging-in"><a class="link" href="#logging-in">G.7. Logging in</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4540,7 +4627,7 @@ Expected: Unknown command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging-out"><a class="link" href="#logging-out">G.5. Logging out</a></h3>
+<h3 id="logging-out"><a class="link" href="#logging-out">G.8. Logging out</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4558,7 +4645,7 @@ Expected: Successfully logged out. Main screen GUI is closed, and login screen G
 </div>
 </div>
 <div class="sect2">
-<h3 id="registering-a-new-account"><a class="link" href="#registering-a-new-account">G.6. Registering a new account</a></h3>
+<h3 id="registering-a-new-account"><a class="link" href="#registering-a-new-account">G.9. Registering a new account</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4586,7 +4673,7 @@ Expected: Screen GUI feedback to say that you have successfully registered an ac
 </div>
 </div>
 <div class="sect2">
-<h3 id="changing-your-account-password"><a class="link" href="#changing-your-account-password">G.7. Changing your account password</a></h3>
+<h3 id="changing-your-account-password"><a class="link" href="#changing-your-account-password">G.10. Changing your account password</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4610,7 +4697,7 @@ Expected: Screen GUI feedback to say that you have successfully changed your pas
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-contacts"><a class="link" href="#listing-contacts">G.8. Listing contacts</a></h3>
+<h3 id="listing-contacts"><a class="link" href="#listing-contacts">G.11. Listing contacts</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4654,7 +4741,7 @@ Expected: List all vendors that matches the parameters provided. Test with diffe
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-new-service-request"><a class="link" href="#adding-a-new-service-request">G.9. Adding a new service request</a></h3>
+<h3 id="adding-a-new-service-request"><a class="link" href="#adding-a-new-service-request">G.12. Adding a new service request</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4714,4 +4801,4 @@ You can now <code>view</code> the contact to rectify that the service is not ove
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:05:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:18:42 UTC</div></div></div></body></html>
