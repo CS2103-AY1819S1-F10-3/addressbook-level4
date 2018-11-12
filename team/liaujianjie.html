@@ -56,6 +56,9 @@ weddings).</p>
 <li>
 <p>✔ 19 issues raised</p>
 </li>
+<li>
+<p>Code contribution on <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=liaujianjie">reposense</a></p>
+</li>
 </ul>
 </div>
 </div>
@@ -72,11 +75,17 @@ weddings).</p>
 Inversely, it can also find all clients for which a specific vendor can serve.</p>
 </li>
 <li>
-<p>*Justification:8 Manually searching for vendors for clients is extremely laborious and repetitive. This feature
+<p><strong>Justification:</strong> Manually searching for vendors for clients is extremely laborious and repetitive. This feature
 reduces the search of vendors or clients to a single line of command.</p>
 </li>
 <li>
 <p><strong>Highlights:</strong> Simple single one-line command: <code>client#123 automatch</code></p>
+</li>
+<li>
+<p><strong>Contribution to functional code:</strong> <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/88">#88</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/195">#195</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/199">#199</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/205">#205</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/222">#222</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/240">#240</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/274">#274</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/277">#277</a></p>
+</li>
+<li>
+<p><strong>Contribution to tests:</strong> <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/291">#291</a></p>
 </li>
 </ul>
 </div>
@@ -126,6 +135,9 @@ data was de-serialized from the XML file.</p>
 <p><strong>Highlights:</strong> Serializes both client and vendor data into the same address book XML each type with a differentiable
 format.</p>
 </li>
+<li>
+<p><strong>Contribution to functional code:</strong> <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/143">#143</a></p>
+</li>
 </ul>
 </div>
 </div>
@@ -134,17 +146,23 @@ format.</p>
 <div class="ulist">
 <ul>
 <li>
+<p>Refactored <code>ServiceProvider</code> to <code>Vendor</code> (<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/239">#239</a>)</p>
+</li>
+<li>
+<p>Ensure there is only one service name and cost when adding service (<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/273">#273</a>)</p>
+</li>
+<li>
+<p>Made sure repository was up to date with the upstream branch (<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/79">#79</a>)</p>
+</li>
+<li>
+<p>Minor readme updates (<a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/35">#35</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/49">#49</a>)</p>
+</li>
+<li>
 <p>Took initiative to ensure that we had everything prioritized in the right order and ensure the team was focused
 during our discussions.</p>
 </li>
 <li>
 <p>Spearheaded the various architecture design discussions.</p>
-</li>
-<li>
-<p>Smashed a ton of bugs!</p>
-</li>
-<li>
-<p>Refactored <code>ServiceProvider</code> to <code>Vendor</code></p>
 </li>
 </ul>
 </div>
@@ -179,17 +197,13 @@ end-users.</em></p></td>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>Listing and searching for clients</p>
+<p><strong>Listing and searching for contacts: <code>list</code></strong></p>
 </div>
 <div class="paragraph">
-<p>You can view clients in the database as a list using the <code>client list</code> command.</p>
+<p>You can view all the contacts of a specific type in a list by specifying the contact type to be shown.</p>
 </div>
 <div class="paragraph">
-<p>If you do not key in any parameters, it will list out all the clients,
-otherwise it will list all clients matching all of the search parameters you provided.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>client list [n/FULL_NAME] [p/PHONE_NUMBER] [e/EMAIL_ADDRESS] [a/HOME_ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code>&lt;CONTACT_TYPE&gt; list</code></p>
 </div>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
@@ -199,15 +213,22 @@ otherwise it will list all clients matching all of the search parameters you pro
 <tbody>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="../images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="ulist">
-<ul>
-<li>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p><code>client list</code></p>
-</li>
-<li>
-<p><code>client list n/John Doe</code></p>
-</li>
-</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="../images/exampleimage.png" alt="exampleimage" width="64"></span></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>vendor list</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -220,10 +241,10 @@ otherwise it will list all clients matching all of the search parameters you pro
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>Deleting a contact: <code>delete</code></p>
+<p><strong>Deleting a contact: <code>delete</code></strong></p>
 </div>
 <div class="paragraph">
-<p>You can also <code>delete</code> a contact from Heart², by specifying its unique ID.</p>
+<p>You can also <code>delete</code> a contact from <strong><em>Heart²</em></strong>, by specifying its unique ID.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>&lt;CONTACT_TYPE&gt;#&lt;ID&gt; delete</code></p>
@@ -256,7 +277,22 @@ otherwise it will list all clients matching all of the search parameters you pro
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can <code>undo</code> and <code>redo</code> deleting a contact!
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="paragraph">
+<p>Pull requests: <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/30">#30</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/64">#64</a></p>
 </div>
 </div>
 <div class="sect2">
@@ -267,27 +303,25 @@ otherwise it will list all clients matching all of the search parameters you pro
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>Automatching for a client: <code>automatch</code></p>
+<p><strong>Automatching for a client: <code>automatch</code></strong></p>
 </div>
 <div class="paragraph">
-<p>You can easily find service providers that can fulfill the requests services with this command.</p>
+<p>You can easily find vendors that can fulfil the request services with this command.</p>
 </div>
-<table class="tableblock frame-none grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 90%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="image center"><img src="../images/icon-notes.png" alt="icon notes" width="48"></span></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>It only shows you the service providers within the budget of the client.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
 <div class="paragraph">
 <p>Format: <code>client#&lt;ID&gt; automatch</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It only shows you the vendors within the budget requirement that fulfils a particular service requirement of the client.
+</td>
+</tr>
+</table>
 </div>
 <table class="tableblock frame-none grid-all spread">
 <colgroup>
@@ -308,11 +342,14 @@ otherwise it will list all clients matching all of the search parameters you pro
 <div class="paragraph">
 <p>You can see it <a href="https://cs2103-ay1819s1-f10-3.github.io/main/UserGuide.html#automatching-for-a-client-code-automatch-code">in the user guide</a>.</p>
 </div>
+<div class="paragraph">
+<p>Pull request: <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/210">#210</a></p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="adding-icons"><a class="link" href="#adding-icons">Adding icons</a></h3>
+<h3 id="experimenting-with-icons"><a class="link" href="#experimenting-with-icons">Experimenting with icons</a></h3>
 <div class="paragraph">
-<p>Additionally, I have added some coloured icons for notes, tips and warnings to provide a consistent visual format when additional content is appended.</p>
+<p>Additionally, I have experimented with coloured icons for notes, tips and warnings to provide a consistent visual format when additional content is appended. We eventually decided to remove it because of formatting issues with AsciiDoctor.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -322,6 +359,18 @@ otherwise it will list all clients matching all of the search parameters you pro
 <span class="image"><img src="../images/icon-danger.png" alt="icon danger" width="48"></span></p>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Pull request: <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/290">#290</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-changes"><a class="link" href="#other-changes">Other changes</a></h3>
+<div class="paragraph">
+<p>I have also made some minor tweaks to make the user guide squeaky clean.</p>
+</div>
+<div class="paragraph">
+<p>Pull requests: <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/213">#213</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/272">#272</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/279">#279</a>, <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/289">#289</a></p>
 </div>
 </div>
 </div>
@@ -348,13 +397,13 @@ documentation and the technical depth of my contributions to the project.</em></
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>Finding matches between clients and service providers</p>
+<p><strong>Finding matches between clients and service providers</strong></p>
 </div>
 <div class="paragraph">
 <p>The application boasts auto-matching features that reduces the (once-laborious) task of matching service providers a single command.</p>
 </div>
 <div class="paragraph">
-<p>High level design</p>
+<p><strong>High level design</strong></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -377,6 +426,13 @@ documentation and the technical depth of my contributions to the project.</em></
 <div class="paragraph">
 <p>To see more, check it out <a href="https://cs2103-ay1819s1-f10-3.github.io/main/DeveloperGuide.html#finding-matches-between-clients-and-service-providers">in the developer guide</a>.</p>
 </div>
+<div class="paragraph">
+<p>Pull request: <a href="https://github.com/CS2103-AY1819S1-F10-3/main/pull/117">#117</a></p>
+</div>
+<hr>
+<div class="paragraph">
+<p>To see more of my works, visit my <a href="https://jianjie.co">personal website</a> to see other projects I worked on.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:43:48 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 16:00:37 UTC</div></div></div></body></html>
