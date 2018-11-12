@@ -47,7 +47,7 @@
 </div>
 <div class="paragraph">
 <p>Welcome to <strong><em>Heart²</em></strong>! <strong><em>Heart²</em></strong> is a desktop software for wedding planning agencies to efficiently manage clients' and agency companies' profiles.
-You can find suitable vendors providing services for couples using just a few keystrokes with our enterprise featureset. Jump over to <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started.</p>
+You can find suitable vendors providing services for couples using just a few keystrokes with our enterprise feature set. Jump over to <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started.</p>
 </div>
 </div>
 </div>
@@ -109,22 +109,22 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as in <code>add n/John Doe</code>.</p>
 </li>
 <li>
 <p>Items in square brackets are optional. E.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times. E.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times, including zero times. E.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
 </li>
 <li>
 <p>Parameters can be in any order. E.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
 </li>
 <li>
-<p><code>&lt;CONTACT_TYPE&gt;</code> is to replaced with either <code>client</code> OR <code>vendor</code>.</p>
+<p><code>&lt;CONTACT_TYPE&gt;</code> is to replaced with either <code>client</code> <strong>or</strong> <code>vendor</code>.</p>
 </li>
 <li>
-<p><code>&lt;ID&gt;</code> is to replaced with a valid ID, and only integers are recognised as an ID.</p>
+<p><code>&lt;ID&gt;</code> is to replaced with a valid ID, and only positive integers are recognised as an ID.</p>
 </li>
 <li>
 <p>An example table shows the usage with actual data for a particular command. Below shows one instance of such a table.</p>
@@ -209,7 +209,7 @@ The following section documents all the commands available for you in this appli
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Only <code>help</code>, <code>login</code>, and <code>exit</code> commands are available prior to logging in. The rest of the commands are only available after logging into the application, and will be mark as Unknown Command prior to logging in.
+Only <code>help</code>, <code>login</code>, and <code>exit</code> commands are available prior to logging in. The rest of the commands are only available after logging into the application, and might be marked as Unknown Command prior to logging in.
 </td>
 </tr>
 </table>
@@ -389,7 +389,7 @@ You cannot <code>undo</code> registering a new account.
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Username and password cannot be empty, or contain space.
+Username and password cannot be empty, or contain spaces.
 </td>
 </tr>
 </table>
@@ -448,7 +448,7 @@ You cannot <code>undo</code> changing of password.
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-New password should not be the same as old password, and it cannot be empty, or contain space.
+New password should not be the same as old password, and it cannot be empty, or contain spaces.
 </td>
 </tr>
 </table>
@@ -547,7 +547,7 @@ You can <code>undo</code> and <code>redo</code> adding of a contact!
 <div class="sect3">
 <h4 id="listing-and-searching-for-contacts-code-list-code"><a class="link" href="#listing-and-searching-for-contacts-code-list-code">3.7.2. Listing and searching for contacts: <code>list</code></a></h4>
 <div class="paragraph">
-<p>You can view all the contact of a specific type in a list by specifying the contact type to be shown.</p>
+<p>You can view all the contacts of a specific type in a list by specifying the contact type to be shown.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>&lt;CONTACT_TYPE&gt; list</code></p>
@@ -633,7 +633,7 @@ Searching is done through substring matching, so you do not need to enter the fu
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Commands pertaining to one specific contact have an additional unique ID appended to the back of <code>client</code> or <code>vendor</code>
+Commands pertaining to one specific contact have an additional unique ID appended to the back of <code>client</code> or <code>vendor</code>.
 </td>
 </tr>
 </table>
@@ -812,7 +812,7 @@ You cannot update a contact to another contact that already exists in the applic
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-When editing tags, adding of tags is ont cumulative and existing tags of the contact will be removed.
+When editing tags, adding of tags is not cumulative and existing tags of the contact will be removed.
 </td>
 </tr>
 </table>
@@ -895,7 +895,7 @@ Every service can only be added <strong>once</strong>. Updating this service is 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Specify the cost in <em>Singapore Dollars (SGD)</em> to 2 decimal places, and exclude spacing and symbols (e.g. '$' ',')
+Specify the cost in <em>Singapore Dollars (SGD)</em> to 2 decimal places, and exclude spacing and symbols (e.g. '$' ',').
 </td>
 </tr>
 </table>
@@ -972,7 +972,7 @@ You can <code>undo</code> and <code>redo</code> adding a service to a contact!
 <div class="sect3">
 <h4 id="automatching-for-a-client-code-automatch-code"><a class="link" href="#automatching-for-a-client-code-automatch-code">3.8.5. Automatching for a client: <code>automatch</code></a></h4>
 <div class="paragraph">
-<p>You can easily find vendors that can fulfill the request services with this command.</p>
+<p>You can easily find vendors that can fulfil the request services with this command.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>client#&lt;ID&gt; automatch</code></p>
@@ -1062,7 +1062,7 @@ It only shows you the clients whose budgets can afford the service of the partic
 </ul>
 </div>
 <div class="paragraph">
-<p>The command <code>logout</code> will not be save to history as the session has ended due to logging out.</p>
+<p>The command <code>logout</code> will not be saved to history as the session has ended due to logging out.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>history</code></p>
@@ -1322,11 +1322,11 @@ The application will show either the client list or vendor list corresponding to
 </div>
 <div class="paragraph">
 <p><strong><span class="red">Q</strong></span>: <span class="red">Is this application free-of-charge?</span><br>
-<strong>A</strong>: Yes, this application is open-source and can be use for free, even commercially.</p>
+<strong>A</strong>: Yes, this application is open-source and can be used for free, even commercially.</p>
 </div>
 <div class="paragraph">
 <p><strong><span class="red">Q</strong></span>: <span class="red">How can I report an issue?</span><br>
-<strong>A</strong>: You can raise an issue in the issue section and our team will get back to you as soon as possbile.</p>
+<strong>A</strong>: You can raise an issue in the issue section and our team will get back to you as soon as possible.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:28:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:05:49 UTC</div></div></div></body></html>
