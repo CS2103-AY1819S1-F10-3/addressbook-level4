@@ -1513,6 +1513,23 @@ Both <code>Client</code> and <code>Vendor</code> objects are added to a list of 
 <p>In order to differentiate them, there is an abstract method <code>Contact#getType()</code> that <code>Client</code> and <code>Vendor</code> implement differently.
 <code>Client</code> objects return a <code>ContactType.CLIENT</code> enum while <code>Vendor</code> objects return a <code>ContactType.VENDOR</code> enum.</p>
 </div>
+<div class="paragraph">
+<p>When adding a contact, the parser first distinguishes whether it is an addition of a <code>client</code> or <code>vendor</code>.
+The correct <code>ContactType</code> enum is then passed to <code>AddCommandParser</code>.
+The <code>AddCommandParser</code> parses the argument to create the appropriate contact, and creates the appropriate <code>AddCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>This <code>AddCommand</code> is passed back to the <code>LogicManager</code>, and the method <code>execute()</code> is called.
+The contact is then added to the model.</p>
+</div>
+<div class="paragraph">
+<p>Below is the sequence diagram of a <code>client add</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddClientSequenceDiagram.png" alt="AddClientSequenceDiagram" width="800">
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.8.2. Design Considerations</a></h4>
@@ -4697,4 +4714,4 @@ You can now <code>view</code> the contact to rectify that the service is not ove
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:58:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:07:11 UTC</div></div></div></body></html>
